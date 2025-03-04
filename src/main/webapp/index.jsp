@@ -10,7 +10,10 @@
 	<h1 class="flex justify-center items-center text-9xl text-blue-700 font-bold">Hello World</h1>
 	<a href="${pageContext.request.contextPath}/ContactUs" class="">Contact Us</a>
 	<img src="${pageContext.request.contextPath}/assets/images/testimg.jpeg" alt="Hello World" class="mx-auto" />
+<<<<<<< HEAD
+=======
 	<p>heo</p>>
 	
+>>>>>>> da5dc1659bd5b2d6de97a4b29639832baacec9b1
 </body>
 </html>
