@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>HealthLanka</title>
+	<title>Add page title here</title>
 	<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
 	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
@@ -13,5 +13,9 @@
 </head>
 <body>
 	<jsp:include page="/views/partials/header.jsp"/>
+	
+		//content goes here
+	
+	<jsp:include page="/views/partials/footer.jsp"/>
 </body>
 </html>

@@ -3,10 +3,10 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Sample Contact us</title>
+	<title>Contact Us</title>
 	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
 </head>
 <body>
-	<h1 class="flex justify-center items-center text-xl font-bold">contact us</h1>
+	<jsp:include page="/views/partials/header.jsp"/>
 </body>
 </html>
