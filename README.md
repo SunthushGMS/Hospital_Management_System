@@ -52,7 +52,7 @@ Use one of the following types:
 
 **Font** - Robotto
 
-**Sub heading** - text-grey-600 font-semibold
+**Sub heading** - text-grey-400 font-semibold
 
 **Heading** - text-grey-700
 
