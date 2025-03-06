@@ -13,5 +13,6 @@
 </head>
 <body>
 	<jsp:include page="/views/partials/header.jsp"/>
+	<jsp:include page="/views/partials/footer.jsp"/>
 </body>
 </html>

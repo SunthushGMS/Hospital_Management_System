@@ -52,8 +52,8 @@ Use one of the following types:
 
 **Font** - Robotto
 
-**Sub heading** - text-grey-400 font-semibold
+**Sub heading** - text-yellow-500 font-semibold
 
 **Heading** - text-grey-700
 
-**Text(Content)** - text-grey-500
+**Text(Content)** - text-grey-400
