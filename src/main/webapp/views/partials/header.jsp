@@ -48,7 +48,7 @@
 					</div>          	
                 </div> --%>
                 <div class="flex">
-                    <a href="#" class="text-gray-800 hover:bg-gray-200 transition ease-in-out duration-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">Log in</a>
+                    <a href="${pageContext.request.contextPath}/Signin" class="text-gray-800 hover:bg-gray-200 transition ease-in-out duration-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">Log in</a>
                     <a href="#" class="text-white bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">Get started</a>
                 </div>
             </div>
