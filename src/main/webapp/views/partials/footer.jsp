@@ -1,14 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Insert title here</title>
-</head>
-<body>
-  <footer>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<footer>
     <div class="flex justify-center bg-gray-50 pr-10 pl-10 pt-10 pb-10">
       <div class="flex-shrink mr-10">
         <img src="${pageContext.request.contextPath}/assets/images/Main-Logo.png" alt="" class="w-50 h-15">
@@ -57,7 +48,4 @@
         <a href="#" class="fa fa-whatsapp text-gray-700 ml-5 mr-5 hover:text-green-700" ></a>
       </div>
     </div>
-  </footer>
-  
-</body>
-</html>
+ </footer>
