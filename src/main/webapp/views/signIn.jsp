@@ -40,7 +40,7 @@
                   </label>
                 </div>
                 <div class="text-sm">
-                  <a href="#" class="text-blue-600 hover:text-blue-500 font-semibold">
+                  <a href="${pageContext.request.contextPath}/SignUp" class="text-blue-600 hover:text-blue-500 font-semibold">
                     Don't have an account?
                   </a>
                 </div>
