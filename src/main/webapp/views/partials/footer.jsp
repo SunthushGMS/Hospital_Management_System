@@ -30,7 +30,7 @@
           </ul>
         </div>
         <div class=" ml-10">
-          <h4 class="font-bold leading-loose text-yellow-500 leading-loose">Subscribe</h4>
+          <h4 class="font-bold leading-loose text-yellow-500 leading-loose">Subscribe Newsletter</h4>
           <input type="text" placeholder="Enter email" class="w-50 pl-2 font-semibold text-gray-400 border border-solid border-2 border-blue-500 rounded-lg h-8 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent ">
           <button class="ml-5 rounded-lg leading-loose text-sm text-white font-medium pt-1 pb-1 pl-3 pr-3 rounded bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer">Submit</button>
         </div>

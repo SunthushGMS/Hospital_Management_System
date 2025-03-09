@@ -1,5 +1,5 @@
 <header>
-        <nav class="bg-gray-50 border-gray-200 px-4 lg:px-6 py-2.5">
+        <nav class="bg-gray-50 border-gray-200 px-4 lg:px-6 py-4">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                 <a href="${pageContext.request.contextPath}" class="flex items-center">
                     <img src="${pageContext.request.contextPath}/assets/images/Main-Logo.png" class="mr-3 h-6 sm:h-9" />
