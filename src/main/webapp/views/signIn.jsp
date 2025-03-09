@@ -16,9 +16,7 @@
       <div class="min-h-screen flex fle-col items-center justify-center py-6 px-4">
         <div class="grid md:grid-cols-2 items-center gap-10 max-w-6xl max-md:max-w-md w-full">
           <div>
-            <h2 class="lg:text-5xl text-3xl font-extrabold lg:leading-[55px] text-gray-800">
-              Seamless Login for Exclusive Access
-            </h2>
+          	<img src="${pageContext.request.contextPath}/assets/images/heart.png" class=""/>
             <p class="text-sm mt-6 text-gray-800">Experience a smooth and secure login process with <span class="font-bold">HealthLanka Hospital Management System</span>. Access your account effortlessly and manage healthcare operations with ease.</p>
           </div>
 
