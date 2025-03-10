@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>My Profile</title>
+    <title>My Profile | HealthLanka</title>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
     <script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
