@@ -58,8 +58,8 @@
             <div class="flex justify-center">
                 <div class="md:flex-shrink lg:flex justify-center mt-20 mb-20">
                     <div class="lg:flex w-90 h-90 shadow-2xl md:hidden"></div>
-                    <div class="w-240 h-90 shadow-2xl ml-10">
-                        <table class="table-auto w-full text-center font-semibold text-grey-400">
+                    <div class="w-240 h-90 shadow-2xl ml-10 rounded-lg">
+                        <table class="table-auto w-full text-center font-semibold text-grey-400 ">
                             <tr class="bg-gradient-to-br from-blue-500 to-blue-600 text-white">
                                 <th class="pt-1 pb-1">Doctor ID</th>
                                 <th>Name</th>
@@ -69,7 +69,7 @@
                             </tr>
                             
                             <tr class="odd:bg-white even:bg-slate-100">
-                                <td class="pt-2 pb-2">001</td>
+                                <td class="pt-3 pb-3">001</td>
                                 <td>Moditha Marasinghe</td>
                                 <td>Heart</td>
                                 <td><button class="bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer pl-4 pr-4 pt-1 pb-1 rounded text-white mr-4">Edit</button>
@@ -77,7 +77,7 @@
                                 
                             </tr>
                             <tr class="odd:bg-white even:bg-slate-100">
-                                <td class="pt-2 pb-2">002</td>
+                                <td class="pt-3 pb-3">002</td>
                                 <td>Moditha Marasinghe</td>
                                 <td>Heart</td>
                                 <td><button class="bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer pl-4 pr-4 pt-1 pb-1 rounded text-white mr-4">Edit</button>
@@ -85,7 +85,7 @@
                                 
                             </tr>
                             <tr class="odd:bg-white even:bg-slate-100">
-                                <td class="pt-2 pb-2">003</td>
+                                <td class="pt-3 pb-3">003</td>
                                 <td>Moditha Marasinghe</td>
                                 <td>Heart</td>
                                 <td><button class="bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer pl-4 pr-4 pt-1 pb-1 rounded text-white mr-4">Edit</button>
