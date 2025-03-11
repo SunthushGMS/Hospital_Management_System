@@ -37,8 +37,8 @@
             padding-left: 2.75rem !important;
             transition: all 0.3s ease;
             border: 1px solid #e5e7eb;
-            height: 50px; /* Increased height */
-            font-size: 0.95rem; /* Slightly larger font */
+            height: 50px;
+            font-size: 0.95rem;
         }
         .input-field:focus {
             border-color: #3b82f6;
@@ -88,7 +88,7 @@
         <div class="flex flex-col md:flex-row gap-10">
             <!-- Left side - Form -->
             <div class="flex-1">
-                <form method="POST" class="space-y-4">
+                <form id="regform" method="POST" oninput="comparepwd()" class="space-y-4">
                     <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5">
                         <div class="input-group">
                             <label class="text-sm font-medium text-gray-700 mb-1 block">Full Name</label>
@@ -161,9 +161,13 @@
                             <span class="ml-2 text-sm text-gray-700">I agree to the <a href="#" class="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a></span>
                         </label>
                     </div>
+                    
+                    <div id="pwdnotmatcherr" class="hidden p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+					  <span class="font-medium">Alert!</span> The passwords you entered don't match. Please try again.
+					</div>
 
                     <div class="mt-6">
-                        <button type="submit" class="btn-primary w-full py-3 px-6 text-sm font-semibold rounded-lg text-white shadow-md bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer">
+                        <button id="submitbtn" type="submit" class="btn-primary w-full py-3 px-6 text-sm font-semibold rounded-lg text-white shadow-md bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer">
                             Create Account
                         </button>
                     </div>
@@ -215,5 +219,6 @@
             </p>
         </div>
     </div>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/signUp.js"></script>
 </body>
 </html>
