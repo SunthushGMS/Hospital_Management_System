@@ -23,8 +23,8 @@
                     <div class="lg:flex justify-between">
                         <div class="flex justify-between pt-8 pb-8 pl-4 pr-4 border-none border-4 w-1/5 mr-10 ml-10 mt-10 rounded-lg shadow-2xl lg:w-100 md:w-100 ">
                             <div >
-                                <h3 class="lg:text-5xl text-yellow-500 font-semibold md:text-6xl">380</h3>
-                                <h4 class="lg:leading-loose font-semibold text-grey-700 md:text-2xl">Patients</h4>
+                                <h3 class="lg:text-5xl text-yellow-500 font-semibold md:text-6xl">3380</h3>
+                                <h4 class="lg:leading-loose font-semibold text-grey-700 md:text-2xl">Appointments</h4>
                             </div>
                             <div>
                                 <img src="${pageContext.request.contextPath}/assets/images/appointment-icon.png" class="w-20" alt="">
@@ -33,8 +33,8 @@
     
                         <div class="flex justify-between pt-8 pb-8 pl-4 pr-4 border-none border-4 w-1/5 mr-10 ml-10 mt-10 rounded-lg shadow-2xl lg:w-100 md:w-100">
                             <div >
-                                <h3 class="lg:text-5xl text-yellow-500 font-semibold md:text-6xl">380</h3>
-                                <h4 class="lg:leading-loose font-semibold text-grey-700 md:text-2xl">Patients</h4>
+                                <h3 class="lg:text-5xl text-yellow-500 font-semibold md:text-6xl">1489</h3>
+                                <h4 class="lg:leading-loose font-semibold text-grey-700 md:text-2xl">Doctors</h4>
                             </div>
                             <div>
                                 <img src="${pageContext.request.contextPath}/assets/images/doctor-icon.png" class="w-20" alt="">
@@ -43,7 +43,7 @@
     
                         <div class="flex justify-between pt-8 pb-8 pl-4 pr-4 border-none border-4 w-1/5 mr-10 ml-10 mt-10 rounded-lg shadow-2xl lg:w-100 md:w-100">
                             <div >
-                                <h3 class="lg:text-5xl text-yellow-500 font-semibold md:text-6xl">380</h3>
+                                <h3 class="lg:text-5xl text-yellow-500 font-semibold md:text-6xl">200</h3>
                                 <h4 class="lg:leading-loose font-semibold text-grey-700 md:text-2xl">Patients</h4>
                             </div>
                             <div>
