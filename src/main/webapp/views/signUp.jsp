@@ -20,7 +20,6 @@
             <a href="${pageContext.request.contextPath}">
                 <img src="${pageContext.request.contextPath}/assets/images/Main-Logo.png" alt="logo" class="w-52 inline-block mb-2" />
             </a>
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Join Our Community</h2>
             <p class="text-gray-600 max-w-md mx-auto">Create your account and start your journey with us today.</p>
         </div>
 
