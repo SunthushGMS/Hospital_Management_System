@@ -22,7 +22,7 @@
    <div class="detail-history">
     <p class="history-para">The Appointment History section in Health Lanka allows patients to view and manage their past medical visits. It provides details such as doctor's name, department, date, time, and appointment status (Completed, Cancelled). Patients can easily track their medical records, access prescriptions, and review past consultations, ensuring a seamless healthcare experience.</p>
    </div>
-   <img src="img/clock.png" alt="" class="clock-icon">
+   <img src="${pageContext.request.contextPath}/assets/images/clock.png" alt="" class="clock-icon">
    <section class="sec1">
     <div class="table-view">
         <table>

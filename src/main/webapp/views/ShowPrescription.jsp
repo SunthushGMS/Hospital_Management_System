@@ -21,13 +21,13 @@
     
     <h1 class="head">prescription Sheet</h1>
     <div class="sheet">
-        <img src="img/prescription.png" alt="" class="img-icon">
+        <img src="${pageContext.request.contextPath}/assets/images/prescription.png" alt="" class="img-icon">
       <p class="details"><strong>Prescription ID</strong> PR0019</p>
       <p class="details"><strong>Date of issue</strong> March 09, 2025</p>
       <p class="details"><strong>Doctor Name</strong> Dr Thinura</p>
       <p class="details"><strong>Department</strong> General Medicicine</p>
       <div class="div-sign">
-        <img src="img/signature.png" alt="" class="img-icon2">
+        <img src="${pageContext.request.contextPath}/assets/images/signature.png" alt="" class="img-icon2">
         <h3>2025/03/24</h3>
       </div>
     </div>
@@ -64,7 +64,7 @@
            
         </table>
         <div class="additional-info">
-            <img src="img/advice.png" alt="" class="img-icon1">
+            <img src="${pageContext.request.contextPath}/assets/images/advice.png" alt="" class="img-icon1">
             <p><strong>Dietary Advice</strong> Avoid spicy food, stay hydrated, eat more fruits.</p>
             <p><strong>Follow-up Date</strong> 2024-04-02</p>
             <p><strong>Doctor’s Notes</strong> Continue medication for the full duration. Contact the clinic if symptoms persist.</p>
