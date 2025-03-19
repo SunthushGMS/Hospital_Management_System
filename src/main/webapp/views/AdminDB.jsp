@@ -190,6 +190,33 @@
                                         <i class="fas fa-trash-alt mr-1"></i> Delete
                                     </button></td>
                                 </tr>
+                                <tr class="odd:bg-white even:bg-slate-100">
+                                    <td class="pt-3 pb-3">003</td>
+                                    <td>Hasindu Chanuka</td>
+                                    <td>Dr.Moditha</td>
+                                    <td>2025/04/25</td>
+                                    <td><button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
+                                        <i class="fas fa-trash-alt mr-1"></i> Delete
+                                    </button></td>
+                                </tr>
+                                <tr class="odd:bg-white even:bg-slate-100">
+                                    <td class="pt-3 pb-3">004</td>
+                                    <td>Hasindu Chanuka</td>
+                                    <td>Dr.Moditha</td>
+                                    <td>2025/04/25</td>
+                                    <td><button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
+                                        <i class="fas fa-trash-alt mr-1"></i> Delete
+                                    </button></td>
+                                </tr>
+                                <tr class="odd:bg-white even:bg-slate-100">
+                                    <td class="pt-3 pb-3">005</td>
+                                    <td>Hasindu Chanuka</td>
+                                    <td>Dr.Moditha</td>
+                                    <td>2025/04/25</td>
+                                    <td><button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
+                                        <i class="fas fa-trash-alt mr-1"></i> Delete
+                                    </button></td>
+                                </tr>
                             </table>
                         </div>
                     </div>
