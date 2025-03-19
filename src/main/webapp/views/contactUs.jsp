@@ -29,7 +29,7 @@
     <section class="sec2">
         <div class="wrapper1">
         <div class="contact">
-            <img src="img/customerservice.png" alt="" class="imgContact">
+            <img src="${pageContext.request.contextPath}/assets/images/customerservice.png" alt="" class="imgContact">
         </div>
         <div class="contact">
            <div class="form">
@@ -53,7 +53,7 @@
     <section class="sec3">
         <div class="wrapper3">
             <div class="sub-wrap">
-                <img src="img/24.png" alt="" class="imgSec3">
+                <img src="${pageContext.request.contextPath}/assets/images/24.png" alt="" class="imgSec3">
             </div>
             <div class="sub-wrap">
                 <div class="head-emerg">Emergency Hotline</div>
@@ -61,7 +61,7 @@
                 <h1 class="emergencyLine">1967</h1>
             </div>
             <div class="sub-wrap">
-                <img src="img/ambulance.png" alt="" class="imgSec3">
+                <img src="${pageContext.request.contextPath}/assets/images/ambulance.png" alt="" class="imgSec3">
             </div>
         </div>
     </section>
@@ -69,7 +69,7 @@
         <div class="wrapper4">
             <div class="sub-wrap1">
                 <h1 class="head-wrap">Contact</h1>
-                <img src="img/contactnew.png" alt="" class="imgSec4">
+                <img src="${pageContext.request.contextPath}/assets/images/contactnew.png" alt="" class="imgSec4">
                 <h2 class="contact-type">  <i class='bx bxl-gmail' id="icon"></i> healthLanka@gmail.com</h2>
                 <h2 class="contact-type">  <i class='bx bx-phone' id="icon"></i> 0767882990</h2>
                 <h2 class="contact-type">  <i class='bx bxl-whatsapp' id="icon"></i> 0786657990</h2>
@@ -78,7 +78,7 @@
             </div>
             <div class="sub-wrap1">
                 <h1 class="head-wrap">Location</h1>
-                <img src="img/locationnew.png" alt="" class="imgSec4">
+                <img src="${pageContext.request.contextPath}/assets/images/locationnew.png" alt="" class="imgSec4">
                 <h2 class="location">Health Lanka - Colombo <i class='bx bxs-location-plus' id="icon1"></i></h2>
                 <h2 class="location">Health Lanka Mega - Kollupitiya <i class='bx bxs-location-plus' id="icon1"></i></h2>
                 <h2 class="location">Health Lanka - Matara <i class='bx bxs-location-plus' id="icon1"></i></h2>
@@ -87,7 +87,7 @@
             </div>
             <div class="sub-wrap1">
                 <h1 class="head-wrap">Open Hours</h1>
-                <img src="img/open.png" alt="" class="imgSec5">
+                <img src="${pageContext.request.contextPath}/assets/images/open.png" alt="" class="imgSec5">
                 <h2 class="open">Weekdays <span>24hrs Open</span></h2>
                 <h2 class="open">Weekdays <span>24hrs Open</span></h2>
                 <button class="btn-sec4" id="book-btn">Book Now</button>

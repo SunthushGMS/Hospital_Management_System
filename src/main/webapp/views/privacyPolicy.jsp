@@ -19,7 +19,7 @@
 <body>
     <jsp:include page="/views/partials/header.jsp"/>
   <h1 class="head">Privacy Policy</h1>
-  <img src="img/privacy.png" alt="" class="imgPrivacy">
+  <img src="${pageContext.request.contextPath}/assets/images/privacy.png" alt="" class="imgPrivacy">
   <section class="sec1">
     <h2 class="sub-head1">Introduction</h2>
     <div class="intro">
@@ -38,17 +38,17 @@
                 <li>Payment details</li>
                 <li>Employment details for healthcare providers</li>
             </ul>
-            <img src="img/persona.png" alt="" class="type-img">
+            <img src="${pageContext.request.contextPath}/assets/images/persona.png" alt="" class="type-img">
         </div>
         <div class="type-set">
             <h2 class="sub-head2">Usage Data</h2>
             <p class="sub-head-detail"> Explain if any data is automatically collected, such as usage patterns, device information, IP addresses, and login times.</p>
-            <img src="img/usage.png" alt=""  id="img2">
+            <img src="${pageContext.request.contextPath}/assets/images/usage.png" alt=""  id="img2">
         </div>
         <div class="type-set">
             <h2 class="sub-head2">Sensitive Data</h2>
             <p class="sub-head-detail">Clearly state that sensitive personal data (e.g., health-related information) is collected and explain the necessary safeguards in place.</p>
-            <img src="img/sense.png" alt=""  id="img3">
+            <img src="${pageContext.request.contextPath}/assets/images/sense.png" alt=""  id="img3">
         </div>
     </div>
   </section>

@@ -25,10 +25,10 @@
     
     <div class="wrapper">
     <div class="security-option1">
-      <h3 class="opt1"><a href="2fa"><img src="img/2fa_11220705.png" alt="" class="icon-img">Enable Two Factor Auethentication </a></h3>
+      <h3 class="opt1"><a href="2fa"><img src="${pageContext.request.contextPath}/assets/images/2fa_11220705.png" alt="" class="icon-img">Enable Two Factor Auethentication </a></h3>
     </div>
     <div class="security-option1">
-      <h3 class="opt1"><a href="pass"><img src="img/pin-code.png" alt="" class="icon-img">Add a Passkey </a></h3>
+      <h3 class="opt1"><a href="pass"><img src="${pageContext.request.contextPath}/assets/images/pin-code.png" alt="" class="icon-img">Add a Passkey </a></h3>
     </div>
 </div>
    
@@ -51,7 +51,7 @@
 
     
     <div class="security-option">
-        <h3 class="head2">Login Activity<img src="img/activity.png" alt="" class="icon-img"></h3>
+        <h3 class="head2">Login Activity<img src="${pageContext.request.contextPath}/assets/images/activity.png" alt="" class="icon-img"></h3>
         <p>Last Login <strong>March 10, 2025:  10:45 AM</strong></p>
         <p>IP Address <strong>192.168.1.100</strong></p>
         <p>Device <strong>Chrome on Windows</strong></p>

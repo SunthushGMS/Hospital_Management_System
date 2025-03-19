@@ -19,7 +19,7 @@
 <body>
     <jsp:include page="/views/partials/header.jsp"/>
     <h1 class="head">Vaccination</h1>
-    <img src="img/syringe.png" alt="" class="icon-head">
+    <img src="${pageContext.request.contextPath}/assets/images/syringe.png" alt="" class="icon-head">
     <table class="tb1">
         <thead>
             <th>Patient ID</th>

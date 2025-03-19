@@ -20,7 +20,7 @@
     <jsp:include page="/views/partials/header.jsp"/>
     <section class="sec1">
         <h1 class="head">Patient Portal</h1>
-        <img src="img/—Pngtree—the doctor examines the patient_5342356.png" alt="" class="img-medic">
+        <img src="${pageContext.request.contextPath}/assets/images/—Pngtree—the doctor examines the patient_5342356.png" alt="" class="img-medic">
     </section>
     <section class="sec2">
 
@@ -30,7 +30,7 @@
         <h2 class="intro-sec2">Sri Lankan Leading Clinic Management System</h2>
         <div class="wrapper">
             <div class="sub-wrap">
-                <img src="img/appointment.png" alt="" class="icon-sec2">
+                <img src="${pageContext.request.contextPath}/assets/images/appointment.png" alt="" class="icon-sec2">
                 <h2 class="sec2-head">Appointment</h2>
                 <h3 class="points">Allows patients to book, reschedule, or cancel appointments online.</h3>
                 <h3 class="points">Provides real-time availability of doctors and specialists.</h3>
@@ -39,7 +39,7 @@
                 <button class="btn-div"><a href="#sec3">Book Appointment</a></button>
             </div>
             <div class="sub-wrap">
-                <img src="img/bill.png" alt="" class="icon-sec2">
+                <img src="${pageContext.request.contextPath}/assets/images/bill.png" alt="" class="icon-sec2">
                 <h2 class="sec2-head"> Billing & Payments</h2>
                 <h3 class="points">Offers a transparent and detailed billing process for patients.</h3>
                 <h3 class="points">Supports multiple payment options (credit/debit cards, insurance, online banking).</h3>
@@ -48,7 +48,7 @@
                 <button class="btn-div"><a href="#sec4">Make Payment</a></button>
             </div>
             <div class="sub-wrap">
-                <img src="img/health-report.png" alt="" class="icon-sec2">
+                <img src="${pageContext.request.contextPath}/assets/images/health-report.png" alt="" class="icon-sec2">
                 <h2 class="sec2-head">Medical Records Management</h2>
                 <h3 class="points">Stores electronic health records (EHRs) securely for easy access.</h3>
                 <h3 class="points">Provides patients with access to their past diagnoses, prescriptions, and test results.
@@ -60,7 +60,7 @@
                 <button class="btn-div" id="btn1"><a href="medicalRecords.html">View Records</a></button>
             </div>
             <div class="sub-wrap">
-                <img src="img/encrypted.png" alt="" class="icon-sec2">
+                <img src="${pageContext.request.contextPath}/assets/images/encrypted.png" alt="" class="icon-sec2">
                 <h2 class="sec2-head">Security & Data Protection</h2>
                 <h3 class="points">Uses encryption and secure login mechanisms to protect sensitive data.
                 </h3>
@@ -129,15 +129,15 @@
         <div class="wrap">
             <div class="sub-wrap">
                 <h2 class="payment-method">We Accept</h2>
-                <img src="img/payment.png" alt="" class="payment-img">
+                <img src="${pageContext.request.contextPath}/assets/images/payment.png" alt="" class="payment-img">
             </div>
             <div class="sub-wrap">
                 <h2 class="payment-method">Offline Payment</h2>
-                <img src="img/cash-payment.png" alt="" class="payment-img1">
+                <img src="${pageContext.request.contextPath}/assets/images/cash-payment.png" alt="" class="payment-img1">
             </div>
             <div class="sub-wrap">
                 <h2 class="payment-method">Bank Transfer</h2>
-                <img src="img/symbols.png" alt="" class="payment-img1">
+                <img src="${pageContext.request.contextPath}/assets/images/symbols.png" alt="" class="payment-img1">
             </div>
         </div>
         <button class="view-btn"><a href="paymentHistory.html">View Payment History</a></button>

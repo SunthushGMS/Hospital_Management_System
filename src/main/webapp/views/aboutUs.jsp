@@ -39,21 +39,21 @@
             <p class="para1">
                 Connects doctors, nurses, and administrative staff for smooth operations.
             </p>
-            <img src="images/doctors.png" alt="" class="imgSec">
+            <img src="${pageContext.request.contextPath}/assets/images/doctors.png" alt="" class="imgSec">
         </div>
         <div class="sec1">
             <h2 class="subhead1"> Inventory & Pharmacy Management</h2>
             <p class="para1">
                 HIPAA-compliant secure patient data management.
             </p>
-            <img src="images/invent.png" alt="" class="imgSec" id="imgSec2">
+            <img src="${pageContext.request.contextPath}/assets/images/invent.png" alt="" class="imgSec" id="imgSec2">
         </div>
         <div class="sec1">
             <h2 class="subhead1"> Reports & Analytics</h2>
             <p class="para1">
                 Generates insights for hospital performance and patient care trends.
             </p>
-            <img src="images/report.png" alt="" class="imgSec" id="imgSec3">
+            <img src="${pageContext.request.contextPath}/assets/images/report.png" alt="" class="imgSec" id="imgSec3">
         </div>
     </div>
     </section>
@@ -84,7 +84,7 @@
         <h1 class="head2">Our Facilities</h1>
         <div class="sec3-sub">
             <div class="sec3-img">
-                <img src="images/software.png" alt="" class="imgSec">
+                <img src="${pageContext.request.contextPath}/assets/images/software.png" alt="" class="imgSec">
             </div>
             <div class="sec3-sol">
                 <h1 class="subhead1">Hospital Application Software</h1>
@@ -99,12 +99,12 @@
                 <button class="click-Here">Click here</button>
             </div>
             <div>
-                <img src="img/medic.png" alt=""  id="right-img">
+                <img src="${pageContext.request.contextPath}/assets/images/medic.png" alt=""  id="right-img">
             </div>
         </div>
         <div class="sec3-sub">
             <div>
-                <img src="img/clinic.png" alt="" class="imgSec" id="left-img">
+                <img src="${pageContext.request.contextPath}/assets/images/clinic.png" alt="" class="imgSec" id="left-img">
             </div>
             <div class="sec3-sol">
                 <h1 class="subhead1">Our Clinic Management Software</h1>
@@ -119,20 +119,20 @@
             <div class="events">
                 <div class="event-sub">
                     <h2 class="event-heading">Annual Donation Program</h2>
-                    <img src="img/donation.jpg" alt="donation" class="sec4-img">
+                    <img src="${pageContext.request.contextPath}/assets/images/donation.jpg" alt="donation" class="sec4-img">
                     <p class="event-para"><span>Charity Donation Event  April 20, 2025</span><br><br>
                         Join us on April 20, 2025, for our Charity Donation Event, dedicated to supporting those in need. Together, we can make a difference by providing essential resources and spreading hope. Your generosity changes lives.</p>
                     <button class="btn-learn">Learn more</button>
                 </div>
                 <div class="event-sub">
                     <h2 class="event-heading">Free Medical Camp</h2>
-                    <img src="img/medicamp.jpg" alt="donation" class="sec4-img">
+                    <img src="${pageContext.request.contextPath}/assets/images/medicamp.jpg" alt="donation" class="sec4-img">
                     <p class="event-para"><span> Lanka Medical Camp June 21, 2025</span><br><br> We are organizing a Free Medical Camp to provide essential healthcare services to underserved communities. This event includes free health check-ups, doctor consultations, basic treatments, and medicine distribution to ensure everyone gets access to quality medical care.</p>
                     <button id="btn-learn1">Learn more</button>
                 </div>
                 <div class="event-sub">
                     <h2 class="event-heading">Blood Donation Drive</h2>
-                    <img src="img/blooddonation.jpg" alt="donation" class="sec4-img">
+                    <img src="${pageContext.request.contextPath}/assets/images/blooddonation.jpg" alt="donation" class="sec4-img">
                     <p class="event-para"><span>Support Lanka Blood Donation May 19, 2025</span><br><br>Join us in our Blood Donation Drive to save lives. This event encourages volunteers to donate blood, helping hospitals and clinics maintain an adequate blood supply for emergency treatments, surgeries, and critical care patients.</p>
                     <button class="btn-learn">Learn more</button>
                 </div>
@@ -145,7 +145,7 @@
         <h1 class="head2">Reviews And Feedbacks</h1>
         <div class="review-sec">
             <div class="review-set">
-                <img src="img/priya2.jpg" alt="" class="rev-img">
+                <img src="${pageContext.request.contextPath}/assets/images/priya2.jpg" alt="" class="rev-img">
                 <h2 class="rev-name">Dr Priya Fernando</h2>
                 <div class="star">
                 <i class='bx bxs-star'></i>
@@ -156,7 +156,7 @@
                 <p class="rev-detail">“The Hospital Management System has been a game-changer for us. The user-friendly interface and seamless integration have significantly improved our workflow. From patient management to billing, everything is well-organized and efficient. It has helped us deliver better patient care and manage hospital operations more effectively. Highly recommended for any healthcare facility!”</p>
             </div>
             <div class="review-set">
-                <img src="img/nuwan.jpg" alt="" class="rev-img">
+                <img src="${pageContext.request.contextPath}/assets/images/nuwan.jpg" alt="" class="rev-img">
                 <h2 class="rev-name">Dr Nuwan Perera</h2>
                 <div class="star">
                     <i class='bx bxs-star'></i>
@@ -167,7 +167,7 @@
                 <p class="rev-detail">“The efficiency of this Hospital Management System is impressive. It has drastically reduced administrative errors and improved our patient scheduling and billing processes. The customer support is outstanding, always ready to assist whenever needed. I’m very pleased with the results.”</p>
             </div>
             <div class="review-set">
-                <img src="img/shashi.jpg" alt="" class="rev-img">
+                <img src="${pageContext.request.contextPath}/assets/images/shashi.jpg" alt="" class="rev-img">
                 <h2 class="rev-name">Dr Shashi Wikramasinghe</h2>
                 <div class="star">
                     <i class='bx bxs-star'></i>

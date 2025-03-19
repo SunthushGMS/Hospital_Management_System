@@ -22,7 +22,7 @@
     <div class="container">
         <div class="patient-info" >
             <h3 class="head2">Patient Information</h3>
-            <img src="img/newPatient.png" alt="" class="icon-img">
+            <img src="${pageContext.request.contextPath}/assets/images/newPatient.png" alt="" class="icon-img">
             <p><strong>Name</strong> Ruwan Perera</p>
             <p><strong>Age</strong> 35</p>
             <p><strong>Gender</strong> Male</p>
@@ -31,7 +31,7 @@
         </div>
         <div class="patient-info" >
             <h3 class="head2">Medical History</h3>
-            <img src="img/folder.png" alt="" class="icon-img">
+            <img src="${pageContext.request.contextPath}/assets/images/folder.png" alt="" class="icon-img">
             <p><strong>Past Diagnoses</strong> Hypertension, Diabetes</p>
             <p><strong>Surgeries</strong> Knee Surgery (2022)</p>
             <p><strong>Allergies</strong> Penicillin</p>
@@ -39,7 +39,7 @@
         </div>
         <div class="patient-info" >
             <h3 class="head2">Immunization Records </h3>
-            <img src="img/folder.png" alt="" class="icon-img">
+            <img src="${pageContext.request.contextPath}/assets/images/folder.png" alt="" class="icon-img">
             <h2 class="head3">Vaccination Info</h2>
             <button class="nav-vaccinate">View</button>
 
