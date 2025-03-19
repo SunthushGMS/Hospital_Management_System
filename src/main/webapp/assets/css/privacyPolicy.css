@@ -1,0 +1,160 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+  }
+
+body{
+  background-color: white;
+  font-family: var(--font-primary);
+}
+
+.head{
+    font-size: 50px;
+    color: var(--heading-color);
+    text-align: center;
+}
+
+.sub-head{
+    color: var(--heading-color);
+    font-size: 30px;
+    text-align: center;
+}
+
+.intro{
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    margin-left: 650px;
+}
+
+.intro-details{
+    text-align: center;
+    font-size: 24px;
+    width: 600px;
+}
+
+.type{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+}
+
+ul{
+    list-style: none;
+    font-size: 18px;
+}
+
+.type-set{
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(25, 164, 189);
+    padding: 20px;
+    width: 500px;
+    height: 400px;
+}
+
+
+
+.sub-head-detail{
+   
+    font-size: 18px;
+}
+
+.type-img{
+    width: 250px;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+#img2{
+    margin-left: 120px;
+    width: 250px;
+    margin-top: 50px;
+}
+
+#img3{
+    margin-left: 120px;
+    width: 250px;
+   
+}
+.sec3 ,.sec4, .sec5{
+    width: 750px;
+    margin-left: 600px;
+}
+.collect{
+    display: grid;
+    box-shadow: 0 0 5px rgb(25, 164, 189);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.collect-type{
+    border: none;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    width: 600px;
+}
+
+.sub-head3{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+    color: var(--heading-color);
+}
+
+.detail{
+    width: 500px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.det{
+    margin-left: 700px;
+}
+
+.agreement{
+    margin-left: 780px;
+    margin-top: 50px;
+}
+
+#submitButton{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: var(--sub-btn-bg);
+    color: white;
+    margin: 20px;
+    margin-left: 120px;
+    cursor: pointer;
+}
+
+label{
+    font-weight: 600;
+}
+
+.imgPrivacy{
+    width: 250px;
+    margin-left: 820px;
+}
+
+.sub-head1{
+    font-size: 40px;
+    margin-left: 830px;
+}
+

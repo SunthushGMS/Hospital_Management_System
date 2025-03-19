@@ -1,0 +1,141 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+  }
+
+body{
+  background-color: white;
+  font-family: var(--font-primary);
+}
+
+.head{
+  font-size: 50px;
+  color: var(--heading-color);
+  text-align: center;
+}
+
+.head1{
+  text-align: center;
+  font-size: 30px;
+  color: var(--heading-color);
+}
+
+.wrapper{
+  margin-left: 600px;
+  display: grid;
+  grid-template-columns: repeat(2, 0.35fr);
+}
+
+.security-option1{
+  transition: var(--transition);
+}
+.security-option1:hover{
+  transform: scale(1.1);
+}
+
+
+.security-option{
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgb(25, 164, 189);
+  padding: 20px;
+  width: 500px;
+  margin-left: 670px;
+  margin-top: 40px;
+}
+
+.head2{
+  font-size: 30px;
+  color: var(--heading-color);
+ 
+}
+
+input{
+  padding: 10px;
+  margin: 20px;
+  width: 90%;
+}
+
+.btn-save{
+  padding: 10px;
+  border: none;
+  background: var(--main-btn-bg);
+  color: white;
+  border-radius: 5px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.btn-view{
+  padding: 10px;
+  border: none;
+  background: var(--main-btn-bg);
+  color: white;
+  border-radius: 5px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.btn-recov{
+  background: rgb(98, 145, 29);
+  padding: 10px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.btn-download{
+  background: var(--main-btn-bg);
+  padding: 10px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.btn-delete{
+  background: red;
+  padding: 10px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+label{
+  font-weight: bold;
+}
+
+#icon-lock{
+  color: rgb(67, 192, 192);
+}
+
+.icon-img{
+  width: 50px;
+  margin-right: 15px;
+  margin-left: 10px;
+  transition: var(--transition);
+}
+
+.icon-img:hover{
+  transform: scale(1.1);
+}

@@ -1,0 +1,84 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+  }
+
+body{
+  background-color: white;
+  font-family: var(--font-primary);
+}
+
+.head{
+    font-size: 50px;
+    text-align: center;
+    color: var(--heading-color);
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    margin-left: 180px;
+    width: 80%;
+  }
+  
+  
+  th {
+    background: #007bff;
+    color: white;
+    text-align: center;
+    padding: 12px;
+  }
+  
+  
+  td {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  
+  tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  
+  
+  tr:hover {
+    background: #e9ecef;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .btn-download{
+    padding: 10px;
+    border: none;
+    background: var(--main-btn-bg);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .icon-head{
+    width: 250px;
+    margin-left: 830px;
+  }

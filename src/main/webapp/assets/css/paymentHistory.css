@@ -1,0 +1,112 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+  }
+
+body{
+  background-color: white;
+  font-family: var(--font-primary);
+}
+
+.head{
+    font-size: 30px;
+    text-align: center;
+    color: var(--heading-color);
+}
+
+.invoice-details{
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 5px rgb(25, 164, 189);
+    padding: 20px;
+    width: 500px;
+    margin-left: 680px;
+}
+
+.invoice-head{
+    color: var(--heading-color);
+    text-align: center;
+}
+
+strong{
+    padding: 10px;
+    font-size: 20px;
+}
+
+p{
+    font-size: 17px;
+}
+
+.btn-download{
+    padding: 10px;
+    background: var(--main-btn-bg);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.btn-download:hover{
+    background: var(--main-btn-hover-bg);
+}
+
+.btn-email{
+    padding: 10px;
+    background: rgb(30, 155, 194);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px;
+}
+
+th {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+    padding: 10px;
+}
+
+td{
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.head1{
+    font-size: 40px;
+    text-align: center;
+    color: var(--heading-color);
+}

@@ -1,0 +1,168 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+  }
+
+body{
+  background-color: white;
+  font-family: var(--font-primary);
+}
+
+.head1{
+    font-size: 50px;
+    text-align: center;
+    color: var(--heading-color);
+}
+
+.head2{
+    font-size: 30px;
+    text-align: center;
+    color: var(--heading-color);
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+   padding: 20px;
+}
+
+ .patient-info{
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 0 5px rgb(25, 164, 189);
+        padding: 20px;
+        width: 500px;
+        margin: 20px;
+}
+    
+strong{
+    font-size: 18px;
+    padding: 10px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+td{
+    text-align: center;
+}
+th {
+    background: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+    padding: 10px;
+}
+.btn-download{
+    padding: 10px;
+    background: var(--main-btn-bg);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.btn-download:hover{
+    background: var(--main-btn-hover-bg);
+}
+
+p{
+    font-size: 17px;
+}
+
+form{
+    box-shadow: 0 0 5px rgb(25, 164, 189);
+    padding: 20px;
+    width: 300px;
+    border-radius: 15px;
+    margin-left: 750px;
+    
+}
+
+.input-form{
+    background: var(--sub-btn-bg);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    margin: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-upload{
+    padding: 10px;
+    background: var(--main-btn-bg);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin: 20px;
+    width: 100px;
+}
+
+
+.sub-head{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0px;
+}
+
+#search{
+    margin-left: 650px;
+    padding: 20px;
+    width: 30%;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgb(25, 164, 189);
+}
+
+.icon-img{
+    width: 80px;
+    margin-left: 200px;
+}
+
+.nav-vaccinate{
+    padding: 20px;
+    margin-left: 190px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    background: var(--main-btn-bg);
+    cursor: pointer;
+    color: white;
+}
+
+.head3{
+    text-align: center;
+}
+
+.nav-vaccinate:hover{
+    background: var(--main-btn-hover-bg);
+}

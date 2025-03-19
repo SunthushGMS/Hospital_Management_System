@@ -1,0 +1,151 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+  }
+
+body{
+  background-color: white;
+  font-family: var(--font-primary);
+}
+
+.history-head{
+    text-align: center;
+    font-size: 50px;
+    color: var(--heading-color);
+
+}
+
+.detail-history{
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 10px;
+}
+
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+th {
+  background: #007bff;
+  color: white;
+  text-align: center;
+  padding: 12px;
+}
+
+
+td {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+
+tr:hover {
+  background: #e9ecef;
+  transition: 0.3s;
+}
+
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+}
+
+ 
+.btn-view {
+  background-color: #28a745; 
+}
+
+.btn-reschedule {
+  background-color: #ffc107; 
+  color: #fcfcfc;
+}
+
+.btn-cancel {
+  background-color: #dc3545; 
+}
+
+
+td button {
+  display: inline-block;
+}
+
+
+@media screen and (max-width: 768px) {
+  table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+  }
+}
+
+.star{
+  color: var(--sub-heading-color);
+}
+
+.history-para{
+  font-size: 20px;
+}
+
+.btn-down{
+  padding: 10px;
+  background: var(--main-btn-bg);
+  border: none;
+  border-radius: 5px;
+  margin: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-down:hover{
+  background: var(--main-btn-hover-bg);
+}
+
+.clock-icon{
+  width: 150px;
+  margin-left: 900px;
+  margin-top: 20px;
+}

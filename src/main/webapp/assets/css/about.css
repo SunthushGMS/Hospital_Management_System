@@ -1,0 +1,273 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+  }
+
+body{
+  background-color: white;
+  font-family: var(--font-primary);
+}
+.logo{
+  width: 350px;
+  margin-left: 100px;
+}
+.why{
+  background-color: white;
+  font-family: var(--font-primary);
+}
+
+.head2{
+  color: var(--heading-color);
+  font-size: 50px;
+  text-align: center;
+}
+
+
+.para1{
+  text-align: center;
+  color: var(--text-content-color);
+}
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  padding: 20px;
+}
+
+.sec1{
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgb(25, 164, 189);
+  padding: 20px;
+  margin: 20px;
+  transition: var(--transition);
+}
+
+.sec1:hover{
+  transform: scale(1.1);
+}
+
+.imgSec{
+  width: 250px;
+  margin-left: 20px;
+}
+
+#imgSec2{
+  margin-top: 40px;
+}
+
+.subhead1{
+  padding: 10px;
+  font-weight: var(--sub-heading-weight);
+  text-align: center;
+}
+
+#imgSec3{
+  margin-top: 20px;
+}
+
+.wrapper2{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+}
+
+.secStat{
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(180deg, rgb(187, 223, 235), white);
+  margin: 20px;
+  padding: 20px;
+}
+
+.sec2-Head{
+  text-align: center;
+  font-weight: var(--sub-heading-weight);
+  font-size: 50px;
+  color: rgba(17, 17, 141, 0.692);
+}
+
+.sec2-Subhead{
+  text-align: center;
+  font-weight:300;
+  color: var(--heading-color);
+}
+
+.btn{
+  background-color: var(--sub-btn-bg);
+}
+
+.sec3-sub{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px;
+}
+
+.sec3-sol{
+  border-radius: 15px;
+
+  padding: 20px;
+  width: 350px;
+  height: 200px;
+}
+
+.sec3-img{
+  margin-left: 550px;
+  margin-top: 50px;
+ margin-bottom: 50px;
+}
+
+#left-sub{
+  margin-left: 500px;
+}
+
+#right-img{
+  margin-right: 500px;
+  width: 250px;
+  margin-left: 40px;
+  margin-top: 50px;
+}
+
+#left-img{
+  margin-left: 600px;
+  margin-top: 50px;
+}
+
+.para2{
+  text-align: center;
+  color: var(--text-content-color);
+  font-size: 18px;
+}
+
+.click-Here{
+  background: var(--main-btn-bg);
+  padding: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.click-Here:hover{
+  background: var(--main-btn-hover-bg);
+}
+.sec4{
+  margin-top: 80px;
+}
+.sec4-img{
+  width: 550px;
+ height: 400px;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.sec4-img:hover{
+  transform: scale(1.1);
+}
+
+.events{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+}
+
+.event-sub{
+  margin: 20px;
+}
+
+.event-heading{
+  text-align: center;
+  font-size: 30px;
+}
+
+.event-para{
+  text-align: center;
+  color: var(--text-content-color);
+  padding: 20px;
+}
+
+span{
+  color: var(--heading-color);
+  font-size: 20px;
+  
+}
+
+.btn-learn{
+  color: white;
+  padding: 10px;
+  background: var(--main-btn-bg);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+#btn-learn1{
+  background: var(--main-btn-bg);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-learn:hover{
+  background: var(--main-btn-hover-bg);
+}
+
+#btn-learn1:hover{
+  background: var(--main-btn-hover-bg);
+}
+
+.rev-img{
+  width: 250px;
+  border-radius: 10px;
+  margin-left: 140px;
+}
+
+.review-sec{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+  transition: var(--transition);
+}
+
+.review-set:hover{
+  box-shadow: 0 0 10px rgb(25, 164, 189);
+}
+
+.review-set{
+  padding: 20px;
+  border-radius: 10px;
+ 
+  margin: 20px;
+  border: none;
+}
+
+.rev-name{
+  text-align: center;
+}
+
+.rev-detail{
+  color: var(--text-content-color);
+  text-align: center;
+}
+
+.star{
+  margin-left: 230px;
+  color: var(--sub-heading-color);
+}
+
