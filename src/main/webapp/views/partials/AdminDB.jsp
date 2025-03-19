@@ -59,7 +59,10 @@
                 <div class="md:flex-shrink lg:flex justify-center mt-20">
                     <div class="lg:flex w-90 h-90 shadow-2xl md:hidden"></div>
                     <div class="w-200 h-90 shadow-2xl ml-10">
-                        <table class="table-auto w-full text-center font-semibold text-grey-400">
+                        <div class="flex justify-center">
+                            <h2 class="text-3xl text-grey-400 font-semibold pt-2 pb-3 pl-3">Appointments</h2>
+                        </div>
+                        <table class="table-auto w-full text-center font-semibold text-grey-400 text-center">
                             <tr class="bg-blue-800 text-white">
                                 <th class="pt-1 pb-1">Doctor ID</th>
                                 <th>Name</th>
@@ -94,6 +97,8 @@
                 </div>
             </div>
         </div>
+
+        <div></div>
         
         <jsp:include page="/views/partials/footer.jsp"/>
     </body>
