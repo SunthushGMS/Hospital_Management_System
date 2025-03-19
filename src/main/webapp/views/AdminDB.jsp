@@ -59,6 +59,7 @@
                 <div class="md:flex-shrink lg:flex justify-center mt-20 mb-20">
                     <div class="lg:flex w-90 h-90 shadow-2xl md:hidden"></div>
                     <div class="w-240 h-90 shadow-2xl ml-10 rounded-lg">
+                    	
                         <table class="table-auto w-full text-center font-semibold text-grey-400 ">
                             <tr class="bg-gradient-to-br from-blue-500 to-blue-600 text-white">
                                 <th class="pt-1 pb-1">Doctor ID</th>
