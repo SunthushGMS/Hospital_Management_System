@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prescription Sheet | Health Lanka</title>
     <link rel="stylesheet" href="showPrescription.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/showPrescription.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
 	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>

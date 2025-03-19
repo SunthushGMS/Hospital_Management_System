@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Health Lanka</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/aboutUs.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/about.css">
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
 	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
@@ -26,35 +25,35 @@
             <p class="para1">
                 Easily store and access patient records, history, and reports
             </p>
-            <img src="imag/patient.png" alt="" class="imgSec">
+            <img src="${pageContext.request.contextPath}/assets/images/patient.png" alt="" class="imgSec">
         </div>
         <div class="sec1">
             <h2 class="subhead1"> Appointment Scheduling</h2>
             <p class="para1">
                 Hassle-free online appointment booking and scheduling.
             </p>
-            <img src="img/appoint.png" alt="" class="imgSec" id="imgSec2">
+            <img src="${pageContext.request.contextPath}/assets/images/appoint.png" alt="" class="imgSec" id="imgSec2">
         </div>
         <div class="sec1">
             <h2 class="subhead1">Doctor & Staff Coordination</h2>
             <p class="para1">
                 Connects doctors, nurses, and administrative staff for smooth operations.
             </p>
-            <img src="img/doctors.png" alt="" class="imgSec">
+            <img src="images/doctors.png" alt="" class="imgSec">
         </div>
         <div class="sec1">
             <h2 class="subhead1"> Inventory & Pharmacy Management</h2>
             <p class="para1">
                 HIPAA-compliant secure patient data management.
             </p>
-            <img src="img/invent.png" alt="" class="imgSec" id="imgSec2">
+            <img src="images/invent.png" alt="" class="imgSec" id="imgSec2">
         </div>
         <div class="sec1">
             <h2 class="subhead1"> Reports & Analytics</h2>
             <p class="para1">
                 Generates insights for hospital performance and patient care trends.
             </p>
-            <img src="img/report.png" alt="" class="imgSec" id="imgSec3">
+            <img src="images/report.png" alt="" class="imgSec" id="imgSec3">
         </div>
     </div>
     </section>
@@ -85,7 +84,7 @@
         <h1 class="head2">Our Facilities</h1>
         <div class="sec3-sub">
             <div class="sec3-img">
-                <img src="img/software.png" alt="" class="imgSec">
+                <img src="images/software.png" alt="" class="imgSec">
             </div>
             <div class="sec3-sol">
                 <h1 class="subhead1">Hospital Application Software</h1>
