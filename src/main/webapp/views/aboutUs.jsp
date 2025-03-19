@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Health Lanka</title>
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/aboutUs.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
 	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
@@ -26,7 +26,7 @@
             <p class="para1">
                 Easily store and access patient records, history, and reports
             </p>
-            <img src="img/patient.png" alt="" class="imgSec">
+            <img src="imag/patient.png" alt="" class="imgSec">
         </div>
         <div class="sec1">
             <h2 class="subhead1"> Appointment Scheduling</h2>
