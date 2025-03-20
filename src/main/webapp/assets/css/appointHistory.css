@@ -49,12 +49,13 @@ body{
 
 
 table {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
   margin-top: 20px;
   background: white;
   border-radius: 8px;
   overflow: hidden;
+  
 }
 
 
@@ -138,6 +139,7 @@ td button {
   margin: 20px;
   color: white;
   cursor: pointer;
+  margin-left: 700px;
 }
 
 .btn-down:hover{

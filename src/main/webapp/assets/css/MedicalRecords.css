@@ -108,7 +108,6 @@ form{
 .input-form{
     background: var(--sub-btn-bg);
     border: none;
-    padding: 10px;
     border-radius: 5px;
     color: white;
     margin: 20px;
