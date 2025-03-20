@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +72,7 @@
                         <p class="text-gray-600 mt-2">Access your account to continue</p>
                     </div>
                     
-                    <form action="${pageContext.request.contextPath}/LoginFormController" method="POST" class="space-y-6">
+                    <form action="${pageContext.request.contextPath}/Signinform" method="POST" class="space-y-6">
                         <div class="input-group">
                             <label class="text-sm font-medium text-gray-700 mb-1 block">Username or Email</label>
                             <div class="relative">
@@ -108,6 +109,13 @@
                             </button>
                         </div>
                     </form>
+                    
+                    <c:if test="${not empty error}">
+	             		<div class="p-4 mt-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+						  <span class="font-medium">Error! </span>${error}
+						</div>
+						<c:remove var="error" />
+	             	</c:if>
                     
                     <div class="mt-8 flex items-center gap-4">
                         <hr class="flex-grow border-gray-300" />
