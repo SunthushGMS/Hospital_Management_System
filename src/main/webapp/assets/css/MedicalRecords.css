@@ -27,17 +27,20 @@ body{
     font-size: 50px;
     text-align: center;
     color: var(--heading-color);
+    margin-top: 40px;
 }
 
 .head2{
     font-size: 30px;
     text-align: center;
     color: var(--heading-color);
+    margin: 40px;
 }
 .container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
    padding: 20px;
+   margin-left: 50px;
 }
 
  .patient-info{
@@ -56,9 +59,10 @@ strong{
 
 
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-top: 20px;
+    margin-left: 250px;
 }
 
 th {
@@ -99,20 +103,22 @@ p{
 form{
     box-shadow: 0 0 5px rgb(25, 164, 189);
     padding: 20px;
-    width: 400px;
+    width: 500px;
     border-radius: 15px;
-    margin-left: 750px;
-    
+    margin-left: 680px;
+    margin-bottom: 40px;
 }
 
 .input-form{
     background: var(--sub-btn-bg);
     border: none;
+    padding: 10px;
     border-radius: 5px;
     color: white;
     margin: 20px;
     text-align: center;
     cursor: pointer;
+    width: 75%;
 }
 
 .btn-upload{

@@ -1,0 +1,125 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+  }
+
+body{
+  background-color: white;
+  font-family: var(--font-primary);
+}
+
+.head{
+    font-size: 40px;
+    text-align: center;
+    color: var(--heading-color);
+}
+
+.icon-img{
+    width: 250px;
+    margin-left: 800px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    margin-left: 180px;
+    width: 80%;
+  }
+  
+  
+  th {
+    background: #007bff;
+    color: white;
+    text-align: center;
+    padding: 12px;
+  }
+  
+  
+  td {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  
+  tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  
+  
+  tr:hover {
+    background: #e9ecef;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .confirm{
+    padding: 10px;
+  border: none;
+  background: var(--main-btn-bg);
+  color: white;
+  border-radius: 5px;
+  margin: 20px;
+  cursor: pointer;
+  width: 100px;
+  }
+
+  .Reschedule{
+    padding: 10px;
+    border: none;
+    background: var(--sub-heading-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+  }
+
+  .decline{
+    padding: 10px;
+    border: none;
+    background: var(--sub-btn-bg);
+    color: white;
+    border-radius: 5px;
+    margin: 20px;
+    cursor: pointer;
+  }
+
+  .para{
+    text-align: center;
+    font-size: 20px;
+    padding: 30px;
+    width: 700px;
+    margin-left: 550px;
+  }
+
+  .confirm:hover{
+    background: var(--main-btn-hover-bg);
+  }
+
+  .decline:hover{
+    background: var(--sub-btn-hover-bg);
+  }
+
+  .Reschedule:hover{
+    background: gold;
+  }
