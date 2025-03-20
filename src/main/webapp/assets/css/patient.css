@@ -179,6 +179,7 @@ body{
   box-shadow: 0 0 5px rgb(25, 164, 189);
   width: 500px;
   margin-left: 650px;
+  margin-bottom:40px;
 }
 
 label{
