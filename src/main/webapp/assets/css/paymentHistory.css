@@ -27,6 +27,7 @@ body{
     font-size: 30px;
     text-align: center;
     color: var(--heading-color);
+    margin: 40px;
 }
 
 .invoice-details{

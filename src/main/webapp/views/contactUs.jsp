@@ -35,16 +35,16 @@
            <div class="form">
             <h1 class="head-contact">Send Us Massage</h1>
             <label for="Name">Name</label>
-            <input type="text" class="input-contact">
+            <input type="text" class="input-contact" placeholder="G M S SUNTHUSH">
             <br>
             <label for="Email">Email</label>
-            <input type="email" class="input-contact">
+            <input type="email" class="input-contact" placeholder="SANTHUSH@example.com">
             <br>
             <label for="Name">Contact</label>
-            <input type="tel" class="input-contact">
+            <input type="tel" class="input-contact" placeholder="07XXXXXXXX">
             <br>
             <label for="Name">Massage</label>
-            <input type="text" class="input-contact">
+            <input type="text" class="input-contact" placeholder="Your Message">
             <br>
             <button class="btn-submit">Send</button>
         </div>
