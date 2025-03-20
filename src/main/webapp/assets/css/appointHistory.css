@@ -21,6 +21,7 @@
 body{
   background-color: white;
   font-family: var(--font-primary);
+ 
 }
 
 .history-head{
@@ -139,7 +140,7 @@ td button {
   margin: 20px;
   color: white;
   cursor: pointer;
-  
+  margin-left: 750px;
 }
 
 .btn-down:hover{

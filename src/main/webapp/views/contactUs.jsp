@@ -41,12 +41,13 @@
             <input type="email" class="input-contact">
             <br>
             <label for="Name">Contact</label>
-            <input type="number" class="input-contact">
+            <input type="tel" class="input-contact">
             <br>
             <label for="Name">Massage</label>
             <input type="text" class="input-contact">
             <br>
             <button class="btn-submit">Send</button>
+        </div>
         </div>
     </div>
     </section>
