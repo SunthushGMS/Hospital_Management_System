@@ -1,4 +1,4 @@
-package com.pagecontroller;
+package com.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,17 +6,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/SignUp")
-public class SignUp extends HttpServlet {
+@WebServlet("/Signout")
+public class SignoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String error = request.getParameter("error");
-		if(error != null) {
-			request.setAttribute("error", error);
+		HttpSession session = request.getSession(false);
+				
+		if(session != null) {
+			session.invalidate();
 		}
-		request.getRequestDispatcher("views/signUp.jsp").forward(request, response);
+		
+		response.sendRedirect("index.jsp");
 	}
 
 }
