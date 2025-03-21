@@ -12,6 +12,10 @@ public class SignIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String error = request.getParameter("error");
+		if(error != null) {
+			request.setAttribute("error", error);
+		}
 		request.getRequestDispatcher("views/signIn.jsp").forward(request, response);
 	}
 

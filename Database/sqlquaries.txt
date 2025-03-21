@@ -1,0 +1,47 @@
+-- Base User Table
+CREATE TABLE User (
+    uid INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    fullname VARCHAR(100) NOT NULL,
+    bio TEXT,
+    dateofbirth DATE,
+    email VARCHAR(100) NOT NULL,
+    phone_no VARCHAR(20),
+    address VARCHAR(255),
+    language VARCHAR(50),
+    profilepiclink VARCHAR(255),
+    role ENUM('doctor', 'patient', 'admin') NOT NULL
+);
+
+-- Doctor Subtype Table
+CREATE TABLE Doctor (
+    user_id INT PRIMARY KEY,
+    publicbio TEXT,
+    specialization VARCHAR(100) NOT NULL,
+    license_no VARCHAR(50) UNIQUE NOT NULL,
+    experience INT,
+    FOREIGN KEY (user_id) REFERENCES User(uid) ON DELETE CASCADE
+);
+
+-- Patient Subtype Table
+CREATE TABLE Patient (
+    user_id INT PRIMARY KEY,
+    bloodtype ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'),
+    gender ENUM('male', 'female', 'other'),
+    allergies TEXT,
+    med_history TEXT,
+    notes TEXT,
+    genetic_predispositions TEXT,
+    FOREIGN KEY (user_id) REFERENCES User(uid) ON DELETE CASCADE
+);
+
+-- Admin Subtype Table
+CREATE TABLE Admin (
+    user_id INT PRIMARY KEY,
+    role VARCHAR(50),
+    access_level ENUM('basic', 'advanced', 'super') NOT NULL,
+    datejoined DATE NOT NULL,
+    publicbio TEXT,
+    FOREIGN KEY (user_id) REFERENCES User(uid) ON DELETE CASCADE
+);
