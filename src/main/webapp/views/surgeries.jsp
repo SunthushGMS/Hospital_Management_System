@@ -15,7 +15,7 @@
     
 </head>
 <body>
-
+    <jsp:include page="/views/partials/header.jsp"/>
     <h1 id="heading">Surgeries</h1>
 
     <img id="app-image" src="${pageContext.request.contextPath}/assets/images/doctorDashboard-sugery -medical.png">
@@ -330,6 +330,6 @@
 
 
     
-
+   <jsp:include page="/views/partials/footer.jsp"/>
 </body>
 </html>

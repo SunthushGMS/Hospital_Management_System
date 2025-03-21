@@ -16,7 +16,7 @@
     
 </head>
 <body>
-
+    <jsp:include page="/views/partials/header.jsp"/>
     <h1 id="heading">Appointments</h1>
 
     <img id="app-image" src="${pageContext.request.contextPath}/assets/images/doctorDashboard-apointmentIcon2.png">
@@ -276,6 +276,6 @@
     </tr>
    </table>
     
-
+   <jsp:include page="/views/partials/footer.jsp"/>
 </body>
 </html>

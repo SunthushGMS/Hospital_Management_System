@@ -15,7 +15,7 @@
     
 </head>
 <body>
-
+    <jsp:include page="/views/partials/header.jsp"/>
     <h1 id="heading">Doctor Dashboard</h1>
 
 
@@ -301,6 +301,6 @@
     
     <br>
     
-    
+    <jsp:include page="/views/partials/footer.jsp"/>  
 </body>
 </html>
