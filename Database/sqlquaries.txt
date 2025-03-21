@@ -18,8 +18,8 @@ CREATE TABLE User (
 CREATE TABLE Doctor (
     user_id INT PRIMARY KEY,
     publicbio TEXT,
-    specialization VARCHAR(100) NOT NULL,
-    license_no VARCHAR(50) UNIQUE NOT NULL,
+    specialization VARCHAR(100),
+    license_no VARCHAR(50) UNIQUE,
     experience INT,
     FOREIGN KEY (user_id) REFERENCES User(uid) ON DELETE CASCADE
 );
@@ -27,7 +27,7 @@ CREATE TABLE Doctor (
 -- Patient Subtype Table
 CREATE TABLE Patient (
     user_id INT PRIMARY KEY,
-    bloodtype ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'),
+    bloodtype ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'unknown'),
     gender ENUM('male', 'female', 'other'),
     allergies TEXT,
     med_history TEXT,
@@ -40,8 +40,8 @@ CREATE TABLE Patient (
 CREATE TABLE Admin (
     user_id INT PRIMARY KEY,
     role VARCHAR(50),
-    access_level ENUM('basic', 'advanced', 'super') NOT NULL,
-    datejoined DATE NOT NULL,
+    access_level ENUM('basic', 'advanced', 'super'),
+    datejoined DATE,
     publicbio TEXT,
     FOREIGN KEY (user_id) REFERENCES User(uid) ON DELETE CASCADE
 );
