@@ -77,6 +77,7 @@
         <div class="search">
             <h3 class="sub-head">Search & Filter</h3>
             <input type="text" id="search" placeholder="Search records by date, doctor, or test type...">
+            <button class="btn-search">Search</button>
         </div>
        
         <h3 class="head2">Upload Medical Records</h3>
