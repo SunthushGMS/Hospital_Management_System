@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,7 @@
         <div class="flex flex-col md:flex-row gap-10">
             <!-- Left side - Form -->
             <div class="flex-1">
-                <form id="regform" method="POST" oninput="comparepwd()" class="space-y-4">
+                <form id="regform" method="POST" oninput="comparepwd()" class="space-y-4" action="${pageContext.request.contextPath}/SignupForm">
                     <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5">
                         <div class="input-group">
                             <label class="text-sm font-medium text-gray-700 mb-1 block">Full Name</label>
@@ -103,6 +104,13 @@
                     <div id="pwdnotmatcherr" class="hidden p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
 					  <span class="font-medium">Alert!</span> The passwords you entered don't match. Please try again.
 					</div>
+					
+					<c:if test="${not empty error}">
+	             		<div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+						  <span class="font-medium">Error! </span>${error}
+						</div>
+						<c:remove var="error" />
+	             	</c:if>
 
                     <div class="mt-6">
                         <button id="submitbtn" type="submit" class="btn-primary w-full py-3 px-6 text-sm font-semibold rounded-lg text-white shadow-md bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer">
