@@ -1,0 +1,250 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+}
+
+body{
+    margin: 0px;
+    font-family:var(--font-primary) ;
+}
+
+.wrapper{
+    display:flex;
+    justify-content: space-between;
+    gap:10px;
+    width:90%;
+    margin:auto;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#div1{
+    padding: 10px;
+    gap:10px;
+    justify-content: space-between;
+    border:0;
+    border-radius: 15px;
+    margin:auto;
+}
+
+#div1 h3, p{
+    text-align: center;
+}
+
+#div1-1{
+    display: flex;
+    justify-content: space-between;
+    gap:10px;
+    margin:auto;
+}
+
+.div1-1sub{
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(244, 244, 244);
+    border-radius:15px;
+}
+#myHr{
+    height: 3px;
+    background-color:#007bff;
+    border:none;
+    border-radius: 15px;
+}
+
+#div1sub1{
+    width: 60%;
+    margin:auto;
+}
+#doc-profile-Pic{
+    width: 200px;
+    margin:auto;
+    border-radius: 1000px;
+    box-shadow: 0 0 5px rgb(43, 43, 230);
+    display: block;
+}
+
+.div1-1-1{
+    text-align: center;
+}
+.div1-1-2{
+    text-align: center;
+}
+
+.div1-1-1 img{
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+}
+#emergency-pic{
+    width: 120px;
+    height:120px;
+    border-radius: 15px;
+}
+
+.div3{
+    flex:1;
+    height: auto;
+    padding: 10px;
+    border:none;
+    border-radius: 15px;
+    background-color: white;
+}
+
+#newAppTable-img{
+    width: 70px;
+    margin: auto;
+}
+
+
+.tableData{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    border:none;
+    border-radius: 15px;
+
+    width: 90%;
+    margin: auto;
+}
+.rows{
+    flex:1;
+}
+
+#profilePic img{
+    width: 60px;
+    height:60px;
+    padding: 5px;
+}
+
+.viewAll{
+    background: var(--main-btn-bg) ;
+    border-radius: 20px;
+    border:none;
+    padding: 10px;
+    width: 20%;
+    color: white;
+    margin: 20px;
+}
+
+.viewAll hover{
+    background: var(--main-btn-hover-bg) ;
+}
+
+#EmergencyPatientCount{
+    color: red;
+    font-size: 20px;
+}
+
+#emergencyPatientDiv{
+    border:none;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px red;
+    width: 60%;
+    margin:auto;
+    padding: 2px;
+}
+
+#emergencyPatients .rows{
+    flex:1;
+}
+#surgeryPatientType{
+    text-align: left;
+    font-size: 13px;;
+}
+
+.div4{
+    width: 49%;
+    border:none;
+    border-radius: 15px;
+    background-color: white;
+    text-align: center;
+    padding: 70px;
+}
+
+#profileDiv{
+    display: flex;
+}
+
+.div4 .tableData{
+    padding-left: 20px;
+}
+
+#labreportsPics{
+    width: 100px;
+    height: 100px;
+}
+
+
+table{
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow:hidden;
+    margin:auto;
+}
+table:hover{
+    cursor: pointer;
+}
+th{
+    background: #007bff;
+    color: white;
+    padding: 20px;
+}
+td{
+    margin: auto;
+    padding: 20px;
+    text-align:left;
+}
+
+tr:nth-child(even){
+    background: #efeeee;
+}
+
+#heading{
+    color: var(--heading-color);
+    font-size: 50px;
+    text-align:center;
+}
+
+#emergency-subDiv1{
+    width: 30%;
+}
+#emergency-subDiv2{
+    width: 70%;
+}
+
+#hamburger-Icon{
+    height: 40px;
+    width: 40px;
+    margin-top:10px;
+    margin-right: 5px;
+}
+
+#emergencyDiv{
+    width: 70%;
+    padding: 70px;
+    background-color: white;
+    border-radius:15px;
+}
+
+#emergencyTable th{
+    background: #b91c1c;
+}
+#emergencyTable tr{
+    border-bottom: #b91c1c solid 3px;
+}

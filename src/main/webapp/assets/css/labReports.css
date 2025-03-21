@@ -1,0 +1,113 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+}
+
+body{
+    background-color: white;;
+    margin: 0px;
+    text-align:center;
+    font-family:var(--font-primary) ;
+}
+
+#heading{
+    color: var(--heading-color);
+    font-size: 50px;
+    text-align:center;
+}
+
+.tableHeading{
+    color: var(--sub-heading-color);
+}
+
+
+
+
+
+#hamburger-Icon{
+    height: 40px;
+    width: 40px;
+    margin-top:10px;
+    margin-right: 5px;
+}
+
+
+#acceptAppointmentBtn, #RescheduleAppointmentBtn{
+    padding: 5px;
+    border-radius: 20px;
+    width: 100px;
+    margin-left: 0px;
+    border:none;
+    color:white;
+}
+
+#acceptAppointmentBtn{
+   background: var(--main-btn-bg);
+    margin-top: 10px
+}
+#acceptAppointmentBtn:hover{
+    background: var(--main-btn-hover-bg);
+}
+
+#RescheduleAppointmentBtn{
+    background: var(--sub-btn-bg);
+}
+#RescheduleAppointmentBtn:hover{
+    background: var(--sub-btn-hover-bg);
+}
+
+
+
+table{
+    margin: auto;
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow:hidden
+}
+table:hover{
+    cursor: pointer;
+}
+th{
+    background: #007bff;
+    color: white;
+    padding: 20px;
+}
+td{
+    margin: auto;
+    padding: 20px;
+}
+
+tr:nth-child(even){
+    background: #efeeee;
+}
+
+#app-image{
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+
+#labReport-pic{
+    width: 70px;
+}
+
+
+
+
+
+

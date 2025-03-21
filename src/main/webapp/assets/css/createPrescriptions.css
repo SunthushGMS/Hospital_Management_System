@@ -1,0 +1,102 @@
+:root {
+    --main-btn-bg: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    --main-btn-hover-bg: linear-gradient(to bottom right, #2563eb, #3b82f6);
+    
+    --sub-btn-bg: linear-gradient(to bottom right, #dc2626, #b91c1c);
+    --sub-btn-hover-bg: linear-gradient(to bottom right, #b91c1c, #dc2626);
+  
+    --transition: all 0.5s ease-in-out;
+    --cursor: pointer;
+  
+    --font-primary: "Roboto", sans-serif;
+  
+    --sub-heading-color: #facc15;
+    --sub-heading-weight: 600;
+  
+    --heading-color: #374151;
+    
+    --text-content-color: #9ca3af;
+}
+
+body{
+    margin: 0px;
+    font-family:var(--font-primary) ;
+}
+
+#wrapper{
+    display:flex;
+    justify-content: space-between;
+    gap:10px;
+    width:90%;
+    margin:auto;
+    border-radius: 15px;
+}
+
+#heading{
+    color: var(--heading-color);
+    font-size: 50px;
+    text-align:center;
+}
+
+#subHeading{
+    color: var(--sub-heading-color);
+    text-align: center;
+}
+#div1{
+    width:50%;
+    padding: 50px;
+    background-color: rgb(244, 244, 244);
+    border-radius:15px;
+    text-align: center;
+}
+
+
+input, textarea{
+    height: 30px;
+    width: 70%;
+    border:none;
+    border-radius: 15px;
+}
+textarea{
+    height: 150px;
+}
+
+table{
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow:hidden;
+    margin:auto;
+}
+table:hover{
+    cursor: pointer;
+}
+th{
+    background: #007bff;
+    color: white;
+    padding: 20px;
+}
+td{
+    margin: auto;
+    padding: 20px;
+    text-align:left;
+}
+
+tr:nth-child(even){
+    background: #efeeee;
+}
+
+button{
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 0px;
+    border:none;
+    color:white;
+    background: var(--main-btn-bg);
+    
+}
+
+button:hover{
+    background: var(--main-btn-hover-bg);
+}
+
+
