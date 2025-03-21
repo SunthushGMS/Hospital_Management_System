@@ -27,11 +27,12 @@ body{
     font-size: 40px;
     text-align: center;
     color: var(--heading-color);
+    margin: 30px;
 }
 
 .icon-img{
     width: 250px;
-    margin-left: 800px;
+    margin: auto;
 }
 
 table {
@@ -42,7 +43,7 @@ table {
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 40px;
-    margin-left: 180px;
+    margin: auto;
     width: 80%;
   }
   
@@ -109,7 +110,7 @@ table {
     font-size: 20px;
     padding: 30px;
     width: 700px;
-    margin-left: 550px;
+    margin: auto;
   }
 
   .confirm:hover{

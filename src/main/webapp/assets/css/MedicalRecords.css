@@ -37,10 +37,10 @@ body{
     margin: 40px;
 }
 .container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-   padding: 20px;
-   margin-left: 250px;
+  display: grid;
+   justify-content: center;
+   margin: auto;
+   grid-template-columns: repeat(3, 1fr);
 }
 
  .patient-info{
@@ -48,8 +48,9 @@ body{
         border-radius: 15px;
         box-shadow: 0 0 5px rgb(25, 164, 189);
         padding: 20px;
-        width: 500px;
+       width: 400px;
         margin: 20px;
+        
 }
     
 strong{
@@ -62,7 +63,8 @@ table {
     width: 80%;
     border-collapse: collapse;
     margin-top: 20px;
-    margin-left: 250px;
+    
+    margin: auto;
 }
 
 th {
@@ -105,7 +107,7 @@ form{
     padding: 20px;
     width: 500px;
     border-radius: 15px;
-    margin-left: 800px;
+   margin: auto;
     margin-bottom: 40px;
 }
 

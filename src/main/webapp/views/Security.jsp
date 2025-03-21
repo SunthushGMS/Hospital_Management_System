@@ -20,17 +20,7 @@
     <jsp:include page="/views/partials/header.jsp"/>
    <h1 class="head">Security And Data Protection <i class='bx bxs-lock' id="icon-lock"></i></h1>
 
-<div class="container">
-    <h2 class="head1">Security Settings</h2>
-    
-    <div class="wrapper">
-    <div class="security-option1">
-      <h3 class="opt1"><a href="2fa"><img src="${pageContext.request.contextPath}/assets/images/2fa_11220705.png" alt="" class="icon-img">Enable Two Factor Auethentication </a></h3>
-    </div>
-    <div class="security-option1">
-      <h3 class="opt1"><a href="pass"><img src="${pageContext.request.contextPath}/assets/images/pin-code.png" alt="" class="icon-img">Add a Passkey </a></h3>
-    </div>
-</div>
+
    
     <div class="security-option">
         <h3 class="head2"> Change Password <i class='bx bxs-key' id="icon-lock"></i></h3>

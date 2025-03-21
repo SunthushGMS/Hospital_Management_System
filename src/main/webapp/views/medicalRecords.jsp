@@ -27,7 +27,7 @@
             <p><strong>Age</strong> 35</p>
             <p><strong>Gender</strong> Male</p>
             <p><strong>Contact</strong> +94 77 123 4567</p>
-            <p><strong>Emergency Contact</strong> +94 77 987 6543</p>
+           
         </div>
         <div class="patient-info" >
             <h3 class="head2">Medical History</h3>

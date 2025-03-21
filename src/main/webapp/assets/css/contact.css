@@ -54,7 +54,7 @@ body{
     border-radius: 10px;
     box-shadow: 0 0 5px rgb(25, 164, 189);
     padding: 20px;
-    width: 500px;
+    width: 600px;
     margin: 50px;
 }
 
@@ -68,7 +68,7 @@ input, textarea {
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
-    width: 100%;
+    width: 90%;
     box-sizing: border-box;
 }
 
@@ -103,8 +103,7 @@ input, textarea {
 }
 
 .sub-wrap{
-    margin: 30px;
-    margin-left: 120px;
+    place-items: center;
 }
 
 .head-emerg{

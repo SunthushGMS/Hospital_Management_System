@@ -20,7 +20,7 @@
 
     <div class="invoice-details">
         <h3 class="invoice-head">Invoice #INV-20250312</h3>
-        <p><strong>Patient Name</strong> John Doe</p>
+        <p><strong>Patient Name</strong> Chanuka De Silva</p>
         <p><strong>Doctor</strong> Dr. Sarah Lee (Dermatology)</p>
         <p><strong>Appointment Date & Time</strong> March 12, 2025 - 10:30 AM</p>
         <p><strong>Services</strong> Consultation, Skin Test</p>

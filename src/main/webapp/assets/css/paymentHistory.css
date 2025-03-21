@@ -24,7 +24,7 @@ body{
 }
 
 .head{
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     color: var(--heading-color);
     margin: 40px;
@@ -36,12 +36,17 @@ body{
     box-shadow: 0 0 5px rgb(25, 164, 189);
     padding: 20px;
     width: 500px;
-    margin-left: 680px;
+    display: block;
+    margin: auto;
+    margin-bottom: 40px;
+
 }
 
 .invoice-head{
     color: var(--heading-color);
     text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
 }
 
 strong{
@@ -60,7 +65,7 @@ p{
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    margin: 20px;
+    margin: 40px;
 }
 
 .btn-download:hover{
@@ -78,9 +83,11 @@ p{
 }
 
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
-    margin: 30px;
+    margin-top: 30px;
+    margin: auto;
+   
 }
 
 th {
@@ -107,6 +114,7 @@ td{
 }
 
 .head1{
+	margin-bottom: 30px;
     font-size: 40px;
     text-align: center;
     color: var(--heading-color);
