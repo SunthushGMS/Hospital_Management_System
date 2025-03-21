@@ -56,6 +56,7 @@ input, textarea{
     width: 70%;
     border:none;
     border-radius: 15px;
+    background: white;
 }
 textarea{
     height: 150px;

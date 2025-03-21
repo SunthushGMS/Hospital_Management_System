@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Health Lanka</title>
+    <title>Create Prescription | Health Lanka</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/createPrescriptions.css">
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
 	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
@@ -15,7 +15,7 @@
     
 </head>
 <body>
-
+    <jsp:include page="/views/partials/header.jsp"/>
     <h1 id="heading">Create Prescription</h1>
 
     <div id="wrapper">
@@ -118,6 +118,6 @@
 
 
     
-
+    <jsp:include page="/views/partials/footer.jsp"/>
 </body>
 </html>

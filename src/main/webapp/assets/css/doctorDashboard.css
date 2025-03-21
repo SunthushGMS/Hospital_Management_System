@@ -23,6 +23,7 @@ body{
     font-family:var(--font-primary) ;
 }
 
+
 .wrapper{
     display:flex;
     justify-content: space-between;
@@ -44,6 +45,7 @@ body{
 
 #div1 h3, p{
     text-align: center;
+    margin: 15px;
 }
 
 #div1-1{
@@ -87,11 +89,15 @@ body{
 }
 
 .div1-1-1 img{
+	display:block;
+	margin:auto;
     width: 70px;
     height: 70px;
     border-radius: 15px;
 }
 #emergency-pic{
+	display:block;
+	margin:auto;
     width: 120px;
     height:120px;
     border-radius: 15px;
@@ -104,6 +110,11 @@ body{
     border:none;
     border-radius: 15px;
     background-color: white;
+}
+
+
+.div3 h3, p{
+	margin: 15px;
 }
 
 #newAppTable-img{
@@ -174,7 +185,15 @@ body{
     border-radius: 15px;
     background-color: white;
     text-align: center;
-    padding: 70px;
+    padding: 10px;
+}
+
+
+.div4{
+	margin: 15px;
+}
+.div4 h3, p{
+	margin:15px;
 }
 
 #profileDiv{
@@ -192,6 +211,7 @@ body{
 
 
 table{
+	width:100%;
     border-collapse: collapse;
     border-radius: 15px;
     overflow:hidden;
@@ -222,10 +242,16 @@ tr:nth-child(even){
 }
 
 #emergency-subDiv1{
-    width: 30%;
+    width: 20%;
 }
+
+#emergency-subDiv1 h3, p{
+	margin:15px;
+}
+
+
 #emergency-subDiv2{
-    width: 70%;
+    width: 80%;
 }
 
 #hamburger-Icon{
@@ -236,7 +262,7 @@ tr:nth-child(even){
 }
 
 #emergencyDiv{
-    width: 70%;
+    width: 90%;
     padding: 70px;
     background-color: white;
     border-radius:15px;

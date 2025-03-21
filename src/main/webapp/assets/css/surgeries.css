@@ -29,10 +29,13 @@ body{
     color: var(--heading-color);
     font-size: 50px;
     text-align:center;
+    margin: 35px;
 }
 
 .tableHeading{
     color: var(--sub-heading-color);
+    font-size: 30px;
+    margin: 25px;
 }
 
 
@@ -99,6 +102,10 @@ tr:nth-child(even){
 }
 
 #app-image{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin: auto;
+	display:block;
     width: 150px;
     margin-bottom: 20px;
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Health Lanka</title>
+    <title>Patient Profile | Health Lanka</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/patientProfile-doctorView.css">
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
 	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
@@ -15,8 +15,9 @@
     
 </head>
 <body>
+    <jsp:include page="/views/partials/header.jsp"/>
     <br><br><br>
-    <img id="patient-profile-Pic" src="images/profile-pic.png" alt="">
+    <img id="patient-profile-Pic" src="${pageContext.request.contextPath}/assets/images/profile-pic.png" alt="">
     <h3 id="subHeading">Patient Profile</h3>
     <div id="section1" class="wrapper">
         <div id="section1Sub" class="div1">
@@ -63,7 +64,7 @@
         <td>13/03/2025</td>
         <td>Fizer</td>
         <td>pending</td>
-        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="images/labP-icon.png" alt=""></a></td>
+        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/labP-icon.png" alt=""></a></td>
     </tr>
 
     <tr>
@@ -72,7 +73,7 @@
         <td>13/03/2025</td>
         <td>Fizer</td>
         <td>pending</td>
-        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="images/labP-icon.png" alt=""></a></td>
+        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/labP-icon.png" alt=""></a></td>
     </tr>
 
     <tr>
@@ -81,7 +82,7 @@
         <td>13/03/2025</td>
         <td>Fizer</td>
         <td>pending</td>
-        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="images/labP-icon.png" alt=""></a></td>
+        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/labP-icon.png" alt=""></a></td>
     </tr>
 
     <tr>
@@ -90,7 +91,7 @@
         <td>13/03/2025</td>
         <td>Fizer</td>
         <td>pending</td>
-        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="images/labP-icon.png" alt=""></a></td>
+        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/labP-icon.png" alt=""></a></td>
     </tr>
     
    </table>
@@ -106,7 +107,7 @@
 
     <div class="wrapper">
         <div class="div1">
-            <img src="images/labP-icon.png">
+            <img src="${pageContext.request.contextPath}/assets/images/labP-icon.png">
             <h3 id="subHeading">Make a request for lab reports</h3>
             <form id="requestReport-form"action=""method="post">
                 <label for="lab-reports-required">Lab Reports Required : </label><br><br>
@@ -123,7 +124,7 @@
 
 
         <div class="div1">
-            <img src="images/surgeryP-icon.png">
+            <img src="${pageContext.request.contextPath}/assets/images/surgeryP-icon.png">
             <h3 id="subHeading">Make a recommendatation for surgery</h3>
             <form id="surgery-form"action=""method="post">
                 <label for="surgery-name">Surgery name : </label><br><br>
@@ -143,7 +144,7 @@
 
 
         <div class="div1">
-            <img src="images/emegencyP-icon.png">
+            <img src="${pageContext.request.contextPath}/assets/images/emegencyP-icon.png">
             <h3 id="subHeading">Assign emergency Patient Status</h3>
             <form id="emergency-form" action="" method="post">
                 <label for="emergency-problem">Problem : </label><br><br>
@@ -167,6 +168,6 @@
 
 
 
-    
+    <jsp:include page="/views/partials/footer.jsp"/>
 </body>
 </html>

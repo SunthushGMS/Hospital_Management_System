@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Health Lanka</title>
+    <title>Dashboard | Health Lanka</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/doctorDashboard.css">
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
 	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -257,7 +257,7 @@
 
 
 
-        <div class="div4"><br>
+        <div class="div4">
             <img id="emergency-pic" src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" alt="">
             <h3>Latest Lab Reports</h3>
             <table>

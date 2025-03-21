@@ -33,6 +33,8 @@ body{
 
 .tableHeading{
     color: var(--sub-heading-color);
+    font-size: 30px;
+    margin:20px;
 }
 
 
@@ -40,6 +42,8 @@ body{
 
 
 #hamburger-Icon{
+	display: block;
+	margin: auto;
     height: 40px;
     width: 40px;
     margin-top:10px;
@@ -98,7 +102,9 @@ tr:nth-child(even){
 
 #app-image{
     width: 150px;
-    margin-bottom: 20px;
+    margin:auto;
+    display: block;
+    margin-bottom: 30px;
 }
 
 

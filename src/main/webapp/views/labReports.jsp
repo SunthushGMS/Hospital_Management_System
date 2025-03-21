@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Records | Health Lanka</title>
-   
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/labReort.css">
+    <title>Lab Reports | Health Lanka</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/labReports.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
 	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
@@ -18,7 +17,7 @@
     <jsp:include page="/views/partials/header.jsp"/>
     <h1 id="heading">Lab Reports</h1>
 
-    <img id="app-image" src="images/labreports-pic.jpg">
+    <img id="app-image" src="${pageContext.request.contextPath}/assets/images/labreports-pic.jpg">
 
 
     <h2 class="tableHeading">New Lab Reports</h2>
@@ -44,10 +43,10 @@
         <td>13/03/2025</td>
         <td>10.36 AM</td>
         <td>
-            <a href="patientProfile-doctorView.html"><img src="images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
+            <a href="patientProfile-doctorView.html"><img src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
             <p>Click here</p>
         </td>
-        <td><img id="hamburger-Icon" src="images/hamburger-icon.png" alt=""></td>
+        <td><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></td>
     </tr>
 
     <tr>
@@ -59,10 +58,10 @@
         <td>13/03/2025</td>
         <td>10.36 AM</td>
         <td>
-            <a href="patientProfile-doctorView.html"><img src="images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
+            <a href="patientProfile-doctorView.html"><img src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
             <p>Click here</p>
         </td>
-        <td><img id="hamburger-Icon" src="images/hamburger-icon.png" alt=""></td>
+        <td><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></td>
     </tr>
 
     <tr>
@@ -74,10 +73,10 @@
         <td>13/03/2025</td>
         <td>10.36 AM</td>
         <td>
-            <a href="patientProfile-doctorView.html"><img src="images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
+            <a href="patientProfile-doctorView.html"><img src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
             <p>Click here</p>
         </td>
-        <td><img id="hamburger-Icon" src="images/hamburger-icon.png" alt=""></td>
+        <td><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></td>
     </tr>
 
     <tr>
@@ -89,10 +88,10 @@
         <td>13/03/2025</td>
         <td>10.36 AM</td>
         <td>
-            <a href="patientProfile-doctorView.html"><img src="images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
+            <a href="patientProfile-doctorView.html"><img src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
             <p>Click here</p>
         </td>
-        <td><img id="hamburger-Icon" src="images/hamburger-icon.png" alt=""></td>
+        <td><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></td>
     </tr>
 
     <tr>
@@ -104,10 +103,10 @@
         <td>13/03/2025</td>
         <td>10.36 AM</td>
         <td>
-            <a href="patientProfile-doctorView.html"><img src="images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
+            <a href="patientProfile-doctorView.html"><img src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
             <p>Click here</p>
         </td>
-        <td><img id="hamburger-Icon" src="images/hamburger-icon.png" alt=""></td>
+        <td><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></td>
     </tr>
    </table>
 
