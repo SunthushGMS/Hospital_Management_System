@@ -81,7 +81,8 @@ table{
     margin: auto;
     border-collapse: collapse;
     border-radius: 15px;
-    overflow:hidden
+    overflow:hidden;
+    margin-bottom: 30px;
 }
 table:hover{
     cursor: pointer;

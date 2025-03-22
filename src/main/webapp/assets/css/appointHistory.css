@@ -50,15 +50,16 @@ body{
 
 
 table {
-  width: 80%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-left: 200px;
-  
-}
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    margin: auto;
+    width: 80%;
+  }
 
 
 th {
@@ -156,4 +157,5 @@ td button {
   display: block;
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 30px;
 }
