@@ -37,6 +37,8 @@ body{
     font-size: 50px;
     color: var(--heading-color);
     text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .wrapper1{
@@ -75,6 +77,9 @@ input, textarea {
 
 .head-contact{
     text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 30px;
 }
 
 .btn-submit{
@@ -126,13 +131,14 @@ input, textarea {
 .imgSec4{
     width: 250px;
     padding: 20px;
-    margin-left: 120px;
+   margin: auto;
 }
 
 .wrapper4{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 20px;
+    margin-bottom: 40px;
 }
 
 .sub-wrap1{
@@ -156,22 +162,31 @@ input, textarea {
 }
 
 .contact-type{
-    margin-left: 100px;
+    margin: auto;
+  	text-align: center;
     color: #424b5f;
-    font-weight: lighter;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 20px;
 }
 
 .location{
-    text-align: center;
+   margin: auto;
+  	text-align: center;
     color: #424b5f;
-    font-weight: lighter;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 20px;
     
 }
 
 .open{
-    text-align: center;
+    margin: auto;
+  	text-align: center;
     color: #424b5f;
-    font-weight: lighter;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 20px;
 }
 
 .imgSec5{

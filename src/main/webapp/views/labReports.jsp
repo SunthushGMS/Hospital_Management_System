@@ -43,8 +43,7 @@
         <td>13/03/2025</td>
         <td>10.36 AM</td>
         <td>
-            <a href="patientProfile-doctorView.html"><img src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
-            <p>Click here</p>
+            <button class="click"><a href="">Click here</a></button>
         </td>
         <td><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></td>
     </tr>
@@ -58,8 +57,7 @@
         <td>13/03/2025</td>
         <td>10.36 AM</td>
         <td>
-            <a href="patientProfile-doctorView.html"><img src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
-            <p>Click here</p>
+            <button class="click"><a href="">Click here</a></button>
         </td>
         <td><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></td>
     </tr>
@@ -73,8 +71,7 @@
         <td>13/03/2025</td>
         <td>10.36 AM</td>
         <td>
-            <a href="patientProfile-doctorView.html"><img src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
-            <p>Click here</p>
+            <button class="click"><a href="">Click here</a></button>
         </td>
         <td><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></td>
     </tr>
@@ -88,8 +85,7 @@
         <td>13/03/2025</td>
         <td>10.36 AM</td>
         <td>
-            <a href="patientProfile-doctorView.html"><img src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
-            <p>Click here</p>
+            <button class="click"><a href="">Click here</a></button>
         </td>
         <td><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></td>
     </tr>
@@ -103,8 +99,7 @@
         <td>13/03/2025</td>
         <td>10.36 AM</td>
         <td>
-            <a href="patientProfile-doctorView.html"><img src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" id="labReport-pic"></a>
-            <p>Click here</p>
+            <button class="click"><a href="">Click here</a></button>
         </td>
         <td><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></td>
     </tr>

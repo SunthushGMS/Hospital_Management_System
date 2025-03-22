@@ -19,10 +19,11 @@
 <body>
     <jsp:include page="/views/partials/header.jsp"/>
    <h1 class="history-head">Appointment History</h1>
+   <img src="${pageContext.request.contextPath}/assets/images/clock.png" alt="" class="clock-icon">
    <div class="detail-history">
     <p class="history-para">The Appointment History section in Health Lanka allows patients to view and manage their past medical visits. It provides details such as doctor's name, department, date, time, and appointment status (Completed, Cancelled). Patients can easily track their medical records, access prescriptions, and review past consultations, ensuring a seamless healthcare experience.</p>
    </div>
-   <img src="${pageContext.request.contextPath}/assets/images/clock.png" alt="" class="clock-icon">
+   
    <section class="sec1">
     <div class="table-view">
         <table>
@@ -32,7 +33,7 @@
             <th>Department</th>
             <th>Date & Time</th>
             <th>Status</th>
-            <th>View Details</th>
+            <th>Action</th>
             <th>Feedback & Rating</th>
             </tr>
             <tr>

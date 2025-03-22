@@ -58,15 +58,25 @@
     <div class="div3">
         <div class="sub-div2">
             <h2 class="head1">Requested Lab Reports</h2>
-                <img src="${pageContext.request.contextPath}/assets/images/report.png" alt="" class="img-div">
-                <div class="report">
-                    <p><strong>Report 1</strong> Blood Report</p>
-                <p><strong>Report 2</strong> Urine Report</p>
-                <p><strong>Report 3</strong> Cholesterol Report</p>
-                </div>
-                
-                <button class="btn-view"><a href="" >Upload Now</a></button>
+
+            
+            <div class="report-list">
+                <ul>
+                    <li><a href="#">Blood Test Report</a></li>
+                    <li><a href="#">X-Ray Report</a></li>
+                    <li><a href="#">MRI Scan Report</a></li>
+                    <li><a href="#">ECG Report</a></li>
+                    <li><a href="#">Liver Function Test</a></li>
+                    <li><a href="#">Kidney Function Test</a></li>
+                    <li><a href="#">Cholesterol Test</a></li>
+                    <li><a href="#">Diabetes Test Report</a></li>
+                    <li><a href="#">Urine Analysis</a></li>
+                </ul>
+            </div>
+            
+            <button class="btn-view"><a href="#">Upload Now</a></button>
         </div>
+        
         <div class="sub-div2">
             <h2 class="head1">Payments</h2>
             <img src="${pageContext.request.contextPath}/assets/images/cash-payment.png" alt="" class="img-div">
