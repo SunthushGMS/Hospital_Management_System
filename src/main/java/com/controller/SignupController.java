@@ -26,7 +26,7 @@ public class SignupController extends HttpServlet {
 		String address = request.getParameter("address");
 		String password = request.getParameter("password");
 		
-		Patient patient = new Patient(0, username, password, fullname, "", dob, email, phone, address, "", "testimg.png", "patient");
+		Patient patient = new Patient(0, username, password, fullname, "", dob, email, phone, address, "", "testimg.jpeg", "patient");
 		
 		boolean isInserted = UserService.insertPatient(patient);
 		
