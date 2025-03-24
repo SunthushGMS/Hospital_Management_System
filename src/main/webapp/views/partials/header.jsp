@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <header>
         <nav class="bg-gray-50 border-gray-200 px-4 lg:px-6 py-4">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
@@ -23,34 +24,38 @@
                         </li>
                     </ul>
                 </div>
-                <%-- <div>
-                	<img class="w-10 h-10 rounded-full" src="${pageContext.request.contextPath}/assets/images/testimg.jpeg" alt="Rounded avatar">
-					<!-- Dropdown menu -->
-					<div id="userDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
-					    <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-					      <div>Moditha Marasingha</div>
-					      <div class="font-medium truncate">mail@gmail.com</div>
-					    </div>
-					    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
-					      <li>
-					        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-					      </li>
-					      <li>
-					        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-					      </li>
-					      <li>
-					        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-					      </li>
-					    </ul>
-					    <div class="py-1">
-					      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-					    </div>
-					</div>          	
-                </div> --%>
-                <div class="flex">
-                    <a href="${pageContext.request.contextPath}/Signin" class="text-gray-800 hover:bg-gray-200 transition ease-in-out duration-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">Sign In</a>
-                    <a href="${pageContext.request.contextPath}/SignUp" class="text-white bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">Get started</a>
-                </div>
+                <c:if test="${not empty uid}">
+                	<div class="relative">
+	                	<img id="dropdownTrigger" class="w-10 h-10 rounded-full" src="${pageContext.request.contextPath}/assets/images/profilePics/${profilepic}" alt="Rounded avatar">
+						<!-- Dropdown menu -->
+						<div id="userDropdown" class="hidden absolute right-0 mt-1 origin-top-right z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+						    <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+						      <div>${fullname}</div>
+						    </div>
+						    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
+						      <li>
+						        <a href="${pageContext.request.contextPath}/userprofile" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Profile</a>
+						      </li>
+						      <li>
+						        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Patient Dashboard</a>
+						      </li>
+						      <li>
+						        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Notifications</a>
+						      </li>
+						    </ul>
+						    <div class="py-1">
+						      <a href="${pageContext.request.contextPath}/Signout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+						    </div>
+						</div>          	
+                	</div>
+                </c:if>
+                <c:if test="${empty uid}">
+                    <div class="flex">
+	                    <a href="${pageContext.request.contextPath}/Signin" class="text-gray-800 hover:bg-gray-200 transition ease-in-out duration-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">Sign In</a>
+	                    <a href="${pageContext.request.contextPath}/SignUp" class="text-white bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">Get started</a>
+                	</div>
+                </c:if>
             </div>
         </nav>
+        <script src="${pageContext.request.contextPath}/assets/js/header.js"></script>
 </header>

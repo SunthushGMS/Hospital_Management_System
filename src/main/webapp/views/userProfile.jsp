@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +25,7 @@
                 <!-- Profile Picture Section -->
                 <div class="md:w-1/3 p-8 flex flex-col items-center justify-center bg-blue-50">
                     <img class="w-40 h-40 rounded-full border-4 border-white shadow-lg mb-4"
-                        src="${pageContext.request.contextPath}/assets/images/testimg.jpeg"
+                        src="${pageContext.request.contextPath}/assets/images/profilePics/${profilepic}"
                         alt="User profile picture">
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2">Moditha Marsingha</h2>
                     <p class="text-gray-600 mb-4">Username: DOC12345</p>
@@ -70,107 +71,112 @@
         </div>
 
         <!-- Doctor Information -->
-        <!-- <div class="mt-8 bg-white rounded-lg shadow-custom overflow-hidden">
-        <div class="border-b">
-            <p class="px-4 py-2 w-full text-center text-blue-600 bg-blue-50 border-b-2 border-blue-600">Public Details</p>
-        </div>
-        <div class="p-6">
-            <div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa fa-user-md" aria-hidden="true"></i> Doctor Information</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <p class="text-gray-900 font-semibold">Specialization:</p>
-                        <p class="text-gray-500 font-medium">Cardiology</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-900 font-semibold">License Number:</p>
-                        <p class="text-gray-500 font-medium">MED98765</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-900 font-semibold">Years of Experience:</p>
-                        <p class="text-gray-500 font-medium">15</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-900 font-semibold">Public Bio:</p>
-                        <p class="text-gray-500 font-medium">Highly respected cardiologist with over 15 years of experience in treating cardiovascular diseases.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> -->
-
+        <c:if test="${role == 'doctor'}">
+        	<div class="mt-8 bg-white rounded-lg shadow-custom overflow-hidden">
+		        <div class="border-b">
+		            <p class="px-4 py-2 w-full text-center text-blue-600 bg-blue-50 border-b-2 border-blue-600">Public Details</p>
+		        </div>
+		        <div class="p-6">
+		            <div>
+		                <h3 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa fa-user-md" aria-hidden="true"></i> Doctor Information</h3>
+		                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		                    <div>
+		                        <p class="text-gray-900 font-semibold">Specialization:</p>
+		                        <p class="text-gray-500 font-medium">Cardiology</p>
+		                    </div>
+		                    <div>
+		                        <p class="text-gray-900 font-semibold">License Number:</p>
+		                        <p class="text-gray-500 font-medium">MED98765</p>
+		                    </div>
+		                    <div>
+		                        <p class="text-gray-900 font-semibold">Years of Experience:</p>
+		                        <p class="text-gray-500 font-medium">15</p>
+		                    </div>
+		                    <div>
+		                        <p class="text-gray-900 font-semibold">Public Bio:</p>
+		                        <p class="text-gray-500 font-medium">Highly respected cardiologist with over 15 years of experience in treating cardiovascular diseases.</p>
+		                    </div>
+		                </div>
+		            </div>
+		
+		        </div>
+    		</div>
+        </c:if>
+        
         <!-- Patient Information -->
-        <div class="mt-8 bg-white rounded-lg shadow-custom overflow-hidden">
-            <div class="border-b">
-                <p class="px-4 py-2 w-full text-center text-blue-600 bg-blue-50 border-b-2 border-blue-600">Medical
-                    Details</p>
-            </div>
-            <div class="p-6">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa fa-heartbeat"></i> Patient
-                        Information</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                            <p class="text-gray-900 font-semibold">Blood Type:</p>
-                            <p class="text-gray-500 font-medium">A+</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-900 font-semibold">Gender</p>
-                            <p class="text-gray-500 font-medium">Male</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-900 font-semibold">Allergies:</p>
-                            <p class="text-gray-500 font-medium">Penicillin, Peanuts</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-900 font-semibold">Medical History:</p>
-                            <p class="text-gray-500 font-medium">Hypertension, Type 2 Diabetes</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-900 font-semibold">Genetic Predispositions:</p>
-                            <p class="text-gray-500 font-medium">Family history of cardiovascular disease</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-900 font-semibold">Special Notes:</p>
-                            <p class="text-gray-500 font-medium">None</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        <c:if test="${role == 'patient'}">
+        	<div class="mt-8 bg-white rounded-lg shadow-custom overflow-hidden">
+	            <div class="border-b">
+	                <p class="px-4 py-2 w-full text-center text-blue-600 bg-blue-50 border-b-2 border-blue-600">Medical
+	                    Details</p>
+	            </div>
+	            <div class="p-6">
+	                <div>
+	                    <h3 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa fa-heartbeat"></i> Patient
+	                        Information</h3>
+	                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+	                        <div>
+	                            <p class="text-gray-900 font-semibold">Blood Type:</p>
+	                            <p class="text-gray-500 font-medium">A+</p>
+	                        </div>
+	                        <div>
+	                            <p class="text-gray-900 font-semibold">Gender</p>
+	                            <p class="text-gray-500 font-medium">Male</p>
+	                        </div>
+	                        <div>
+	                            <p class="text-gray-900 font-semibold">Allergies:</p>
+	                            <p class="text-gray-500 font-medium">Penicillin, Peanuts</p>
+	                        </div>
+	                        <div>
+	                            <p class="text-gray-900 font-semibold">Medical History:</p>
+	                            <p class="text-gray-500 font-medium">Hypertension, Type 2 Diabetes</p>
+	                        </div>
+	                        <div>
+	                            <p class="text-gray-900 font-semibold">Genetic Predispositions:</p>
+	                            <p class="text-gray-500 font-medium">Family history of cardiovascular disease</p>
+	                        </div>
+	                        <div>
+	                            <p class="text-gray-900 font-semibold">Special Notes:</p>
+	                            <p class="text-gray-500 font-medium">None</p>
+	                        </div>
+	                    </div>
+	                </div>
+	
+	            </div>
+        	</div>
+        </c:if>
 
         <!-- Admin Information -->
-        <!-- <div class="mt-8 bg-white rounded-lg shadow-custom overflow-hidden">
-        <div class="border-b">
-            <p class="px-4 py-2 w-full text-center text-blue-600 bg-blue-50 border-b-2 border-blue-600">Admin</p>
-        </div>
-        <div class="p-6">
-            <div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa fa-lock"></i> Admin Information</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <p class="text-gray-600">Role:</p>
-                        <p class="text-gray-800 font-medium">System Admin</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-600">Access Level:</p>
-                        <p class="text-gray-800 font-medium">Full</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-600">Date Joined:</p>
-                        <p class="text-gray-800 font-medium">January 15, 2010</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-600">Public Bio:</p>
-                        <p class="text-gray-800 font-medium">Highly respected cardiologist with over 15 years of experience in treating cardiovascular diseases.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> -->
+        <c:if test="${role == 'admin'}">
+        	<div class="mt-8 bg-white rounded-lg shadow-custom overflow-hidden">
+		        <div class="border-b">
+		            <p class="px-4 py-2 w-full text-center text-blue-600 bg-blue-50 border-b-2 border-blue-600">Admin</p>
+		        </div>
+		        <div class="p-6">
+		            <div>
+		                <h3 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa fa-lock"></i> Admin Information</h3>
+		                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		                    <div>
+		                        <p class="text-gray-600">Role:</p>
+		                        <p class="text-gray-800 font-medium">System Admin</p>
+		                    </div>
+		                    <div>
+		                        <p class="text-gray-600">Access Level:</p>
+		                        <p class="text-gray-800 font-medium">Full</p>
+		                    </div>
+		                    <div>
+		                        <p class="text-gray-600">Date Joined:</p>
+		                        <p class="text-gray-800 font-medium">January 15, 2010</p>
+		                    </div>
+		                    <div>
+		                        <p class="text-gray-600">Public Bio:</p>
+		                        <p class="text-gray-800 font-medium">Highly respected cardiologist with over 15 years of experience in treating cardiovascular diseases.</p>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+    		</div>
+        </c:if>
 
         <div class="bg-white rounded-lg shadow-custom p-6 mt-8">
             <h2 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa fa-key" aria-hidden="true"></i> Change
@@ -385,158 +391,156 @@
 
                             <!-- User Specific Information Section -->
                             <!-- Patient Details -->
-                            <div>
-                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Medical
-                                    Information</h4>
+                            <c:if test="${role == 'patient'}">
+                            	<div>
+	                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Medical
+	                                    Information</h4>
+	
+		                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+	                                    <!-- Blood Type -->
+	                                    <div>
+	                                        <label for="bloodType"
+	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blood
+	                                            Type</label>
+	                                        <select id="bloodType"
+	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+	                                            <option value="A+">A+</option>
+	                                            <option value="A-">A-</option>
+	                                            <option value="B+">B+</option>
+	                                            <option value="B-">B-</option>
+	                                            <option value="AB+">AB+</option>
+	                                            <option value="AB-">AB-</option>
+	                                            <option value="O+">O+</option>
+	                                            <option value="O-">O-</option>
+	                                        </select>
+	                                    </div>
+	                                    <!-- Gender -->
+	                                    <div>
+	                                        <label for="gender"
+	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
+	                                        <select id="gender"
+	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+	                                            <option value="A+">Male</option>
+	                                            <option value="A-">Female</option>
+	                                            <option value="B+">None</option>
+	                                        </select>
+	                                    </div>
+	                                </div>
 
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                    <!-- Blood Type -->
-                                    <div>
-                                        <label for="bloodType"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blood
-                                            Type</label>
-                                        <select id="bloodType"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                                            <option value="A+">A+</option>
-                                            <option value="A-">A-</option>
-                                            <option value="B+">B+</option>
-                                            <option value="B-">B-</option>
-                                            <option value="AB+">AB+</option>
-                                            <option value="AB-">AB-</option>
-                                            <option value="O+">O+</option>
-                                            <option value="O-">O-</option>
-                                        </select>
-                                    </div>
-                                    <!-- Gender -->
-                                    <div>
-                                        <label for="gender"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
-                                        <select id="gender"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                                            <option value="A+">Male</option>
-                                            <option value="A-">Female</option>
-                                            <option value="B+">None</option>
-                                        </select>
-                                    </div>
-                                </div>
+	                                <!-- Allergies -->
+	                                <div class="mb-4">
+	                                    <label for="allergies"
+	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Allergies</label>
+	                                    <textarea id="allergies" rows="2"
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">Penicillin, Peanuts</textarea>
+	                                </div>
+	
+	                                <!-- Medical History -->
+	                                <div class="mb-4">
+	                                    <label for="medicalHistory"
+	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Medical
+	                                        History</label>
+	                                    <textarea id="medicalHistory" rows="2"
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">Hypertension, Type 2 Diabetes</textarea>
+	                                </div>
 
-                                <!-- Allergies -->
-                                <div class="mb-4">
-                                    <label for="allergies"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Allergies</label>
-                                    <textarea id="allergies" rows="2"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">Penicillin, Peanuts</textarea>
-                                </div>
+	                                <!-- Genetic Predispositions -->
+	                                <div class="mb-4">
+	                                    <label for="geneticPredispositions"
+	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Genetic
+	                                        Predispositions</label>
+	                                    <textarea id="geneticPredispositions" rows="2"
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">Family history of cardiovascular disease</textarea>
+	                                </div>
 
-                                <!-- Medical History -->
-                                <div class="mb-4">
-                                    <label for="medicalHistory"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Medical
-                                        History</label>
-                                    <textarea id="medicalHistory" rows="2"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">Hypertension, Type 2 Diabetes</textarea>
-                                </div>
-
-                                <!-- Genetic Predispositions -->
-                                <div class="mb-4">
-                                    <label for="geneticPredispositions"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Genetic
-                                        Predispositions</label>
-                                    <textarea id="geneticPredispositions" rows="2"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">Family history of cardiovascular disease</textarea>
-                                </div>
-
-                                <!-- Special Notes -->
-                                <div>
-                                    <label for="specialNotes"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Special
-                                        Notes</label>
-                                    <textarea id="specialNotes" rows="2"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">None</textarea>
-                                </div>
-                            </div>
-
+	                                <!-- Special Notes -->
+	                                <div>
+	                                    <label for="specialNotes"
+	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Special
+	                                        Notes</label>
+	                                    <textarea id="specialNotes" rows="2"
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">None</textarea>
+	                                </div>
+                            	</div>
+                            </c:if>
 
                             <!-- Doctor Details -->
-                            <!-- <div>
-                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Doctor Information</h4>
-
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                    Specialization
-                                    <div>
-                                        <label for="specialization"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Specialization</label>
-                                        <input id="specialization" type="text"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                                            value="Cardiology">
-                                    </div>
-                                    Gender
-                                    <div>
-                                        <label for="LicenseNumber"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">License Number</label>
-                                        <input id="licenseNumber"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                                            value="MED98765">
-                                    </div>
-                                </div>
-
-                                Years of Experience
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                    <div>
-                                        <label for="yearsOfExperience"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Years of Experience</label>
-                                        <input id="pecialization" type="number"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                                            value="15">
-                                    </div>
-                                </div>
-                                
-                                Public Bio
-                                <div>
-                                    <label for="publicbio"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Public Bio</label>
-                                    <textarea id="publicbio" rows="2"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">None</textarea>
-                                </div>
-                            </div> -->
+                            <c:if test="${role == 'doctor'}">
+                            	<div>
+	                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Doctor Information</h4>
+	
+	                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+	                                    <div>
+	                                        <label for="specialization"
+	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Specialization</label>
+	                                        <input id="specialization" type="text"
+	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+	                                            value="Cardiology">
+	                                    </div>
+	                                    <div>
+	                                        <label for="LicenseNumber"
+	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">License Number</label>
+	                                        <input id="licenseNumber"
+	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+	                                            value="MED98765">
+	                                    </div>
+	                                </div>
+	
+	                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+	                                    <div>
+	                                        <label for="yearsOfExperience"
+	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Years of Experience</label>
+	                                        <input id="pecialization" type="number"
+	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+	                                            value="15">
+	                                    </div>
+	                                </div>
+	                                
+	                                <div>
+	                                    <label for="publicbio"
+	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Public Bio</label>
+	                                    <textarea id="publicbio" rows="2"
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">None</textarea>
+	                                </div>
+                            	</div>
+                            </c:if>
 
 
                             <!-- Admin Details -->
-                            <!-- <div>
-                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Admin Information</h4>
-
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                    Role
-                                    <div>
-                                        <label for="Role"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
-                                        <select id="role"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                                            <option value="A+">Admin</option>
-                                            <option value="A-">System Admin</option>
-                                            <option value="B+">Editor</option>
-                                        </select>
-                                    </div>
-                                    Access Level
-                                    <div>
-                                        <label for="AccessLevel"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Access Level</label>
-                                        <select id="accessLevel"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                                            <option value="A+">Full</option>
-                                            <option value="A-">Restricted</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                Public Bio
-                                <div>
-                                    <label for="publicbio"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Public Bio</label>
-                                    <textarea id="publicbio" rows="2"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">None</textarea>
-                                </div>
-                            </div> -->
+                            <c:if test="${role == 'admin'}">
+                            	<div>
+	                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Admin Information</h4>
+	
+	                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+	                                    <div>
+	                                        <label for="Role"
+	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
+	                                        <select id="role"
+	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+	                                            <option value="A+">Admin</option>
+	                                            <option value="A-">System Admin</option>
+	                                            <option value="B+">Editor</option>
+	                                        </select>
+	                                    </div>
+	                                    <div>
+	                                        <label for="AccessLevel"
+	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Access Level</label>
+	                                        <select id="accessLevel"
+	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+	                                            <option value="A+">Full</option>
+	                                            <option value="A-">Restricted</option>
+	                                        </select>
+	                                    </div>
+	                                </div>
+	
+	                                <div>
+	                                    <label for="publicbio"
+	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Public Bio</label>
+	                                    <textarea id="publicbio" rows="2"
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">None</textarea>
+	                                </div>
+                            	</div>
+                            </c:if>
 
                             <!-- Modal Footer -->
                             <div class="flex justify-end space-x-2 pt-4">
