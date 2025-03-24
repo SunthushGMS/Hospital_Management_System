@@ -163,7 +163,7 @@ input, textarea {
 
 .contact-type{
     margin: auto;
-  	text-align: center;
+  	margin-left: 100px;
     color: #424b5f;
     font-weight: bold;
     padding: 20px;
