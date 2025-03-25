@@ -30,12 +30,14 @@ body{
     font-size: 50px;
     text-align:center;
     margin: 35px;
+   	font-weight: bold;
 }
 
 .tableHeading{
     color: var(--sub-heading-color);
     font-size: 30px;
     margin: 25px;
+    font-weight: bold;
 }
 
 
@@ -61,7 +63,10 @@ body{
 
 #acceptAppointmentBtn{
    background: var(--main-btn-bg);
-    margin-top: 10px
+    margin-top: 10px;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
 }
 #acceptAppointmentBtn:hover{
     background: var(--main-btn-hover-bg);
@@ -76,37 +81,52 @@ body{
 
 
 
-table{
-    margin: auto;
+table {
+    width: 100%;
     border-collapse: collapse;
-    border-radius: 15px;
-    overflow:hidden;
-    width: 70%;
-}
-table:hover{
-    cursor: pointer;
-}
-th{
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    margin-left: 180px;
+    width: 80%;
+  }
+  
+  
+  th {
     background: #007bff;
     color: white;
+    text-align: center;
+    padding: 12px;
+  }
+  
+  
+  td {
     padding: 20px;
-}
-td{
-    margin: auto;
-    padding: 20px;
-    text-align: left;
-}
-
-tr:nth-child(even){
-    background: #efeeee;
-}
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    width: 900px;
+  }
+  
+  
+  tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  
+  
+  tr:hover {
+    background: #e9ecef;
+    transition: 0.3s;
+    cursor: pointer;
+  }
 
 #app-image{
 	margin-top: 30px;
 	margin-bottom: 30px;
 	margin: auto;
 	display:block;
-    width: 150px;
+    width: 100px;
     margin-bottom: 20px;
 }
 
