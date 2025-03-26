@@ -85,19 +85,19 @@
         <div class="main-div">
             <div class="sub-div">
                 <h1 class="sub-head2">Emergency Services</h1>
-                <img src="${pageContext.request.contextPath}/assets/images/kit2" alt="">
+                <img src="${pageContext.request.contextPath}/assets/images/kit2.png" alt="">
             </div>
             <div class="sub-div">
                 <h1 class="sub-head2">Bed & Room Management </h1>
-                <img src="${pageContext.request.contextPath}/assets/images/" alt="">
+                <img src="${pageContext.request.contextPath}/assets/images/bed.png" alt="">
             </div>
             <div class="sub-div">
                 <h1 class="sub-head2">Telemedicine</h1>
-                <img src="${pageContext.request.contextPath}/assets/images/" alt="">
+                <img src="${pageContext.request.contextPath}/assets/images/telemedicine(1).png" alt="">
             </div>
             <div class="sub-div">
                 <h1 class="sub-head2">Real-Time Notifications</h1>
-                <img src="${pageContext.request.contextPath}/assets/images/" alt="">
+                <img src="${pageContext.request.contextPath}/assets/images/notification-bell.png" alt="">
             </div>
         </div>
     </section>
