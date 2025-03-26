@@ -82,34 +82,22 @@
     </section>
     <section class="sec3">
         <h1 class="head2">Our Facilities</h1>
-        <div class="sec3-sub">
-            <div class="sec3-img">
-                <img src="${pageContext.request.contextPath}/assets/images/software.png" alt="" class="imgSec">
+        <div class="main-div">
+            <div class="sub-div">
+                <h1 class="sub-head2">Emergency Services</h1>
+                <img src="${pageContext.request.contextPath}/assets/images/kit2" alt="">
             </div>
-            <div class="sec3-sol">
-                <h1 class="subhead1">Hospital Application Software</h1>
-                <p class="para2">Our Hospital Management Software streamlines patient care, administration, billing, and records management, ensuring efficient hospital operations. </p>
-                <button class="click-Here">Click here</button>
+            <div class="sub-div">
+                <h1 class="sub-head2">Bed & Room Management </h1>
+                <img src="${pageContext.request.contextPath}/assets/images/" alt="">
             </div>
-        </div>
-        <div class="sec3-sub">
-            <div class="sec3-sol" id="left-sub">
-                <h1 class="subhead1">Medical Management Software</h1>
-                <p class="para2">Our Medical Management Software optimizes patient records, appointments, billing, and inventory, enhancing workflow for healthcare providers. </p>
-                <button class="click-Here">Click here</button>
+            <div class="sub-div">
+                <h1 class="sub-head2">Telemedicine</h1>
+                <img src="${pageContext.request.contextPath}/assets/images/" alt="">
             </div>
-            <div>
-                <img src="${pageContext.request.contextPath}/assets/images/medic.png" alt=""  id="right-img">
-            </div>
-        </div>
-        <div class="sec3-sub">
-            <div>
-                <img src="${pageContext.request.contextPath}/assets/images/clinic.png" alt="" class="imgSec" id="left-img">
-            </div>
-            <div class="sec3-sol">
-                <h1 class="subhead1">Our Clinic Management Software</h1>
-                <p class="para2">Our Clinic Management Software simplifies appointments, patient records, billing, and administration, ensuring smooth operations and better patient care. </p>
-                <button class="click-Here">Click here</button>
+            <div class="sub-div">
+                <h1 class="sub-head2">Real-Time Notifications</h1>
+                <img src="${pageContext.request.contextPath}/assets/images/" alt="">
             </div>
         </div>
     </section>

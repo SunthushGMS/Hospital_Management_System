@@ -55,6 +55,7 @@ body{
   padding: 20px;
   margin: 20px;
   transition: var(--transition);
+  height: 400px;
 }
 
 .sec1:hover{
@@ -62,13 +63,12 @@ body{
 }
 
 .imgSec{
-  width: 250px;
-  margin-left: 20px;
+  width: 150px;
+  margin: auto;
+  margin-top: 50px;
 }
 
-#imgSec2{
-  margin-top: 40px;
-}
+
 
 .subhead1{
   padding: 10px;
@@ -76,9 +76,7 @@ body{
   text-align: center;
 }
 
-#imgSec3{
-  margin-top: 20px;
-}
+
 
 .wrapper2{
   display: grid;
@@ -111,40 +109,20 @@ body{
   background-color: var(--sub-btn-bg);
 }
 
-.sec3-sub{
+.main-div{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding: 20px;
+  margin: auto;
 }
 
-.sec3-sol{
+.sub-div{
+  border: none;
   border-radius: 15px;
-
+  box-shadow: 0 0 5px rgb(25, 164, 189);
   padding: 20px;
-  width: 350px;
-  height: 200px;
-}
-
-.sec3-img{
-  margin-left: 550px;
-  margin-top: 50px;
- margin-bottom: 50px;
-}
-
-#left-sub{
-  margin-left: 500px;
-}
-
-#right-img{
-  margin-right: 500px;
-  width: 250px;
-  margin-left: 40px;
-  margin-top: 50px;
-}
-
-#left-img{
-  margin-left: 600px;
-  margin-top: 50px;
+  margin: 20px;
+  transition: var(--transition);
 }
 
 .para2{
