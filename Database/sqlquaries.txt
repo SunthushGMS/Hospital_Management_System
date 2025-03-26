@@ -45,3 +45,104 @@ CREATE TABLE Admin (
     publicbio TEXT,
     FOREIGN KEY (user_id) REFERENCES User(uid) ON DELETE CASCADE
 );
+
+CREATE TABLE Lab_Report (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    department VARCHAR(50),
+    document VARCHAR(255),
+    summary TEXT,
+    description TEXT,
+    patient_id INT,
+    doctor_id INT,
+    FOREIGN KEY (patient_id) REFERENCES Patient(user_id),
+    FOREIGN KEY (doctor_id) REFERENCES Doctor(user_id)
+);
+
+CREATE TABLE Request_Labreport (
+    labreport_id INT,
+    doctor_id INT,
+    PRIMARY KEY (labreport_id, doctor_id),
+    FOREIGN KEY (labreport_id) REFERENCES Lab_Report(id),
+    FOREIGN KEY (doctor_id) REFERENCES Doctor(user_id)
+);
+
+CREATE TABLE Surgery (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    date DATE,
+    time TIME,
+    completion_status ENUM('completed', 'in progress', 'scheduled'),
+    acceptance_status ENUM('accepted', 'pending', 'rejected')
+);
+
+CREATE TABLE Surgery_Recommendations (
+    surgery_id INT,
+    doctor_id INT,
+    PRIMARY KEY (surgery_id, doctor_id),
+    FOREIGN KEY (surgery_id) REFERENCES Surgery(id),
+    FOREIGN KEY (doctor_id) REFERENCES Doctor(user_id)
+);
+
+CREATE TABLE Appointment (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date DATE,
+    time TIME,
+    status ENUM('accept', 'rescheduled'),
+    doctor_id INT,
+    patient_id INT,
+    FOREIGN KEY (doctor_id) REFERENCES Doctor(user_id),
+    FOREIGN KEY (patient_id) REFERENCES Patient(user_id)
+);
+
+CREATE TABLE Emergency_Patient (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    severity ENUM('low', 'medium', 'high', 'critical'),
+    problem VARCHAR(255),
+    description TEXT,
+    doctor_id INT,
+    FOREIGN KEY (doctor_id) REFERENCES Doctor(user_id)
+);
+
+CREATE TABLE Prescription (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date_of_issue DATE,
+    dietary_advice TEXT,
+    doctors_notes TEXT,
+    doctor_id INT,
+    patient_id INT,
+    FOREIGN KEY (doctor_id) REFERENCES Doctor(user_id),
+    FOREIGN KEY (patient_id) REFERENCES Patient(user_id)
+);
+
+CREATE TABLE Drug (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Drug_Prescription (
+    prescription_id INT,
+    drug_id INT,
+    PRIMARY KEY (prescription_id, drug_id),
+    FOREIGN KEY (prescription_id) REFERENCES Prescription(id),
+    FOREIGN KEY (drug_id) REFERENCES Drug(id)
+);
+
+CREATE TABLE Vaccination (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    manufacturer VARCHAR(100),
+    date_of_vaccination DATE,
+    status ENUM('scheduled', 'completed', 'cancelled'),
+    pdf VARCHAR(255),
+    doctor_id INT,
+    FOREIGN KEY (doctor_id) REFERENCES Doctor(user_id)
+);
+
+CREATE TABLE Vaccinated_Patient (
+    patient_id INT,
+    vaccine_id INT,
+    PRIMARY KEY (patient_id, vaccine_id),
+    FOREIGN KEY (patient_id) REFERENCES Patient(user_id),
+    FOREIGN KEY (vaccine_id) REFERENCES Vaccination(id)
+);
