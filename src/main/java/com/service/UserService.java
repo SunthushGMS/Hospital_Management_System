@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.model.Admin;
+import com.model.Doctor;
 import com.model.Patient;
 import com.model.User;
 import com.utill.DBConnection;
@@ -85,6 +87,170 @@ public class UserService {
 		}
 		
 		return false;
+		
+	}
+	
+	
+	public static Patient getPatientById(int id) {
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			String query = "SELECT " +
+	                "User.uid AS user_id, " +
+	                "User.username, " +
+	                "User.fullname, " +
+	                "User.bio, " +
+	                "User.dateofbirth, " +
+	                "User.email, " +
+	                "User.phone_no, " +
+	                "User.address, " +
+	                "User.language, " +
+	                "User.profilepiclink, " +
+	                "Patient.bloodtype, " +
+	                "Patient.gender, " +
+	                "Patient.allergies, " +
+	                "Patient.med_history, " +
+	                "Patient.notes, " +
+	                "Patient.genetic_predispositions " +
+	                "FROM User JOIN Patient ON User.uid = Patient.user_id WHERE User.uid = '"+id+"';";
+			ResultSet rs = stmt.executeQuery(query);
+			
+			if(rs.next()) {
+				int uid = rs.getInt("user_id");
+				String username = rs.getString("username");
+				String fullname = rs.getString("fullname");
+				String bio = rs.getString("bio");
+				String dob = rs.getString("dateofbirth");
+				String email = rs.getString("email");
+				String phone = rs.getString("phone_no");
+				String address = rs.getString("address");
+				String language = rs.getString("language");
+				String profilepic = rs.getString("profilepiclink");
+				String bloodtype = rs.getString("bloodtype");
+				String gender = rs.getString("gender");
+				String allergies = rs.getString("allergies");
+				String med_history = rs.getString("med_history");
+				String notes = rs.getString("notes");
+				String genetic_predispositions = rs.getString("genetic_predispositions");
+				
+				Patient patient = new Patient(uid,username,"0",fullname,bio,dob,email,phone,address,language,profilepic,"Patient",bloodtype,gender,allergies,med_history,genetic_predispositions,notes);
+				con.close();
+				return patient;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return null;
+	}
+	
+	public static Doctor getDoctorById(int id) {
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			String query = "SELECT " +
+	                "User.uid AS user_id, " +
+	                "User.username, " +
+	                "User.fullname, " +
+	                "User.bio, " +
+	                "User.dateofbirth, " +
+	                "User.email, " +
+	                "User.phone_no, " +
+	                "User.address, " +
+	                "User.language, " +
+	                "User.profilepiclink, " +
+	                "Doctor.publicbio, " +
+	                "Doctor.specialization, " +
+	                "Doctor.license_no, " +
+	                "Doctor.experience " +
+	                "FROM User JOIN Doctor ON User.uid = Doctor.user_id WHERE User.uid = '"+id+"';";
+			ResultSet rs = stmt.executeQuery(query);
+			
+			if(rs.next()) {
+				int uid = rs.getInt("user_id");
+				String username = rs.getString("username");
+				String fullname = rs.getString("fullname");
+				String bio = rs.getString("bio");
+				String dob = rs.getString("dateofbirth");
+				String email = rs.getString("email");
+				String phone = rs.getString("phone_no");
+				String address = rs.getString("address");
+				String language = rs.getString("language");
+				String profilepic = rs.getString("profilepiclink");
+				String publicbio = rs.getString("publicbio");
+				String specialization = rs.getString("specialization");
+				String license_no = rs.getString("license_no");
+				String experience = rs.getString("experience");
+				
+				Doctor doctor = new Doctor (uid,username,"0",fullname,bio,dob,email,phone,address,language,profilepic,"Doctor",specialization,license_no,experience,publicbio);
+				con.close();
+				return doctor;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return null;
+		
+	}
+	
+	
+public static Admin getAdminById(int id) {
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			String query = "SELECT " +
+	                "User.uid AS user_id, " +
+	                "User.username, " +
+	                "User.fullname, " +
+	                "User.bio, " +
+	                "User.dateofbirth, " +
+	                "User.email, " +
+	                "User.phone_no, " +
+	                "User.address, " +
+	                "User.language, " +
+	                "User.profilepiclink, " +
+	                "Admin.publicbio, " +
+	                "Admin.role, " +
+	                "Admin.datejoined, " +
+	                "Admin.access_level " +
+	                "FROM User JOIN Admin ON User.uid = Admin.user_id WHERE User.uid = '"+id+"';";
+			ResultSet rs = stmt.executeQuery(query);
+			
+			if(rs.next()) {
+				int uid = rs.getInt("user_id");
+				String username = rs.getString("username");
+				String fullname = rs.getString("fullname");
+				String bio = rs.getString("bio");
+				String dob = rs.getString("dateofbirth");
+				String email = rs.getString("email");
+				String phone = rs.getString("phone_no");
+				String address = rs.getString("address");
+				String language = rs.getString("language");
+				String profilepic = rs.getString("profilepiclink");
+				String publicbio = rs.getString("publicbio");
+				String role = rs.getString("role");
+				String datejoined = rs.getString("datejoined");
+				String accesslevel = rs.getString("access_level");
+				
+				Admin admin = new Admin (uid,username,"0",fullname,bio,dob,email,phone,address,language,profilepic,"Admin",role,publicbio,datejoined,accesslevel);
+				con.close();
+				return admin;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return null;
 		
 	}
 
