@@ -11,7 +11,7 @@ public class Admin extends User {
 			String phone, String address, String language, String profilepic, String role, String role2,
 			String publicbio, String datejoined, String accesslevel) {
 		super(uid, username, password, fullname, bio, dob, email, phone, address, language, profilepic, role);
-		role = role2;
+		this.role = role2;
 		this.publicbio = publicbio;
 		this.datejoined = datejoined;
 		this.accesslevel = accesslevel;

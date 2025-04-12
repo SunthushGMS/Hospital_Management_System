@@ -27,8 +27,8 @@
                     <img class="w-40 h-40 rounded-full border-4 border-white shadow-lg mb-4"
                         src="${pageContext.request.contextPath}/assets/images/profilePics/${profilepic}"
                         alt="User profile picture">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Moditha Marsingha</h2>
-                    <p class="text-gray-600 mb-4">Username: DOC12345</p>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">${user.fullname}</h2>
+                    <p class="text-gray-600 mb-4">Username: ${user.username}</p>
                     <button id="openProfileModal"
                         class="text-white px-4 py-2 rounded-full flex items-center bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer">
                         <i class="fas fa-camera mr-2"></i> Change Picture
@@ -42,28 +42,27 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <p class="text-gray-900 font-semibold">Email</p>
-                            <p class="text-gray-500 font-medium">marasingha@example.com</p>
+                            <p class="text-gray-500 font-medium">${user.email}</p>
                         </div>
                         <div>
                             <p class="text-gray-900 font-semibold">Phone</p>
-                            <p class="text-gray-500 font-medium">0716899444</p>
+                            <p class="text-gray-500 font-medium">${user.phone}</p>
                         </div>
                         <div>
                             <p class="text-gray-900 font-semibold">Date of Birth</p>
-                            <p class="text-gray-500 font-medium">January 15, 2003</p>
+                            <p class="text-gray-500 font-medium">${user.dob}</p>
                         </div>
                         <div>
                             <p class="text-gray-900 font-semibold">Address</p>
-                            <p class="text-gray-500 font-medium">123 Main St, Pittugala, Malabe</p>
+                            <p class="text-gray-500 font-medium">${user.address}</p>
                         </div>
                         <div>
                             <p class="text-gray-900 font-semibold">Bio</p>
-                            <p class="text-gray-500 font-medium">Highly respected cardiologist with over 15 years of
-                                experience in treating cardiovascular diseases.</p>
+                            <p class="text-gray-500 font-medium">${user.bio}</p>
                         </div>
                         <div>
                             <p class="text-gray-900 font-semibold">Languages</p>
-                            <p class="text-gray-500 font-medium">English, Sinhala, Tamil</p>
+                            <p class="text-gray-500 font-medium">${user.language}</p>
                         </div>
                     </div>
                 </div>
@@ -82,19 +81,19 @@
 		                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 		                    <div>
 		                        <p class="text-gray-900 font-semibold">Specialization:</p>
-		                        <p class="text-gray-500 font-medium">Cardiology</p>
+		                        <p class="text-gray-500 font-medium">${user.specialization}</p>
 		                    </div>
 		                    <div>
 		                        <p class="text-gray-900 font-semibold">License Number:</p>
-		                        <p class="text-gray-500 font-medium">MED98765</p>
+		                        <p class="text-gray-500 font-medium">${user.license}</p>
 		                    </div>
 		                    <div>
 		                        <p class="text-gray-900 font-semibold">Years of Experience:</p>
-		                        <p class="text-gray-500 font-medium">15</p>
+		                        <p class="text-gray-500 font-medium">${user.experience}</p>
 		                    </div>
 		                    <div>
 		                        <p class="text-gray-900 font-semibold">Public Bio:</p>
-		                        <p class="text-gray-500 font-medium">Highly respected cardiologist with over 15 years of experience in treating cardiovascular diseases.</p>
+		                        <p class="text-gray-500 font-medium">${user.publicbio}</p>
 		                    </div>
 		                </div>
 		            </div>
@@ -117,27 +116,27 @@
 	                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 	                        <div>
 	                            <p class="text-gray-900 font-semibold">Blood Type:</p>
-	                            <p class="text-gray-500 font-medium">A+</p>
+	                            <p class="text-gray-500 font-medium">${user.bloodGroup}</p>
 	                        </div>
 	                        <div>
 	                            <p class="text-gray-900 font-semibold">Gender</p>
-	                            <p class="text-gray-500 font-medium">Male</p>
+	                            <p class="text-gray-500 font-medium">${user.gender}</p>
 	                        </div>
 	                        <div>
 	                            <p class="text-gray-900 font-semibold">Allergies:</p>
-	                            <p class="text-gray-500 font-medium">Penicillin, Peanuts</p>
+	                            <p class="text-gray-500 font-medium">${user.allergies}</p>
 	                        </div>
 	                        <div>
 	                            <p class="text-gray-900 font-semibold">Medical History:</p>
-	                            <p class="text-gray-500 font-medium">Hypertension, Type 2 Diabetes</p>
+	                            <p class="text-gray-500 font-medium">${user.medicalHistory}</p>
 	                        </div>
 	                        <div>
 	                            <p class="text-gray-900 font-semibold">Genetic Predispositions:</p>
-	                            <p class="text-gray-500 font-medium">Family history of cardiovascular disease</p>
+	                            <p class="text-gray-500 font-medium">${user.currentMedication}</p>
 	                        </div>
 	                        <div>
 	                            <p class="text-gray-900 font-semibold">Special Notes:</p>
-	                            <p class="text-gray-500 font-medium">None</p>
+	                            <p class="text-gray-500 font-medium">${user.notes}</p>
 	                        </div>
 	                    </div>
 	                </div>
@@ -158,19 +157,19 @@
 		                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 		                    <div>
 		                        <p class="text-gray-600">Role:</p>
-		                        <p class="text-gray-800 font-medium">System Admin</p>
+		                        <p class="text-gray-800 font-medium">${user.role}</p>
 		                    </div>
 		                    <div>
 		                        <p class="text-gray-600">Access Level:</p>
-		                        <p class="text-gray-800 font-medium">Full</p>
+		                        <p class="text-gray-800 font-medium">${user.accesslevel}</p>
 		                    </div>
 		                    <div>
 		                        <p class="text-gray-600">Date Joined:</p>
-		                        <p class="text-gray-800 font-medium">January 15, 2010</p>
+		                        <p class="text-gray-800 font-medium">${user.datejoined}</p>
 		                    </div>
 		                    <div>
 		                        <p class="text-gray-600">Public Bio:</p>
-		                        <p class="text-gray-800 font-medium">Highly respected cardiologist with over 15 years of experience in treating cardiovascular diseases.</p>
+		                        <p class="text-gray-800 font-medium">${user.publicbio}</p>
 		                    </div>
 		                </div>
 		            </div>
@@ -260,7 +259,7 @@
                                     <div
                                         class="w-32 h-32 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
                                         <img id="preview"
-                                            src="${pageContext.request.contextPath}/assets/images/testimg.jpeg"
+                                            src="${pageContext.request.contextPath}/assets/images/profilePics/${profilepic}"
                                             alt="Profile preview" class="w-full h-full object-cover">
                                     </div>
                                 </div>
@@ -337,7 +336,7 @@
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                         <input type="email" id="email"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                                            value="user@example.com" required>
+                                            value="${user.email}" required>
                                     </div>
 
                                     <!-- Phone -->
@@ -346,7 +345,7 @@
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
                                         <input type="tel" id="phone"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                                            value="+94 71 234 5678">
+                                            value="${user.phone}" required>
                                     </div>
 
                                     <!-- Date of Birth -->
@@ -356,7 +355,7 @@
                                             of Birth</label>
                                         <input type="date" id="dob"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                                            value="1990-01-01">
+                                            value="${user.dob}" required>
                                     </div>
 
                                     <!-- Language -->
@@ -365,9 +364,9 @@
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Language</label>
                                         <select id="language"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                                            <option value="male" selected>English</option>
-                                            <option value="female">Sinhala</option>
-                                            <option value="other">Tamil</option>
+                                            <option value="English" ${user.language == 'English' ? 'selected' : ''}>English</option>
+                                            <option value="Sinhala" ${user.language == 'Sinhala' ? 'selected' : ''}>Sinhala</option>
+                                            <option value="Tamil" ${user.language == 'Tamil' ? 'selected' : ''}>Tamil</option>
                                         </select>
                                     </div>
                                 </div>
@@ -377,7 +376,7 @@
                                     <label for="address"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
                                     <textarea id="address" rows="3"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">123 Main Street, Colombo, Sri Lanka</textarea>
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.address}</textarea>
                                 </div>
 
                                 <!-- Bio -->
@@ -385,7 +384,7 @@
                                     <label for="bio"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bio</label>
                                     <textarea id="bio" rows="4"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">Software engineer with 5 years of experience in web development.</textarea>
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.bio}</textarea>
                                 </div>
                             </div>
 
@@ -404,14 +403,14 @@
 	                                            Type</label>
 	                                        <select id="bloodType"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-	                                            <option value="A+">A+</option>
-	                                            <option value="A-">A-</option>
-	                                            <option value="B+">B+</option>
-	                                            <option value="B-">B-</option>
-	                                            <option value="AB+">AB+</option>
-	                                            <option value="AB-">AB-</option>
-	                                            <option value="O+">O+</option>
-	                                            <option value="O-">O-</option>
+	                                            <option value="A+" ${user.bloodGroup == 'A+' ? 'selected' : ''}>A+</option>
+	                                            <option value="A-" ${user.bloodGroup == 'A-' ? 'selected' : ''}>A-</option>
+	                                            <option value="B+" ${user.bloodGroup == 'B+' ? 'selected' : ''}>B+</option>
+	                                            <option value="B-" ${user.bloodGroup == 'B-' ? 'selected' : ''}>B-</option>
+	                                            <option value="AB+" ${user.bloodGroup == 'AB+' ? 'selected' : ''}>AB+</option>
+	                                            <option value="AB-" ${user.bloodGroup == 'AB-' ? 'selected' : ''}>AB-</option>
+	                                            <option value="O+" ${user.bloodGroup == 'O+' ? 'selected' : ''}>O+</option>
+	                                            <option value="O-" ${user.bloodGroup == 'O-' ? 'selected' : ''}>O-</option>
 	                                        </select>
 	                                    </div>
 	                                    <!-- Gender -->
@@ -420,9 +419,9 @@
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
 	                                        <select id="gender"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-	                                            <option value="A+">Male</option>
-	                                            <option value="A-">Female</option>
-	                                            <option value="B+">None</option>
+	                                            <option value="male" ${user.gender == 'male' ? 'selected' : ''}>Male</option>
+	                                            <option value="female" ${user.gender == 'female' ? 'selected' : ''}>Female</option>
+	                                            <option value="none" ${user.gender == 'other' ? 'selected' : ''}>None</option>
 	                                        </select>
 	                                    </div>
 	                                </div>
@@ -432,7 +431,7 @@
 	                                    <label for="allergies"
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Allergies</label>
 	                                    <textarea id="allergies" rows="2"
-	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">Penicillin, Peanuts</textarea>
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.allergies}</textarea>
 	                                </div>
 	
 	                                <!-- Medical History -->
@@ -441,7 +440,7 @@
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Medical
 	                                        History</label>
 	                                    <textarea id="medicalHistory" rows="2"
-	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">Hypertension, Type 2 Diabetes</textarea>
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.medicalHistory}</textarea>
 	                                </div>
 
 	                                <!-- Genetic Predispositions -->
@@ -450,7 +449,7 @@
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Genetic
 	                                        Predispositions</label>
 	                                    <textarea id="geneticPredispositions" rows="2"
-	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">Family history of cardiovascular disease</textarea>
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.currentMedication}</textarea>
 	                                </div>
 
 	                                <!-- Special Notes -->
@@ -459,7 +458,7 @@
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Special
 	                                        Notes</label>
 	                                    <textarea id="specialNotes" rows="2"
-	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">None</textarea>
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.notes}</textarea>
 	                                </div>
                             	</div>
                             </c:if>
@@ -475,14 +474,14 @@
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Specialization</label>
 	                                        <input id="specialization" type="text"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-	                                            value="Cardiology">
+	                                            value="${user.specialization}">
 	                                    </div>
 	                                    <div>
 	                                        <label for="LicenseNumber"
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">License Number</label>
 	                                        <input id="licenseNumber"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-	                                            value="MED98765">
+	                                            value="${user.license}">
 	                                    </div>
 	                                </div>
 	
@@ -492,7 +491,7 @@
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Years of Experience</label>
 	                                        <input id="pecialization" type="number"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-	                                            value="15">
+	                                            value="${user.experience}">
 	                                    </div>
 	                                </div>
 	                                
@@ -500,7 +499,7 @@
 	                                    <label for="publicbio"
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Public Bio</label>
 	                                    <textarea id="publicbio" rows="2"
-	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">None</textarea>
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.publicbio}</textarea>
 	                                </div>
                             	</div>
                             </c:if>
@@ -517,9 +516,9 @@
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
 	                                        <select id="role"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-	                                            <option value="A+">Admin</option>
-	                                            <option value="A-">System Admin</option>
-	                                            <option value="B+">Editor</option>
+	                                            <option value="Admin" ${user.role == 'Admin' ? 'selected' : ''}>Administrator</option>
+	                                            <option value="System Admin" ${user.role == 'Primary Administrator' ? 'selected' : ''}>Primary Administrator</option>
+	                                            <option value="Editor" ${user.role == 'Editor' ? 'selected' : ''}>Editor</option>
 	                                        </select>
 	                                    </div>
 	                                    <div>
@@ -527,8 +526,8 @@
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Access Level</label>
 	                                        <select id="accessLevel"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-	                                            <option value="A+">Full</option>
-	                                            <option value="A-">Restricted</option>
+	                                            <option value="Super" ${user.accesslevel == 'Admin' ? 'selected' : ''}>Super</option>
+	                                            <option value="Restricted" ${user.accesslevel == 'Admin' ? 'selected' : ''}>Restricted</option>
 	                                        </select>
 	                                    </div>
 	                                </div>
@@ -537,7 +536,7 @@
 	                                    <label for="publicbio"
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Public Bio</label>
 	                                    <textarea id="publicbio" rows="2"
-	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">None</textarea>
+	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.publicbio}</textarea>
 	                                </div>
                             	</div>
                             </c:if>
