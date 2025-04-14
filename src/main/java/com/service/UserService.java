@@ -201,7 +201,7 @@ public class UserService {
 	}
 	
 	
-public static Admin getAdminById(int id) {
+	public static Admin getAdminById(int id) {
 		
 		try {
 			Connection con = DBConnection.getConnection();
@@ -254,4 +254,135 @@ public static Admin getAdminById(int id) {
 		
 	}
 
+	private static boolean updateUser(User user) {
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			String query = "UPDATE User SET " +
+		             "email = '" + user.getEmail() + "', " +
+		             "phone_no = '" + user.getPhone() + "', " +
+		             "dateofbirth = '" + user.getDob() + "', " +
+		             "language = '" + user.getLanguage() + "', " +
+		             "address = '" + user.getAddress() + "', " +
+		             "bio = '" + user.getBio() + "' " +
+		             "WHERE uid = " + user.getUid() + ";";
+
+			int success = stmt.executeUpdate(query);
+			
+			if(success == 0) {
+				System.out.println("User Table Update Failed!");
+				con.close();
+				return false;
+			}
+			
+			con.close();
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	
+	public static boolean updateDoctor(Doctor doctor) {
+		User user = new User(doctor.getUid(), null, null, null, doctor.getBio(), doctor.getDob(), doctor.getEmail(), doctor.getPhone(), doctor.getAddress(), doctor.getLanguage(), null, null);
+				
+		if (updateUser(user)) {
+			try {
+				Connection con = DBConnection.getConnection();
+				Statement stmt = con.createStatement();
+				String query = "UPDATE Doctor SET " +
+			             "publicbio = '" + doctor.getPublicbio() + "', " +
+			             "specialization = '" + doctor.getSpecialization() + "', " +
+			             "license_no = '" + doctor.getLicense() + "', " +
+			             "experience = " + doctor.getExperience() + " " +
+			             "WHERE user_id = " + doctor.getUid() + ";";
+
+				int success = stmt.executeUpdate(query);
+
+				if (success == 0) {
+					System.out.println("Doctor Table Update Failed!");
+					con.close();
+					return false;
+				}
+
+				con.close();
+				return true;
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean updatePatient(Patient patient) {
+		User user = new User(patient.getUid(), null, null, null, patient.getBio(), patient.getDob(), patient.getEmail(), patient.getPhone(), patient.getAddress(), patient.getLanguage(), null, null);
+		
+		if (updateUser(user)) {
+			try {
+				Connection con = DBConnection.getConnection();
+				Statement stmt = con.createStatement();
+				String query = "UPDATE Patient SET " +
+			             "bloodtype = '" + patient.getBloodGroup() + "', " +
+			             "gender = '" + patient.getGender() + "', " +
+			             "allergies = '" + patient.getAllergies() + "', " +
+			             "med_history = '" + patient.getMedicalHistory() + "', " +
+			             "notes = '" + patient.getNotes() + "', " +
+			             "genetic_predispositions = '" + patient.getCurrentMedication() + "' " +
+			             "WHERE user_id = " + patient.getUid() + ";";
+
+				int success = stmt.executeUpdate(query);
+
+				if (success == 0) {
+					System.out.println("Patient Table Update Failed!");
+					con.close();
+					return false;
+				}
+
+				con.close();
+				return true;
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean updateAdmin(Admin admin) {
+		User user = new User(admin.getUid(), null, null, null, admin.getBio(), admin.getDob(), admin.getEmail(), admin.getPhone(), admin.getAddress(), admin.getLanguage(), null, null);
+		
+		if (updateUser(user)) {
+			try {
+				Connection con = DBConnection.getConnection();
+				Statement stmt = con.createStatement();
+				String query = "UPDATE Admin SET " +
+			             "role = '" + admin.getRole() + "', " +
+			             "access_level = '" + admin.getAccesslevel() + "', " +
+			             "publicbio = '" + admin.getPublicbio() + "' " +
+			             "WHERE user_id = " + admin.getUid() + ";";
+
+				int success = stmt.executeUpdate(query);
+
+				if (success == 0) {
+					System.out.println("Admin Table Update Failed!");
+					con.close();
+					return false;
+				}
+
+				con.close();
+				return true;
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+		return false;
+		
+	}
 }

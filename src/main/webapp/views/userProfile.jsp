@@ -180,7 +180,7 @@
         <div class="bg-white rounded-lg shadow-custom p-6 mt-8">
             <h2 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa fa-key" aria-hidden="true"></i> Change
                 Password</h2>
-            <form>
+            <form method="POST" id="changePasswordForm" action="#">
                 <div class="space-y-4">
                     <div>
                         <label for="old-password" class="block text-sm font-medium text-gray-700 mb-1">Old
@@ -323,7 +323,7 @@
                     </div>
 
                     <div class="p-6 overflow-y-auto max-h-[70vh]">
-                        <form id="userDetailsForm" method="POST" class="space-y-6" action="#">
+                        <form id="userDetailsForm" method="POST" class="space-y-6" action="${pageContext.request.contextPath}/UpdateUserController">
                             <!-- Basic Information Section -->
                             <div class="border-b border-gray-200 pb-6">
                                 <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Basic
@@ -335,6 +335,7 @@
                                         <label for="email"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                         <input type="email" id="email"
+                                        	name="email"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                             value="${user.email}" required>
                                     </div>
@@ -344,6 +345,7 @@
                                         <label for="phone"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
                                         <input type="tel" id="phone"
+                                            name="phone"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                             value="${user.phone}" required>
                                     </div>
@@ -354,15 +356,17 @@
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date
                                             of Birth</label>
                                         <input type="date" id="dob"
+                                            name="dob"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                             value="${user.dob}" required>
                                     </div>
 
                                     <!-- Language -->
                                     <div>
-                                        <label for="gender"
+                                        <label for="language"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Language</label>
                                         <select id="language"
+                                            name="language"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
                                             <option value="English" ${user.language == 'English' ? 'selected' : ''}>English</option>
                                             <option value="Sinhala" ${user.language == 'Sinhala' ? 'selected' : ''}>Sinhala</option>
@@ -376,6 +380,7 @@
                                     <label for="address"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
                                     <textarea id="address" rows="3"
+                                        name="address"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.address}</textarea>
                                 </div>
 
@@ -384,6 +389,7 @@
                                     <label for="bio"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bio</label>
                                     <textarea id="bio" rows="4"
+                                        name="bio"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.bio}</textarea>
                                 </div>
                             </div>
@@ -402,6 +408,7 @@
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blood
 	                                            Type</label>
 	                                        <select id="bloodType"
+	                                        	name="bloodType"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
 	                                            <option value="A+" ${user.bloodGroup == 'A+' ? 'selected' : ''}>A+</option>
 	                                            <option value="A-" ${user.bloodGroup == 'A-' ? 'selected' : ''}>A-</option>
@@ -418,6 +425,7 @@
 	                                        <label for="gender"
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
 	                                        <select id="gender"
+	                                        	name="gender"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
 	                                            <option value="male" ${user.gender == 'male' ? 'selected' : ''}>Male</option>
 	                                            <option value="female" ${user.gender == 'female' ? 'selected' : ''}>Female</option>
@@ -431,6 +439,7 @@
 	                                    <label for="allergies"
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Allergies</label>
 	                                    <textarea id="allergies" rows="2"
+	                                        name="allergies"
 	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.allergies}</textarea>
 	                                </div>
 	
@@ -440,6 +449,7 @@
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Medical
 	                                        History</label>
 	                                    <textarea id="medicalHistory" rows="2"
+	                                        name="medicalHistory"
 	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.medicalHistory}</textarea>
 	                                </div>
 
@@ -449,6 +459,7 @@
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Genetic
 	                                        Predispositions</label>
 	                                    <textarea id="geneticPredispositions" rows="2"
+	                                        name="geneticPredispositions"
 	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.currentMedication}</textarea>
 	                                </div>
 
@@ -458,6 +469,7 @@
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Special
 	                                        Notes</label>
 	                                    <textarea id="specialNotes" rows="2"
+	                                        name="specialNotes"
 	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.notes}</textarea>
 	                                </div>
                             	</div>
@@ -473,6 +485,7 @@
 	                                        <label for="specialization"
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Specialization</label>
 	                                        <input id="specialization" type="text"
+	                                            name="specialization"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
 	                                            value="${user.specialization}">
 	                                    </div>
@@ -480,6 +493,7 @@
 	                                        <label for="LicenseNumber"
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">License Number</label>
 	                                        <input id="licenseNumber"
+	                                            name="licenseNumber"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
 	                                            value="${user.license}">
 	                                    </div>
@@ -490,6 +504,7 @@
 	                                        <label for="yearsOfExperience"
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Years of Experience</label>
 	                                        <input id="pecialization" type="number"
+	                                            name="yearsOfExperience"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
 	                                            value="${user.experience}">
 	                                    </div>
@@ -499,6 +514,7 @@
 	                                    <label for="publicbio"
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Public Bio</label>
 	                                    <textarea id="publicbio" rows="2"
+	                                        name="publicbio"
 	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.publicbio}</textarea>
 	                                </div>
                             	</div>
@@ -515,6 +531,7 @@
 	                                        <label for="Role"
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
 	                                        <select id="role"
+	                                            name="role"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
 	                                            <option value="Admin" ${user.role == 'Admin' ? 'selected' : ''}>Administrator</option>
 	                                            <option value="System Admin" ${user.role == 'Primary Administrator' ? 'selected' : ''}>Primary Administrator</option>
@@ -525,6 +542,7 @@
 	                                        <label for="AccessLevel"
 	                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Access Level</label>
 	                                        <select id="accessLevel"
+	                                        	name="accessLevel"
 	                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
 	                                            <option value="Super" ${user.accesslevel == 'Admin' ? 'selected' : ''}>Super</option>
 	                                            <option value="Restricted" ${user.accesslevel == 'Admin' ? 'selected' : ''}>Restricted</option>
@@ -536,6 +554,7 @@
 	                                    <label for="publicbio"
 	                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Public Bio</label>
 	                                    <textarea id="publicbio" rows="2"
+	                                        name="publicbio"
 	                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">${user.publicbio}</textarea>
 	                                </div>
                             	</div>
