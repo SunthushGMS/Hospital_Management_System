@@ -39,10 +39,10 @@ public class UpdateUserController extends HttpServlet {
 			
 			Doctor doc = new Doctor(currentUserid, null, null, null, bio, dob, email, phone, address, language, null, null, specialization, licenseNo, yearOfExperience, publicBio);
 			if (UserService.updateDoctor(doc)) {
-				response.sendRedirect("userprofile?success=updateSuccess");
+				response.sendRedirect("userprofile?success=Profile updated successfully.");
 			}
 			else {
-				response.sendRedirect("userprofile?error=updateFailed");
+				response.sendRedirect("userprofile?error=An error occurred while updating the profile. Please try again later.");
 			}
 		}
 		else if ("patient".equals(userRole)) {
@@ -55,10 +55,10 @@ public class UpdateUserController extends HttpServlet {
 			
 			Patient patient = new Patient(currentUserid, null, null, null, bio, dob, email, phone, address, language, null, null, bloodGroup, gender, allergies, medicalHistory, geneticPredispositions, specialNotes);
 			if (UserService.updatePatient(patient)) {
-				response.sendRedirect("userprofile?success=updateSuccess");
+				response.sendRedirect("userprofile?success=Profile updated successfully.");
 			}
 			else {
-				response.sendRedirect("userprofile?error=updateFailed");
+				response.sendRedirect("userprofile?error=An error occurred while updating the profile. Please try again later.");
 			}
 		}
 		else if ("admin".equals(userRole)) {
@@ -68,10 +68,10 @@ public class UpdateUserController extends HttpServlet {
 			
 			Admin admin = new Admin(currentUserid, null, null, null, bio, dob, email, phone, address, language, null, null, role, publicBio, null ,accessLevel);
 			if (UserService.updateAdmin(admin)) {
-				response.sendRedirect("userprofile?success=updateSuccess");
+				response.sendRedirect("userprofile?success=Profile updated successfully.");
 			}
 			else {
-				response.sendRedirect("userprofile?error=updateFailed");
+				response.sendRedirect("userprofile?error=An error occurred while updating the profile. Please try again later.");
 			}
 		}	
 	}

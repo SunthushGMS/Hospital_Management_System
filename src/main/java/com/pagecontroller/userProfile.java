@@ -34,6 +34,14 @@ public class userProfile extends HttpServlet {
 			request.setAttribute("user", admin);
 		}
 		
+		String error = request.getParameter("error");
+		String success = request.getParameter("success");
+		if(error != null) {
+			request.setAttribute("error", error);
+		}
+		else if(success != null) {
+			request.setAttribute("success", success);
+		}
 		
 		request.getRequestDispatcher("views/userProfile.jsp").forward(request, response);
 	}
