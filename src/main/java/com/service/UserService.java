@@ -382,7 +382,28 @@ public class UserService {
 				return false;
 			}
 		}
-		return false;
-		
+		return false;	
+	}
+	
+	public static boolean updatePassword(int uid, String newPassword) {
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			String query = "UPDATE User SET password = '" + newPassword + "' WHERE uid = " + uid + ";";
+			int success = stmt.executeUpdate(query);
+			
+			if(success == 0) {
+				System.out.println("Password Update Failed!");
+				con.close();
+				return false;
+			}
+			
+			con.close();
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

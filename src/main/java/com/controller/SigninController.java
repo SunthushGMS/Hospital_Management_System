@@ -39,6 +39,7 @@ public class SigninController extends HttpServlet {
 				session.setAttribute("fullname", user.getFullname());
 				session.setAttribute("profilepic", user.getProfilepic());
 				session.setAttribute("role", user.getRole());
+				session.setAttribute("pwd", user.getPassword());
 				
 				//filter by user type and redirect to appropriate page
 				if(user.getRole().equals("patient")) {

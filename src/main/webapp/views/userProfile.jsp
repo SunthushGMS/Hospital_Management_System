@@ -180,7 +180,7 @@
         <div class="bg-white rounded-lg shadow-custom p-6 mt-8">
             <h2 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa fa-key" aria-hidden="true"></i> Change
                 Password</h2>
-            <form method="POST" id="changePasswordForm" action="#">
+            <form method="POST" id="changePasswordForm" action="${pageContext.request.contextPath}/UpdatePasswordController">
                 <div class="space-y-4">
                     <div>
                         <label for="old-password" class="block text-sm font-medium text-gray-700 mb-1">Old
