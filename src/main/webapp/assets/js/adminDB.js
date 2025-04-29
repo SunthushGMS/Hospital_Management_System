@@ -27,7 +27,7 @@ function closeEditDoctorDetailForm() {
   editDoctorDetails.classList.add("hidden");
 }
 
-//Open Reply to inquiries form
+//Open Reply to inquiries forms
 function openReplyToInquiries(){
   replyToInquiries.classList.remove('hidden');
   replyToInquiries.classList.add('flex');
