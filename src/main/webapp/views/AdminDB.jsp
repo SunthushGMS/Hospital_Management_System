@@ -14,7 +14,7 @@
     	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     </head>
-    <body class="bg-grey-100 ">
+    <body class="bg-grey-900 ">
     
     	 <jsp:include page="/views/partials/header.jsp"/>
     	<!--First Section-->
@@ -66,11 +66,75 @@
                     	
                         <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
                             <h2 class="text-xl font-bold text-gray-800">Doctor Management</h2>
-                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition duration-300 cursor-pointer">
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition duration-300 cursor-pointer" onclick="openAddNewDoctorForm()">
                                 <i class="fas fa-plus mr-2"></i> Add Doctor
                             </button>
                         </div>
 
+                        <!--Add New Doctor PopUp Form-->
+                        <div id="addNewDoctorForm" class="fixed inset-0 bg-opacity-80 backdrop-blur-sm  hidden items-center justify-center z-50">
+
+                            <div class="rounded-lg bg-gray-700 shadow-lg p-6 relative">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-white text-2xl font-bold mb-4">Add New Doctor</h2>
+                                    <button onclick="closeAddNewDoctorForm()" class="p-2 rounded-md mb-4 text-gray-200 hover:text-gray-700 hover:bg-gray-200">✕</button>
+                                </div>
+
+                                <hr class="text-blue-600 mb-8">
+                                <!-- Form -->
+                                <form id="addDoctorForm" class="space-y-4">
+                                    <div class="flex justify-between">
+                                        <div class="flex flex-col mr-10">
+                                            <label for="" class="text-lg text-white font-semibold mb-2">Full Name</label>
+                                            <input type="text" placeholder="Kasun Perera" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                        </div>
+                                        <div class="flex flex-col mr-10">
+                                            <label for="" class="text-lg text-white font-semibold mb-2">Username</label>
+                                            <input type="text" placeholder="kasun123" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex justify-between">
+                                        <div class="flex flex-col mr-10">
+                                            <label for="" class="text-lg text-white font-semibold mb-2">Email</label>
+                                            <input type="text" placeholder="kasun123@gmail.com" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                        </div>
+                                        <div class="flex flex-col mr-10">
+                                            <label for="" class="text-lg text-white font-semibold mb-2">Mobile Number</label>
+                                            <input type="text" placeholder="076 789 2645" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                        </div>
+                                    </div>
+
+                                    <div class="flex justify-between">
+                                        <div class="flex flex-col mr-10 ">
+                                            <label for="" class="text-lg text-white font-semibold mb-2">Birthday</label>
+                                            <input type="date" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                        </div>
+                                        <div class="flex flex-col mr-10 ">
+                                            <label for="" class="text-gray-200 text-lg text-white font-semibold mb-2">Address</label>
+                                            <input type="text" placeholder="12 Flower St,City" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <div class="flex flex-col mr-10 ">
+                                            <label for="" class="text-lg text-white font-semibold mb-2">Specialization</label>
+                                            <input type="text" placeholder="Heart" class="text-base  bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                        </div>
+                                        <div class="flex flex-col mr-10">
+                                            <label for="" class="text-lg text-white font-semibold mb-2">Password</label>
+                                            <input type="password" placeholder="*******" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center mt-8">
+                                        <button class="px-4 py-2 text-white rounded-lg mr-5 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer" onclick="closeAddNewDoctorForm()">Cancel</button>
+
+                                        <input type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition duration-300 cursor-pointer">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                       
                         <div class="h-72 overflow-auto">
                             <table class="table-auto w-full text-center font-semibold text-grey-400 overflow-auto">
                                 <tr class="bg-gradient-to-br from-blue-500 to-blue-600 text-white">
@@ -84,66 +148,79 @@
                                     <td>Moditha Marasinghe</td>
                                     <td>Heart</td>
                                     <td class="px-6 py-4 text-center">
-                                        <button class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2">
+                                        <button class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2" onclick="openEditDoctorDetailsForm()">
                                             <i class="fas fa-edit mr-1"></i> Edit
                                         </button>
+                                        
+                                        <!--Edit Doctor Details PopUp Form-->
+                                        <div id="editDoctorDetails" class="fixed inset-0 bg-opacity-80 backdrop-blur-sm hidden items-center justify-center z-50">
+                                            
+                                            <div class="rounded-lg bg-gray-700 shadow-lg p-6 relative">
+                                                <div class="flex items-center justify-between">
+                                                    <h2 class="text-white text-2xl font-bold mb-4">Edit Doctor Details</h2>
+                                                    <button onclick="closeEditDoctorDetailForm()" class="p-2 rounded-md mb-4 text-gray-200 hover:text-gray-700 hover:bg-gray-200">✕</button>
+                                                </div>
+
+                                                <hr class="text-blue-600 mb-8">
+                                                <!-- Form -->
+                                                <form id="editDoctorForm" class="space-y-4">
+                                                    <div class="flex justify-between">
+                                                        <div class="flex flex-col mr-10">
+                                                            <label for="" class="text-lg text-white font-semibold mb-2">Full Name</label>
+                                                            <input type="text" placeholder="Kasun Perera" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                                        </div>
+                                                        <div class="flex flex-col mr-10">
+                                                            <label for="" class="text-lg text-white font-semibold mb-2">Username</label>
+                                                            <input type="text" placeholder="kasun123" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="flex justify-between">
+                                                        <div class="flex flex-col mr-10">
+                                                            <label for="" class="text-lg text-white font-semibold mb-2">Email</label>
+                                                            <input type="text" placeholder="kasun123@gmail.com" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                                        </div>
+                                                        <div class="flex flex-col mr-10">
+                                                            <label for="" class="text-lg text-white font-semibold mb-2">Mobile Number</label>
+                                                            <input type="text" placeholder="076 789 2645" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flex justify-between">
+                                                        <div class="flex flex-col mr-10 ">
+                                                            <label for="" class="text-lg text-white font-semibold mb-2">Birthday</label>
+                                                            <input type="date" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                                        </div>
+                                                        <div class="flex flex-col mr-10 ">
+                                                            <label for="" class="text-gray-200 text-lg text-white font-semibold mb-2">Address</label>
+                                                            <input type="text" placeholder="12 Flower St,City" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex justify-between">
+                                                        <div class="flex flex-col mr-10 ">
+                                                            <label for="" class="text-lg text-white font-semibold mb-2">Specialization</label>
+                                                            <input type="text" placeholder="Heart" class="text-base  bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                                        </div>
+                                                        <div class="flex flex-col mr-10">
+                                                            <label for="" class="text-lg text-white font-semibold mb-2">Password</label>
+                                                            <input type="password" placeholder="*******" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex justify-center mt-8">
+                                                        <button class="px-4 py-2 text-white rounded-lg mr-5 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer" onclick="closeEditDoctorDetailForm()">Cancel</button>
+
+                                                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition duration-300 cursor-pointer" >Save Changes</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
                                         <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
                                             <i class="fas fa-trash-alt mr-1"></i> Delete
                                         </button>
                                     </td>
                                 </tr>
-                                <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">001</td>
-                                    <td>Moditha Marasinghe</td>
-                                    <td>Heart</td>
-                                    <td class="px-6 py-4 text-center">
-                                        <button class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2">
-                                            <i class="fas fa-edit mr-1"></i> Edit
-                                        </button>
-                                        <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                            <i class="fas fa-trash-alt mr-1"></i> Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">001</td>
-                                    <td>Moditha Marasinghe</td>
-                                    <td>Heart</td>
-                                    <td class="px-6 py-4 text-center">
-                                        <button class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2">
-                                            <i class="fas fa-edit mr-1"></i> Edit
-                                        </button>
-                                        <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                            <i class="fas fa-trash-alt mr-1"></i> Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">001</td>
-                                    <td>Moditha Marasinghe</td>
-                                    <td>Heart</td>
-                                    <td class="px-6 py-4 text-center">
-                                        <button class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2">
-                                            <i class="fas fa-edit mr-1"></i> Edit
-                                        </button>
-                                        <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                            <i class="fas fa-trash-alt mr-1"></i> Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">001</td>
-                                    <td>Moditha Marasinghe</td>
-                                    <td>Heart</td>
-                                    <td class="px-6 py-4 text-center">
-                                        <button class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2">
-                                            <i class="fas fa-edit mr-1"></i> Edit
-                                        </button>
-                                        <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                            <i class="fas fa-trash-alt mr-1"></i> Delete
-                                        </button>
-                                    </td>
-                                </tr>
+                                
                             </table>
                         </div>
                         
@@ -240,9 +317,35 @@
                                     <td>Hasindu Chanuka</td>
                                     <td>Sample Message</td>
                                     <td class="px-6 py-4 text-center">
-                                        <button class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2">
+                                        <button class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2" onclick="openReplyToInquiries()">
                                             <i class="fas fa-edit mr-1"></i> Reply
                                         </button>
+
+                                        <div id="replyToInquiries" class="fixed inset-0 bg-opacity-80 backdrop-blur-sm hidden items-center justify-center z-50">
+                                            
+                                            <div class="rounded-lg bg-gray-700 shadow-lg p-6 relative">
+                                                <div class="flex items-center justify-between">
+                                                    <h2 class="text-white text-2xl font-bold mb-4">Send Reply</h2>
+                                                    <button onclick="closeReplyToInquiries()" class="p-2 rounded-md mb-4 text-gray-200 hover:text-gray-700 hover:bg-gray-200">✕</button>
+                                                </div>
+
+                                                <hr class="text-blue-600 mb-8">
+                                                <!-- Form -->
+                                                <form id="replyForm" class="space-y-4">
+                                                    <div class="flex justify-between">
+                                                        <div class="flex justify-center mr-10">
+                                                            <textarea name="" id="" rows="8" class="text-base  bg-gray-600 text-gray-200 p-2 rounded-lg min-w-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="example@gmail.com"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex justify-center mt-8">
+                                                        <button class="px-4 py-2 text-white rounded-lg mr-5 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer" onclick="closeReplyToInquiries()">Cancel</button>
+
+                                                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition duration-300 cursor-pointer" >Relply</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
                                         <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
                                             <i class="fas fa-trash-alt mr-1"></i> Delete
                                         </button>
@@ -332,5 +435,6 @@
             </div>
         </div>
         <jsp:include page="/views/partials/footer.jsp"/>
+        <script src="${pageContext.request.contextPath}/assets/js/adminDB.js"></script>
     </body>
 </html>
