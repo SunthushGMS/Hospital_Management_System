@@ -406,4 +406,50 @@ public class UserService {
 			return false;
 		}
 	}
+	
+	
+	public static boolean updateProfilePic(int uid, String newProfilePic) {
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			String query = "UPDATE User SET profilepiclink = '" + newProfilePic + "' WHERE uid = " + uid + ";";
+			int success = stmt.executeUpdate(query);
+			
+			if(success == 0) {
+				System.out.println("Profile Picture Update Failed!");
+				con.close();
+				return false;
+			}
+			
+			con.close();
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	
+	public static boolean deleteUser(int uid) {
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			String query = "DELETE FROM User WHERE uid = " + uid + ";";
+			int success = stmt.executeUpdate(query);
+			
+			if(success == 0) {
+				System.out.println("User Deletion Failed!");
+				con.close();
+				return false;
+			}
+			
+			con.close();
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }
