@@ -29,6 +29,7 @@ public class SigninController extends HttpServlet {
 			e.printStackTrace();
 			String message = "Error when signing in. try Again.";
 			response.sendRedirect("Signin?error=" + URLEncoder.encode(message, "UTF-8"));
+			return;
 		}
 		
 		if(user != null) {
