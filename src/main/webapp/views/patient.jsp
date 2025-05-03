@@ -82,43 +82,43 @@
             <form action="" class="book-appoint">
                 <h1 class="form-head">Appointment Booking</h1>
                 <label for="name" class="label-appoint">Name</label>
-                <input type="text" class="input-appoint" placeholder="SUNTHUSH G M S">
+                <input type="text" class="input-appoint" name="name" placeholder="SUNTHUSH G M S" required>
                 <br>
                 <label for="email" class="label-appoint">Email</label>
-                <input type="email" class="input-appoint" placeholder="ABC@gmail.com">
+                <input type="email" class="input-appoint" name="email" placeholder="ABC@gmail.com"required>
                 <br>
                 <label for="contact" class="label-appoint">Contact</label>
-                <input type="phone" class="input-appoint" placeholder="07XXXXXXXX">
+                <input type="tel" class="input-appoint" name="contact" placeholder="07XXXXXXXX" required>
                 <br>
                 <label for="age" class="label-appoint">Age</label>
-                <input type="number" class="input-appoint" placeholder="20">
+                <input type="number" class="input-appoint" name="age" placeholder="20" required>
                 <br>
                 <label for="gender" class="label-appoint">Gender</label>
-                <input type="radio" id="male" name="gender" value="Male">
+                <input type="radio" id="male" name="gender" name="gender" value="Male" required>
                 <label for="male">Male</label>
 
-                <input type="radio" id="female" name="gender" value="Female">
+                <input type="radio" id="female" name="gender" name="gender" value="Female" required>
                 <label for="female">Female</label>
                 <br>
                 <br>
                 <label for="doctor" class="label-appoint">Select Doctor</label>
-                <select name="doctorName" id="">
+                <select name="doctorName" id="doctorName" required>
                     <option value="doc1">Dr Naml Udugama</option>
-                    <option value="doc1">Dr Nuwan Thushara</option>
-                    <option value="doc1">Dr Shashi Hewage</option>
-                    <option value="doc1">Dr Kamal Harshana</option>
-                    <option value="doc1">Dr Julia Fernando</option>
-                    <option value="doc1">Dr Chamnida Guruge</option>
-                    <option value="doc1">Dr Vass Gunawardane</option>
-                    <option value="doc1">Dr Harischandra</option>
+                    <option value="doc2">Dr Nuwan Thushara</option>
+                    <option value="doc3">Dr Shashi Hewage</option>
+                    <option value="doc4">Dr Kamal Harshana</option>
+                    <option value="doc5">Dr Julia Fernando</option>
+                    <option value="doc6">Dr Chamnida Guruge</option>
+                    <option value="doc7">Dr Vass Gunawardane</option>
+                    <option value="doc8">Dr Harischandra</option>
                 </select>
                 <br>
                 <br>
-                <label for="date" class="label-appoint">Appointment Date</label>
-                <input type="date" class="input-appoint">
+                <label for="date" class="label-appoint" >Appointment Date</label>
+                <input type="date" class="input-appoint" name="date" required>
                 <br>
                 <label for="reason" class="label-appoint">Reason for visit</label>
-                <textarea name="" id="" rows="5" cols="60"></textarea>
+                <textarea id="" rows="5" cols="60" name="reason" required></textarea>
                 <br>
                 <button class="appoint-submit">Submit</button>
             </form>
@@ -147,23 +147,23 @@
         <h1 class="payment-make">Make Your Payment</h1>
         <form action="" class="payment-form">
             <label for="name">Full Name</label>
-            <input type="text" class="input-payment">
+            <input type="text" class="input-payment" name="fullname">
             <br>
             <br>
             <label for="id" id="id">Patient ID</label>
-            <input type="text" class="input-payment">
+            <input type="text" class="input-payment" name="patientID">
             <br>
             <br>
             <label for="phone" id="phone">Phone</label>
-            <input type="phone" class="input-payment">
+            <input type="tel" class="input-payment" name="phone">
             <br>
             <br>
             <label for="email" id="email">Email</label>
-            <input type="email" class="input-payment">
+            <input type="email" class="input-payment" name="email">
             <br>
             <br>
             <label for="service">Select Service</label>
-            <select name="service" id="service">
+            <select name="service" id="service" >
                 <option value="Vaccination">Vaccination</option>
                 <option value="Tests">Diagnostic & Lab Tests</option>
                 <option value="Consultation">Consultation</option>
@@ -175,7 +175,7 @@
             <br>
             <br>
             <label for="price" id="price">Amount</label>
-            <input type="number" class="input-payment">
+            <input type="number" class="input-payment" name="amount">
             <br>
             <br>
             <button class="pay-btn">Pay Now</button>

@@ -8,14 +8,14 @@ import com.utill.DBConnection;
 
 public class AppointmentService {
 	
-public static boolean insertAppointment(Appointment api) {
+public static boolean insertAppointment(Appointment appointment) {
 		
 		try {
 			Connection con = DBConnection.getConnection();
 			Statement stmt = con.createStatement();
-			String query = "INSERT INTO User (username, password, fullname, bio, dateofbirth, email, phone_no, address, language, profilepiclink, role) \n"
+			String query = "INSERT INTO appointmentBooking (id, name, email, contact, age, gender, doctor, date, reason) \n"
 					+ "VALUES \n"
-					+ "('"+api.getAge()+"', '"+api.getDoctorName()+"', '"+api.getAge()+"', '', '', '/img/test.jpg', 'patient');";
+					+ "('"+appointment.getId()+"', '"+appointment.getPatientName()+"', '"+appointment.getEmail()+"', '"+appointment.getContact()+"', '"+appointment.getAge()+"', '"+appointment.getGender()+"', '"+appointment.getDoctorName()+"', '"+appointment.getAppointmentDate()+"', '"+appointment.getReason()+"');";
 			
 			int success = stmt.executeUpdate(query);
 			
