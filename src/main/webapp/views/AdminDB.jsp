@@ -125,6 +125,12 @@
                                             <input type="password" name="password" placeholder="*******" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         </div>
                                     </div>
+                                    <c:if test="${not empty error}">
+	             						<div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+						  					<span class="font-medium">Error! </span>${error}
+										</div>
+										<c:remove var="error" />
+	             					</c:if>
                                     <div class="flex justify-center mt-8">
                                         <button class="px-4 py-2 text-white rounded-lg mr-5 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer" onclick="closeAddNewDoctorForm()">Cancel</button>
 
