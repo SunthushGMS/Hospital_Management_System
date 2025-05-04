@@ -62,6 +62,12 @@ public class User {
 		this.address = address;
 		this.role = role;
 	}
+	
+	public User(int uid, String fullname) {
+		super();
+		this.uid = uid;
+		this.fullname = fullname;
+	}
 
 	public int getUid() {
 		return uid;
