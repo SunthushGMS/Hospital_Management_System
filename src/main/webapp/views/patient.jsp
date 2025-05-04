@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,49 +81,40 @@
         <h1 class="appoint">Appointments</h1>
         <h2 class="detail-sec2">The Health Lanka Appointment System enables patients to book, manage, and track their medical appointments with ease. Our system allows users to choose their preferred doctor, select a convenient time slot, and receive instant confirmation. With features like automated reminders, rescheduling options, and emergency bookings, we ensure a hassle-free and efficient healthcare experience.</h2>
         <div class="book">
-            <form action="" class="book-appoint">
-                <h1 class="form-head">Appointment Booking</h1>
-                <label for="name" class="label-appoint">Name</label>
-                <input type="text" class="input-appoint" name="name" placeholder="SUNTHUSH G M S" required>
-                <br>
-                <label for="email" class="label-appoint">Email</label>
-                <input type="email" class="input-appoint" name="email" placeholder="ABC@gmail.com"required>
-                <br>
-                <label for="contact" class="label-appoint">Contact</label>
-                <input type="tel" class="input-appoint" name="contact" placeholder="07XXXXXXXX" required>
-                <br>
-                <label for="age" class="label-appoint">Age</label>
-                <input type="number" class="input-appoint" name="age" placeholder="20" required>
-                <br>
-                <label for="gender" class="label-appoint">Gender</label>
-                <input type="radio" id="male" name="gender" name="gender" value="Male" required>
-                <label for="male">Male</label>
+            <form action="${pageContext.request.contextPath}/AppointmentBookingController" method="post" class="book-appoint">
+    <h1 class="form-head">Appointment Booking</h1><br><br>
 
-                <input type="radio" id="female" name="gender" name="gender" value="Female" required>
-                <label for="female">Female</label>
-                <br>
-                <br>
-                <label for="doctor" class="label-appoint">Select Doctor</label>
-                <select name="doctorName" id="doctorName" required>
-                    <option value="doc1">Dr Naml Udugama</option>
-                    <option value="doc2">Dr Nuwan Thushara</option>
-                    <option value="doc3">Dr Shashi Hewage</option>
-                    <option value="doc4">Dr Kamal Harshana</option>
-                    <option value="doc5">Dr Julia Fernando</option>
-                    <option value="doc6">Dr Chamnida Guruge</option>
-                    <option value="doc7">Dr Vass Gunawardane</option>
-                    <option value="doc8">Dr Harischandra</option>
-                </select>
-                <br>
-                <br>
-                <label for="date" class="label-appoint" >Appointment Date</label>
-                <input type="date" class="input-appoint" name="date" required>
-                <br>
-                <label for="reason" class="label-appoint">Reason for visit</label>
-                <textarea id="" rows="5" cols="60" name="reason" required></textarea>
-                <br>
-                <button class="appoint-submit">Submit</button>
-            </form>
+    <label for="doctorId" class="label-appoint">Select Doctor</label>
+    <select name="doctorId" id="doctorId" required>
+        <option value="1">Dr Naml Udugama</option>
+        <option value="2">Dr Nuwan Thushara</option>
+        <option value="3">Dr Shashi Hewage</option>
+        <option value="4">Dr Kamal Harshana</option>
+        <option value="5">Dr Julia Fernando</option>
+        <option value="6">Dr Chamnida Guruge</option>
+        <option value="7">Dr Vass Gunawardane</option>
+        <option value="8">Dr Harischandra</option>
+    </select><br><br>
+
+    <label for="date" class="label-appoint">Appointment Date</label>
+    <input type="date" class="input-appoint" name="date" required><br>
+
+    <label for="time" class="label-appoint">Time</label>
+    <input type="time" class="input-appoint" name="time" required><br>
+
+    <button class="appoint-submit" type="submit">Submit</button>
+</form>
+
+<c:if test="${not empty param.success}">
+    <p style="color: green;">${param.success}</p>
+</c:if>
+
+<c:if test="${not empty param.error}">
+    <p style="color: red;">${param.error}</p>
+</c:if>
+
+
+            
         </div>
     </section>
     <section class="sec4" id="sec4">
@@ -145,41 +138,44 @@
     <section class="sec"></section>
     <section class="payment">
         <h1 class="payment-make">Make Your Payment</h1>
-        <form action="" class="payment-form">
-            <label for="name">Full Name</label>
-            <input type="text" class="input-payment" name="fullname">
-            <br>
-            <br>
-            <label for="id" id="id">Patient ID</label>
-            <input type="text" class="input-payment" name="patientID">
-            <br>
-            <br>
-            <label for="phone" id="phone">Phone</label>
-            <input type="tel" class="input-payment" name="phone">
-            <br>
-            <br>
-            <label for="email" id="email">Email</label>
-            <input type="email" class="input-payment" name="email">
-            <br>
-            <br>
-            <label for="service">Select Service</label>
-            <select name="service" id="service" >
-                <option value="Vaccination">Vaccination</option>
-                <option value="Tests">Diagnostic & Lab Tests</option>
-                <option value="Consultation">Consultation</option>
-                <option value="HospitalService">Hospital Service</option>
-                <option value="Treatments">Medical Procedures & Treatments</option>
-                <option value="Medication">Pharmacy & Medication</option>
-                <option value="Emergency">Emergency & Ambulance Services</option>
-            </select>
-            <br>
-            <br>
-            <label for="price" id="price">Amount</label>
-            <input type="number" class="input-payment" name="amount">
-            <br>
-            <br>
-            <button class="pay-btn">Pay Now</button>
-        </form>
+        
+       <form action="${pageContext.request.contextPath}/PaymentMaking" method="post" class="payment-form">
+    <label for="name">Full Name</label>
+    <input type="text" class="input-payment" name="fullname" required>
+    <br><br>
+
+    <label for="id">Patient ID</label>
+    <input type="text" class="input-payment" name="patientID" required>
+    <br><br>
+
+    <label for="phone">Phone</label>
+    <input type="tel" class="input-payment" name="phone" required>
+    <br><br>
+
+    <label for="email">Email</label>
+    <input type="email" class="input-payment" name="email" required>
+    <br><br>
+
+    <label for="service">Select Service</label>
+    <select name="service" id="service" required>
+        <option value="Vaccination">Vaccination</option>
+        <option value="Tests">Diagnostic & Lab Tests</option>
+        <option value="Consultation">Consultation</option>
+        <option value="HospitalService">Hospital Service</option>
+        <option value="Treatments">Medical Procedures & Treatments</option>
+        <option value="Medication">Pharmacy & Medication</option>
+        <option value="Emergency">Emergency & Ambulance Services</option>
+    </select>
+    <br><br>
+
+    <label for="price">Amount</label>
+    <input type="number" class="input-payment" name="amount" required>
+    <br><br>
+
+    <button class="pay-btn" type="submit">Pay Now</button>
+
+</form>
+
     </section>
     <jsp:include page="/views/partials/footer.jsp"/>
 </body>

@@ -16,39 +16,32 @@ import com.service.PaymentService;
 public class PaymentMaking extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         try {
-         
             String fullname = request.getParameter("fullname");
             String patientID = request.getParameter("patientID");
             String phone = request.getParameter("phone");
-            String email = request.getParameter("email");  
+            String email = request.getParameter("email");
             String service = request.getParameter("service");
             String amountStr = request.getParameter("amount");
-            
-          
+
             double amount = Double.parseDouble(amountStr);
 
-          
             Payment payment = new Payment(0, fullname, patientID, phone, email, service, amount);
 
-          
             boolean isInserted = PaymentService.makePayment(payment);
 
             if (isInserted) {
-               
                 response.sendRedirect("patient.jsp?success=" + URLEncoder.encode("Payment processed successfully!", "UTF-8"));
             } else {
-                
-                String message = "Error processing payment. Please try again.";
-                response.sendRedirect("patient.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
+                response.sendRedirect("patient.jsp?error=" + URLEncoder.encode("Error processing payment. Please try again.", "UTF-8"));
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-     
-            String message = "Error processing payment. Please try again.";
-            response.sendRedirect("patient.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
+            response.sendRedirect("patient.jsp?error=" + URLEncoder.encode("Unexpected error occurred!", "UTF-8"));
         }
     }
 }

@@ -3,110 +3,39 @@ package com.model;
 import java.sql.Date;
 
 public class Appointment {
-	
-	private int id;
-	private String patientName;
-	private String email;
-	private String contact;
-	private int age;
-	private String gender;
-	private String doctorName;
-	private Date appointmentDate;
-	private String reason;
-	
-	//constructor
-	public Appointment() {}
-	
-	public Appointment(int id, String patientName, String email, String contact, int age, String gender, String doctorName, Date appointmentDate, String reason) {
-		
-		this.id = id;
-		this.patientName = patientName;
-		this.email = email;
-		this.contact = contact;
-		this.age = age;
-		this.gender = gender;
-		this.doctorName = doctorName;
-		this.appointmentDate = appointmentDate;
-		this.reason = reason;
-		
-	}
-	//getters and setters
-	
-	public int getId() {
-		return id;
-	}
+    private int id;
+    private int doctorId;
+    private int patientId;
+    private Date appointmentDate;
+    private String time;
+    private String status;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Appointment() {}
 
-	public String getPatientName() {
-		return patientName;
-	}
+    public Appointment(int doctorId, int patientId, Date appointmentDate, String time, String status) {
+        this.doctorId = doctorId;
+        this.patientId = patientId;
+        this.appointmentDate = appointmentDate;
+        this.time = time;
+        this.status = status;
+    }
 
-	public void setPatientName(String patientName) {
-		this.patientName = patientName;
-	}
+    // Getters and Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-	public String getEmail() {
-		return email;
-	}
+    public int getDoctorId() { return doctorId; }
+    public void setDoctorId(int doctorId) { this.doctorId = doctorId; }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public int getPatientId() { return patientId; }
+    public void setPatientId(int patientId) { this.patientId = patientId; }
 
-	public String getContact() {
-		return contact;
-	}
+    public Date getAppointmentDate() { return appointmentDate; }
+    public void setAppointmentDate(Date appointmentDate) { this.appointmentDate = appointmentDate; }
 
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
+    public String getTime() { return time; }
+    public void setTime(String time) { this.time = time; }
 
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public String getDoctorName() {
-		return doctorName;
-	}
-
-	public void setDoctorName(String doctorName) {
-		this.doctorName = doctorName;
-	}
-
-	public Date getAppointmentDate() {
-		return appointmentDate;
-	}
-
-	public void setAppointmentDate(Date appointmentDate) {
-		this.appointmentDate = appointmentDate;
-	}
-
-	public String getReason() {
-		return reason;
-	}
-
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
-	
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 }
-	
-	
-	
-	
-	
