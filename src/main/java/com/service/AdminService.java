@@ -22,7 +22,7 @@ public class AdminService {
 			int success = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
 			
 			if(success == 0) {
-				System.out.println("Podi Case ekak");
+				System.out.println("Data Added Successcully");
 				con.close();
 				return false;
 			}
@@ -31,7 +31,7 @@ public class AdminService {
 			
 			if(rs.next()) {
 				int uid = rs.getInt(1);
-				query = "INSERT INTO doctor(user_id, publicbio, specialization, license_no, experience) VALUES('"+uid+"', '', '"+doctor.getSpecialization()+"', '', '');";
+				query = "INSERT INTO doctor(user_id, specialization) VALUES('"+uid+"', '"+doctor.getSpecialization()+"');";
 				try (Statement doctorStmt = con.createStatement()){
 					doctorStmt.executeUpdate(query);
 					System.out.println("Insert Successfull");
