@@ -47,6 +47,21 @@ public class User {
 		this.profilepic = profilepic;
 		this.role = role;
 	}
+	
+
+	public User(int uid, String username, String password, String fullname, String dob, String email, String phone,
+			String address, String role) {
+		super();
+		this.uid = uid;
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
+		this.dob = dob;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.role = role;
+	}
 
 	public int getUid() {
 		return uid;
