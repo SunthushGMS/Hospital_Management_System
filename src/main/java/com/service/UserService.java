@@ -58,7 +58,7 @@ public class UserService {
 			Statement stmt = con.createStatement();
 			String query = "INSERT INTO User (username, password, fullname, bio, dateofbirth, email, phone_no, address, language, profilepiclink, role) \n"
 					+ "VALUES \n"
-					+ "('"+patient.getUsername()+"', '"+patient.getPassword()+"', '"+patient.getFullname()+"', '', '"+patient.getDob()+"', '"+patient.getEmail()+"', '"+patient.getPhone()+"', '"+patient.getAddress()+"', '', '/img/test.jpg', 'patient');";
+					+ "('"+patient.getUsername()+"', '"+patient.getPassword()+"', '"+patient.getFullname()+"', '', '"+patient.getDob()+"', '"+patient.getEmail()+"', '"+patient.getPhone()+"', '"+patient.getAddress()+"', '', 'testimg.jpeg', 'patient');";
 			
 			int success = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
 			

@@ -49,7 +49,7 @@ public class SigninController extends HttpServlet {
 					response.sendRedirect("userprofile");
 				}
 				else if(user.getRole().equals("admin")) {
-					response.sendRedirect("userprofile");
+					response.sendRedirect("AdminDB");
 				}
 				
 			} else {
