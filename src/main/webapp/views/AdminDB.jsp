@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -82,47 +82,47 @@
 
                                 <hr class="text-blue-600 mb-8">
                                 <!-- Form -->
-                                <form id="addDoctorForm" class="space-y-4">
+                                <form id="addDoctorForm" class="space-y-4" action="${pageContext.request.contextPath}/AddDoctoForm" method="post">
                                     <div class="flex justify-between">
                                         <div class="flex flex-col mr-10">
                                             <label for="" class="text-lg text-white font-semibold mb-2">Full Name</label>
-                                            <input type="text" placeholder="Kasun Perera" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                            <input type="text" placeholder="Kasun Perera" name="fullName" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         </div>
                                         <div class="flex flex-col mr-10">
                                             <label for="" class="text-lg text-white font-semibold mb-2">Username</label>
-                                            <input type="text" placeholder="kasun123" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                            <input type="text" placeholder="kasun123" name="userName" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         </div>
                                     </div>
                                     
                                     <div class="flex justify-between">
                                         <div class="flex flex-col mr-10">
                                             <label for="" class="text-lg text-white font-semibold mb-2">Email</label>
-                                            <input type="text" placeholder="kasun123@gmail.com" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                            <input type="text" name="email" placeholder="kasun123@gmail.com" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         </div>
                                         <div class="flex flex-col mr-10">
                                             <label for="" class="text-lg text-white font-semibold mb-2">Mobile Number</label>
-                                            <input type="text" placeholder="076 789 2645" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                            <input type="text" name="phoneNumber" placeholder="076 789 2645" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         </div>
                                     </div>
 
                                     <div class="flex justify-between">
                                         <div class="flex flex-col mr-10 ">
                                             <label for="" class="text-lg text-white font-semibold mb-2">Birthday</label>
-                                            <input type="date" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                            <input type="date" name="date" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         </div>
                                         <div class="flex flex-col mr-10 ">
                                             <label for="" class="text-gray-200 text-lg text-white font-semibold mb-2">Address</label>
-                                            <input type="text" placeholder="12 Flower St,City" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                            <input type="text" name="address" placeholder="12 Flower St,City" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         </div>
                                     </div>
                                     <div class="flex justify-between">
                                         <div class="flex flex-col mr-10 ">
                                             <label for="" class="text-lg text-white font-semibold mb-2">Specialization</label>
-                                            <input type="text" placeholder="Heart" class="text-base  bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                            <input type="text" placeholder="Heart" name="specialization" class="text-base  bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         </div>
                                         <div class="flex flex-col mr-10">
                                             <label for="" class="text-lg text-white font-semibold mb-2">Password</label>
-                                            <input type="password" placeholder="*******" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                            <input type="password" name="password" placeholder="*******" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         </div>
                                     </div>
                                     <div class="flex justify-center mt-8">
