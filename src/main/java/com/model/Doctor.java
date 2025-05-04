@@ -16,6 +16,16 @@ public class Doctor extends User {
 		this.experience = experience;
 		this.publicbio = publicbio;
 	}
+	
+	
+
+	public Doctor(int uid, String username, String password, String fullname, String dob, String email,
+			String phone, String address, String specialization, String role) {
+		super(uid, username, password, fullname, dob, email, phone, address, role);
+		this.specialization = specialization;
+	}
+
+
 
 	public String getSpecialization() {
 		return specialization;

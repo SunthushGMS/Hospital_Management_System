@@ -82,7 +82,7 @@
 
                                 <hr class="text-blue-600 mb-8">
                                 <!-- Form -->
-                                <form id="addDoctorForm" class="space-y-4" action="${pageContext.request.contextPath}/AddDoctoForm" method="post">
+                                <form id="addDoctorForm" class="space-y-4" method="POST" action="${pageContext.request.contextPath}/AddDoctorForm" >
                                     <div class="flex justify-between">
                                         <div class="flex flex-col mr-10">
                                             <label for="" class="text-lg text-white font-semibold mb-2">Full Name</label>
@@ -108,7 +108,7 @@
                                     <div class="flex justify-between">
                                         <div class="flex flex-col mr-10 ">
                                             <label for="" class="text-lg text-white font-semibold mb-2">Birthday</label>
-                                            <input type="date" name="date" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                            <input type="date" name="dob" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         </div>
                                         <div class="flex flex-col mr-10 ">
                                             <label for="" class="text-gray-200 text-lg text-white font-semibold mb-2">Address</label>
