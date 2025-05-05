@@ -258,9 +258,9 @@
                                     <th>Action</th>
                                 </tr>
         						
-        						<c:forEach var="appointments" items="${appointments}">
+        						<c:forEach var="appointment" items="${appointments}">
                                 <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">${appointment.appointmentId}</td>
+                                    <td class="pt-3 pb-3">${appointment.id}</td>
                                     <td>${appointment.patientName }</td>
                                     <td>${appointment.doctorName}</td>
                                     <td>${appointment.appointmentDate}</td>

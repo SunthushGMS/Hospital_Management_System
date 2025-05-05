@@ -6,9 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.model.AdminAppointment;
-import com.model.Appointment;
 import com.model.Doctor;
-import com.model.Patient;
 import com.model.User;
 import com.utill.DBConnection;
 
@@ -151,6 +149,7 @@ public class AdminService {
 		}
 		catch(Exception e){
 			e.printStackTrace();
+			return appointments;
 		}
 		
 		return appointments;
