@@ -1,3 +1,4 @@
+//By Sharuka
 package com.service;
 
 import java.sql.Connection;
@@ -29,6 +30,7 @@ public class AppointmentService {
             con.close();
         } catch (Exception e) {
             e.printStackTrace();
+            result = false;
         }
 
         return result;

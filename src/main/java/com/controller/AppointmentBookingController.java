@@ -1,3 +1,4 @@
+//By Sharuka
 package com.controller;
 
 import java.io.IOException;
@@ -30,8 +31,8 @@ public class AppointmentBookingController extends HttpServlet {
             int doctorId = Integer.parseInt(doctorIdStr);
             Date appointmentDate = Date.valueOf(dateStr);
 
-            // Assuming patientId is 1 for now
-            int patientId = 1;
+            HttpSession session = request.getSession(false);
+            int patientId = (int) session.getAttribute("uid"); // get session user id
 
             Appointment appointment = new Appointment(
                 doctorId,
@@ -44,14 +45,14 @@ public class AppointmentBookingController extends HttpServlet {
             boolean isInserted = AppointmentService.insertAppointment(appointment);
 
             if (isInserted) {
-                response.sendRedirect("appointHistory?success=" + URLEncoder.encode("Appointment booked successfully!", "UTF-8"));
+                response.sendRedirect("AppointmentHistory?success=" + URLEncoder.encode("Appointment booked successfully!", "UTF-8"));
             } else {
-                response.sendRedirect("patient.jsp?error=" + URLEncoder.encode("Error when booking appointment.", "UTF-8"));
+                response.sendRedirect("Patient?error=" + URLEncoder.encode("Error when booking appointment.", "UTF-8"));
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("patient.jsp?error=" + URLEncoder.encode("Unexpected error occurred.", "UTF-8"));
+            response.sendRedirect("Patient?error=" + URLEncoder.encode("Unexpected error occurred.", "UTF-8"));
         }
     }
 }
