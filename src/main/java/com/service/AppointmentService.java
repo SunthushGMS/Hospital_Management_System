@@ -19,7 +19,7 @@ public class AppointmentService {
 
             ps.setInt(1, appointment.getDoctorId());
             ps.setInt(2, appointment.getPatientId());
-            ps.setDate(3, appointment.getAppointmentDate());
+            ps.setString(3, appointment.getAppointmentDate());
             ps.setString(4, appointment.getTime());
             ps.setString(5, appointment.getStatus());
 

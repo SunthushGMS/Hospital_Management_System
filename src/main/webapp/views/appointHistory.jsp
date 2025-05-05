@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.model.AppointmentHistory" %>
-
-<%
-    List<AppointmentHistory> appointments = (List<AppointmentHistory>) request.getAttribute("appointments");
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,36 +27,38 @@
    
    <section class="sec1">
     <div class="table-view">
-       <% if (appointments != null && !appointments.isEmpty()) { %>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Doctor ID</th>
-                <th>Patient ID</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-        <% for (AppointmentHistory a : appointments) { %>
-            <tr>
-                <td><%= a.getId() %></td>
-                <td><%= a.getDoctorId() %></td>
-                <td><%= a.getPatientId() %></td>
-                <td><%= a.getDate() %></td>
-                <td><%= a.getTime() %></td>
-                <td><%= a.getStatus() %></td>
-            </tr>
-        <% } %>
-        </tbody>
-    </table>
-<% } else { %>
-    <div class="no-records">No appointment history found for this patient.</div>
-<% } %>
-        <button class="btn-down">Download PDF</button>
+      	<c:if test="${not empty appointments}">
+		    <table>
+		        <thead>
+		            <tr>
+		                <th>ID</th>
+		                <th>Doctor ID</th>
+		                <th>Patient ID</th>
+		                <th>Date</th>
+		                <th>Time</th>
+		                <th>Status</th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		            <c:forEach var="a" items="${appointments}">
+		                <tr>
+		                    <td>${a.id}</td>
+		                    <td>${a.doctorId}</td>
+		                    <td>${a.patientId}</td>
+		                    <td>${a.appointmentDate}</td>
+		                    <td>${a.time}</td>
+		                    <td>${a.status}</td>
+		                </tr>
+		            </c:forEach>
+		        </tbody>
+		    </table>
+		</c:if>
 
+		<c:if test="${empty appointments}">
+		    <div class="no-records">No appointment history found for this patient.</div>
+		</c:if>
+      	
+        <button class="btn-down">Download PDF</button>
     </div>
    </section>
    <jsp:include page="/views/partials/footer.jsp"/>

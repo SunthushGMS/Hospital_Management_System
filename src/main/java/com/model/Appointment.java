@@ -1,18 +1,16 @@
 package com.model;
 
-import java.sql.Date;
-
 public class Appointment {
     private int id;
     private int doctorId;
     private int patientId;
-    private Date appointmentDate;
+    private String appointmentDate;
     private String time;
     private String status;
 
     public Appointment() {}
 
-    public Appointment(int doctorId, int patientId, Date appointmentDate, String time, String status) {
+    public Appointment(int doctorId, int patientId, String appointmentDate, String time, String status) {
         this.doctorId = doctorId;
         this.patientId = patientId;
         this.appointmentDate = appointmentDate;
@@ -20,22 +18,52 @@ public class Appointment {
         this.status = status;
     }
 
-    // Getters and Setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+	public int getId() {
+		return id;
+	}
 
-    public int getDoctorId() { return doctorId; }
-    public void setDoctorId(int doctorId) { this.doctorId = doctorId; }
+	public int getDoctorId() {
+		return doctorId;
+	}
 
-    public int getPatientId() { return patientId; }
-    public void setPatientId(int patientId) { this.patientId = patientId; }
+	public int getPatientId() {
+		return patientId;
+	}
 
-    public Date getAppointmentDate() { return appointmentDate; }
-    public void setAppointmentDate(Date appointmentDate) { this.appointmentDate = appointmentDate; }
+	public String getAppointmentDate() {
+		return appointmentDate;
+	}
 
-    public String getTime() { return time; }
-    public void setTime(String time) { this.time = time; }
+	public String getTime() {
+		return time;
+	}
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+	public String getStatus() {
+		return status;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setDoctorId(int doctorId) {
+		this.doctorId = doctorId;
+	}
+
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
+	}
+
+	public void setAppointmentDate(String appointmentDate) {
+		this.appointmentDate = appointmentDate;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 }

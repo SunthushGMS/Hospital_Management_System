@@ -3,8 +3,6 @@ package com.controller;
 
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.sql.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -29,7 +27,6 @@ public class AppointmentBookingController extends HttpServlet {
             }
 
             int doctorId = Integer.parseInt(doctorIdStr);
-            Date appointmentDate = Date.valueOf(dateStr);
 
             HttpSession session = request.getSession(false);
             int patientId = (int) session.getAttribute("uid"); // get session user id
@@ -37,7 +34,7 @@ public class AppointmentBookingController extends HttpServlet {
             Appointment appointment = new Appointment(
                 doctorId,
                 patientId,
-                appointmentDate,
+                dateStr,
                 time,
                 "Pending"
             );

@@ -6,13 +6,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.model.AppointmentHistory;
+import com.model.Appointment;
 import com.utill.DBConnection;
 
 public class AppointmentHistoryService {
 
-    public static List<AppointmentHistory> getAllAppointments() {
-        List<AppointmentHistory> appointments = new ArrayList<>();
+    public static List<Appointment> getAllAppointments() {
+        ArrayList<Appointment> appointments = new ArrayList<>();
 
         try {
             Connection con = DBConnection.getConnection();
@@ -23,12 +23,12 @@ public class AppointmentHistoryService {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                AppointmentHistory appointment = new AppointmentHistory();
+            	Appointment appointment = new Appointment();
 
                 appointment.setId(rs.getInt("id"));
                 appointment.setDoctorId(rs.getInt("doctor_ID"));
                 appointment.setPatientId(rs.getInt("patient_ID"));
-                appointment.setDate(rs.getString("date"));
+                appointment.setAppointmentDate(rs.getString("date"));
                 appointment.setTime(rs.getString("time"));
                 appointment.setStatus(rs.getString("status"));
 
@@ -44,25 +44,24 @@ public class AppointmentHistoryService {
         return appointments;
     }
 
-    public static List<AppointmentHistory> getAppointmentsByPatientId(String patientId) {
-        List<AppointmentHistory> appointments = new ArrayList<>();
+    public static ArrayList<Appointment> getAppointmentsByPatientId(int patientId) {
+        ArrayList<Appointment> appointments = new ArrayList<>();
 
         try {
             Connection con = DBConnection.getConnection();
-
             String query = "SELECT * FROM appointment WHERE patient_ID = ?";
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, patientId);
+            ps.setInt(1, patientId);
 
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                AppointmentHistory appointment = new AppointmentHistory();
+            	Appointment appointment = new Appointment();
 
                 appointment.setId(rs.getInt("id"));
                 appointment.setDoctorId(rs.getInt("doctor_ID"));
                 appointment.setPatientId(rs.getInt("patient_ID"));
-                appointment.setDate(rs.getString("date"));
+                appointment.setAppointmentDate(rs.getString("date"));
                 appointment.setTime(rs.getString("time"));
                 appointment.setStatus(rs.getString("status"));
 
@@ -73,6 +72,7 @@ public class AppointmentHistoryService {
 
         } catch (Exception e) {
             e.printStackTrace();
+            return appointments;
         }
 
         return appointments;
