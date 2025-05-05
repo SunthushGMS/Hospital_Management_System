@@ -36,7 +36,7 @@ public class AddDoctorController extends HttpServlet {
 		}
 		else {
 			String message = "Something went worng, Try again";
-			response.sendRedirect("Data input error = " + URLEncoder.encode(message, "UTF-8"));
+			response.sendRedirect("AdminDB?error = " + URLEncoder.encode(message, "UTF-8"));
 		}
 		
 	}

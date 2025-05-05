@@ -36,9 +36,21 @@
 						      <li>
 						        <a href="${pageContext.request.contextPath}/userprofile" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Profile</a>
 						      </li>
-						      <li>
-						        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Patient Dashboard</a>
-						      </li>
+						      <c:if test="${role == 'patient'}">
+						      	<li>
+						        	<a href="${pageContext.request.contextPath}/PatientDashboard" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Patient Dashboard</a>
+						      	</li>
+						      </c:if>
+						      <c:if test="${role == 'doctor'}">
+						          <li>
+                                	<a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Doctor Dashboard</a>
+                              	</li>
+						      </c:if>
+						      <c:if test="${role == 'admin'}">
+                              	<li>
+                                	<a href="${pageContext.request.contextPath}/AdminDB" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Admin Dashboard</a>
+                              	</li>
+						      </c:if>
 						      <li>
 						        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Notifications</a>
 						      </li>
