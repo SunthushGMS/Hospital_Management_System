@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.model.AppointmentHistory" %>
+
+<%
+    List<AppointmentHistory> appointments = (List<AppointmentHistory>) request.getAttribute("appointments");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,103 +32,34 @@
    
    <section class="sec1">
     <div class="table-view">
-        <table>
+       <% if (appointments != null && !appointments.isEmpty()) { %>
+    <table>
+        <thead>
             <tr>
-            <th>Appointment ID</th>
-            <th>Doctors Name</th>
-            
-            <th>Date</th>
-              <th>Time</th>
-            <th>Status</th>
-            <th>Action</th>
-            <th>Feedback & Rating</th>
+                <th>ID</th>
+                <th>Doctor ID</th>
+                <th>Patient ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
             </tr>
+        </thead>
+        <tbody>
+        <% for (AppointmentHistory a : appointments) { %>
             <tr>
-                <td>AP001</td>
-                <td>Dr Thinura</td>
-              
-                <td>March 15, 2025 </td>
-                <td>10.00 A M </td>
-                <td>Completed</td>
-                <td><button class="btn btn-view">View Details</button></td>
-                <td class="star"><i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                </td>
+                <td><%= a.getId() %></td>
+                <td><%= a.getDoctorId() %></td>
+                <td><%= a.getPatientId() %></td>
+                <td><%= a.getDate() %></td>
+                <td><%= a.getTime() %></td>
+                <td><%= a.getStatus() %></td>
             </tr>
-            <tr>
-                <td>AP002</td>
-                <td>Dr shashie</td>
-               
-                <td>March 20, 2025</td>
-                 <td>10.00 A M </td>
-                <td>Cancelled</td>
-                <td>
-                    <button class="btn btn-reschedule">Reschedule</button>
-                </td>
-                <td class="star"><i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i></td>
-            </tr>
-            <tr>
-                <td>AP003</td>
-                <td>Dr Michael Smith</td>
-                
-                <td>March 25, 2025 </td>
-                 <td>10.00 A M </td>
-                <td>Upcoming</td>
-                <td>
-                    <button class="btn btn-cancel">Cancel</button>
-                </td>
-                <td class="star"><i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i></td>
-                    </tr>
-                    <tr>
-                        <td>AP004</td>
-                        <td>Dr Chris Bumstead</td>
-                    
-                        <td>March 08, 2025</td>
-                         <td>10.00 A M </td>
-                        <td>Upcoming</td>
-                        <td>
-                            <button class="btn btn-cancel">Cancel</button>
-                        </td>
-                        <td class="star"><i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i></td>
-                            </tr>
-                            <tr>
-                                <td>AP005</td>
-                                <td>Dr Nuwan Thushara</td>
-                               
-                                <td>March 10, 2025</td>
-                                 <td>10.00 A M </td>
-                                <td>Cancelled</td>
-                                <td>
-                                    <button class="btn btn-reschedule">Reschedule</button>
-                                </td>
-                                <td class="star"><i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i></td>
-                            </tr>
-                            <tr>
-                                <td>AP006</td>
-                                <td>Dr Harischandra</td>
-                              
-                                <td>March 25, 2025</td>
-                                 <td>10.00 A M </td>
-                                <td>Completed</td>
-                                <td><button class="btn btn-view">View Details</button></td>
-                                <td class="star"><i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                </td>
-                            </tr>
-                            
-        </table>
+        <% } %>
+        </tbody>
+    </table>
+<% } else { %>
+    <div class="no-records">No appointment history found for this patient.</div>
+<% } %>
         <button class="btn-down">Download PDF</button>
 
     </div>
