@@ -81,5 +81,16 @@
 	
   });
   
+  
   /*Prompt Box*/
+  
+    document.querySelector('#dltAccount').addEventListener('click', () => {
+      Confirm.open({
+        title: 'Delete Account',
+        message: 'Are you sure you wish to delete your account? This action cannot be undone.',
+        onok: () => {
+			window.location.href = "DeleteProfileController";
+        }
+      })
+    });
   
