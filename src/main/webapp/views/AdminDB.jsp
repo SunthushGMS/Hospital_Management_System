@@ -150,10 +150,12 @@
                                     <th><button>Action</button></th>  
                                 </tr>
                                 
+                                <c:forEach var="doctor" items="${doctorDetails}">
+                                
                                 <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">001</td>
-                                    <td>Moditha Marasinghe</td>
-                                    <td>Heart</td>
+                                    <td class="pt-3 pb-3">${doctor.uid}</td>
+                                    <td>${doctor.fullname}</td>
+                                    <td>${doctor.specialization}</td>
                                     <td class="px-6 py-4 text-center">
                                         <button class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2" onclick="openEditDoctorDetailsForm()">
                                             <i class="fas fa-edit mr-1"></i> Edit
@@ -227,6 +229,7 @@
                                         </button>
                                     </td>
                                 </tr>
+                                </c:forEach>
                                 
                             </table>
                         </div>

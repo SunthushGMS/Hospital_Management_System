@@ -60,21 +60,19 @@ public class AdminService {
 			Connection con = DBConnection.getConnection();
 			Statement stmt = con.createStatement();
 			
-			String query = "SELECT u.uid, u.fullname, d.specialization\r\n"
-					+ "FROM user u \r\n"
-					+ "JOIN doctor d \r\n"
-					+ "ON d.user_id = u.uid \r\n"
-					+ "WHERE role = \"doctor\"; ";
+			String query = "SELECT u.uid, u.fullname, d.specialization " +
+		               "FROM user u " +
+		               "JOIN doctor d ON d.user_id = u.uid " +
+		               "WHERE u.role = 'doctor'";
 			
 			ResultSet rs = stmt.executeQuery(query);
 			
 			while(rs.next()) {
-				int uid = rs.getInt(1);
-				String fullname = rs.getString(2);
-				String specialization = rs.getString(3);
+				int uid = rs.getInt("uid");
+		        String fullname = rs.getString("fullname");
+		        String specialization = rs.getString("specialization");
 				
 				Doctor doctor = new Doctor(uid,fullname,specialization);
-				
 				doctors.add(doctor);
 			}
 			
