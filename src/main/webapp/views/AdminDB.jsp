@@ -257,53 +257,19 @@
                                     <th>Date</th>
                                     <th>Action</th>
                                 </tr>
-        
+        						
+        						<c:forEach var="appointments" items="${appointments}">
                                 <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">001</td>
-                                    <td>Hasindu Chanuka</td>
-                                    <td>Dr.Moditha</td>
-                                    <td>2025/04/25</td>
+                                    <td class="pt-3 pb-3">${appointment.appointmentId}</td>
+                                    <td>${appointment.patientName }</td>
+                                    <td>${appointment.doctorName}</td>
+                                    <td>${appointment.appointmentDate}</td>
                                     <td><button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
                                         <i class="fas fa-trash-alt mr-1"></i> Delete
                                     </button></td>
                                 </tr>
-        
-                                <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">002</td>
-                                    <td>Hasindu Chanuka</td>
-                                    <td>Dr.Moditha</td>
-                                    <td>2025/04/25</td>
-                                    <td><button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                        <i class="fas fa-trash-alt mr-1"></i> Delete
-                                    </button></td>
-                                </tr>
-                                <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">003</td>
-                                    <td>Hasindu Chanuka</td>
-                                    <td>Dr.Moditha</td>
-                                    <td>2025/04/25</td>
-                                    <td><button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                        <i class="fas fa-trash-alt mr-1"></i> Delete
-                                    </button></td>
-                                </tr>
-                                <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">004</td>
-                                    <td>Hasindu Chanuka</td>
-                                    <td>Dr.Moditha</td>
-                                    <td>2025/04/25</td>
-                                    <td><button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                        <i class="fas fa-trash-alt mr-1"></i> Delete
-                                    </button></td>
-                                </tr>
-                                <tr class="odd:bg-white even:bg-slate-100">
-                                    <td class="pt-3 pb-3">005</td>
-                                    <td>Hasindu Chanuka</td>
-                                    <td>Dr.Moditha</td>
-                                    <td>2025/04/25</td>
-                                    <td><button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                        <i class="fas fa-trash-alt mr-1"></i> Delete
-                                    </button></td>
-                                </tr>
+        						</c:forEach>
+                                
                             </table>
                         </div>
                     </div>
@@ -375,17 +341,19 @@
                     <div>
                         <table class="table-auto w-full text-center font-semibold text-grey-400 ">
                             <tr class="bg-gradient-to-br from-green-500 to-green-600 text-white text-center ">
-                                <th class="pt-1 pb-1">Inquiry ID</th>
+                                <th class="pt-1 pb-1">Patient ID</th>
                                 <th>User Name</th>
                                 <th>Action</th>
                             </tr>
     
+    						<c:forEach var="patient" items="${patientDetails}">
+    						
                             <tr class="odd:bg-white even:bg-slate-100">
-                                <td class="pt-3 pb-3">001</td>
+                                <td class="pt-3 pb-3">${patient.uid}</td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center">
                                         <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">MM</div>
-                                        <span class="ml-3 font-medium">Moditha Marasinghe</span>
+                                        <span class="ml-3 font-medium">${patient.fullname}</span>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-center">
@@ -395,50 +363,7 @@
                                 </td>
                             </tr>
 
-                            <tr class="odd:bg-white even:bg-slate-100">
-                                <td class="pt-3 pb-3">002</td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center">
-                                        <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">MM</div>
-                                        <span class="ml-3 font-medium">Moditha Marasinghe</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                        <i class="fas fa-trash-alt mr-1"></i> Delete
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white even:bg-slate-100">
-                                <td class="pt-3 pb-3">003</td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center">
-                                        <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">MM</div>
-                                        <span class="ml-3 font-medium">Moditha Marasinghe</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                        <i class="fas fa-trash-alt mr-1"></i> Delete
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white even:bg-slate-100">
-                                <td class="pt-3 pb-3">004</td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center">
-                                        <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">MM</div>
-                                        <span class="ml-3 font-medium">Moditha Marasinghe</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
-                                        <i class="fas fa-trash-alt mr-1"></i> Delete
-                                    </button>
-                                </td>
-                            </tr>
+                            </c:forEach>
                         </table>
                     </div>
                 </div>

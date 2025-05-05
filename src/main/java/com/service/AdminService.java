@@ -5,7 +5,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.model.AdminAppointment;
+import com.model.Appointment;
 import com.model.Doctor;
+import com.model.Patient;
+import com.model.User;
 import com.utill.DBConnection;
 
 public class AdminService {
@@ -84,6 +88,73 @@ public class AdminService {
 		return doctors;
 	}
 	
+	public static ArrayList<User> getPatientDetails(){
+		
+		ArrayList<User> patients = new ArrayList<>();
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			
+			String query = "SELECT user.uid, user.fullname \n" +
+							"FROM user \n" +
+							"WHERE user.role = 'patient';";
+			
+			ResultSet rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				int uid = rs.getInt("uid");
+				String fullname = rs.getString("fullname");
+				
+				User patient = new User(uid, fullname);
+				patients.add(patient);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return patients;
+	}
+	
+	public static ArrayList<AdminAppointment> getAppointmentDetails(){
+		
+		ArrayList<AdminAppointment> appointments = new ArrayList<>();
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			
+			String query = "SELECT \n"
+					+ "    a.id AS appointment_id,\n"
+					+ "    p_user.fullname AS patient_name,\n"
+					+ "    d_user.fullname AS doctor_name,\n"
+					+ "    a.date\r\n"
+					+ "FROM \r\n"
+					+ "    Appointment a\n"
+					+ "JOIN Patient p ON a.patient_id = p.user_id\n"
+					+ "JOIN User p_user ON p.user_id = p_user.uid\n"
+					+ "JOIN Doctor d ON a.doctor_id = d.user_id\n"
+					+ "JOIN User d_user ON d.user_id = d_user.uid;";
+			
+			ResultSet rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				int appointmentId = rs.getInt("appointment_id");
+				String patientName = rs.getString("patient_name");
+				String doctorName = rs.getString("doctor_name");
+				String date = rs.getString("date");
+				
+				AdminAppointment appointment = new AdminAppointment(appointmentId,patientName,doctorName,date);
+				appointments.add(appointment);
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return appointments;
+	}
 	
 	
 }

@@ -18,6 +18,12 @@ public class Appointment {
         this.status = status;
     }
 
+	public Appointment(int id, String appointmentDate) {
+		this.id = id;
+		this.appointmentDate = appointmentDate;
+	}
+
+
 	public int getId() {
 		return id;
 	}
