@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
+-- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
 --
 -- Host: localhost    Database: health_lanka
 -- ------------------------------------------------------
--- Server version	9.0.1
+-- Server version	8.0.42
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,72 +16,69 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Admin`
+-- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `Admin`;
+DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Admin` (
+CREATE TABLE `admin` (
   `user_id` int NOT NULL,
   `role` varchar(50) DEFAULT NULL,
   `access_level` enum('basic','advanced','super') DEFAULT NULL,
   `datejoined` date DEFAULT NULL,
   `publicbio` text,
   PRIMARY KEY (`user_id`),
-  CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`uid`) ON DELETE CASCADE
+  CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Admin`
+-- Dumping data for table `admin`
 --
 
-LOCK TABLES `Admin` WRITE;
-/*!40000 ALTER TABLE `Admin` DISABLE KEYS */;
-INSERT INTO `Admin` VALUES (5,'Primary Administrator','super','2020-01-15','System Administration and Maintenance');
-/*!40000 ALTER TABLE `Admin` ENABLE KEYS */;
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (5,'Primary Administrator','super','2020-01-15','System Administration and Maintenance');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Appointment`
+-- Table structure for table `appointment`
 --
 
-DROP TABLE IF EXISTS `Appointment`;
+DROP TABLE IF EXISTS `appointment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Appointment` (
+CREATE TABLE `appointment` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `doctor_ID` int DEFAULT NULL,
+  `patient_ID` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `time` time DEFAULT NULL,
-  `status` enum('accept','rescheduled') DEFAULT NULL,
-  `doctor_id` int DEFAULT NULL,
-  `patient_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `doctor_id` (`doctor_id`),
-  KEY `patient_id` (`patient_id`),
-  CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `Doctor` (`user_id`),
-  CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`patient_id`) REFERENCES `Patient` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `status` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Appointment`
+-- Dumping data for table `appointment`
 --
 
-LOCK TABLES `Appointment` WRITE;
-/*!40000 ALTER TABLE `Appointment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Appointment` ENABLE KEYS */;
+LOCK TABLES `appointment` WRITE;
+/*!40000 ALTER TABLE `appointment` DISABLE KEYS */;
+INSERT INTO `appointment` VALUES (1,3,1,'2025-05-09','09:07:00','Pending'),(2,5,1,'2025-05-14','13:50:00','Pending');
+/*!40000 ALTER TABLE `appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Doctor`
+-- Table structure for table `doctor`
 --
 
-DROP TABLE IF EXISTS `Doctor`;
+DROP TABLE IF EXISTS `doctor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Doctor` (
+CREATE TABLE `doctor` (
   `user_id` int NOT NULL,
   `publicbio` text,
   `specialization` varchar(100) DEFAULT NULL,
@@ -89,28 +86,28 @@ CREATE TABLE `Doctor` (
   `experience` int DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `license_no` (`license_no`),
-  CONSTRAINT `doctor_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`uid`) ON DELETE CASCADE
+  CONSTRAINT `doctor_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Doctor`
+-- Dumping data for table `doctor`
 --
 
-LOCK TABLES `Doctor` WRITE;
-/*!40000 ALTER TABLE `Doctor` DISABLE KEYS */;
-INSERT INTO `Doctor` VALUES (1,'General Medicine Specialist','General Practice','MED-LK-789456',10),(4,'Pediatric Specialist','Pediatrics','PED-LK-321654',7);
-/*!40000 ALTER TABLE `Doctor` ENABLE KEYS */;
+LOCK TABLES `doctor` WRITE;
+/*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
+INSERT INTO `doctor` VALUES (1,'General Medicine Specialist','General Practice','MED-LK-789456',10),(4,'Pediatric Specialist','Pediatrics','PED-LK-321654',7);
+/*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Drug`
+-- Table structure for table `drug`
 --
 
-DROP TABLE IF EXISTS `Drug`;
+DROP TABLE IF EXISTS `drug`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Drug` (
+CREATE TABLE `drug` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
@@ -118,48 +115,48 @@ CREATE TABLE `Drug` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Drug`
+-- Dumping data for table `drug`
 --
 
-LOCK TABLES `Drug` WRITE;
-/*!40000 ALTER TABLE `Drug` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Drug` ENABLE KEYS */;
+LOCK TABLES `drug` WRITE;
+/*!40000 ALTER TABLE `drug` DISABLE KEYS */;
+/*!40000 ALTER TABLE `drug` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Drug_Prescription`
+-- Table structure for table `drug_prescription`
 --
 
-DROP TABLE IF EXISTS `Drug_Prescription`;
+DROP TABLE IF EXISTS `drug_prescription`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Drug_Prescription` (
+CREATE TABLE `drug_prescription` (
   `prescription_id` int NOT NULL,
   `drug_id` int NOT NULL,
   PRIMARY KEY (`prescription_id`,`drug_id`),
   KEY `drug_id` (`drug_id`),
-  CONSTRAINT `drug_prescription_ibfk_1` FOREIGN KEY (`prescription_id`) REFERENCES `Prescription` (`id`),
-  CONSTRAINT `drug_prescription_ibfk_2` FOREIGN KEY (`drug_id`) REFERENCES `Drug` (`id`)
+  CONSTRAINT `drug_prescription_ibfk_1` FOREIGN KEY (`prescription_id`) REFERENCES `prescription` (`id`),
+  CONSTRAINT `drug_prescription_ibfk_2` FOREIGN KEY (`drug_id`) REFERENCES `drug` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Drug_Prescription`
+-- Dumping data for table `drug_prescription`
 --
 
-LOCK TABLES `Drug_Prescription` WRITE;
-/*!40000 ALTER TABLE `Drug_Prescription` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Drug_Prescription` ENABLE KEYS */;
+LOCK TABLES `drug_prescription` WRITE;
+/*!40000 ALTER TABLE `drug_prescription` DISABLE KEYS */;
+/*!40000 ALTER TABLE `drug_prescription` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Emergency_Patient`
+-- Table structure for table `emergency_patient`
 --
 
-DROP TABLE IF EXISTS `Emergency_Patient`;
+DROP TABLE IF EXISTS `emergency_patient`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Emergency_Patient` (
+CREATE TABLE `emergency_patient` (
   `id` int NOT NULL AUTO_INCREMENT,
   `severity` enum('low','medium','high','critical') DEFAULT NULL,
   `problem` varchar(255) DEFAULT NULL,
@@ -167,27 +164,27 @@ CREATE TABLE `Emergency_Patient` (
   `doctor_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `doctor_id` (`doctor_id`),
-  CONSTRAINT `emergency_patient_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `Doctor` (`user_id`)
+  CONSTRAINT `emergency_patient_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Emergency_Patient`
+-- Dumping data for table `emergency_patient`
 --
 
-LOCK TABLES `Emergency_Patient` WRITE;
-/*!40000 ALTER TABLE `Emergency_Patient` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Emergency_Patient` ENABLE KEYS */;
+LOCK TABLES `emergency_patient` WRITE;
+/*!40000 ALTER TABLE `emergency_patient` DISABLE KEYS */;
+/*!40000 ALTER TABLE `emergency_patient` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Lab_Report`
+-- Table structure for table `lab_report`
 --
 
-DROP TABLE IF EXISTS `Lab_Report`;
+DROP TABLE IF EXISTS `lab_report`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Lab_Report` (
+CREATE TABLE `lab_report` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `department` varchar(50) DEFAULT NULL,
@@ -199,28 +196,28 @@ CREATE TABLE `Lab_Report` (
   PRIMARY KEY (`id`),
   KEY `patient_id` (`patient_id`),
   KEY `doctor_id` (`doctor_id`),
-  CONSTRAINT `lab_report_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `Patient` (`user_id`),
-  CONSTRAINT `lab_report_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `Doctor` (`user_id`)
+  CONSTRAINT `lab_report_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`user_id`),
+  CONSTRAINT `lab_report_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Lab_Report`
+-- Dumping data for table `lab_report`
 --
 
-LOCK TABLES `Lab_Report` WRITE;
-/*!40000 ALTER TABLE `Lab_Report` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Lab_Report` ENABLE KEYS */;
+LOCK TABLES `lab_report` WRITE;
+/*!40000 ALTER TABLE `lab_report` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lab_report` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Patient`
+-- Table structure for table `patient`
 --
 
-DROP TABLE IF EXISTS `Patient`;
+DROP TABLE IF EXISTS `patient`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Patient` (
+CREATE TABLE `patient` (
   `user_id` int NOT NULL,
   `bloodtype` enum('A+','A-','B+','B-','AB+','AB-','O+','O-','unknown') DEFAULT NULL,
   `gender` enum('male','female','other') DEFAULT NULL,
@@ -229,28 +226,59 @@ CREATE TABLE `Patient` (
   `notes` text,
   `genetic_predispositions` text,
   PRIMARY KEY (`user_id`),
-  CONSTRAINT `patient_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`uid`) ON DELETE CASCADE
+  CONSTRAINT `patient_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Patient`
+-- Dumping data for table `patient`
 --
 
-LOCK TABLES `Patient` WRITE;
-/*!40000 ALTER TABLE `Patient` DISABLE KEYS */;
-INSERT INTO `Patient` VALUES (2,'B+','male','Penicillin','2019 Appendicitis Surgery','Regular Check-ups','Heart Disease'),(3,'O+','male','None','Past Asthma','Annual Check-ups Required','Mental Health'),(10,'unknown','other','','','','');
-/*!40000 ALTER TABLE `Patient` ENABLE KEYS */;
+LOCK TABLES `patient` WRITE;
+/*!40000 ALTER TABLE `patient` DISABLE KEYS */;
+INSERT INTO `patient` VALUES (2,'B+','male','Penicillin','2019 Appendicitis Surgery','Regular Check-ups','Heart Disease'),(3,'O+','male','None','Past Asthma','Annual Check-ups Required','Mental Health'),(10,'unknown','other','','','','');
+/*!40000 ALTER TABLE `patient` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Prescription`
+-- Table structure for table `paymentmake`
 --
 
-DROP TABLE IF EXISTS `Prescription`;
+DROP TABLE IF EXISTS `paymentmake`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Prescription` (
+CREATE TABLE `paymentmake` (
+  `payID` int NOT NULL AUTO_INCREMENT,
+  `fullname` varchar(255) NOT NULL,
+  `patientID` int DEFAULT NULL,
+  `phone` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `service` varchar(255) NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`payID`),
+  KEY `patientID` (`patientID`),
+  CONSTRAINT `paymentmake_ibfk_1` FOREIGN KEY (`patientID`) REFERENCES `patient` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `paymentmake`
+--
+
+LOCK TABLES `paymentmake` WRITE;
+/*!40000 ALTER TABLE `paymentmake` DISABLE KEYS */;
+INSERT INTO `paymentmake` VALUES (1,'sdljlsj',2,'08098018282','hkdahd@gmail.com','Tests',34667.00);
+/*!40000 ALTER TABLE `paymentmake` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `prescription`
+--
+
+DROP TABLE IF EXISTS `prescription`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `prescription` (
   `id` int NOT NULL AUTO_INCREMENT,
   `date_of_issue` date DEFAULT NULL,
   `dietary_advice` text,
@@ -260,54 +288,54 @@ CREATE TABLE `Prescription` (
   PRIMARY KEY (`id`),
   KEY `doctor_id` (`doctor_id`),
   KEY `patient_id` (`patient_id`),
-  CONSTRAINT `prescription_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `Doctor` (`user_id`),
-  CONSTRAINT `prescription_ibfk_2` FOREIGN KEY (`patient_id`) REFERENCES `Patient` (`user_id`)
+  CONSTRAINT `prescription_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`),
+  CONSTRAINT `prescription_ibfk_2` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Prescription`
+-- Dumping data for table `prescription`
 --
 
-LOCK TABLES `Prescription` WRITE;
-/*!40000 ALTER TABLE `Prescription` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Prescription` ENABLE KEYS */;
+LOCK TABLES `prescription` WRITE;
+/*!40000 ALTER TABLE `prescription` DISABLE KEYS */;
+/*!40000 ALTER TABLE `prescription` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Request_Labreport`
+-- Table structure for table `request_labreport`
 --
 
-DROP TABLE IF EXISTS `Request_Labreport`;
+DROP TABLE IF EXISTS `request_labreport`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Request_Labreport` (
+CREATE TABLE `request_labreport` (
   `labreport_id` int NOT NULL,
   `doctor_id` int NOT NULL,
   PRIMARY KEY (`labreport_id`,`doctor_id`),
   KEY `doctor_id` (`doctor_id`),
-  CONSTRAINT `request_labreport_ibfk_1` FOREIGN KEY (`labreport_id`) REFERENCES `Lab_Report` (`id`),
-  CONSTRAINT `request_labreport_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `Doctor` (`user_id`)
+  CONSTRAINT `request_labreport_ibfk_1` FOREIGN KEY (`labreport_id`) REFERENCES `lab_report` (`id`),
+  CONSTRAINT `request_labreport_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Request_Labreport`
+-- Dumping data for table `request_labreport`
 --
 
-LOCK TABLES `Request_Labreport` WRITE;
-/*!40000 ALTER TABLE `Request_Labreport` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Request_Labreport` ENABLE KEYS */;
+LOCK TABLES `request_labreport` WRITE;
+/*!40000 ALTER TABLE `request_labreport` DISABLE KEYS */;
+/*!40000 ALTER TABLE `request_labreport` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Surgery`
+-- Table structure for table `surgery`
 --
 
-DROP TABLE IF EXISTS `Surgery`;
+DROP TABLE IF EXISTS `surgery`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Surgery` (
+CREATE TABLE `surgery` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `date` date DEFAULT NULL,
@@ -319,48 +347,48 @@ CREATE TABLE `Surgery` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Surgery`
+-- Dumping data for table `surgery`
 --
 
-LOCK TABLES `Surgery` WRITE;
-/*!40000 ALTER TABLE `Surgery` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Surgery` ENABLE KEYS */;
+LOCK TABLES `surgery` WRITE;
+/*!40000 ALTER TABLE `surgery` DISABLE KEYS */;
+/*!40000 ALTER TABLE `surgery` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Surgery_Recommendations`
+-- Table structure for table `surgery_recommendations`
 --
 
-DROP TABLE IF EXISTS `Surgery_Recommendations`;
+DROP TABLE IF EXISTS `surgery_recommendations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Surgery_Recommendations` (
+CREATE TABLE `surgery_recommendations` (
   `surgery_id` int NOT NULL,
   `doctor_id` int NOT NULL,
   PRIMARY KEY (`surgery_id`,`doctor_id`),
   KEY `doctor_id` (`doctor_id`),
-  CONSTRAINT `surgery_recommendations_ibfk_1` FOREIGN KEY (`surgery_id`) REFERENCES `Surgery` (`id`),
-  CONSTRAINT `surgery_recommendations_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `Doctor` (`user_id`)
+  CONSTRAINT `surgery_recommendations_ibfk_1` FOREIGN KEY (`surgery_id`) REFERENCES `surgery` (`id`),
+  CONSTRAINT `surgery_recommendations_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Surgery_Recommendations`
+-- Dumping data for table `surgery_recommendations`
 --
 
-LOCK TABLES `Surgery_Recommendations` WRITE;
-/*!40000 ALTER TABLE `Surgery_Recommendations` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Surgery_Recommendations` ENABLE KEYS */;
+LOCK TABLES `surgery_recommendations` WRITE;
+/*!40000 ALTER TABLE `surgery_recommendations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `surgery_recommendations` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `User`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `User`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `User` (
+CREATE TABLE `user` (
   `uid` int NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -379,49 +407,49 @@ CREATE TABLE `User` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `User`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `User` WRITE;
-/*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,'moditha','secure123','Moditha Marasingha','General Practitioner','1990-05-15','moditha@health.lk','0771234567','Colombo','English','testimg.jpeg','doctor'),(2,'sharukalal','pass456','Sharuka Sunthush','Patient Profile','1985-12-01','sharuka@mail.com','0719876543','Gampaha','English','testimg.jpeg','patient'),(3,'hasindupriya','hasindu789','Hasindu Chanuka','Personal User','2000-08-22','hasindu@test.lk','0761122334','Kandy','English','testimg.jpeg','patient'),(4,'anjaleefernando','anj#2025','Anjalee','Pediatrician','1988-03-30','anjalee@health.lk','0704455667','Ratnapura','English','testimg.jpeg','doctor'),(5,'nimalperera','Admin@1234','Nimal Perera','System Administrator','1995-07-10','nimal@health.lk','0112345678','Kaduwela','English','testimg.jpeg','admin'),(10,'Chani112','chani123','Chanindu Isuranga','','2007-11-21','chani@gmail.com','0777777112','nittabuwa, main st','','testimg.jpeg','patient');
-/*!40000 ALTER TABLE `User` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'moditha','secure123','Moditha Marasingha','General Practitioner','1990-05-15','moditha@health.lk','0771234567','Colombo','English','testimg.jpeg','doctor'),(2,'sharukalal','pass456','Sharuka Sunthush','Patient Profile','1985-12-01','sharuka@mail.com','0719876543','Gampaha','English','testimg.jpeg','patient'),(3,'hasindupriya','hasindu789','Hasindu Chanuka','Personal User','2000-08-22','hasindu@test.lk','0761122334','Kandy','English','testimg.jpeg','patient'),(4,'anjaleefernando','anj#2025','Anjalee','Pediatrician','1988-03-30','anjalee@health.lk','0704455667','Ratnapura','English','testimg.jpeg','doctor'),(5,'nimalperera','Admin@1234','Nimal Perera','System Administrator','1995-07-10','nimal@health.lk','0112345678','Kaduwela','English','testimg.jpeg','admin'),(10,'Chani112','chani123','Chanindu Isuranga','','2007-11-21','chani@gmail.com','0777777112','nittabuwa, main st','','testimg.jpeg','patient');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Vaccinated_Patient`
+-- Table structure for table `vaccinated_patient`
 --
 
-DROP TABLE IF EXISTS `Vaccinated_Patient`;
+DROP TABLE IF EXISTS `vaccinated_patient`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Vaccinated_Patient` (
+CREATE TABLE `vaccinated_patient` (
   `patient_id` int NOT NULL,
   `vaccine_id` int NOT NULL,
   PRIMARY KEY (`patient_id`,`vaccine_id`),
   KEY `vaccine_id` (`vaccine_id`),
-  CONSTRAINT `vaccinated_patient_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `Patient` (`user_id`),
-  CONSTRAINT `vaccinated_patient_ibfk_2` FOREIGN KEY (`vaccine_id`) REFERENCES `Vaccination` (`id`)
+  CONSTRAINT `vaccinated_patient_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`user_id`),
+  CONSTRAINT `vaccinated_patient_ibfk_2` FOREIGN KEY (`vaccine_id`) REFERENCES `vaccination` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Vaccinated_Patient`
+-- Dumping data for table `vaccinated_patient`
 --
 
-LOCK TABLES `Vaccinated_Patient` WRITE;
-/*!40000 ALTER TABLE `Vaccinated_Patient` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Vaccinated_Patient` ENABLE KEYS */;
+LOCK TABLES `vaccinated_patient` WRITE;
+/*!40000 ALTER TABLE `vaccinated_patient` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vaccinated_patient` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Vaccination`
+-- Table structure for table `vaccination`
 --
 
-DROP TABLE IF EXISTS `Vaccination`;
+DROP TABLE IF EXISTS `vaccination`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Vaccination` (
+CREATE TABLE `vaccination` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `manufacturer` varchar(100) DEFAULT NULL,
@@ -431,22 +459,18 @@ CREATE TABLE `Vaccination` (
   `doctor_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `doctor_id` (`doctor_id`),
-  CONSTRAINT `vaccination_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `Doctor` (`user_id`)
+  CONSTRAINT `vaccination_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Vaccination`
+-- Dumping data for table `vaccination`
 --
 
-LOCK TABLES `Vaccination` WRITE;
-/*!40000 ALTER TABLE `Vaccination` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Vaccination` ENABLE KEYS */;
+LOCK TABLES `vaccination` WRITE;
+/*!40000 ALTER TABLE `vaccination` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vaccination` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'health_lanka'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -457,4 +481,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-25 14:05:17
+-- Dump completed on 2025-05-05 10:23:17

@@ -30,8 +30,9 @@
             <tr>
             <th>Appointment ID</th>
             <th>Doctors Name</th>
-            <th>Department</th>
-            <th>Date & Time</th>
+            
+            <th>Date</th>
+              <th>Time</th>
             <th>Status</th>
             <th>Action</th>
             <th>Feedback & Rating</th>
@@ -39,8 +40,9 @@
             <tr>
                 <td>AP001</td>
                 <td>Dr Thinura</td>
-                <td>Cardiology</td>
-                <td>March 15, 2025 - 10:30 AM</td>
+              
+                <td>March 15, 2025 </td>
+                <td>10.00 A M </td>
                 <td>Completed</td>
                 <td><button class="btn btn-view">View Details</button></td>
                 <td class="star"><i class='bx bxs-star'></i>
@@ -52,8 +54,9 @@
             <tr>
                 <td>AP002</td>
                 <td>Dr shashie</td>
-                <td>Dermatology</td>
-                <td>March 20, 2025 - 02:00 PM</td>
+               
+                <td>March 20, 2025</td>
+                 <td>10.00 A M </td>
                 <td>Cancelled</td>
                 <td>
                     <button class="btn btn-reschedule">Reschedule</button>
@@ -65,8 +68,9 @@
             <tr>
                 <td>AP003</td>
                 <td>Dr Michael Smith</td>
-                <td>Orthopedics</td>
-                <td>March 25, 2025 - 09:00 AM</td>
+                
+                <td>March 25, 2025 </td>
+                 <td>10.00 A M </td>
                 <td>Upcoming</td>
                 <td>
                     <button class="btn btn-cancel">Cancel</button>
@@ -78,8 +82,9 @@
                     <tr>
                         <td>AP004</td>
                         <td>Dr Chris Bumstead</td>
-                        <td>Orthopedics</td>
-                        <td>March 08, 2025 - 09:00 AM</td>
+                    
+                        <td>March 08, 2025</td>
+                         <td>10.00 A M </td>
                         <td>Upcoming</td>
                         <td>
                             <button class="btn btn-cancel">Cancel</button>
@@ -91,8 +96,9 @@
                             <tr>
                                 <td>AP005</td>
                                 <td>Dr Nuwan Thushara</td>
-                                <td>Dermatology</td>
-                                <td>March 10, 2025 - 02:00 PM</td>
+                               
+                                <td>March 10, 2025</td>
+                                 <td>10.00 A M </td>
                                 <td>Cancelled</td>
                                 <td>
                                     <button class="btn btn-reschedule">Reschedule</button>
@@ -104,8 +110,9 @@
                             <tr>
                                 <td>AP006</td>
                                 <td>Dr Harischandra</td>
-                                <td>Cardiology</td>
-                                <td>March 25, 2025 - 10:30 AM</td>
+                              
+                                <td>March 25, 2025</td>
+                                 <td>10.00 A M </td>
                                 <td>Completed</td>
                                 <td><button class="btn btn-view">View Details</button></td>
                                 <td class="star"><i class='bx bxs-star'></i>
