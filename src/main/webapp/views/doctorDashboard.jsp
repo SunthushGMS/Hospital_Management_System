@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Health Lanka</title>
+    <title>Doctor Dashboard | Health Lanka</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/doctorDashboard.css">
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
 	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
