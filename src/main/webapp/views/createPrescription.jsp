@@ -22,19 +22,19 @@
         <div id="div1">
             <form id="createPrescription-form"action=""method="post">
                 <label for="drug-name">Drug Name : </label><br><br>
-                <input type="text" id="drug-name" required><br><br>
+                <input type="text" name="drug-name" id="drug-name" required><br><br>
 
                 <label for="dosage">Dosage: </label><br><br>
-                <input type="text" id="dosage" required><br><br>
+                <input type="text" name="dosage" id="dosage" required><br><br>
 
                 <label for="frequancy">Frequancy : </label><br><br>
-                <input type="text" id="frequancy" required><br><br>
+                <input type="text" name="frequancy" id="frequancy" required><br><br>
 
                 <label for="instruction">Instruction  : </label><br><br>
-                <input type="text" id="instruction" required><br><br>
+                <input type="text" name="instruction" id="instruction" required><br><br>
 
                 <label for="duration">Duration  : </label><br><br>
-                <input type="text" id="duration" required><br><br>
+                <input type="text" name="duration" id="duration" required><br><br>
 
                 <button type="submit" class="submit-btn">Add Drug</button>
             </form>
@@ -49,10 +49,10 @@
         <div id="div1">
             <form id="createPrescription-form"action=""method="post">
                 <label for="dietary-advices">Dietary advices: : </label><br><br>
-                <textarea id="dietary-advices" rows="6" required></textarea><br><br>
+                <textarea id="dietary-advices" name="dietary-advices" rows="6" required></textarea><br><br>
 
                 <label for="doctors-notes">Doctors notes : </label><br><br>
-                <textarea id="doctors-notes" rows="6" required></textarea><br><br>
+                <textarea id="doctors-notes" name="doctors-notes" rows="6" required></textarea><br><br>
 
                 <button type="submit" class="submit-btn">Send Prescription</button>
             </form>

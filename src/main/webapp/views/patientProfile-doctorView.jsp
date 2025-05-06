@@ -125,21 +125,27 @@
 
         <div class="div1">
             <img src="${pageContext.request.contextPath}/assets/images/surgeryP-icon.png">
-            <h3 id="subHeading">Make a recommendatation for surgery</h3>
-            <form id="surgery-form"action=""method="post">
-                <label for="surgery-name">Surgery name : </label><br><br>
-                <input id="surgery-name" rows="6" required><br><br>
+            <h3 id="subHeading">Make a recommendation for surgery</h3>
+            
+            
+         <form id="surgery-form" action="${pageContext.request.contextPath}/SurgeryController" method="post">
+    <label for="name">Surgery name : </label><br><br>
+    <input type="text" id="surgery-name" name="name" required><br><br>
 
-                <label for="surgery-date">Date : </label><br><br>
-                <input id="surgery-date" rows="6" required><br><br>
+    <label for="date">Date : </label><br><br>
+    <input type="date" id="surgery-date" name="date" required><br><br>
 
-                <label for="surgery-time">Time : </label><br><br>
-                <input id="surgery-time" rows="6" required><br><br>
+    <label for="time">Time : </label><br><br>
+    <input type="time" id="surgery-time" name="time" required><br><br>
 
-                <label for="surgery-des">Description : </label><br><br>
-                <textarea id="surgery-des" rows="6" required></textarea><br><br>
-                <button type="submit" class="submit-btn">Send Surgery Appointment</button>
-            </form>
+    <input type="hidden" name="doctorId" value="${doctorId}">
+
+    <button type="submit" class="submit-btn">Send Surgery Appointment</button>
+</form>
+
+
+            
+            
         </div>
 
 

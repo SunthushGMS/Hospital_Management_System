@@ -1,32 +1,45 @@
 package com.controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class contactUsController
- */
+import com.model.SupportRequests;
+import com.service.SupportService;
+
+
 @WebServlet("/contactUsController")
 public class contactUsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public contactUsController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("contact");
+		String message = request.getParameter("message");
+		
+		SupportRequests supportRequest = new SupportRequests(0,name,email,phone,message,"","pending");
+		
+		boolean isInserted = SupportService.insertSupportRequest(supportRequest);
+		
+		if(isInserted) {
+			response.sendRedirect("contactUs.jsp?success=Message sent successfully!");
+		} else {
+			
+			String error = "Something went wrong. Please try Again.";
+			response.sendRedirect("contactUs.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+		}
 	}
 
 }
+	
+	
+

@@ -33,20 +33,22 @@
         </div>
         <div class="contact">
            <div class="form">
+           <form action="ContactUsController" method="post">
             <h1 class="head-contact">Send Us Massage</h1>
             <label for="Name">Name</label>
-            <input type="text" class="input-contact" placeholder="G M S SUNTHUSH">
+            <input type="text" class="input-contact" name="name" placeholder="G M S SUNTHUSH" required>
             <br>
             <label for="Email">Email</label>
-            <input type="email" class="input-contact" placeholder="SANTHUSH@example.com">
+            <input type="email" class="input-contact" name="email" placeholder="SANTHUSH@example.com" required>
             <br>
-            <label for="Name">Contact</label>
-            <input type="tel" class="input-contact" placeholder="07XXXXXXXX">
+            <label for="Contact">Contact</label>
+            <input type="tel" class="input-contact" name="contact" placeholder="07XXXXXXXX">
             <br>
             <label for="Name">Massage</label>
-            <input type="text" class="input-contact" placeholder="Your Message">
+            <textarea class="input-contact" name="message" placeholder="Your Message" required></textarea>
             <br>
-            <button class="btn-submit">Send</button>
+            <input type="submit" class="btn-submit">
+            </form>
         </div>
         </div>
     </div>
