@@ -138,8 +138,6 @@
     <label for="time">Time : </label><br><br>
     <input type="time" id="surgery-time" name="time" required><br><br>
 
-    <input type="hidden" name="doctorId" value="${doctorId}">
-
     <button type="submit" class="submit-btn">Send Surgery Appointment</button>
 </form>
 

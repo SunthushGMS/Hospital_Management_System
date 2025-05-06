@@ -20,20 +20,16 @@ public class SurgeryController extends HttpServlet {
             String name = request.getParameter("name");
             String date = request.getParameter("date");
             String time = request.getParameter("time");
-            int doctorId = Integer.parseInt(request.getParameter("doctorId"));
-            
-            
-            System.out.println("Surgery Name: " + name);
-            System.out.println("Date: " + date);
-            System.out.println("Time: " + time);
-            System.out.println("Doctor ID: " + doctorId);
-            
+            HttpSession session = request.getSession(false);
+    		int doctorId =(int) session.getAttribute("uid");
+    
 
             Surgery surgery = new Surgery(name, date, time);
 
             boolean isSuccess = SurgeryService.addSurgery(surgery, doctorId);
 
             if (isSuccess) {
+            	System.out.println("Surgery scheduled successfully.");
                 response.sendRedirect("Surgeries?success=" + URLEncoder.encode("Surgery scheduled successfully.", "UTF-8"));
             } else {
                 response.sendRedirect("Surgeries?error=" + URLEncoder.encode("Failed to schedule surgery.", "UTF-8"));
