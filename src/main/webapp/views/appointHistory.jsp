@@ -58,10 +58,10 @@
                                 <td>
                                     <c:choose>
                                         <c:when test="${a.status eq 'accept'}">
-                                            <a href="DeleteAppointment?id=${a.id}" onclick="return confirm('Are you sure you want to delete this appointment?')">Delete</a>
+                                            <a href="DeleteAppointment?id=${a.id}" onclick="return confirm('Are you sure you want to delete this appointment?')">bDelete</a>
                                         </c:when>
                                         <c:when test="${a.status eq 'rescheduled'}">
-                                            <a href="patient.jsp?id=${a.id}&doctorId=${a.doctorId}&date=${a.appointmentDate}&time=${a.time}">Reschedule</a>
+                                            <a href="Patient?id=${a.id}&doctorId=${a.doctorId}&date=${a.appointmentDate}&time=${a.time}">Reschedule</a>
                                         </c:when>
                                         <c:otherwise>
                                             <span>No Action</span>
