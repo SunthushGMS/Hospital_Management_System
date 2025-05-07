@@ -7,7 +7,7 @@
         <title>Admin Dashboard</title>
         <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
         <script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
-    	
+    	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/promptBox.css">
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
     	<link rel="preconnect" href="https://fonts.googleapis.com">
     	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -224,7 +224,7 @@
                                             </div>
                                         </div>
 
-                                        <button onclick="window.location.href='DeleteDoctorController?id=${doctor.uid}';"  class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
+                                        <button onclick="showDoctorDeletePopup(${doctor.uid})"  class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
                                             <i class="fas fa-trash-alt mr-1"></i> Delete
                                         </button>
                                     </td>
@@ -357,7 +357,7 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
+                                    <button onclick="showPatientDeletePopup(${patient.uid})" class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
                                         <i class="fas fa-trash-alt mr-1"></i> Delete
                                     </button>
                                 </td>
@@ -371,5 +371,6 @@
         </div>
         <jsp:include page="/views/partials/footer.jsp"/>
         <script src="${pageContext.request.contextPath}/assets/js/adminDB.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/vendor/PromptBox.js"></script>
     </body>
 </html>
