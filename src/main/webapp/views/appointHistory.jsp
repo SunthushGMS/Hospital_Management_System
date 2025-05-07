@@ -20,16 +20,9 @@
     <jsp:include page="/views/partials/header.jsp"/>
 
     <h1 class="history-head">Appointment History</h1>
-    <img src="${pageContext.request.contextPath}/assets/images/clock.png" alt="Clock Icon" class="clock-icon">
+    
 
-    <div class="detail-history">
-        <p class="history-para">
-            The Appointment History section in Health Lanka allows patients to view and manage their past medical visits.
-            It provides details such as doctor's name, department, date, time, and appointment status (Completed, Cancelled).
-            Patients can easily track their medical records, access prescriptions, and review past consultations,
-            ensuring a seamless healthcare experience.
-        </p>
-    </div>
+ 
 
     <section class="sec1">
         <div class="table-view">
@@ -57,11 +50,14 @@
                                 <td>${a.status}</td>
                                 <td>
                                     <c:choose>
+                                     <c:when test="${a.status eq 'Pending'}">
+                                            <a href="DeleteAppointment?id=${a.id}" onclick="return confirm('Are you sure you want to delete this appointment?')"><button class="btn-delete">Delete</button></a>
+                                        </c:when>
                                         <c:when test="${a.status eq 'accept'}">
-                                            <a href="DeleteAppointment?id=${a.id}" onclick="return confirm('Are you sure you want to delete this appointment?')">bDelete</a>
+                                            <a href="DeleteAppointment?id=${a.id}" onclick="return confirm('Are you sure you want to delete this appointment?')"><button class="btn-delete">Delete</button></a>
                                         </c:when>
                                         <c:when test="${a.status eq 'rescheduled'}">
-                                            <a href="Patient?id=${a.id}&doctorId=${a.doctorId}&date=${a.appointmentDate}&time=${a.time}">Reschedule</a>
+                                            <a href="Patient?id=${a.id}&doctorId=${a.doctorId}&date=${a.appointmentDate}&time=${a.time}"><button class="btn-update">Reschedule</button></a>
                                         </c:when>
                                         <c:otherwise>
                                             <span>No Action</span>

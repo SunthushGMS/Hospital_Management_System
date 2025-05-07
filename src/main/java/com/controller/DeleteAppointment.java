@@ -17,13 +17,13 @@ public class DeleteAppointment extends HttpServlet {
             boolean result = AppointmentService.deleteAppointment(id);
 
             if (result) {
-                response.sendRedirect("appointmentHistory.jsp?success=Appointment deleted");
+                response.sendRedirect("AppointmentHistory?success=Appointment deleted");
             } else {
-                response.sendRedirect("appointmentHistory.jsp?error=Delete failed");
+                response.sendRedirect("AppointmentHistory?error=Delete failed");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("appointmentHistory.jsp?error=Error occurred");
+            response.sendRedirect("AppointmentHistory?error=Error occurred");
         }
     }
 }

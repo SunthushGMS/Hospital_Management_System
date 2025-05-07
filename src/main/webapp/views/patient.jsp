@@ -140,7 +140,7 @@
                 <img src="${pageContext.request.contextPath}/assets/images/symbols.png" alt="" class="payment-img">
             </div>
         </div>
-        <button class="view-btn"><a href="paymentHistory.html">View Payment History</a></button>
+        <button class="view-btn"><a href="${pageContext.request.contextPath}/PaymentHistory">View Payment History</a></button>
     </section>
     <section class="sec"></section>
     <section class="payment">
