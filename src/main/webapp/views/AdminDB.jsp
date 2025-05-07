@@ -224,7 +224,7 @@
                                             </div>
                                         </div>
 
-                                        <button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
+                                        <button onclick="window.location.href='DeleteDoctorController?id=${doctor.uid}';"  class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
                                             <i class="fas fa-trash-alt mr-1"></i> Delete
                                         </button>
                                     </td>
