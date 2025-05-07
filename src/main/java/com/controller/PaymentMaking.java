@@ -27,21 +27,32 @@ public class PaymentMaking extends HttpServlet {
             String service = request.getParameter("service");
             String amountStr = request.getParameter("amount");
 
-            double amount = Double.parseDouble(amountStr);
+            if (fullname == null || patientID == null || phone == null || email == null || service == null || amountStr == null) {
+                response.sendRedirect("Patient?error=" + URLEncoder.encode("Missing fields in form.", "UTF-8"));
+                return;
+            }
+
+            double amount;
+            try {
+                amount = Double.parseDouble(amountStr);
+            } catch (NumberFormatException e) {
+                response.sendRedirect("Patient?error=" + URLEncoder.encode("Invalid amount format", "UTF-8"));
+                return;
+            }
 
             Payment payment = new Payment(0, fullname, patientID, phone, email, service, amount);
 
             boolean isInserted = PaymentService.makePayment(payment);
 
             if (isInserted) {
-                response.sendRedirect("patient.jsp?success=" + URLEncoder.encode("Payment processed successfully!", "UTF-8"));
+                response.sendRedirect("PaymentHistory?success=" + URLEncoder.encode("Payment processed successfully!", "UTF-8"));
             } else {
-                response.sendRedirect("patient.jsp?error=" + URLEncoder.encode("Error processing payment. Please try again.", "UTF-8"));
+                response.sendRedirect("Patient?error=" + URLEncoder.encode("Error processing payment. Please try again.", "UTF-8"));
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("patient.jsp?error=" + URLEncoder.encode("Unexpected error occurred!", "UTF-8"));
+            response.sendRedirect("Patient?error=" + URLEncoder.encode("Unexpected error occurred!", "UTF-8"));
         }
     }
 }

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,81 +18,45 @@
 </head>
 <body>
     <jsp:include page="/views/partials/header.jsp"/>
-<div class="container">
-    <h2 class="head">Invoice & Receipt</h2>
-
-    <div class="invoice-details">
-        <h3 class="invoice-head">Invoice #INV-20250312</h3>
-        <p><strong>Patient Name</strong> Chanuka De Silva</p>
-        <p><strong>Doctor</strong> Dr. Sarah Lee (Dermatology)</p>
-        <p><strong>Appointment Date & Time</strong> March 12, 2025 - 10:30 AM</p>
-        <p><strong>Services</strong> Consultation, Skin Test</p>
-        <p><strong>Total Amount </strong> $150</p>
-        <p><strong>Payment Method</strong> Credit Card</p>
-        
-      
-        <button class="btn-download">Download Invoice (PDF)</button>
-        <button class="btn-email">Email Receipt</button>
-    </div>
-
    
     <h3 class="head1">Past Payments</h3>
-    <table>
+
+
+<c:if test="${not empty payments}">
+    <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>Invoice ID</th>
-                <th>Date</th>
-                <th>Doctor</th>
-                <th>Amount</th>
-                <th>Payment Status</th>
-                <th>Actions</th>
+                <th>Full Name</th>
+                <th>Patient ID</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Service</th>
+                <th>Amount (LKR)</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>#INV-20250311</td>
-                <td>March 10, 2025</td>
-                <td>Dr Shashie</td>
-                <td>$120</td>
-                <td>Paid</td>
-                <td><button class="btn-download">Download</button></td>
-            </tr>
-            <tr>
-                <td>#INV-20250310</td>
-                <td>March 5, 2025</td>
-                <td>Dr Thinura</td>
-                <td>$90</td>
-                <td>Paid</td>
-                <td><button class="btn-download">Download</button></td>
-            </tr>
-            <tr>
-                <td>#INV-20250380</td>
-                <td>March 16, 2025</td>
-                <td>Dr Chris bumstead</td>
-                <td>$65</td>
-                <td>Paid</td>
-                <td><button class="btn-download">Download</button></td>
-            </tr>
-            <tr>
-                <td>#INV-20250350</td>
-                <td>March 25, 2025</td>
-                <td>Dr Harischandra</td>
-                <td>$70</td>
-                <td>Paid</td>
-                <td><button class="btn-download">Download</button></td>
-            </tr>
-            <tr>
-                <td>#INV-20759310</td>
-                <td>March 15, 2025</td>
-                <td>Dr Kamal</td>
-                <td>$190</td>
-                <td>Paid</td>
-                <td><button class="btn-download">Download</button></td>
-            </tr>
+            <c:forEach var="a" items="${payments}">
+                <tr>
+                    <td>${a.id}</td>
+                    <td>${a.fullName}</td>
+                    <td>${a.patientId}</td>
+                    <td>${a.phone}</td>
+                    <td>${a.email}</td>
+                    <td>${a.service}</td>
+                    <td>${a.amount}</td>
+                </tr>
+            </c:forEach>
         </tbody>
     </table>
+</c:if>
 
-</div>
+<c:if test="${empty payments}">
+    <div class="no-records">No payment history found for this patient.</div>
+</c:if>
+
+
+
 <jsp:include page="/views/partials/footer.jsp"/>
 </body>
 </html>

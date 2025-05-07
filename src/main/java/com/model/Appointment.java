@@ -10,6 +10,14 @@ public class Appointment {
 
     public Appointment() {}
 
+    public Appointment(int id, int doctorId, int patientId, String appointmentDate, String time, String status) {
+        this.id = id;
+        this.doctorId = doctorId;
+        this.patientId = patientId;
+        this.appointmentDate = appointmentDate;
+        this.time = time;
+        this.status = status;
+    }
     public Appointment(int doctorId, int patientId, String appointmentDate, String time, String status) {
         this.doctorId = doctorId;
         this.patientId = patientId;

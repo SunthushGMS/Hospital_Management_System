@@ -27,9 +27,11 @@ body{
     margin-left: 100px;
   }
 
-.imgcontact{
-    width: 300px;
-    margin-left: 300px;
+.imgContact{
+    width: 350px;
+    margin:auto;
+    display: block;
+    margin-top: 140px;
  
 }
 
@@ -54,7 +56,7 @@ body{
 .form{
     border: none;
     border-radius: 10px;
-    box-shadow: 0 0 5px rgb(25, 164, 189);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     padding: 20px;
     width: 600px;
     margin: 50px;
@@ -98,7 +100,9 @@ input, textarea {
 }
 
 .imgSec3{
-    width: 300px;
+    width: 200px;
+    display: block;
+    margin: auto;
 }
 
 .wrapper3{
@@ -125,7 +129,7 @@ input, textarea {
 .emergencyLine{
     font-size: 80px;
     color: #1c2cb9;
-    margin-left: 150px;
+    text-align: center;
 }
 
 .imgSec4{
@@ -235,4 +239,8 @@ input, textarea {
 
 .btn-sec4:hover{
     background: var(--main-btn-hover-bg);
+}
+
+.sec3{
+    margin-bottom: 40px;
 }

@@ -22,14 +22,15 @@
     <jsp:include page="/views/partials/header.jsp"/>
     <section class="sec1">
         <h1 class="head">Patient Portal</h1>
-        <img src="${pageContext.request.contextPath}/assets/images/—Pngtree—the doctor examines the patient_5342356.png" alt="" class="img-medic">
+        
     </section>
+    <img src="${pageContext.request.contextPath}/assets/images/med.png" alt="" class="img-theme">
     <section class="sec2">
 
-        <p class="detail-sec2">
-            Streamlining patient billing and appointment management in hospitals and clinics used to be a chaotic ordeal. However, with the introduction of Health Lanka Clinic Management Software, a systematic process has evolved. Notably, this software has minimized paper usage, consolidating essential information in one accessible location. Doctors can effortlessly collaborate with different departments on medical health records. The software’s digital maintenance of prescriptions, bills, and calculations has resulted in significant time savings, enabling doctors to concentrate more on their core activities
+        <p class="detail-sec1">
+            Connecting People. Enhancing Care.
         </p>
-        <h2 class="intro-sec2">Sri Lankan Leading Clinic Management System</h2>
+        
         <div class="wrapper">
             <div class="sub-wrap">
                 <img src="${pageContext.request.contextPath}/assets/images/appointment.png" alt="" class="icon-sec2">
@@ -51,7 +52,7 @@
             </div>
             <div class="sub-wrap">
                 <img src="${pageContext.request.contextPath}/assets/images/health-report.png" alt="" class="icon-sec2">
-                <h2 class="sec2-head">Medical Records Management</h2>
+                <h2 class="sec2-head">Medical Records </h2>
                 <h3 class="points">Stores electronic health records (EHRs) securely for easy access.</h3>
                 <h3 class="points">Provides patients with access to their past diagnoses, prescriptions, and test results.
                 </h3>
@@ -59,7 +60,7 @@
                 </h3>
                 <h3 class="points">Reduces paperwork and enhances data accuracy.
                 </h3>
-                <button class="btn-div" id="btn1"><a href="medicalRecords.html">View Records</a></button>
+                <button class="btn-div" ><a href="medicalRecords.html">View Records</a></button>
             </div>
             <div class="sub-wrap">
                 <img src="${pageContext.request.contextPath}/assets/images/encrypted.png" alt="" class="icon-sec2">
@@ -81,29 +82,34 @@
         <h1 class="appoint">Appointments</h1>
         <h2 class="detail-sec2">The Health Lanka Appointment System enables patients to book, manage, and track their medical appointments with ease. Our system allows users to choose their preferred doctor, select a convenient time slot, and receive instant confirmation. With features like automated reminders, rescheduling options, and emergency bookings, we ensure a hassle-free and efficient healthcare experience.</h2>
         <div class="book">
-            <form action="${pageContext.request.contextPath}/AppointmentBookingController" method="post" class="book-appoint">
+        <form action="${pageContext.request.contextPath}/AppointmentBookingController" method="post" class="book-appoint">
     <h1 class="form-head">Appointment Booking</h1><br><br>
+
+
+    <input type="hidden" name="appointmentId" value="${param.id}" />
+    <input type="hidden" name="patientId" value="${sessionScope.patientId}" />
 
     <label for="doctorId" class="label-appoint">Select Doctor</label>
     <select name="doctorId" id="doctorId" required>
-        <option value="1">Dr Naml Udugama</option>
-        <option value="2">Dr Nuwan Thushara</option>
-        <option value="3">Dr Shashi Hewage</option>
-        <option value="4">Dr Kamal Harshana</option>
-        <option value="5">Dr Julia Fernando</option>
-        <option value="6">Dr Chamnida Guruge</option>
-        <option value="7">Dr Vass Gunawardane</option>
-        <option value="8">Dr Harischandra</option>
+        <option value="1" ${param.doctorId == '1' ? 'selected' : ''}>Dr Naml Udugama</option>
+        <option value="2" ${param.doctorId == '2' ? 'selected' : ''}>Dr Nuwan Thushara</option>
+        <option value="3" ${param.doctorId == '3' ? 'selected' : ''}>Dr Shashi Hewage</option>
+        <option value="4" ${param.doctorId == '4' ? 'selected' : ''}>Dr Kamal Harshana</option>
+        <option value="5" ${param.doctorId == '5' ? 'selected' : ''}>Dr Julia Fernando</option>
+        <option value="6" ${param.doctorId == '6' ? 'selected' : ''}>Dr Chamnida Guruge</option>
+        <option value="7" ${param.doctorId == '7' ? 'selected' : ''}>Dr Vass Gunawardane</option>
+        <option value="8" ${param.doctorId == '8' ? 'selected' : ''}>Dr Harischandra</option>
     </select><br><br>
 
     <label for="date" class="label-appoint">Appointment Date</label>
-    <input type="date" class="input-appoint" name="date" required><br>
+    <input type="date" class="input-appoint" name="date" value="${param.date}" required><br>
 
     <label for="time" class="label-appoint">Time</label>
-    <input type="time" class="input-appoint" name="time" required><br>
+    <input type="time" class="input-appoint" name="time" value="${param.time}" required><br>
 
     <button class="appoint-submit" type="submit">Submit</button>
 </form>
+
 
 <c:if test="${not empty param.success}">
     <p style="color: green;">${param.success}</p>
@@ -114,6 +120,7 @@
 </c:if>
 
 
+
             
         </div>
     </section>
@@ -122,15 +129,15 @@
         <div class="wrap">
             <div class="sub-wrap">
                 <h2 class="payment-method">We Accept</h2>
-                <img src="${pageContext.request.contextPath}/assets/images/payment.png" alt="" class="payment-img">
+                <img src="${pageContext.request.contextPath}/assets/images/atm-card.png" alt="" class="payment-img">
             </div>
             <div class="sub-wrap">
                 <h2 class="payment-method">Offline Payment</h2>
-                <img src="${pageContext.request.contextPath}/assets/images/cash-payment.png" alt="" class="payment-img1">
+                <img src="${pageContext.request.contextPath}/assets/images/cash-payment.png" alt="" class="payment-img">
             </div>
             <div class="sub-wrap">
                 <h2 class="payment-method">Bank Transfer</h2>
-                <img src="${pageContext.request.contextPath}/assets/images/symbols.png" alt="" class="payment-img1">
+                <img src="${pageContext.request.contextPath}/assets/images/symbols.png" alt="" class="payment-img">
             </div>
         </div>
         <button class="view-btn"><a href="paymentHistory.html">View Payment History</a></button>
@@ -175,6 +182,7 @@
     <button class="pay-btn" type="submit">Pay Now</button>
 
 </form>
+
 
     </section>
     <jsp:include page="/views/partials/footer.jsp"/>

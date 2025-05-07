@@ -77,4 +77,28 @@ public class AppointmentHistoryService {
 
         return appointments;
     }
+    
+    public static Appointment getAppointmentById(int id) {
+        try (Connection con = DBConnection.getConnection()) {
+            String sql = "SELECT * FROM appointment WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new Appointment(
+                    rs.getInt("id"),
+                    rs.getInt("doctor_ID"),
+                    rs.getInt("patient_ID"),
+                    rs.getString("date"),
+                    rs.getString("time"),
+                    rs.getString("status")
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

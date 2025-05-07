@@ -68,35 +68,7 @@
             </div>
         </div>
     </section>
-    <section class="sec4">
-        <div class="wrapper4">
-            <div class="sub-wrap1">
-                <h1 class="head-wrap">Contact</h1>
-                <img src="${pageContext.request.contextPath}/assets/images/contactnew.png" alt="" class="imgSec4">
-                <h2 class="contact-type">  <i class='bx bxl-gmail' id="icon"></i> healthLanka@gmail.com</h2>
-                <h2 class="contact-type">  <i class='bx bx-phone' id="icon"></i> 0767882990</h2>
-                <h2 class="contact-type">  <i class='bx bxl-whatsapp' id="icon"></i> 0786657990</h2>
-                <h2 class="contact-type">  <i class='bx bxl-instagram' id="icon"></i> Health_Lanka</h2>
-                <button class="btn-sec4">Call Now</button>
-            </div>
-            <div class="sub-wrap1">
-                <h1 class="head-wrap">Location</h1>
-                <img src="${pageContext.request.contextPath}/assets/images/locationnew.png" alt="" class="imgSec4">
-                <h2 class="location">Health Lanka - Colombo <i class='bx bxs-location-plus' id="icon1"></i></h2>
-                <h2 class="location">Health Lanka Mega - Kollupitiya <i class='bx bxs-location-plus' id="icon1"></i></h2>
-                <h2 class="location">Health Lanka - Matara <i class='bx bxs-location-plus' id="icon1"></i></h2>
-                <h2 class="location">Health Lanka - Kandy <i class='bx bxs-location-plus' id="icon1"></i></h2>
-                <button class="btn-sec4" id="locate-btn">Locate Us</button>
-            </div>
-            <div class="sub-wrap1">
-                <h1 class="head-wrap">Open Hours</h1>
-                <img src="${pageContext.request.contextPath}/assets/images/open.png" alt="" class="imgSec5">
-                <h2 class="open">Weekdays <span>24hrs Open</span></h2>
-                <h2 class="open">Weekdays <span>24hrs Open</span></h2>
-                <button class="btn-sec4" id="book-btn">Book Now</button>
-            </div>
-        </div>
-    </section>
+    
     <jsp:include page="/views/partials/footer.jsp"/>
 </body>
 </html>
