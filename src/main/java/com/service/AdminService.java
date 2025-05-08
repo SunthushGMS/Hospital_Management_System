@@ -161,6 +161,8 @@ public class AdminService {
 		return appointments;
 	}
 	
+	
+	
 	public static int getDoctorCount() {
 		
 		int count=0;

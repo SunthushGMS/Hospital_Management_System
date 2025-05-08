@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-100">
+		
+		<jsp:include page="/views/partials/header.jsp"/>
+		
         <div class="flex justify-center items-center p-10 min-h-screen px-4">
           <div class="flex shadow-xl bg-white rounded-2xl ">
               <div class="p-10">
@@ -25,47 +28,60 @@
                   <p class="text-center text-xl font-semibold text-gray-500 mb-6">Update doctor information below.</p>
                 </div>
                 <div>
+                
+                <%
+                	String fullname = request.getParameter("fullname");
+                	String username = request.getParameter("username");
+                	String dob = request.getParameter("dob");
+                	String email = request.getParameter("email");
+                	String phoneno = request.getParameter("phoneno");
+                	String address = request.getParameter("address");
+                	String specialization = request.getParameter("speciialization");
+                	String password = request.getParameter("password");
+                %>
+                
+                
                   <form id="editDoctorForm" class="space-y-4" method="post" action="${pageContext.request.contextPath}/UpdateDoctorDetailsContoller">
                     <div class="flex justify-between ml-4">
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Full Name</label>
-                            <input type="text" placeholder="Kasun Perera" name="fullName" value="" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="text" name="fullName" value="<%= fullname %>" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Username</label>
-                            <input type="text" placeholder="kasun123" name="userName" value="" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="text" name="userName" value="<%= username %>" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                     </div>
                     
                     <div class="flex justify-between ml-4">
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Email</label>
-                            <input type="text" placeholder="kasun123@gmail.com" name="email" value="" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="text" name="email" value="<%= email %>" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Mobile Number</label>
-                            <input type="text" placeholder="076 789 2645" name="phoneNumber" value="" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="text" name="phoneNumber" value="<%= phoneno %>" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                     </div>
   
                     <div class="flex justify-between ml-4">
                         <div class="flex flex-col mr-10 ">
                             <label for="" class="text-lg font-semibold mb-2">Birthday</label>
-                            <input type="date" name="dob" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="date" name="dob" value="<%= dob %>" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                         <div class="flex flex-col mr-10 ">
-                            <label for="" class="text-lg font-semibold mb-2"">Address</label>
-                            <input type="text" placeholder="12 Flower St,City" name="address" value="" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <label for="" class="text-lg font-semibold mb-2">Address</label>
+                            <input type="text" name="address" value="<%= address %>" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                     </div>
                     <div class="flex justify-between ml-4">
                         <div class="flex flex-col mr-10 ">
                             <label for="" class="text-lg font-semibold mb-2">Specialization</label>
-                            <input type="text" placeholder="Heart" name="specialization" value="" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="text"  name="specialization" value="<%= specialization %>" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Password</label>
-                            <input type="password" placeholder="*******" name="password" value="" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="password"  name="password" value="<%= password %>" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                     </div>
                     <div class="flex justify-center mt-8">
@@ -81,5 +97,7 @@
               </div>
           </div>      
         </div>
+        
+        <jsp:include page="/views/partials/footer.jsp"/>
 </body>
 </html>
