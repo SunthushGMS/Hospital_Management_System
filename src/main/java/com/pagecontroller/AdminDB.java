@@ -24,10 +24,16 @@ public class AdminDB extends HttpServlet {
 		ArrayList<Doctor> doctor = AdminService.getDoctorDetails();
 		ArrayList<User> patient = AdminService.getPatientDetails();
 		ArrayList<AdminAppointment> appointment = AdminService.getAppointmentDetails();
+		int doctorCount = AdminService.getDoctorCount();
+		int patientCount = AdminService.getPatientCount();
+		int appointmentCount = AdminService.getAppointmentCount();
 		
 		request.setAttribute("doctorDetails", doctor);
 		request.setAttribute("patientDetails", patient);
 		request.setAttribute("appointments", appointment);
+		request.setAttribute("doctorCount", doctorCount);
+		request.setAttribute("patientCount", patientCount);
+		request.setAttribute("appointmentCount", appointmentCount);
 		
 		String error = request.getParameter("error");
 		if(error != null) {

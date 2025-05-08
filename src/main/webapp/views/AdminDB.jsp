@@ -24,7 +24,7 @@
                     <div class="lg:flex justify-between">
                         <div class="flex justify-between pt-8 pb-8 pl-4 pr-4 border-gray-100 w-1/5 mr-10 ml-10 mt-10 rounded-lg shadow-2xl lg:w-100 md:w-100 cursor-pointer border-l-4 border-yellow-500 transform transition-all hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br from-yellow-100 to-yellow-50">
                             <div>
-                                <h3 class="text-4xl lg:text-5xl text-yellow-500 font-semibold md:text-5xl">3380</h3>
+                                <h3 class="text-4xl lg:text-5xl text-yellow-500 font-semibold md:text-5xl"><c:out value="${appointmentCount}"/></h3>
                                 <h4 class="mt-2 font-semibold text-gray-700 md:text-xl">Appointments</h4>
                                 <p class="text-sm text-green-600 mt-2"><i class="fas fa-arrow-up mr-1"></i> 12% increase</p>
                             </div>
@@ -35,7 +35,7 @@
     
                         <div class="flex justify-between pt-8 pb-8 pl-4 pr-4 w-1/5 mr-10 ml-10 mt-10 rounded-lg shadow-2xl lg:w-100 md:w-100 border-l-4 border-blue-500 cursor-pointer transform transition-all hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br from-blue-100 to-blue-50">
                             <div >
-                                <h3 class="text-4xl lg:text-5xl text-blue-500 font-semibold md:text-5xl">1489</h3>
+                                <h3 class="text-4xl lg:text-5xl text-blue-500 font-semibold md:text-5xl"><c:out value="${doctorCount}"/></h3>
                                 <h4 class="mt-2 font-semibold text-gray-700 md:text-xl">Doctors</h4>
                                 <p class="text-sm text-green-600 mt-2"><i class="fas fa-arrow-up mr-1"></i> 8% increase</p>
                             </div>
@@ -46,7 +46,7 @@
     
                         <div class="flex justify-between pt-8 pb-8 pl-4 pr-4 w-1/5 mr-10 ml-10 mt-10 rounded-lg shadow-2xl lg:w-100 md:w-100 cursor-pointer border-l-4 border-green-500 transform transition-all hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br from-green-100 to-green-50">
                             <div>
-                                <h3 class="text-4xl lg:text-5xl text-green-500 font-semibold md:text-5xl">200</h3>
+                                <h3 class="text-4xl lg:text-5xl text-green-500 font-semibold md:text-5xl"><c:out value="${patientCount}"/></h3>
                                 <h4 class="mt-2 font-semibold text-gray-700 md:text-xl">Patients</h4>
                                 <p class="text-sm text-green-600 mt-2"><i class="fas fa-arrow-up mr-1"></i> 15% increase</p>
                             </div>

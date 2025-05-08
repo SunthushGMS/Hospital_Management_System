@@ -65,7 +65,7 @@ public class AdminService {
 			String query = "SELECT user.uid, user.fullname, user.username, user.dateofbirth, user.email, user.phone_no, user.address, user.password, doctor.specialization " +
 		               "FROM user " +
 		               "JOIN doctor ON doctor.user_id = user.uid " +
-		               "WHERE user.role = 'doctor'";
+		               "WHERE user.role = 'doctor';";
 			
 			ResultSet rs = stmt.executeQuery(query);
 			
@@ -75,7 +75,7 @@ public class AdminService {
 		        String username = rs.getString("username");
 		        String dob = rs.getString("email");
 		        String email = rs.getString("email");
-		        String phoneno = rs.getString("phoneno");
+		        String phoneno = rs.getString("phone_no");
 		        String address = rs.getString("address");
 		        String password = rs.getString("password");
 		        String specialization = rs.getString("specialization");
@@ -161,5 +161,74 @@ public class AdminService {
 		return appointments;
 	}
 	
+	public static int getDoctorCount() {
+		
+		int count=0;
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			
+			String query = "SELECT count(*) AS total " +
+							"from user u " +
+							"where u.role = 'doctor';";
+			
+			ResultSet success = stmt.executeQuery(query);
+			
+			while(success.next()) {
+				count = success.getInt("total");
+			}
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+	
+	public static int getPatientCount() {
+		int count = 0;
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement  stmt = con.createStatement();
+			
+			String query = "SELECT count(*) AS total " +
+							"from user u " +
+							"where u.role = 'patient';";
+			
+			ResultSet rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				count = rs.getInt("total");
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+	
+	public static int getAppointmentCount() {
+		
+		int count = 0;
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			
+			String query = "SELECT count(*) AS total " +
+					"from appointment ;";
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+		
+	}
 	
 }
