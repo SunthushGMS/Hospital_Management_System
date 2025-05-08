@@ -37,3 +37,24 @@ function closeReplyToInquiries(){
   replyToInquiries.classList.remove('flex');
   replyToInquiries.classList.add('hidden');
 }
+
+
+function showDoctorDeletePopup(doctorId) {
+  Confirm.open({
+    title: 'Delete Account',
+    message: 'Are you sure you wish to delete this patient\'s account? This action cannot be undone.',
+    onok: () => {
+      window.location.href = `DeleteDoctorController?id=${doctorId}`;
+    }
+  });
+}
+
+function showPatientDeletePopup(patientId) {
+  Confirm.open({
+    title: 'Delete Account',
+    message: 'Are you sure you wish to delete this patient\'s account? This action cannot be undone.',
+    onok: () => {
+      window.location.href = `DeleterProfileController?id=${patientId}`;
+    }
+  });
+}

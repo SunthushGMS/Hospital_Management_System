@@ -4,63 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Dashbord | Health Lanka</title>
-    <link rel="stylesheet" href="patientDash.css">
+    <title>Appointment History | Health Lanka</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/patientDash.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
-	<script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    
+    <script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+
     <jsp:include page="/views/partials/header.jsp"/>
-    <h1 class="head">Patient Dashboard</h1>
 
-    <div class="wrapper">
-       <div class="div1">
-        <img src="${pageContext.request.contextPath}/assets/images/user.png" alt="" class="img-icon">
-       </div>
-       <div class="div1" id="div1sub">
-        <p><strong>Name</strong> Chanuka De silva </p>
-        <p><strong>Age</strong> 32 years</p>
-        <p><strong>TP</strong> 0786568954</p>
-        <p><strong>PatientID</strong> ID10786</p>
-       </div>
-    </div>
+    <main class="container">
+        <h1 class="main-title">Patient Dashboard</h1>
 
-    <section class="sec1">
-        <div class="div2">
-            <div class="sub-div1">
-                <h2 class="head1">Emergency</h2>
-                <img src="${pageContext.request.contextPath}/assets/images/first-aid-kit.png" alt="" class="img-div">
-                <h2 class="detail">No Emergency</h2>
+        <!-- Profile Section -->
+        <section class="profile">
+        
+            <div class="profile-info">
+                <p><strong>Name</strong>  Chanuka De Silva</p>
+                <p><strong>Age</strong>  32 years</p>
+                <p><strong>TP</strong>  0786568954</p>
+                <p><strong>Patient ID</strong>  ID10786</p>
             </div>
-            <div class="sub-div1">
-                <h2 class="head1">Appointment History</h2>
-                <img src="${pageContext.request.contextPath}/assets/images/appointment.png" alt="" class="img-div">
-                <button class="btn-view"><a href="" >View</a></button>
+        </section>
+
+        <!-- Info Cards Section -->
+        <section class="cards">
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/assets/images/first-aid-kit.png" alt="Emergency">
+                <h2>Emergency</h2>
+                <p class="status">No Emergency</p>
             </div>
-            <div class="sub-div1">
-                <h2 class="head1">Surgeries</h2>
-                <img src="${pageContext.request.contextPath}/assets/images/surg2.png" alt="" class="img-div">
-                <button class="btn-view"><a href="">View</a></button>
+
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/assets/images/appointment.png" alt="Appointments">
+                <h2>Appointment History</h2>
+                <a href="#" class="btn">View</a>
             </div>
-            
-        </div>
 
-    </section>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/assets/images/surg2.png" alt="Surgeries">
+                <h2>Surgeries</h2>
+                <a href="#" class="btn">View</a>
+            </div>
+        </section>
 
-    <div class="div3">
-        <div class="sub-div2">
-            <h2 class="head1">Requested Lab Reports</h2>
-
-            
-            <div class="report-list">
+        <!-- Lab Reports and Payments -->
+        <section class="bottom-section">
+            <div class="lab-reports">
+                <h2>Requested Lab Reports</h2>
                 <ul>
                     <li><a href="#">Blood Test Report</a></li>
                     <li><a href="#">X-Ray Report</a></li>
@@ -72,21 +68,12 @@
                     <li><a href="#">Diabetes Test Report</a></li>
                     <li><a href="#">Urine Analysis</a></li>
                 </ul>
+                <a href="#" class="btn upload">Upload Now</a>
             </div>
-            
-            <button class="btn-view"><a href="#">Upload Now</a></button>
-        </div>
-        
-        <div class="sub-div2">
-            <h2 class="head1">Payments</h2>
-            <img src="${pageContext.request.contextPath}/assets/images/cash-payment.png" alt="" class="img-div">
-                
-                <button class="btn-view"><a href="" >View Payment History</a></button>
-        </div>
-        
-        
-    </div>
 
+         
+        </section>
+    </main>
 
     <jsp:include page="/views/partials/footer.jsp"/>
 </body>
