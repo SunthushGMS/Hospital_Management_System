@@ -279,7 +279,7 @@
                     </div>
 
                     <div class="p-6">
-                        <form method="POST" id="profilePictureForm" class="space-y-6">
+                        <form method="POST" id="profilePictureForm" action="${pageContext.request.contextPath}/ProPicUpdateController" enctype="multipart/form-data" class="space-y-6">
                             <div class="flex flex-col items-center">
                                 <div class="profile-pic relative mb-4">
                                     <div
@@ -307,7 +307,7 @@
                                             <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF
                                                 (MAX. 2MB)</p>
                                         </div>
-                                        <input id="profile-upload" type="file" class="hidden" accept="image/*"
+                                        <input id="profile-upload" name="profilePic" type="file" class="hidden" accept="image/*"
                                             onchange="previewImage(event)" />
                                     </label>
                                 </div>

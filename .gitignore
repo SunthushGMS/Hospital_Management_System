@@ -35,3 +35,4 @@ replay_pid*
 
 # Stop tracking DBconn file
 src/main/java/com/utill/config.properties
+/src/main/webapp/assets/images/profilePics
