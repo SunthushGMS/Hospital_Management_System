@@ -24,6 +24,7 @@ public class PatientProfile_DoctorView extends HttpServlet {
         Integer currentUserId = (session != null) ? (Integer) session.getAttribute("uid") : null;
 
         // Check for doctor role
+        //need to be remove
         if (!"doctor".equals(userRole)) {
             request.setAttribute("errorMessage", "Unauthorized access.");
             request.getRequestDispatcher("views/patientProfile-doctorView.jsp").forward(request, response);
