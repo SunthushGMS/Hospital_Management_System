@@ -157,74 +157,11 @@
                                     <td>${doctor.fullname}</td>
                                     <td>${doctor.specialization}</td>
                                     <td class="px-6 py-4 text-center">
-                                        <button class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2" onclick="openEditDoctorDetailsForm()">
+                                        <a class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2 pt-2 pb-2" href="${pageContext.request.contextPath}/views/editDoctorDetails.jsp">
                                             <i class="fas fa-edit mr-1"></i> Edit
-                                        </button>
-                                        
-                                        <!--Edit Doctor Details PopUp Form-->
-                                        <div id="editDoctorDetails" class="fixed inset-0 bg-opacity-80 backdrop-blur-sm hidden items-center justify-center z-50">
-                                            
-                                            <div class="rounded-lg bg-gray-700 shadow-lg p-6 relative">
-                                                <div class="flex items-center justify-between">
-                                                    <h2 class="text-white text-2xl font-bold mb-4">Edit Doctor Details</h2>
-                                                    <button onclick="closeEditDoctorDetailForm()" class="p-2 rounded-md mb-4 text-gray-200 hover:text-gray-700 hover:bg-gray-200">✕</button>
-                                                </div>
+                                        </a>                                    
 
-                                                <hr class="text-blue-600 mb-8">
-                                                <!-- Form -->
-                                                <form id="editDoctorForm" class="space-y-4" method="post" action="${pageContext.request.contextPath}/UpdateDoctorDetailsContoller">
-                                                    <div class="flex justify-between">
-                                                        <div class="flex flex-col mr-10">
-                                                            <label for="" class="text-lg text-white font-semibold mb-2">Full Name</label>
-                                                            <input type="text" placeholder="Kasun Perera" name="fullName" value="" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                                                        </div>
-                                                        <div class="flex flex-col mr-10">
-                                                            <label for="" class="text-lg text-white font-semibold mb-2">Username</label>
-                                                            <input type="text" placeholder="kasun123" name="userName" value="" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="flex justify-between">
-                                                        <div class="flex flex-col mr-10">
-                                                            <label for="" class="text-lg text-white font-semibold mb-2">Email</label>
-                                                            <input type="text" placeholder="kasun123@gmail.com" name="email" value="" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                                                        </div>
-                                                        <div class="flex flex-col mr-10">
-                                                            <label for="" class="text-lg text-white font-semibold mb-2">Mobile Number</label>
-                                                            <input type="text" placeholder="076 789 2645" name="phoneNumber" value="" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="flex justify-between">
-                                                        <div class="flex flex-col mr-10 ">
-                                                            <label for="" class="text-lg text-white font-semibold mb-2">Birthday</label>
-                                                            <input type="date" name="dob" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                                                        </div>
-                                                        <div class="flex flex-col mr-10 ">
-                                                            <label for="" class="text-gray-200 text-lg text-white font-semibold mb-2">Address</label>
-                                                            <input type="text" placeholder="12 Flower St,City" name="address" value="" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex justify-between">
-                                                        <div class="flex flex-col mr-10 ">
-                                                            <label for="" class="text-lg text-white font-semibold mb-2">Specialization</label>
-                                                            <input type="text" placeholder="Heart" name="specialization" value="" class="text-base  bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                                                        </div>
-                                                        <div class="flex flex-col mr-10">
-                                                            <label for="" class="text-lg text-white font-semibold mb-2">Password</label>
-                                                            <input type="password" placeholder="*******" name="password" value="" class="text-base bg-gray-600 text-gray-200 w-60 h-10 p-2 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex justify-center mt-8">
-                                                        <button class="px-4 py-2 text-white rounded-lg mr-5 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer" onclick="closeEditDoctorDetailForm()">Cancel</button>
-
-                                                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition duration-300 cursor-pointer" >Save Changes</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-
-                                        <button onclick="showDoctorDeletePopup(${doctor.uid})"  class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
+                                        <button onclick="showDoctorDeletePopup(${doctor.uid})"  class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white ">
                                             <i class="fas fa-trash-alt mr-1"></i> Delete
                                         </button>
                                     </td>
