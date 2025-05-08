@@ -222,6 +222,12 @@ public class AdminService {
 			
 			String query = "SELECT count(*) AS total " +
 					"from appointment ;";
+			
+			ResultSet rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				count = rs.getInt("total");
+			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();
