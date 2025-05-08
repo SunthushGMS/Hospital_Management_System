@@ -1,3 +1,4 @@
+//By Moditha
 package com.filter;
 
 import javax.servlet.*;
@@ -5,7 +6,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/Doctordashboard.jsp", "/profile.jsp"}) // Protect these routes
+@WebFilter(urlPatterns = {"/views/Doctordashboard.jsp", "/views/appointments.jsp", "/views/surgeries.jsp", "/views/labReports.jsp", "/doctorDashboard", "/Appointments", "/Surgeries", "/LabReports"}) // Protect these routes
 public class DoctorFilter implements Filter {
 
     @Override
@@ -14,10 +15,12 @@ public class DoctorFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
         HttpSession session = httpRequest.getSession(false);
-        if (session != null && session.getAttribute("userType") == "Doctor") {
+        String role = (String) session.getAttribute("role");
+        
+        if (session != null && "doctor".equals(role)) {
         	chain.doFilter(request, response);
         } else {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "/index.jsp");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
         }
     }
 }

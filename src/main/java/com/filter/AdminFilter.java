@@ -1,3 +1,4 @@
+//By Moditha
 package com.filter;
 
 import javax.servlet.*;
@@ -5,7 +6,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/adminDashboard.jsp"}) // Protect these routes
+@WebFilter(urlPatterns = {"/AdminDB", "/views/AdminDB.jsp"}) // Protect these routes
 public class AdminFilter implements Filter {
 
     @Override
@@ -14,10 +15,12 @@ public class AdminFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
         HttpSession session = httpRequest.getSession(false);
-        if (session != null && session.getAttribute("userType") == "Admin") {
+        String role = (String) session.getAttribute("role");
+        
+        if (session != null &&  "admin".equals(role)) {
         	chain.doFilter(request, response);
         } else {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "/index.jsp");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
         }
     }
 }
