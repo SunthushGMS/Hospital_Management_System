@@ -50,6 +50,19 @@ public class User {
 	
 
 	public User(int uid, String username, String password, String fullname, String dob, String email, String phone,
+			String address) {
+		super();
+		this.uid = uid;
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
+		this.dob = dob;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+	}
+
+	public User(int uid, String username, String password, String fullname, String dob, String email, String phone,
 			String address, String role) {
 		super();
 		this.uid = uid;

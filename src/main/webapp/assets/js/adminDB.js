@@ -54,7 +54,7 @@ function showPatientDeletePopup(patientId) {
     title: 'Delete Account',
     message: 'Are you sure you wish to delete this patient\'s account? This action cannot be undone.',
     onok: () => {
-      window.location.href = `DeleterProfileController?id=${patientId}`;
+      window.location.href = `DeletePatientServelet?id=${patientId}`;
     }
   });
 }
