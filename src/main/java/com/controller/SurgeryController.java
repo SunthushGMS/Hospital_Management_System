@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.model.Surgery;
+import com.service.PatientProfile_DoctorViewServices;
 import com.service.SurgeryService;
 
 import javax.servlet.ServletException;
@@ -17,16 +18,26 @@ public class SurgeryController extends HttpServlet {
             throws ServletException, IOException {
 
         try {
+        	int patientId = Integer.parseInt(request.getParameter("patientId"));
             String name = request.getParameter("name");
-            String date = request.getParameter("date");
-            String time = request.getParameter("time");
+            String dateStr = request.getParameter("date");
+            String timeStr = request.getParameter("time");
             HttpSession session = request.getSession(false);
     		int doctorId =(int) session.getAttribute("uid");
     
+    		
+    		java.sql.Date date = java.sql.Date.valueOf(dateStr);
+            java.sql.Time time = java.sql.Time.valueOf(timeStr);
 
-            Surgery surgery = new Surgery(name, date, time);
-
-            boolean isSuccess = SurgeryService.addSurgery(surgery, doctorId);
+            Surgery surgery = new Surgery();
+            surgery.setPatientId(patientId);
+            surgery.setName(name);
+            surgery.setDate(date);
+            surgery.setTime(time);
+            surgery.setCompletionStatus("scheduled");
+            surgery.setAcceptanceStatus("pending");
+            
+            boolean isSuccess = SurgeryService.InsertSurgery(surgery, doctorId);
 
             if (isSuccess) {
             	System.out.println("Surgery scheduled successfully.");
@@ -39,5 +50,4 @@ public class SurgeryController extends HttpServlet {
             e.printStackTrace();
             response.sendRedirect("Surgeries?error=" + URLEncoder.encode("An error occurred while processing your request.", "UTF-8"));
         }
-    }
-}
+    }}

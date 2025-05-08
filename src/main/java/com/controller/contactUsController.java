@@ -26,16 +26,22 @@ public class contactUsController extends HttpServlet {
 		String phone = request.getParameter("contact");
 		String message = request.getParameter("message");
 		
+		System.out.println("Received support request:");
+	    System.out.println("Name: " + name);
+	    System.out.println("Email: " + email);
+	    System.out.println("Phone: " + phone);
+	    System.out.println("Message: " + message);
+		
 		SupportRequests supportRequest = new SupportRequests(0,name,email,phone,message,"","pending");
 		
 		boolean isInserted = SupportService.insertSupportRequest(supportRequest);
 		
 		if(isInserted) {
-			response.sendRedirect("contactUs.jsp?success=Message sent successfully!");
+			response.sendRedirect("ContactUs?success=Message sent successfully!");
 		} else {
 			
 			String error = "Something went wrong. Please try Again.";
-			response.sendRedirect("contactUs.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+			response.sendRedirect("ContactUs?error=" + URLEncoder.encode(error, "UTF-8"));
 		}
 	}
 

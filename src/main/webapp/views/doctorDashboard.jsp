@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +34,7 @@
                     <br><hr id="myHr"><br>
                     <div class="div1-1-1"><img src="${pageContext.request.contextPath}/assets/images/appointments-pic.jpg" alt=""></div>
                     <div class="div1-1-2">
-                        <h3 id="totalAppointmentsToday">17</h3>
+					
                         <p>Appointments</p>
                     </div>
                 </div>
@@ -57,50 +59,35 @@
             <h3>Upcoming Appointments</h3>
             <p>Today</p>
 
-            <table>
-                <tr>
-                    <th>Appointment ID</th>
-                    <th>Patient ID</th>
-                    <th>Patient Name</th>
-                    <th>Time</th>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>10.36 AM</td>
-                </tr>
-            </table>
-            <a href="appointments.html"><button class="viewAll">View All</button></a>
+						
+			<c:if test="${not empty todayAppointments}">
+			    <table class="table table-striped table-bordered">
+			        <thead>
+			            <tr>
+			                <th>Appointment ID</th>
+			                <th>Patient ID</th>
+			                <th>Patient Name</th>
+			                <th>Time</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			            <c:forEach var="a" items="${todayAppointments}">
+			                <tr>
+			                    <td>${a.appointmentId}</td>
+			                    <td>${a.patientId}</td>
+			                    <td>${a.patientName}</td>
+			                    <td>${a.time}</td>
+			                </tr>
+			            </c:forEach>
+			        </tbody>
+			    </table>
+			</c:if>
+			
+			<c:if test="${empty todayAppointments}">
+			    <div class="no-records">No appointments found for today.</div>
+			</c:if>
+           
+            <button class="viewAll"><a href="${pageContext.request.contextPath}/Appointments">View All</a></button>
            
         </div>
 
@@ -108,51 +95,39 @@
             <img id="emergency-pic" src="${pageContext.request.contextPath}/assets/images/doctorDashboard-sugery -medical.png" alt="">
             <h3>Upcoming Surgeries</h3>
             <p>This Week</p>
-            <table>
-                <tr>
-                    <th>Appointment ID</th>
-                    <th>Patient ID</th>
-                    <th>Patient Name</th>
-                    <th>Time</th>
-                </tr>
+			<c:if test="${not empty weeklySurgeries}">
+			    <table class="table table-striped table-bordered">
+			        <thead>
+			            <tr>
+			                <th>Surgery ID</th>
+			                <th>Patient ID</th>
+			                <th>Patient Name</th>
+			                <th>Surgery Name</th>
+			                <th>Time</th>
+			                <th>Completion Status</th>
+			                <th>Acceptance Status</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			            <c:forEach var="surgery" items="${weeklySurgeries}">
+			                <tr>
+			                    <td>${surgery.surgeryId}</td>
+			                    <td>${surgery.patientId}</td>
+			                    <td>${surgery.patientName}</td>
+			                    <td>${surgery.surgeryName}</td>
+			                    <td>${surgery.time}</td>
+			                    <td>${surgery.completionStatus}</td>
+			                    <td>${surgery.acceptanceStatus}</td>
+			                </tr>
+			            </c:forEach>
+			        </tbody>
+			    </table>
+			</c:if>
+			
+			<c:if test="${empty weeklySurgeries}">
+			    <div class="no-records">No scheduled surgeries for this week.</div>
+			</c:if>
 
-                <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-
-                <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-            </table>
             <a href="surgeries.html"><button class="viewAll">View All</button></a>
         </div>
 
@@ -181,25 +156,16 @@
                     <th>More</th>
                 </tr>
 
-                <tr>
-                    <td>1</td>
-                    <td>Anjalee Udara</td>
-                    <td>0777383741</td>
-                    <td>Neurovascor Repair Surgery</td>
-                    <td>60%</td>
-                    <td>A high-risk procedure for intervention to prevent stroke or fatal complications.</td>
-                    <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></a>;</td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>Anjalee Udara</td>
-                    <td>0777383741</td>
-                    <td>Neurovascor Repair Surgery</td>
-                    <td>60%</td>
-                    <td>A high-risk procedure for intervention to prevent stroke or fatal complications.</td>
-                    <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></a></td>
-                </tr>
+			    <c:forEach var="emergency" items="${emergencyPatients}">
+			    <tr>
+			        <td>${emergency.surgeryId}</td>
+			        <td>${emergency.patientName}</td>
+			        <td>${emergency.phone}</td>
+			        <td>${emergency.problem}</td>
+			        <td>${emergency.severity}</td>
+			        <td>${emergency.description}</td>
+			    </tr>
+			</c:forEach>
             </table>
         </div>
       </div> <br><br>
@@ -210,47 +176,34 @@
         <div class="div4">
             <img id="emergency-pic" src="${pageContext.request.contextPath}/assets/images/doctorDashboard-apointmentIcon2.png" alt="">
             <h3>New Appointments</h3>
-            <table>
-                <tr>
-                    <th>Profile</th>
-                    <th>Appointment ID</th>
-                    <th>Patient Name</th>
-                    <th>date</th>
-                    <th>Time</th>
-                </tr>
-        
-                <tr>
-                    <td><img  id="newAppTable-img" src="${pageContext.request.contextPath}/assets/images/profile-pic.png" alt=""></td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>13/03/2025</td>
-                    <td>10.36 AM</td>
-                </tr>
+           <table>
+			    <thead>
+			        <tr>
+			            <th>Profile</th>
+			            <th>Appointment ID</th>
+			            <th>Patient Name</th>
+			            <th>Date</th>
+			            <th>Time</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <c:forEach var="a" items="${newAppointments}">
+			            <tr>
+			                <td>
+			                    <img id="newAppTable-img" src="${pageContext.request.contextPath}/assets/images/profile-pic.png" alt="Profile">
+			                </td>
+			                <td>${a.appointmentId}</td>
+			                <td>${a.patientName}</td>
+			                <td>${a.date}</td>
+			                <td>${a.time}</td>
+			            </tr>
+			        </c:forEach>
+			    </tbody>
+			</table>
 
-                <tr>
-                    <td><img  id="newAppTable-img" src="${pageContext.request.contextPath}/assets/images/profile-pic.png" alt=""></td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>13/03/2025</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-                <tr>
-                    <td><img  id="newAppTable-img" src="${pageContext.request.contextPath}/assets/images/profile-pic.png" alt=""></td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>13/03/2025</td>
-                    <td>10.36 AM</td>
-                </tr>
-
-                <tr>
-                    <td><img  id="newAppTable-img" src="${pageContext.request.contextPath}/assets/images/profile-pic.png" alt=""></td>
-                    <td>3</td>
-                    <td>Kavindi Perera</td>
-                    <td>13/03/2025</td>
-                    <td>10.36 AM</td>
-                </tr>
-            </table>
+			<c:if test="${empty newAppointments}">
+			    <div class="no-records">No new pending appointments found.</div>
+			</c:if>
             <a href="appointments.html"><button class="viewAll">View All</button></a>
         </div>
 
@@ -303,4 +256,4 @@
     
     <jsp:include page="/views/partials/footer.jsp"/>  
 </body>
-</html>
+</html> 

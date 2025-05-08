@@ -33,7 +33,7 @@
         </div>
         <div class="contact">
            <div class="form">
-           <form action="ContactUsController" method="post">
+           <form action="${pageContext.request.contextPath}/contactUsController"  method="post">
             <h1 class="head-contact">Send Us Massage</h1>
             <label for="Name">Name</label>
             <input type="text" class="input-contact" name="name" placeholder="G M S SUNTHUSH" required>

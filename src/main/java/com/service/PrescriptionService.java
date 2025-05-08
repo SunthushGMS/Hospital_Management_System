@@ -10,12 +10,12 @@ import com.utill.DBConnection;
 public class PrescriptionService {
 
 	public static int insertSurgery(Prescription prescription) {
-		int prescriptioId = -1;
+		int prescriptionId = -1;
 		try {
 			Connection con = DBConnection.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "INSERT INTO surgery(name,date, time, completionStatus, acceptanceStatus) Values ("
-					+ "'"+surgery.getName()+"', '"+surgery.getDate()+"', '"+surgery.getTime()+"', '"+surgery.getDescription()+"', '"+"'unconfirmed'"+"', '"+"'active');";
+					+ "'"+prescription.getName()+"', '"+surgery.getDate()+"', '"+surgery.getTime()+"', '"+surgery.getDescription()+"', '"+"'unconfirmed'"+"', '"+"'active');";
 			
 			int success = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
 			

@@ -3,6 +3,8 @@ package com.service;
 import java.sql.*;
 import com.model.Appointment;
 import com.utill.DBConnection;
+import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class AppointmentService {
 
@@ -54,4 +56,11 @@ public class AppointmentService {
             return false;
         }
     }
+    
+  
+    
+    
+   
+    
+    
 }

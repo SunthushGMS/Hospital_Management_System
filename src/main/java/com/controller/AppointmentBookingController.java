@@ -42,6 +42,11 @@ public class AppointmentBookingController extends HttpServlet {
 
             boolean isInserted = AppointmentService.insertAppointment(appointment);
 
+            
+            
+        
+            
+            
             if (isInserted) {
                 response.sendRedirect("AppointmentHistory?success=" + URLEncoder.encode("Appointment booked successfully!", "UTF-8"));
             } else {
