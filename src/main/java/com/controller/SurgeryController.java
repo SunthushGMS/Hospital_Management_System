@@ -1,7 +1,6 @@
 package com.controller;
 
 import com.model.Surgery;
-import com.service.PatientProfile_DoctorViewServices;
 import com.service.SurgeryService;
 
 import javax.servlet.ServletException;
@@ -24,8 +23,11 @@ public class SurgeryController extends HttpServlet {
             String timeStr = request.getParameter("time");
             HttpSession session = request.getSession(false);
     		int doctorId =(int) session.getAttribute("uid");
-    
     		
+    		if (timeStr != null && timeStr.length() == 5) {
+    		    timeStr += ":00"; // convert "HH:mm" to "HH:mm:ss"
+    		}
+ 
     		java.sql.Date date = java.sql.Date.valueOf(dateStr);
             java.sql.Time time = java.sql.Time.valueOf(timeStr);
 

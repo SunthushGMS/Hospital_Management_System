@@ -5,16 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.model.User;
 import com.model.Patient;
 import com.model.Surgery;
-import com.model.EmergencyPatientDetails;
 import com.model.EmergencyPatients;
-import com.model.AppointmentDetails;
-import com.model.SurgeryDetails;
 import com.utill.DBConnection;
 
 public class PatientProfile_DoctorViewServices {

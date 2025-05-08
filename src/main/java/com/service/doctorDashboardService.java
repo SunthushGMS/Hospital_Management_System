@@ -80,8 +80,6 @@ public class doctorDashboardService {
 	            todayAppointments.add(ad);
 	        }
 
-	        System.out.println("Appointments found: " + todayAppointments.size());
-
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
@@ -117,9 +115,7 @@ public class doctorDashboardService {
                 ad.setTime(rs.getTime("time"));
                 todayAppointments.add(ad);
             }
-            
-            System.out.println("Appointments found: " + todayAppointments.size());
-            
+                        
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -225,8 +221,6 @@ public class doctorDashboardService {
     	        emergencyList.add(epd);
     	    }
 
-    	    System.out.println("Fetched " + rowCount + " rows from the database.");
-
     	} catch (Exception e) {
     	    e.printStackTrace();
     	}
@@ -234,12 +228,6 @@ public class doctorDashboardService {
     	return emergencyList;
 
     }
-
-
-    
-    
-    
-
     
     
 }

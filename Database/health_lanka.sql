@@ -569,6 +569,14 @@ LOCK TABLES `vaccination` WRITE;
 UNLOCK TABLES;
 
 --
+-- Dumping events for database 'health_lanka'
+--
+
+--
+-- Dumping routines for database 'health_lanka'
+--
+
+--
 -- Final view structure for view `appointmentdetailsview`
 --
 
@@ -631,4 +639,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-08 16:52:40
+-- Dump completed on 2025-05-08 17:29:26
