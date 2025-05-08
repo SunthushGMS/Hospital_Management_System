@@ -73,7 +73,7 @@ public class AdminService {
 				int uid = rs.getInt("uid");
 		        String fullname = rs.getString("fullname");
 		        String username = rs.getString("username");
-		        String dob = rs.getString("email");
+		        String dob = rs.getString("dateofbirth");
 		        String email = rs.getString("email");
 		        String phoneno = rs.getString("phone_no");
 		        String address = rs.getString("address");
