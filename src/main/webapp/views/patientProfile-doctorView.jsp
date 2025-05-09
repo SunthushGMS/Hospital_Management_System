@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -188,7 +189,15 @@
         </div>
     </div><br><br><br>
 
-    <a href="createPrescription.html"><button id="Precription-button" type="submit" class="submit-btn">Create Prescription</button></body></html></a>
+   
+	
+
+	 <a href="${pageContext.request.contextPath}/PrescriptionController?patientId=${patient.uid}">
+    	<button id="Precription-button" type="submit" class="submit-btn">Create Prescription</button>
+	</a>
+	
+	
+
 
     <br><br><br>
 

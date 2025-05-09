@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.model.Drug" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,29 +17,40 @@
     
 </head>
 <body>
+
+<% 
+    int patientId = (int) request.getAttribute("patientId");
+    ArrayList<Drug> drugList = (ArrayList<Drug>) session.getAttribute("drugList");
+    if (drugList == null) {
+        drugList = new ArrayList<>();
+    }
+%>
+
+<h2>Prescription for Patient ID: <%= patientId %></h2>
     <jsp:include page="/views/partials/header.jsp"/>
     <h1 id="heading">Create Prescription</h1>
 
     <div id="wrapper">
         <div id="div1">
-            <form id="createPrescription-form"action=""method="post">
-                <label for="drug-name">Drug Name : </label><br><br>
-                <input type="text" name="drug-name" id="drug-name" required><br><br>
-
-                <label for="dosage">Dosage: </label><br><br>
-                <input type="text" name="dosage" id="dosage" required><br><br>
-
-                <label for="frequancy">Frequancy : </label><br><br>
-                <input type="text" name="frequancy" id="frequancy" required><br><br>
-
-                <label for="instruction">Instruction  : </label><br><br>
-                <input type="text" name="instruction" id="instruction" required><br><br>
-
-                <label for="duration">Duration  : </label><br><br>
-                <input type="text" name="duration" id="duration" required><br><br>
-
-                <button type="submit" class="submit-btn">Add Drug</button>
-            </form>
+            <form action="${pageContext.request.contextPath}/PrescriptionController?action=addDrug" method="post">
+    			<input type="hidden" name="patientId" value="<%= patientId %>">
+			    <label for="drug-name">Drug Name:</label><br>
+			    <input type="text" id="drug-name" name="drug-name" required><br><br>
+			
+			    <label for="dosage">Dosage:</label><br>
+			    <input type="text" id="dosage" name="dosage" required><br><br>
+			
+			    <label for="frequancy">Frequency:</label><br>
+			    <input type="text" id="frequancy" name="frequancy" required><br><br>
+			
+			    <label for="duration">Duration:</label><br>
+			    <input type="text" id="duration" name="duration" required><br><br>
+			
+			    <label for="instruction">Instructions:</label><br>
+			    <input type="text" id="instruction" name="instruction" required><br><br>
+			
+			    <button type="submit">Add Drug</button>
+			</form>
         </div>
         <!-- 
         <div id="div1">
@@ -47,75 +60,46 @@
         -->
 
         <div id="div1">
-            <form id="createPrescription-form"action=""method="post">
+            <form action="${pageContext.request.contextPath}/PrescriptionController?action=createPrescription" method="post">
+    			<input type="hidden" name="patientId" value="<%= patientId %>">
                 <label for="dietary-advices">Dietary advices: : </label><br><br>
                 <textarea id="dietary-advices" name="dietary-advices" rows="6" required></textarea><br><br>
 
                 <label for="doctors-notes">Doctors notes : </label><br><br>
                 <textarea id="doctors-notes" name="doctors-notes" rows="6" required></textarea><br><br>
 
-                <button type="submit" class="submit-btn">Send Prescription</button>
-            </form>
+                
         </div>
     </div>
-
-    <h2 id="subHeading">Items In Prescription</h2>
-
-    <table>
-        <tr>
-            <th>Drug Name</th>
-            <th>Dosage</th>
-            <th>Frequancy</th>
-            <th>Duration</th>
-            <th>Instruction</th>
-        </tr>
-        
-        <tr>
-            <td>Paracitamole</td>
-            <td>500mg</td>
-            <td>3 times a day</td>
-            <td>5 days</td>
-            <td>After meals</td>
-        </tr>
-
-        <tr>
-            <td>Paracitamole</td>
-            <td>500mg</td>
-            <td>3 times a day</td>
-            <td>5 days</td>
-            <td>After meals</td>
-        </tr>
-
-        <tr>
-            <td>Paracitamole</td>
-            <td>500mg</td>
-            <td>3 times a day</td>
-            <td>5 days</td>
-            <td>After meals</td>
-        </tr>
-
-        <tr>
-            <td>Paracitamole</td>
-            <td>500mg</td>
-            <td>3 times a day</td>
-            <td>5 days</td>
-            <td>After meals</td>
-        </tr>
-
-        <tr>
-            <td>Paracitamole</td>
-            <td>500mg</td>
-            <td>3 times a day</td>
-            <td>5 days</td>
-            <td>After meals</td>
-        </tr>
-
-    </table>
+	<br><br>
+   <h3>Current Drugs in Prescription</h3>
+		<table border="1">
+		    <tr>
+		        <th>Drug ID</th>
+		        <th>Drug Name</th>
+		        <th>Dosage</th>
+		        <th>Frequency</th>
+		        <th>Duration</th>
+		        <th>Instruction</th>
+		    </tr>
+		    <% for (Drug drug : drugList) { %>
+		    <tr>
+		        <td><%= drug.getDrugId() %></td>
+		        <td><%= drug.getDrugName() %></td>
+		        <td><%= drug.getDosage() %></td>
+		        <td><%= drug.getFrequency() %></td>
+		        <td><%= drug.getDuration() %></td>
+		        <td><%= drug.getInstruction() %></td>
+		    </tr>
+		    <% } %>
+		</table>
 
     <br><br>
 
-
-
+	<button type="submit" class="submit-btn" style="padding: 20px; margin-left:25%; width: 50%;">Send Prescription</button>
+    </form>
+    
+	<br><br>
 
     
     <jsp:include page="/views/partials/footer.jsp"/>
