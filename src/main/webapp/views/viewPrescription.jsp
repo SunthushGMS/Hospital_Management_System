@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, com.model.Drug" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,100 +10,95 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/appointHistory.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
     <script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
-
-    <!-- jsPDF + autoTable -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
 
 <jsp:include page="/views/partials/header.jsp"/>
 
- <title>View Prescription</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
-            margin-bottom: 30px;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-        th {
-            background-color: #e9ecef;
-        }
-        .notes-section {
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
-        .notes-section h2 {
-            margin-top: 0;
-        }
-        .notes-section p {
-            margin: 10px 0;
-        }
-    </style>
-</head>
-<body>
+<h1 class="history-head">Prescription Details</h1>
 
-<%
-    ArrayList<Drug> drugList = (ArrayList<Drug>) session.getAttribute("drugList");
-    Integer patientId = (Integer) session.getAttribute("patientId");
-    String dietaryAdvice = "Drink plenty of water, avoid fatty foods, and follow a high-fiber diet.";
-    String doctorNotes = "Patient to rest for 3 days. Monitor response to medication and follow up next week.";
-%>
+<section class="sec1">
+    <div class="table-view">
+        <c:if test="${not empty drugList}">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Drug Name</th>
+                        <th>Dosage</th>
+                        <th>Frequency</th>
+                        <th>Duration</th>
+                        <th>Instructions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="drug" items="${drugList}">
+                        <tr>
+                            <td>${drug.drugName}</td>
+                            <td>${drug.dosage}</td>
+                            <td>${drug.frequency}</td>
+                            <td>${drug.duration}</td>
+                            <td>${drug.instruction}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </c:if>
 
-<h1>Prescription Details for Patient ID: <%= patientId %></h1>
+        <c:if test="${empty drugList}">
+            <p>No drug details available.</p>
+        </c:if>
 
-<% if (drugList != null && !drugList.isEmpty()) { %>
-    <table>
-        <thead>
-            <tr>
-                <th>Drug Name</th>
-                <th>Dosage</th>
-                <th>Frequency</th>
-                <th>Duration</th>
-                <th>Instructions</th>
-            </tr>
-        </thead>
-        <tbody>
-        <% for (Drug drug : drugList) { %>
-            <tr>
-                <td><%= drug.getDrugName() %></td>
-                <td><%= drug.getDosage() %></td>
-                <td><%= drug.getFrequency() %></td>
-                <td><%= drug.getDuration() %></td>
-                <td><%= drug.getInstruction() %></td>
-            </tr>
-        <% } %>
-        </tbody>
-    </table>
-<% } else { %>
-    <p>No drugs have been prescribed yet.</p>
-<% } %>
+        <div class="notes-section" style="margin-top: 30px;">
+            <h2>Dietary Advice</h2>
+            <p>${dietaryAdvice}</p>
 
-<div class="notes-section">
-    <h2>Dietary Advice</h2>
-    <p><%= dietaryAdvice %></p>
+            <h2>Doctor's Notes</h2>
+            <p>${doctorNotes}</p>
+        </div>
 
-    <h2>Doctor’s Notes</h2>
-    <p><%= doctorNotes %></p>
-</div>
+        <button onclick="exportToPDF()" class="btn-down">Download PDF</button>
+
+        <script>
+            async function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                const headers = ["Drug Name", "Dosage", "Frequency", "Duration", "Instructions"];
+                const rows = [];
+
+                document.querySelectorAll("table tbody tr").forEach((tr) => {
+                    const row = [];
+                    tr.querySelectorAll("td").forEach((td) => {
+                        row.push(td.innerText);
+                    });
+                    rows.push(row);
+                });
+
+                doc.autoTable({
+                    head: [headers],
+                    body: rows
+                });
+
+                const advice = document.querySelector(".notes-section p:nth-of-type(1)").innerText;
+                const notes = document.querySelector(".notes-section p:nth-of-type(2)").innerText;
+
+                doc.text("Dietary Advice:", 10, doc.lastAutoTable.finalY + 20);
+                doc.text(advice, 10, doc.lastAutoTable.finalY + 30);
+
+                doc.text("Doctor's Notes:", 10, doc.lastAutoTable.finalY + 50);
+                doc.text(notes, 10, doc.lastAutoTable.finalY + 60);
+
+                doc.save("Prescription.pdf");
+            }
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    </div>
+</section>
+
+<jsp:include page="/views/partials/footer.jsp"/>
 
 </body>
 </html>

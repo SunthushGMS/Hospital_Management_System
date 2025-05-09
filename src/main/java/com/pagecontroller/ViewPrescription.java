@@ -1,6 +1,7 @@
 package com.pagecontroller;
 
 import com.model.Drug;
+import com.model.Prescription;
 import com.service.PrescriptionService;
 
 import javax.servlet.ServletException;
@@ -12,34 +13,41 @@ import java.util.ArrayList;
 @WebServlet("/ViewPrescription")
 public class ViewPrescription extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-    // Create an instance of the PrescriptionService to get prescription details
     private PrescriptionService prescriptionService = new PrescriptionService();
-    
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Retrieve patientId from the session or request parameters
-        int patientId = Integer.parseInt(request.getParameter("patientId"));
-        
-        // Get all drugs for the patient
-        ArrayList<Drug> drugList = prescriptionService.getAllDrugs();
+        try {
+            // Retrieve patientId from the request
+            int patientId = Integer.parseInt(request.getParameter("patientId"));
 
-        // Get the dietary advice and doctor's note for the patient
-        String dietaryAdvice = prescriptionService.getDietaryAdvice(patientId);
-        String doctorNote = prescriptionService.getDoctorNote(patientId);
-        
-        // Check for any error messages passed in the request
-        String error = request.getParameter("error");
-        if (error != null) {
-            request.setAttribute("error", error);
+            // Fetch the latest prescription for the patient
+            Prescription prescription = prescriptionService.getPrescriptionByPatientId(patientId);
+
+            if (prescription == null) {
+                request.setAttribute("error", "No prescription found for this patient.");
+                request.getRequestDispatcher("views/errorPage.jsp").forward(request, response);
+                return;
+            }
+
+            // Fetch drugs related to the patient's prescription
+            ArrayList<Drug> drugList = prescriptionService.getDrugsByPatientId(patientId);
+
+            // Set attributes for the JSP
+            request.setAttribute("drugList", drugList);
+            request.setAttribute("dietaryAdvice", prescription.getDietary_advice());
+            request.setAttribute("doctorNote", prescription.getDoctors_notes());
+            request.setAttribute("patientId", patientId);
+
+            // Forward to the JSP page to display the prescription details
+            request.getRequestDispatcher("views/viewPrescription.jsp").forward(request, response);
+
+        } catch (NumberFormatException e) {
+            request.setAttribute("error", "Invalid patient ID.");
+            request.getRequestDispatcher("views/errorPage.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("error", "An error occurred while fetching prescription.");
+            request.getRequestDispatcher("views/errorPage.jsp").forward(request, response);
+            e.printStackTrace();
         }
-
-        // Set the retrieved prescription details as request attributes
-        request.setAttribute("drugList", drugList);
-        request.setAttribute("dietaryAdvice", dietaryAdvice);
-        request.setAttribute("doctorNote", doctorNote);
-        request.setAttribute("patientId", patientId);
-        
-        // Forward the request to the viewPrescription.jsp page
-        request.getRequestDispatcher("views/viewPrescription.jsp").forward(request, response);
     }
 }
