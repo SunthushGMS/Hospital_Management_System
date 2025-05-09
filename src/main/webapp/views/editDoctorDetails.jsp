@@ -30,6 +30,7 @@
                 <div>
             
                   <form id="editDoctorForm" class="space-y-4" method="post" action="${pageContext.request.contextPath}/UpdateDoctorDetailsController">
+                      <input type="hidden" name="doctorId" value="${doctor.uid}">
                     <div class="flex justify-between ml-4">
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Full Name</label>
@@ -48,7 +49,7 @@
                         </div>
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Mobile Number</label>
-                            <input type="text" name="phoneNumber" value="${doctor.phoneno}" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="text" name="phoneNumber" value="${doctor.phone}" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                     </div>
   

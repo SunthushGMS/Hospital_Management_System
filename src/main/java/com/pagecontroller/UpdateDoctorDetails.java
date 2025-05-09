@@ -2,7 +2,6 @@ package com.pagecontroller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +18,7 @@ public class UpdateDoctorDetails extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int doctorId = Integer.parseInt(request.getParameter("uid"));
+		int doctorId = Integer.parseInt(request.getParameter("id"));
 		
 		Doctor doctor = AdminService.getDoctorDetailsById(doctorId);
 		request.setAttribute("doctor", doctor);

@@ -17,7 +17,7 @@ public class UpdateDoctorDetailsController extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int uid = Integer.parseInt(request.getParameter("uid"));
+		int uid = Integer.parseInt(request.getParameter("doctorId"));
 		String fullname = request.getParameter("fullname");
 		String username = request.getParameter("phone");
 		String dob =request.getParameter("dob");
@@ -32,7 +32,7 @@ public class UpdateDoctorDetailsController extends HttpServlet {
 			response.sendRedirect("AdminDB?success=Profile updated successfully.");
 		}
 		else {
-			response.sendRedirect("UpdateDoctorDetails?error=An error occurred while updating the profile. Please try again later.");
+			response.sendRedirect("AdminDB?error=An error occurred while updating the profile. Please try again later.");
 		}
 		
 	}
