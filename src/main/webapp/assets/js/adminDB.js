@@ -42,7 +42,7 @@ function closeReplyToInquiries(){
 function showDoctorDeletePopup(doctorId) {
   Confirm.open({
     title: 'Delete Account',
-    message: 'Are you sure you wish to delete this patient\'s account? This action cannot be undone.',
+    message: 'Are you sure you wish to delete this doctor\'s account? This action cannot be undone.',
     onok: () => {
       window.location.href = `DeleteDoctorController?id=${doctorId}`;
     }
@@ -55,6 +55,16 @@ function showPatientDeletePopup(patientId) {
     message: 'Are you sure you wish to delete this patient\'s account? This action cannot be undone.',
     onok: () => {
       window.location.href = `DeletePatientServelet?id=${patientId}`;
+    }
+  });
+}
+
+function showAppointmentDeletePopup(appointmenttId) {
+  Confirm.open({
+    title: 'Delete Appointment',
+    message: 'Are you sure you wish to delete this Appointment? This action cannot be undone.',
+    onok: () => {
+      window.location.href = `DeleteAppointmentByAdmin?id=${appointmenttId}`;
     }
   });
 }

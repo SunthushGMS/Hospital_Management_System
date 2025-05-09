@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.itextpdf.text.log.SysoCounter;
 import com.model.AdminAppointment;
 import com.model.Doctor;
 import com.model.User;
@@ -92,6 +93,82 @@ public class AdminService {
 		return doctors;
 	}
 	
+	public static Doctor getDoctorDetailsById(int id){
+			
+			Doctor doctors = null;
+			
+			try {
+				Connection con = DBConnection.getConnection();
+				Statement stmt = con.createStatement();
+				
+				String query = "SELECT user.uid, user.fullname, user.username, user.dateofbirth, user.email, user.phone_no, user.address, user.password, doctor.specialization " +
+			               "FROM user " +
+			               "JOIN doctor ON doctor.user_id = user.uid " +
+			               "WHERE user.role = 'doctor';";
+				
+				ResultSet rs = stmt.executeQuery(query);
+				
+				while(rs.next()) {
+					int uid = rs.getInt("uid");
+			        String fullname = rs.getString("fullname");
+			        String username = rs.getString("username");
+			        String dob = rs.getString("dateofbirth");
+			        String email = rs.getString("email");
+			        String phoneno = rs.getString("phone_no");
+			        String address = rs.getString("address");
+			        String password = rs.getString("password");
+			        String specialization = rs.getString("specialization");
+			        
+					doctors = new Doctor(uid, username, password, fullname, dob, email, phoneno, address, specialization);
+					
+					con.close();
+					return doctors;
+				}
+				
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			return doctors;
+		}
+	
+	public static boolean updateDoctorDetails(Doctor doctor) {
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			
+			String query = "UPDATE user SET " +
+						"fullname = '"+doctor.getFullname()+"' " +
+						"username = '"+doctor.getUsername()+"' " +
+						"dob = '"+doctor.getDob()+"' " +
+						"phone_no = '"+doctor.getPhone()+"' " +
+						"address = '"+doctor.getAddress()+"' " +
+						"password = '"+doctor.getPassword()+"' ";
+			
+			int success = stmt.executeUpdate(query);
+			
+			if(success == 0) {
+				query = "INSERT INTO doctor(user_id, specialization) VALUES('"+doctor.getUid()+"', '"+doctor.getSpecialization()+"');";
+				try (Statement doctorStmt = con.createStatement()){
+					doctorStmt.executeUpdate(query);
+					System.out.println("Insert Successfull");
+					con.close();
+					
+					return false;
+				}
+			}
+			con.close();
+			return true;
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	public static ArrayList<User> getPatientDetails(){
 		
 		ArrayList<User> patients = new ArrayList<>();
@@ -161,6 +238,31 @@ public class AdminService {
 		return appointments;
 	}
 	
+	public  static boolean deleteAppointmentById(int id) {
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			
+			String query = "DELETE FROM appointment WHERE id = '"+id+"';";
+			
+			int success = stmt.executeUpdate(query);
+			
+			if(success == 0) {
+				System.out.println("Apointment Delete Failed");
+				con.close();
+				return false;
+			}
+			
+			con.close();
+			return false;
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 	
 	
 	public static int getDoctorCount() {

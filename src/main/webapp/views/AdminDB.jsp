@@ -151,42 +151,16 @@
                                 </tr>
                                 
                                 <c:forEach var="doctor" items="${doctorDetails}">
-                                
-                                <c:set var="uid" value="${doctor.uid}" />
-                                <c:set var="username" value= "${doctor.username }" />
-                                <c:set var="fullname" value="${doctor.fullname}" />
-                                <c:set var="dob" value="${doctor.dob}" />
-                                <c:set var="email" value="${doctor.email}" />
-                                <c:set var="phoneno" value="${doctor.phone}" />
-                               	<c:set var="address" value="${doctor.address}" />
-                               	<c:set var="password" value="${doctor.password}" />
-                               	<c:set var="specialization" value="${doctor.specialization}" />
-                               	
-                    
-                                
+
                                 <tr class="odd:bg-white even:bg-slate-100">
                                     <td class="pt-3 pb-3">${doctor.uid}</td>
                                     <td>${doctor.fullname}</td>
                                     <td>${doctor.specialization}</td>
                                     <td class="px-6 py-4 text-center">
-                                    
-                                    		
-                                    	<c:url value="${pageContext.request.contextPath}/views/editDoctorDetails.jsp" var="updateDoctor">
-                                    		<c:param name="uid" value="${uid}"/>
-                                    		<c:param name="username" value="${username}" />
-                                    		<c:param name="fullname" value="${fullname}"/>
-                                    		<c:param name="dob" value="${dob}"/>
-                                    		<c:param name="email" value="${email}"/>
-                                    		<c:param name="phoneno" value="${phoneno}"/>
-                                    		<c:param name="address" value="${address}"/>
-                                    		<c:param name="password" value="${password}"/>
-                                    		<c:param name="specialization" value="${specialization}"/>
-                                    	</c:url>                   
-                                    	
-                                        <a class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2 pt-2 pb-2" href="${updateDoctor}">
-                                            <i class="fas fa-edit mr-1"></i> Edit
-                                        </a>                                    
 
+                                    <a href="UpdateDoctorDetails?id=${doctor.uid}" class="action-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2 pt-2 pb-2">
+                                       <i class="fas fa-edit mr-1"></i> Edit
+                                    </a>                                    
                                         <button onclick="showDoctorDeletePopup(${doctor.uid})"  class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white ">
                                             <i class="fas fa-trash-alt mr-1"></i> Delete
                                         </button>
@@ -227,7 +201,7 @@
                                     <td>${appointment.patientName }</td>
                                     <td>${appointment.doctorName}</td>
                                     <td>${appointment.appointmentDate}</td>
-                                    <td><button class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
+                                    <td><button onclick="showAppointmentDeletePopup(${appointment.id})" class="action-btn bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white">
                                         <i class="fas fa-trash-alt mr-1"></i> Delete
                                     </button></td>
                                 </tr>
