@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.model.AdminAppointment;
 import com.model.Doctor;
+import com.model.SupportRequests;
 import com.model.User;
 import com.service.AdminService;
 
@@ -23,10 +24,12 @@ public class AdminDB extends HttpServlet {
 		
 		ArrayList<Doctor> doctor = AdminService.getDoctorDetails();
 		ArrayList<User> patient = AdminService.getPatientDetails();
+		ArrayList<SupportRequests> inquiries = AdminService.getInquiries();
 		ArrayList<AdminAppointment> appointment = AdminService.getAppointmentDetails();
 		int doctorCount = AdminService.getDoctorCount();
 		int patientCount = AdminService.getPatientCount();
 		int appointmentCount = AdminService.getAppointmentCount();
+		
 		
 		request.setAttribute("doctorDetails", doctor);
 		request.setAttribute("patientDetails", patient);
@@ -34,6 +37,7 @@ public class AdminDB extends HttpServlet {
 		request.setAttribute("doctorCount", doctorCount);
 		request.setAttribute("patientCount", patientCount);
 		request.setAttribute("appointmentCount", appointmentCount);
+		request.setAttribute("inquiries" , inquiries);
 		
 		String error = request.getParameter("error");
 		if(error != null) {

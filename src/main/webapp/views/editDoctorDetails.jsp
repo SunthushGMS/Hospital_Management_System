@@ -17,6 +17,13 @@
 		
 		<jsp:include page="/views/partials/header.jsp"/>
 		
+		<c:if test="${not empty error}">
+	        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+				<span class="font-medium">Error! </span>${error}
+			</div>
+			<c:remove var="error" />
+	    </c:if>
+		
         <div class="flex justify-center items-center p-10 min-h-screen px-4">
           <div class="flex shadow-xl bg-white rounded-2xl ">
               <div class="p-10">
@@ -30,15 +37,15 @@
                 <div>
             
                   <form id="editDoctorForm" class="space-y-4" method="post" action="${pageContext.request.contextPath}/UpdateDoctorDetailsController">
-                      <input type="hidden" name="doctorId" value="${doctor.uid}">
+                      <input type="hidden" name="uid" value="${doctor.uid}">
                     <div class="flex justify-between ml-4">
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Full Name</label>
-                            <input type="text" name="fullName" value="${doctor.fullname}" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="text" name="fullname" value="${doctor.fullname}" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Username</label>
-                            <input type="text" name="userName" value="${doctor.username }" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="text" disabled="disabled" name="username" value="${doctor.username }" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                     </div>
                     
@@ -49,7 +56,7 @@
                         </div>
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Mobile Number</label>
-                            <input type="text" name="phoneNumber" value="${doctor.phone}" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input type="text" name="phoneno" value="${doctor.phone}" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                     </div>
   
@@ -74,7 +81,7 @@
                         </div>
                     </div>
                     <div class="flex justify-center mt-8">
-                        <input type="submit" value="Save Changes" class="pl-20 pr-20 mt-8 font-semibold text-lg bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition duration-300 cursor-pointer" >
+                        <input type="submit" name="submit" value="Save Changes" class="pl-20 pr-20 mt-8 font-semibold text-lg bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition duration-300 cursor-pointer" >
                     </div>
                   </form>
                 </div> 

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import com.itextpdf.text.log.SysoCounter;
 import com.model.AdminAppointment;
 import com.model.Doctor;
+import com.model.SupportRequests;
 import com.model.User;
 import com.utill.DBConnection;
 
@@ -104,7 +105,7 @@ public class AdminService {
 				String query = "SELECT user.uid, user.fullname, user.username, user.dateofbirth, user.email, user.phone_no, user.address, user.password, doctor.specialization " +
 			               "FROM user " +
 			               "JOIN doctor ON doctor.user_id = user.uid " +
-			               "WHERE user.role = 'doctor';";
+			               "WHERE user.uid = '"+id+"';";
 				
 				ResultSet rs = stmt.executeQuery(query);
 				
@@ -133,35 +134,36 @@ public class AdminService {
 			return doctors;
 		}
 	
-	public static boolean updateDoctorDetails(Doctor doctor) {
+	public static boolean updateDoctorDetailsById(Doctor doctor) {
 		
 		try {
 			Connection con = DBConnection.getConnection();
 			Statement stmt = con.createStatement();
 			
 			String query = "UPDATE user SET " +
-						"fullname = '"+doctor.getFullname()+"' " +
-						"username = '"+doctor.getUsername()+"' " +
-						"dob = '"+doctor.getDob()+"' " +
-						"phone_no = '"+doctor.getPhone()+"' " +
-						"address = '"+doctor.getAddress()+"' " +
-						"password = '"+doctor.getPassword()+"' ";
+						"user.fullname = '"+doctor.getFullname()+"' " +
+						"user.dob = '"+doctor.getDob()+"' " +
+						"user.phone_no = '"+doctor.getPhone()+"' " +
+						"user.address = '"+doctor.getAddress()+"' " +
+						"user.password = '"+doctor.getPassword()+"' " +
+						"WHERE user.uid = '"+doctor.getUid()+"';";
 			
-			int success = stmt.executeUpdate(query);
+			String query2 = "UPDATE doctor SET "+
+							"doctor.specialization = '"+doctor.getSpecialization()+"'"+
+							"WHERE doctor.user_id = '"+doctor.getUid()+"';";
 			
-			if(success == 0) {
-				query = "INSERT INTO doctor(user_id, specialization) VALUES('"+doctor.getUid()+"', '"+doctor.getSpecialization()+"');";
-				try (Statement doctorStmt = con.createStatement()){
-					doctorStmt.executeUpdate(query);
-					System.out.println("Insert Successfull");
-					con.close();
-					
-					return false;
-				}
-			}
-			con.close();
-			return true;
-			
+			 int rs1 = stmt.executeUpdate(query);
+			 int rs2 = stmt.executeUpdate(query2);
+			 
+			 if(rs1 == 0 && rs2 == 0) {
+				 System.out.println("User Table Update Failed");
+				 con.close();
+				 return false;
+			 }
+			 
+			 con.close();
+			 return true;
+			 
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -339,6 +341,39 @@ public class AdminService {
 		
 		return count;
 		
+	}
+	
+	public static ArrayList<SupportRequests> getInquiries(){
+		
+		ArrayList<SupportRequests> inquiries = new ArrayList<>();
+		
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			
+			String query = "SELECT support_requests.id, support_requests.name, support_requests.message" +
+							"FROM support_requests "+
+							"WHERE support_requests.status = 'pending';";
+			
+			ResultSet rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				String message = rs.getString("message");
+				
+				SupportRequests requests = new SupportRequests(id, name, message);
+				
+				inquiries.add(requests);
+				
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return inquiries;
 	}
 	
 }

@@ -24,6 +24,16 @@ public class SupportRequests {
 		this.reply = reply;
 		this.status = status;
 	}
+	
+	
+
+
+	public SupportRequests(int id, String name, String message) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.message = message;
+	}
 
 
 	public int getId() {
