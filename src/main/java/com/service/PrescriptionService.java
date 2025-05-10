@@ -4,7 +4,11 @@ import com.model.Drug;
 import com.model.Prescription;
 import com.utill.DBConnection;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +87,11 @@ public class PrescriptionService {
     // Get a prescription by ID
     public static Prescription getPrescriptionById(int id) {
         Prescription prescription = null;
-        String sql = "SELECT * FROM prescription WHERE id = ?";
+        String sql = "SELECT *\n"
+                + "FROM prescription\n"
+                + "WHERE patient_id = ?\n"
+                + "ORDER BY id DESC\n"
+                + "LIMIT 1;";
 
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {

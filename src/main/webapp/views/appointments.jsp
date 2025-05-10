@@ -17,22 +17,21 @@
     
 </head>
 <body>
-<c:if test="${empty todayAppointments}">
-    <p>No today's appointments available.</p>
-</c:if>
+	<jsp:include page="/views/partials/header.jsp"/>
+	
+	<c:if test="${empty todayAppointments}">
+	    <p>No today's appointments available.</p>
+	</c:if>
+	
+	<c:if test="${empty incompletedAppointments}">
+	    <p>No incompleted appointments available.</p>
+	</c:if>
+	
+	<c:if test="${empty completedAppointments}">
+	    <p>No completed appointments available.</p>
+	</c:if>
 
-<c:if test="${empty incompletedAppointments}">
-    <p>No incompleted appointments available.</p>
-</c:if>
-
-<c:if test="${empty completedAppointments}">
-    <p>No completed appointments available.</p>
-</c:if>
-
-    <jsp:include page="/views/partials/header.jsp"/>
     <h1 id="heading">Appointments</h1>
-
-    <img id="app-image" src="${pageContext.request.contextPath}/assets/images/doctorDashboard_apointmentIcon2.png">
 
 
  
