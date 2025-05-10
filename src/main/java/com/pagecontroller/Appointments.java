@@ -46,10 +46,6 @@ public class Appointments extends HttpServlet {
             // Get new completed appointments
             List<AppointmentDetails> completedAppointments = service.getCompletedAppointments(currentUserid);
             request.setAttribute("completedAppointments", completedAppointments);
-            
-            System.out.println("Today's appointments: " + todayAppointments.size());
-            System.out.println("Incompleted appointments: " + incompletedAppointments.size());
-            System.out.println("Completed appointments: " + completedAppointments.size());
 
 
             

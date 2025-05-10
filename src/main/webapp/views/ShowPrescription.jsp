@@ -36,7 +36,6 @@
 
             <c:if test="${not empty drugList}">
                 <table>
-                    <thead>
                         <tr>
                             <th>Drug Name</th>
                             <th>Dosage</th>
@@ -44,18 +43,15 @@
                             <th>Duration</th>
                             <th>Instructions</th>
                         </tr>
-                    </thead>
-                    <tbody>
                         <c:forEach var="drug" items="${drugList}">
                             <tr>
-                                <td>${drug.drug_name}</td>
+                                <td>${drug.drugName}</td>
                                 <td>${drug.dosage}</td>
                                 <td>${drug.frequency}</td>
                                 <td>${drug.duration}</td>
-                                <td>${drug.instructions}</td>
+                                <td>${drug.instruction}</td>
                             </tr>
                         </c:forEach>
-                    </tbody>
                 </table>
             </c:if>
 
@@ -103,7 +99,7 @@
         const drugHeaders = ["Drug Name", "Dosage", "Frequency", "Duration", "Instructions"];
         const drugRows = [
             <c:forEach var="drug" items="${drugList}">
-                ["${drug.drug_name}", "${drug.dosage}", "${drug.frequency}", "${drug.duration}", "${drug.instructions}"],
+                ["${drug.drugName}", "${drug.dosage}", "${drug.frequency}", "${drug.duration}", "${drug.instruction}"],
             </c:forEach>
         ];
 

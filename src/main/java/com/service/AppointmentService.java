@@ -1,7 +1,10 @@
 package com.service;
 
 import java.sql.*;
+import java.util.ArrayList;
+
 import com.model.Appointment;
+import com.model.Doctor;
 import com.utill.DBConnection;
 
 public class AppointmentService {
@@ -104,5 +107,36 @@ public class AppointmentService {
         }
 
         return appointment;
+    }
+    
+    public static ArrayList<Doctor> getDoctorDetails() {
+
+        ArrayList<Doctor> doctors = new ArrayList<>();
+
+        try {
+            Connection con = DBConnection.getConnection();
+            Statement stmt = con.createStatement();
+
+            String query = "SELECT user.uid, user.fullname, doctor.specialization " +
+                           "FROM user " +
+                           "JOIN doctor ON doctor.user_id = user.uid " +
+                           "WHERE user.role = 'doctor';";
+
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                int uid = rs.getInt("uid");
+                String fullname = rs.getString("fullname");
+                String specialization = rs.getString("specialization");
+
+                Doctor doctor = new Doctor(uid, fullname, specialization);
+                doctors.add(doctor);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return doctors;
     }
 }

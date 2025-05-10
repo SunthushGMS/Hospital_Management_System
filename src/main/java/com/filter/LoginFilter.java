@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/views/userProfile.jsp", "/views/patient.jsp", "/views/appointHistory.jsp", "/AppointmentHistory", "/userprofile", "/Patient"}) // Protect these routes
+@WebFilter(urlPatterns = {"/views/ShowPrescription.jsp", "/views/userProfile.jsp", "/views/patient.jsp", "/views/appointHistory.jsp", "/AppointmentHistory", "/userprofile", "/Patient", "/ShowPrescription"}) // Protect these routes
 public class LoginFilter implements Filter {
 
     @Override

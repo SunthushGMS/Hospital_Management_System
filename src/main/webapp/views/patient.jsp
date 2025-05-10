@@ -91,14 +91,11 @@
 
     <label for="doctorId" class="label-appoint">Select Doctor</label>
     <select name="doctorId" id="doctorId" required>
-        <option value="1" ${param.doctorId == '1' ? 'selected' : ''}>Dr Naml Udugama</option>
-        <option value="2" ${param.doctorId == '2' ? 'selected' : ''}>Dr Nuwan Thushara</option>
-        <option value="3" ${param.doctorId == '3' ? 'selected' : ''}>Dr Shashi Hewage</option>
-        <option value="4" ${param.doctorId == '4' ? 'selected' : ''}>Dr Kamal Harshana</option>
-        <option value="5" ${param.doctorId == '5' ? 'selected' : ''}>Dr Julia Fernando</option>
-        <option value="6" ${param.doctorId == '6' ? 'selected' : ''}>Dr Chamnida Guruge</option>
-        <option value="7" ${param.doctorId == '7' ? 'selected' : ''}>Dr Vass Gunawardane</option>
-        <option value="8" ${param.doctorId == '8' ? 'selected' : ''}>Dr Harischandra</option>
+        <c:forEach var="doctor" items="${doctors}">
+		    <option value="${doctor.uid}">
+		        Dr ${doctor.fullname}
+		    </option>
+		</c:forEach>
     </select><br><br>
 
     <label for="date" class="label-appoint">Appointment Date</label>

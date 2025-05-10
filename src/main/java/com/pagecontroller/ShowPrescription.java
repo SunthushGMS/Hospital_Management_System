@@ -20,21 +20,16 @@ public class ShowPrescription extends HttpServlet {
         try {
             HttpSession session = request.getSession(false);
 
-            if (session == null || session.getAttribute("uid") == null) {
-                response.sendRedirect("login.jsp");
-                return;
-            }
+            int idParam = (int) session.getAttribute("uid");
 
-            String idParam = request.getParameter("id");
-
-            if (idParam != null && !idParam.trim().isEmpty()) {
+            if (idParam > 0) {
                 try {
-                    int prescriptionId = Integer.parseInt(idParam);
+                    int userId = idParam;
 
-                    Prescription prescription = PrescriptionService.getPrescriptionById(prescriptionId);
-                    List<Drug> drugList = PrescriptionService.getDrugsByPrescriptionId(prescriptionId);
-
+                    Prescription prescription = PrescriptionService.getPrescriptionById(userId);
+                    
                     if (prescription != null) {
+                    	List<Drug> drugList = PrescriptionService.getDrugsByPrescriptionId(prescription.getId());
                         request.setAttribute("prescription", prescription);
                         request.setAttribute("drugList", drugList);
                     } else {
