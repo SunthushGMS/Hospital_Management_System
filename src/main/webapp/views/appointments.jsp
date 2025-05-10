@@ -17,6 +17,18 @@
     
 </head>
 <body>
+<c:if test="${empty todayAppointments}">
+    <p>No today's appointments available.</p>
+</c:if>
+
+<c:if test="${empty incompletedAppointments}">
+    <p>No incompleted appointments available.</p>
+</c:if>
+
+<c:if test="${empty completedAppointments}">
+    <p>No completed appointments available.</p>
+</c:if>
+
     <jsp:include page="/views/partials/header.jsp"/>
     <h1 id="heading">Appointments</h1>
 
@@ -48,9 +60,22 @@
 	            <td>${appointment.date}</td>
 	            <td>${appointment.time}</td>
 	            <td>
-	                <button id="acceptAppointmentBtn">Accept</button><br><br>
-	                <button id="RescheduleAppointmentBtn">Reschedule</button>
-	            </td>
+				    <form method="post" action="${pageContext.request.contextPath}/Appointments">
+				        <input type="hidden" name="appointmentId" value="${appointment.appointmentId}" />
+				        <input type="hidden" name="action" value="accept" />
+				        <button type="submit" id="acceptAppointmentBtn">Accept</button>
+				    </form>
+				    
+				    <br><br>
+				    
+				    <form method="post" action="${pageContext.request.contextPath}/Appointments">
+					    <input type="hidden" name="appointmentId" value="${appointment.appointmentId}" />
+					    <input type="hidden" name="action" value="reschedule" />
+					    <button type="submit" id="RescheduleAppointmentBtn">Reschedule</button>
+					</form>
+
+				    
+				</td>
 	            <td>
 	            <a href="${pageContext.request.contextPath}/PatientProfile_DoctorView?patientId=${appointment.patientId}">
 				    <img src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" id="hamburger-Icon" alt="View" width="20" height="20">
@@ -76,6 +101,7 @@
 	        <th>Phone</th>
 	        <th>Date</th>
 	        <th>Time</th>
+	        <th>Status</th>
 	        <th>View more</th>
 	    </tr>
 	
@@ -89,6 +115,14 @@
 	            <td>${appointment.date}</td>
 	            <td>${appointment.time}</td>
 	            <td>
+	            <form method="post" action="${pageContext.request.contextPath}/Appointments">
+				    <input type="hidden" name="appointmentId" value="${appointment.appointmentId}" />
+				    <input type="hidden" name="action" value="completed" />
+				    <button type="submit" id="acceptAppointmentBtn">Completed</button>
+				</form>
+
+	            </td>
+	            <td>
 	            	
 	               <a href="${pageContext.request.contextPath}/PatientProfile_DoctorView?patientId=${appointment.patientId}">
 					    <img src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" id="hamburger-Icon" alt="View" width="20" height="20">
@@ -98,79 +132,87 @@
 	        </tr>
 	    </c:forEach>
 	</table>
+	
+	
+	
+	
+	
+	
+	   <br><br><br><br><br>
+
+  	<h2 class="tableHeading">Incomplete Appointments</h2>
+	<table border="1">
+	    <tr>
+	        <th>Appointment ID</th>
+	        <th>Patient ID</th>
+	        <th>Patient Name</th>
+	        <th>Email</th>
+	        <th>Phone</th>
+	        <th>Date</th>
+	        <th>Time</th>
+	        <th>View More</th>
+	    </tr>
+	
+	    <c:forEach var="appointment" items="${incompletedAppointments}">
+	        <tr>
+	            <td>${appointment.appointmentId}</td>
+	            <td>${appointment.patientId}</td>
+	            <td>${appointment.patientName}</td>
+	            <td>${appointment.email}</td>
+	            <td>${appointment.phone}</td>
+	            <td>${appointment.date}</td>
+	            <td>${appointment.time}</td>
+	            <td>
+	            <a href="${pageContext.request.contextPath}/PatientProfile_DoctorView?patientId=${appointment.patientId}">
+				    <img src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" id="hamburger-Icon" alt="View" width="20" height="20">
+				</a>
+		
+
+	            </td>
+	        </tr>
+	    </c:forEach>
+	</table>
 
 
 
    <br><br><br><br><br>
 
-   <h2 class="tableHeading">Cancelled Appointments</h2>
-   <table>
-    <tr>
-        <th>Appointment ID</th>
-        <th>Patient ID</th>
-        <th>Patient Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>View more</th>
-    </tr>
+  	<h2 class="tableHeading">Completed Appointments</h2>
+	<table border="1">
+	    <tr>
+	        <th>Appointment ID</th>
+	        <th>Patient ID</th>
+	        <th>Patient Name</th>
+	        <th>Email</th>
+	        <th>Phone</th>
+	        <th>Date</th>
+	        <th>Time</th>
+	        <th>View More</th>
+	    </tr>
+	
+	    <c:forEach var="appointment" items="${completedAppointments}">
+	        <tr>
+	            <td>${appointment.appointmentId}</td>
+	            <td>${appointment.patientId}</td>
+	            <td>${appointment.patientName}</td>
+	            <td>${appointment.email}</td>
+	            <td>${appointment.phone}</td>
+	            <td>${appointment.date}</td>
+	            <td>${appointment.time}</td>
+	            <td>
+	            <a href="${pageContext.request.contextPath}/PatientProfile_DoctorView?patientId=${appointment.patientId}">
+				    <img src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" id="hamburger-Icon" alt="View" width="20" height="20">
+				</a>
+		
 
-    <tr>
-        <td>1</td>
-        <td>3</td>
-        <td>Kavindi Perera</td>
-        <td>kavindi.perera92@email.com</td>
-        <td>+94 76 123 4567</td>
-        <td>13/03/2025</td>
-        <td>10.36 AM</td>
-        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></a></td>
-    </tr>
+	            </td>
+	        </tr>
+	    </c:forEach>
+	</table>
+	
 
-    <tr>
-        <td>1</td>
-        <td>3</td>
-        <td>Kavindi Perera</td>
-        <td>kavindi.perera92@email.com</td>
-        <td>+94 76 123 4567</td>
-        <td>13/03/2025</td>
-        <td>10.36 AM</td>
-        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></a></td>
-    </tr>
 
-    <tr>
-        <td>1</td>
-        <td>3</td>
-        <td>Kavindi Perera</td>
-        <td>kavindi.perera92@email.com</td>
-        <td>+94 76 123 4567</td>
-        <td>13/03/2025</td>
-        <td>10.36 AM</td>
-        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></a></td>
-    </tr>
-
-    <tr>
-        <td>1</td>
-        <td>3</td>
-        <td>Kavindi Perera</td>
-        <td>kavindi.perera92@email.com</td>
-        <td>+94 76 123 4567</td>
-        <td>13/03/2025</td>
-        <td>10.36 AM</td>
-        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></a></td>
-    </tr>
-
-    <tr>
-        <td>1</td>
-        <td>3</td>
-        <td>Kavindi Perera</td>
-        <td>kavindi.perera92@email.com</td>
-        <td>+94 76 123 4567</td>
-        <td>13/03/2025</td>
-        <td>10.36 AM</td>
-        <td><a href="patientProfile-doctorView.html"><img id="hamburger-Icon" src="${pageContext.request.contextPath}/assets/images/hamburger-icon.png" alt=""></a></td>
-    </tr>
-   </table>
+   <br><br><br><br><br>
     
    <jsp:include page="/views/partials/footer.jsp"/>
 </body>

@@ -36,6 +36,35 @@ public class doctorDashBoardController extends HttpServlet {
         }
     }
     
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        doctorDashboardService service = new doctorDashboardService();
+
+        if ("accept".equals(action)) {
+            int appointmentId = Integer.parseInt(request.getParameter("appointmentId"));
+            boolean success = service.updateAppointmentStatusToAccepted(appointmentId);
+
+            if (success) {
+                request.setAttribute("message", "Appointment accepted successfully.");
+            } else {
+                request.setAttribute("errorMessage", "Failed to accept appointment.");
+            }
+        }
+
+        // Reload data after update
+        try {
+            List<AppointmentDetails> todayAppointments = service.getTodayTopAppointments();
+            request.setAttribute("todayAppointments", todayAppointments);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("errorMessage", "Error loading appointments.");
+        }
+
+        request.getRequestDispatcher("views/appointments.jsp").forward(request, response);
+    }
+
+    
     
 
 }

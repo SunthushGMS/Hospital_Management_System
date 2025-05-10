@@ -57,9 +57,10 @@ public class doctorDashboardService {
 	    List<AppointmentDetails> todayAppointments = new ArrayList<>();
 
 	    String sql = "SELECT appointmentId, patientId, patientName, email, phone, date, time " +
-	                 "FROM AppointmentDetailsView " +
-	                 "WHERE date = CURDATE() AND doctorId = ? " +
-	                 "ORDER BY time ASC";
+	             "FROM AppointmentDetailsView " +
+	             "WHERE date = CURDATE() AND doctorId = ? AND status = 'accepted' " +
+	             "ORDER BY time ASC";
+
 
 	    try (
 	        Connection con = DBConnection.getConnection();
@@ -86,10 +87,87 @@ public class doctorDashboardService {
 
 	    return todayAppointments;
 	}
+	
+	
+	
+	
+	
+	public List<AppointmentDetails> getCompletedAppointments(int doctorId) throws SQLException {
+	    List<AppointmentDetails> completedAppointments = new ArrayList<>();
+
+	    String sql = "SELECT appointmentId, patientId, patientName, email, phone, date, time " +
+	                 "FROM AppointmentDetailsView " +
+	                 "WHERE doctorId = ? AND status = 'completed' " +
+	                 "ORDER BY date ASC, time ASC";
+
+	    try (
+	        Connection con = DBConnection.getConnection();
+	        PreparedStatement pstmt = con.prepareStatement(sql)
+	    ) {
+	        pstmt.setInt(1, doctorId);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        while (rs.next()) {
+	            AppointmentDetails ad = new AppointmentDetails();
+	            ad.setAppointmentId(rs.getInt("appointmentId"));
+	            ad.setPatientId(rs.getInt("patientId"));
+	            ad.setPatientName(rs.getString("patientName"));
+	            ad.setEmail(rs.getString("email"));
+	            ad.setPhone(rs.getString("phone"));
+	            ad.setDate(rs.getDate("date"));
+	            ad.setTime(rs.getTime("time"));
+	            completedAppointments.add(ad);
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return completedAppointments;
+	}
+
 
 
     
     
+	
+	
+	
+	
+	public List<AppointmentDetails> getIncompletedAppointments(int doctorId) throws SQLException {
+	    List<AppointmentDetails> incompletedAppointments = new ArrayList<>();
+
+	    String sql = "SELECT appointmentId, patientId, patientName, email, phone, date, time " +
+	                 "FROM AppointmentDetailsView " +
+	                 "WHERE doctorId = ? AND status = 'accepted' " +
+	                 "ORDER BY date ASC, time ASC";
+
+	    try (
+	        Connection con = DBConnection.getConnection();
+	        PreparedStatement pstmt = con.prepareStatement(sql)
+	    ) {
+	        pstmt.setInt(1, doctorId);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        while (rs.next()) {
+	            AppointmentDetails ad = new AppointmentDetails();
+	            ad.setAppointmentId(rs.getInt("appointmentId"));
+	            ad.setPatientId(rs.getInt("patientId"));
+	            ad.setPatientName(rs.getString("patientName"));
+	            ad.setEmail(rs.getString("email"));
+	            ad.setPhone(rs.getString("phone"));
+	            ad.setDate(rs.getDate("date"));
+	            ad.setTime(rs.getTime("time"));
+	            incompletedAppointments.add(ad);
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return incompletedAppointments;
+	}
+
     
     
     
@@ -226,6 +304,68 @@ public class doctorDashboardService {
     	return emergencyList;
 
     }
+    
+    
+    
+    
+    
+    
+    
+    public boolean updateAppointmentStatusToAccepted(int id) {
+        String sql = "UPDATE appointment SET status = 'accepted' WHERE id = ?";
+
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+            
+            pstmt.setInt(1, id);
+            int updated = pstmt.executeUpdate();
+            return updated > 0;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    
+    
+    public boolean updateAppointmentStatusToReschedule(int id) {
+        String sql = "UPDATE appointment SET status = 'reschedule' WHERE id = ?";
+
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+            
+            pstmt.setInt(1, id);
+            int updated = pstmt.executeUpdate();
+            return updated > 0;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    
+    
+    
+    
+    public boolean updateAppointmentStatusToCompleted(int id) {
+        String sql = "UPDATE appointment SET status = 'completed' WHERE id = ?";
+
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+            
+            pstmt.setInt(1, id);
+            int updated = pstmt.executeUpdate();
+            return updated > 0;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
     
     
 }
