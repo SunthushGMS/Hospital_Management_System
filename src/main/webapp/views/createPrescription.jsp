@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="com.model.Drug" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -171,9 +169,10 @@
 
 <!-- ADVICE FORM -->
 <div class="advice-wrapper">
+	<c:if test="${not empty patientId}">
     <form action="${pageContext.request.contextPath}/PrescriptionController" method="post" class="advice-form">
 
-
+		<input type="hidden" name="patientId" value="${patientId}">
         <div class="advice-fields">
             <div class="field">
                 <label for="dietaryAdvice">Dietary Advice:</label>
@@ -188,13 +187,13 @@
 
         <button type="submit" class="btn-advice">Add Advice</button>
     </form>
+    </c:if>
 </div>
 
 <!-- DRUG FORM - displayed below -->
+<c:if test="${not empty prescriptionId}">
 <div class="drug-wrapper">
 	<form action="${pageContext.request.contextPath}/PrescriptionController" method="post" class="advice-form">
-
-
 
         <label for="drug-name">Drug Name:</label>
         <input type="text" id="drug-name" name="drug-name" required>
@@ -228,6 +227,6 @@
         <th>Instruction</th>
    
 </table> 
-
+ </c:if>
 </body>
 </html>

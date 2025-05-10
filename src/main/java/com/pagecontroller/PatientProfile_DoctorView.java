@@ -19,18 +19,6 @@ public class PatientProfile_DoctorView extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession(false); // prevent creating new session unnecessarily
-        String userRole = (session != null) ? (String) session.getAttribute("role") : null;
-        Integer currentUserId = (session != null) ? (Integer) session.getAttribute("uid") : null;
-
-        // Check for doctor role
-        //need to be remove
-        if (!"doctor".equals(userRole)) {
-            request.setAttribute("errorMessage", "Unauthorized access.");
-            request.getRequestDispatcher("views/patientProfile-doctorView.jsp").forward(request, response);
-            return;
-        }
-
         // Retrieve and validate patientId
         String patientIdParam = request.getParameter("patientId");
         if (patientIdParam == null || patientIdParam.isEmpty()) {

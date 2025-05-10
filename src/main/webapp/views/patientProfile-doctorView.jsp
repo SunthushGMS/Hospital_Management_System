@@ -187,22 +187,14 @@
             </form>
             
         </div>
-    </div><br><br><br>
+    </div><br><br><br>	
 
-   
-	
-
-	 <a href="${pageContext.request.contextPath}/PrescriptionController?patientId=${patient.uid}">
+	 <a href="${pageContext.request.contextPath}/createPrescription?patientId=${patient.uid}">
     	<button id="Precription-button" type="submit" class="submit-btn">Create Prescription</button>
 	</a>
 
-	
-	
-
 
     <br><br><br>
-
-
 
     <jsp:include page="/views/partials/footer.jsp"/>
 </body>

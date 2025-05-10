@@ -7,30 +7,41 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class PrescriptionService {
 
-	public static boolean insertPrescription(Prescription prescription) {
-        try {
-            Connection con = DBConnection.getConnection();
-            String query = "INSERT INTO prescription (date_of_issue, dietary_advice, doctors_notes, doctor_id, patient_id) VALUES (?, ?, ?, ?, ?)";
-            
-            PreparedStatement pstmt = con.prepareStatement(query);
-            pstmt.setDate(1, prescription.getDate_of_issue());
-            pstmt.setString(2, prescription.getDietary_advice());
-            pstmt.setString(3, prescription.getDoctors_notes());
-            pstmt.setInt(4, prescription.getDoctor_id());
-            pstmt.setInt(5, prescription.getPatient_id());
+	public static int insertPrescription(Prescription prescription) {
+	    int generatedId = -1;
 
-            int result = pstmt.executeUpdate();
-            con.close();
-            return result > 0;
+	    try {
+	        Connection con = DBConnection.getConnection();
+	        String query = "INSERT INTO prescription (date_of_issue, dietary_advice, doctors_notes, doctor_id, patient_id) VALUES (?, ?, ?, ?, ?)";
+	        
+	        PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+	        pstmt.setDate(1, prescription.getDate_of_issue());
+	        pstmt.setString(2, prescription.getDietary_advice());
+	        pstmt.setString(3, prescription.getDoctors_notes());
+	        pstmt.setInt(4, prescription.getDoctor_id());
+	        pstmt.setInt(5, prescription.getPatient_id());
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+	        int result = pstmt.executeUpdate();
+
+	        if (result > 0) {
+	            ResultSet rs = pstmt.getGeneratedKeys();
+	            if (rs.next()) {
+	                generatedId = rs.getInt(1);
+	            }
+	            rs.close();
+	        }
+	        con.close();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return generatedId;
+	}
+
 
     public void addDrugToPrescription(int prescriptionId, String drugName, String dosage, String frequency, String duration, String instruction) {
         Connection conn = null;

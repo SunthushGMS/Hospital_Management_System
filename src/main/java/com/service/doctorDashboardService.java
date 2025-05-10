@@ -208,9 +208,7 @@ public class doctorDashboardService {
     	     Statement stmt = con.createStatement();
     	     ResultSet rs = stmt.executeQuery(sql)) {
 
-    	    int rowCount = 0;
     	    while (rs.next()) {
-    	        rowCount++;
     	        EmergencyPatientDetails epd = new EmergencyPatientDetails();
     	        epd.setSurgeryId(rs.getInt("surgeryId"));
     	        epd.setPatientName(rs.getString("patientName"));

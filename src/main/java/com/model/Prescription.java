@@ -24,7 +24,7 @@ public class Prescription {
 		this.patient_id = patient_id;
 	}
 	
-	public Prescription( int doctor_id,int patient_id,Date date_of_issue, String dietary_advice, String doctors_notes) {
+	public Prescription( int doctor_id,int patient_id,Date date_of_issue, String dietary_advice, String doctors_notes, int id) {
 		super();
 		this.id = id;
 		this.date_of_issue = date_of_issue;
