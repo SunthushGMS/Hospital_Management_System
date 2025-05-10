@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
 --
--- Host: localhost    Database: health_lanka
+-- Host: localhost    Database: health_lanka_v3
 -- ------------------------------------------------------
--- Server version	8.0.42
+-- Server version	9.0.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -67,7 +67,7 @@ CREATE TABLE `appointment` (
 
 LOCK TABLES `appointment` WRITE;
 /*!40000 ALTER TABLE `appointment` DISABLE KEYS */;
-INSERT INTO `appointment` VALUES (1,3,1,'2025-05-09','09:07:00','Pending'),(2,5,1,'2025-05-14','13:50:00','Pending'),(3,1,2,'2025-05-08','11:52:00','Pending'),(4,1,101,'2025-05-06','09:00:00','pending'),(5,2,102,'2025-05-06','10:30:00','pending'),(6,1,103,'2025-05-06','11:15:00','pending'),(7,3,104,'2025-05-06','14:00:00','pending'),(8,2,105,'2025-05-06','15:45:00','pending'),(9,1,2,'2025-05-07','09:00:00','pending'),(10,1,3,'2025-05-07','10:30:00','pending'),(11,2,4,'2025-05-07','11:15:00','pending'),(12,2,5,'2025-05-07','13:00:00','pending'),(13,3,6,'2025-05-07','14:45:00','pending'),(14,3,7,'2025-05-07','16:00:00','pending');
+INSERT INTO `appointment` VALUES (1,3,1,'2025-05-09','09:07:00','Pending'),(2,5,1,'2025-05-14','13:50:00','Pending'),(3,4,2,'2025-05-08','11:52:00','rescheduled'),(4,1,101,'2025-05-06','09:00:00','pending'),(5,2,102,'2025-05-06','10:30:00','pending'),(6,1,103,'2025-05-06','11:15:00','pending'),(7,3,104,'2025-05-06','14:00:00','pending'),(8,2,105,'2025-05-06','15:45:00','pending'),(9,1,2,'2025-05-07','09:00:00','pending'),(10,1,3,'2025-05-07','10:30:00','pending'),(11,2,4,'2025-05-07','11:15:00','pending'),(12,2,5,'2025-05-07','13:00:00','pending'),(13,3,6,'2025-05-07','14:45:00','pending'),(14,3,7,'2025-05-07','16:00:00','pending');
 /*!40000 ALTER TABLE `appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +116,7 @@ CREATE TABLE `doctor` (
 
 LOCK TABLES `doctor` WRITE;
 /*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
-INSERT INTO `doctor` VALUES (1,'General Medicine Specialist','General Practice','MED-LK-789456',10),(4,'Pediatric Specialist','Pediatrics','PED-LK-321654',7);
+INSERT INTO `doctor` VALUES (1,'General Medicine Specialist','General Practice','MED-LK-789456',10),(4,'Pediatric Specialist','Skin Care','PED-LK-321654',7);
 /*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,10 +128,17 @@ DROP TABLE IF EXISTS `drug`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `drug` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `drug_id` int NOT NULL AUTO_INCREMENT,
+  `drug_name` varchar(255) DEFAULT NULL,
+  `dosage` varchar(100) DEFAULT NULL,
+  `frequency` varchar(100) DEFAULT NULL,
+  `duration` varchar(100) DEFAULT NULL,
+  `instruction` text,
+  `prescription_id` int DEFAULT NULL,
+  PRIMARY KEY (`drug_id`),
+  KEY `fk_prescription` (`prescription_id`),
+  CONSTRAINT `fk_prescription` FOREIGN KEY (`prescription_id`) REFERENCES `prescription` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,33 +147,8 @@ CREATE TABLE `drug` (
 
 LOCK TABLES `drug` WRITE;
 /*!40000 ALTER TABLE `drug` DISABLE KEYS */;
+INSERT INTO `drug` VALUES (4,'Vitamin C','one','6hr','3days','none',6),(5,'penadol','2','6hrs','until feel good','none',6),(6,'test','test','test','test','test',7);
 /*!40000 ALTER TABLE `drug` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `drug_prescription`
---
-
-DROP TABLE IF EXISTS `drug_prescription`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `drug_prescription` (
-  `prescription_id` int NOT NULL,
-  `drug_id` int NOT NULL,
-  PRIMARY KEY (`prescription_id`,`drug_id`),
-  KEY `drug_id` (`drug_id`),
-  CONSTRAINT `drug_prescription_ibfk_1` FOREIGN KEY (`prescription_id`) REFERENCES `prescription` (`id`),
-  CONSTRAINT `drug_prescription_ibfk_2` FOREIGN KEY (`drug_id`) REFERENCES `drug` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `drug_prescription`
---
-
-LOCK TABLES `drug_prescription` WRITE;
-/*!40000 ALTER TABLE `drug_prescription` DISABLE KEYS */;
-/*!40000 ALTER TABLE `drug_prescription` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -331,7 +313,7 @@ CREATE TABLE `prescription` (
   KEY `patient_id` (`patient_id`),
   CONSTRAINT `prescription_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`),
   CONSTRAINT `prescription_ibfk_2` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -340,6 +322,7 @@ CREATE TABLE `prescription` (
 
 LOCK TABLES `prescription` WRITE;
 /*!40000 ALTER TABLE `prescription` DISABLE KEYS */;
+INSERT INTO `prescription` VALUES (1,'2025-05-10','test','test',1,2),(5,'2025-05-10','hello test','hellotest2',1,3),(6,'2025-05-10','Eat Well','NONE',1,2),(7,'2025-05-10','none','none',1,2);
 /*!40000 ALTER TABLE `prescription` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,7 +368,7 @@ CREATE TABLE `support_requests` (
   `reply` text,
   `status` varchar(20) DEFAULT 'pending',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,7 +377,7 @@ CREATE TABLE `support_requests` (
 
 LOCK TABLES `support_requests` WRITE;
 /*!40000 ALTER TABLE `support_requests` DISABLE KEYS */;
-INSERT INTO `support_requests` VALUES (1,'Anjalee Samarasinghe','it76856@my.edu.lk','0704173679','qqq','','pending');
+INSERT INTO `support_requests` VALUES (1,'Anjalee Samarasinghe','it76856@my.edu.lk','0704173679','qqq','','pending'),(2,'Moditha Marasingha','marasinghamoditha51@gmail.com','0716899444','Test Message 1','','pending'),(3,'Moditha Marasingha','al5323540@gmail.com','5463554636','test 2','','pending');
 /*!40000 ALTER TABLE `support_requests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -416,7 +399,7 @@ CREATE TABLE `surgery` (
   PRIMARY KEY (`id`),
   KEY `patient_id` (`patient_id`),
   CONSTRAINT `surgery_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `user` (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -425,7 +408,7 @@ CREATE TABLE `surgery` (
 
 LOCK TABLES `surgery` WRITE;
 /*!40000 ALTER TABLE `surgery` DISABLE KEYS */;
-INSERT INTO `surgery` VALUES (1,'Appendectomy','2025-05-05','09:00:00','scheduled','accepted',2),(2,'Knee Arthroscopy','2025-05-06','10:30:00','scheduled','pending',2),(3,'Cataract Surgery','2025-05-07','08:45:00','scheduled','accepted',2),(4,'Gallbladder Removal','2025-05-08','11:15:00','in progress','accepted',2),(5,'Tonsillectomy','2025-05-09','13:00:00','scheduled','rejected',2),(6,'anjalee','2025-05-31','00:09:00','completed','pending',NULL),(7,'c','2025-05-08','14:52:00','completed','pending',NULL);
+INSERT INTO `surgery` VALUES (1,'Appendectomy','2025-05-05','09:00:00','scheduled','accepted',2),(2,'Knee Arthroscopy','2025-05-06','10:30:00','scheduled','pending',2),(3,'Cataract Surgery','2025-05-07','08:45:00','scheduled','accepted',2),(4,'Gallbladder Removal','2025-05-08','11:15:00','in progress','accepted',2),(5,'Tonsillectomy','2025-05-09','13:00:00','scheduled','rejected',2),(6,'anjalee','2025-05-31','00:09:00','completed','pending',NULL),(7,'c','2025-05-08','14:52:00','completed','pending',NULL),(8,'heart sergon','2025-05-08','17:05:00','scheduled','pending',2);
 /*!40000 ALTER TABLE `surgery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -452,7 +435,7 @@ CREATE TABLE `surgery_recommendations` (
 
 LOCK TABLES `surgery_recommendations` WRITE;
 /*!40000 ALTER TABLE `surgery_recommendations` DISABLE KEYS */;
-INSERT INTO `surgery_recommendations` VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(7,1);
+INSERT INTO `surgery_recommendations` VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(7,1),(8,1);
 /*!40000 ALTER TABLE `surgery_recommendations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -499,7 +482,7 @@ CREATE TABLE `user` (
   `role` enum('doctor','patient','admin') NOT NULL,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -508,7 +491,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'moditha','secure123','Moditha Marasingha','General Practitioner','1990-05-15','moditha@health.lk','0771234567','Colombo','English','testimg.jpeg','doctor'),(2,'sharukalal','pass456','Sharuka Sunthush','Patient Profile','1985-12-01','sharuka@mail.com','0719876543','Gampaha','English','testimg.jpeg','patient'),(3,'hasindupriya','hasindu789','Hasindu Chanuka','Personal User','2000-08-22','hasindu@test.lk','0761122334','Kandy','English','testimg.jpeg','patient'),(4,'anjaleefernando','anj#2025','Anjalee','Pediatrician','1988-03-30','anjalee@health.lk','0704455667','Ratnapura','English','testimg.jpeg','doctor'),(5,'nimalperera','Admin@1234','Nimal Perera','System Administrator','1995-07-10','nimal@health.lk','0112345678','Kaduwela','English','testimg.jpeg','admin'),(10,'Chani112','chani123','Chanindu Isuranga','','2007-11-21','chani@gmail.com','0777777112','nittabuwa, main st','','testimg.jpeg','patient');
+INSERT INTO `user` VALUES (1,'moditha','secure123','Moditha Marasingha','General Practitioner','1990-05-15','moditha@health.lk','0771234567','Colombo','English','user_1_1746719831770.jpg','doctor'),(2,'sharukalal','pass456','Sharuka Sunthush','Patient Profile','1985-12-01','sharuka@mail.com','0719876543','Gampaha','English','testimg.jpeg','patient'),(3,'hasindupriya','hasindu789','Hasindu Chanuka','Personal User','2000-08-22','hasindu@test.lk','0761122334','Kandy','English','testimg.jpeg','patient'),(4,'anjaleefernando','anj#2025','Anjalee Fernando','Pediatrician','2004-01-16','anjalee@health.lk','0704455667','Pasyala','English','testimg.jpeg','doctor'),(5,'nimalperera','Admin@1234','Nimal Perera','System Administrator','1995-07-10','nimal@health.lk','0112345678','Kaduwela','English','testimg.jpeg','admin'),(10,'Chani112','chani123','Chanindu Isuranga','','2007-11-21','chani@gmail.com','0777777112','nittabuwa, main st','','testimg.jpeg','patient');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -569,11 +552,11 @@ LOCK TABLES `vaccination` WRITE;
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'health_lanka'
+-- Dumping events for database 'health_lanka_v3'
 --
 
 --
--- Dumping routines for database 'health_lanka'
+-- Dumping routines for database 'health_lanka_v3'
 --
 
 --
@@ -639,4 +622,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-08 17:29:26
+-- Dump completed on 2025-05-10 12:52:06

@@ -193,40 +193,62 @@
 <!-- DRUG FORM - displayed below -->
 <c:if test="${not empty prescriptionId}">
 <div class="drug-wrapper">
-	<form action="${pageContext.request.contextPath}/PrescriptionController" method="post" class="advice-form">
+	<form action="${pageContext.request.contextPath}/prescriptionDrugController" method="post" class="advice-form">
+    <input type="hidden" name="prescriptionId" value="${prescriptionId}" />
 
-        <label for="drug-name">Drug Name:</label>
-        <input type="text" id="drug-name" name="drug-name" required>
+    <label for="drug-name">Drug Name:</label>
+    <input type="text" id="drug-name" name="drugName" required>
 
-        <label for="dosage">Dosage:</label>
-        <input type="text" id="dosage" name="dosage" required>
+    <label for="dosage">Dosage:</label>
+    <input type="text" id="dosage" name="dosage" required>
 
-        <label for="frequancy">Frequency:</label>
-        <input type="text" id="frequancy" name="frequancy" required>
+    <label for="frequency">Frequency:</label>
+    <input type="text" id="frequency" name="frequency" required>
 
-        <label for="duration">Duration:</label>
-        <input type="text" id="duration" name="duration" required>
+    <label for="duration">Duration:</label>
+    <input type="text" id="duration" name="duration" required>
 
-        <label for="instruction">Instruction:</label>
-        <textarea id="instruction" name="instruction" rows="3"></textarea>
+    <label for="instruction">Instruction:</label>
+    <textarea id="instruction" name="instruction" rows="3"></textarea>
 
-        <button type="submit">Add Drug</button>
-    </form>
+    <button type="submit" name="action" value="addDrug">Add Drug</button>
+</form>
 </div>
-
-<!-- Existing drug table remains as it is -->
-
-
-<!-- Optional: You can show a drug list table if needed -->
-<table>
-    <tr>
-        <th>Drug Name</th>
-        <th>Dosage</th>
-        <th>Frequency</th>
-        <th>Duration</th>
-        <th>Instruction</th>
-   
-</table> 
  </c:if>
+
+<c:if test="${not empty drugList}">
+    <table>
+        <tr>
+            <th>Drug Name</th>
+            <th>Dosage</th>
+            <th>Frequency</th>
+            <th>Duration</th>
+            <th>Instruction</th>
+            <th>Action</th>
+        </tr>
+        <c:forEach var="drug" items="${drugList}" varStatus="loop">
+            <tr>
+                <td>${drug.drugName}</td>
+                <td>${drug.dosage}</td>
+                <td>${drug.frequency}</td>
+                <td>${drug.duration}</td>
+                <td>${drug.instruction}</td>
+                <td>
+                    <form method="post" action="${pageContext.request.contextPath}/prescriptionDrugController">
+                        <input type="hidden" name="index" value="${loop.index}" />
+                        <input type="hidden" name="prescriptionId" value="${prescriptionId}" />
+                        <button type="submit" name="action" value="deleteDrug">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+    <form action="${pageContext.request.contextPath}/prescriptionDrugController" method="post">
+    <input type="hidden" name="prescriptionId" value="${prescriptionId}" />
+    <button type="submit" name="action" value="saveAll">Save All Drugs to Database</button>
+</form>
+    
+</c:if>
+
 </body>
 </html>

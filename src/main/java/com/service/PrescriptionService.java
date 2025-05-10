@@ -1,5 +1,6 @@
 package com.service;
 
+import com.model.Drug;
 import com.model.Prescription;
 import com.utill.DBConnection;
 
@@ -43,33 +44,25 @@ public class PrescriptionService {
 	}
 
 
-    public void addDrugToPrescription(int prescriptionId, String drugName, String dosage, String frequency, String duration, String instruction) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
+	public static void insertDrug(Drug drug, int prescriptionId) {
+	    String sql = "INSERT INTO drug (drug_name, dosage, frequency, duration, instruction, prescription_id) VALUES (?, ?, ?, ?, ?, ?)";
 
-        try {
-            conn = DBConnection.getConnection();
-            String sql = "INSERT INTO drug (prescription_id, drug_name, dosage, frequency, duration, instruction) VALUES (?, ?, ?, ?, ?, ?)";
-            stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, prescriptionId);
-            stmt.setString(2, drugName);
-            stmt.setString(3, dosage);
-            stmt.setString(4, frequency);
-            stmt.setString(5, duration);
-            stmt.setString(6, instruction);
-            stmt.executeUpdate();
+	    try (Connection con = DBConnection.getConnection();
+	         PreparedStatement ps = con.prepareStatement(sql)) {
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (stmt != null) stmt.close();
-                if (conn != null) conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+	        ps.setString(1, drug.getDrugName());
+	        ps.setString(2, drug.getDosage());
+	        ps.setString(3, drug.getFrequency());
+	        ps.setString(4, drug.getDuration());
+	        ps.setString(5, drug.getInstruction());
+	        ps.setInt(6, prescriptionId);
+
+	        ps.executeUpdate();
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
 
     public void finalizePrescription(int prescriptionId, String dietaryAdvice, String doctorNotes) {
         Connection conn = null;
