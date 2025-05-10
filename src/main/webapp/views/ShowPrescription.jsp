@@ -1,90 +1,127 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="com.model.Prescription, com.model.Drug, java.util.List" %>
-<%
-    Prescription prescription = (Prescription) request.getAttribute("prescription");
-    List<Drug> drugList = (List<Drug>) request.getAttribute("drugList");
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prescription Sheet | Health Lanka</title>
-    <link rel="stylesheet" href="showPrescription.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/showPrescription.css">
+    <title>Prescription Details | Health Lanka</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/appointHistory.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
     <script src="${pageContext.request.contextPath}/assets/vendor/tailwind.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
-    <jsp:include page="/views/partials/header.jsp"/>
 
-    <h1 class="head">Prescription Sheet</h1>
+<jsp:include page="/views/partials/header.jsp"/>
 
-    <% if (prescription != null) { %>
-        <div class="sheet">
-            <img src="${pageContext.request.contextPath}/assets/images/prescription.png" class="img-icon">
-            <p class="details"><strong>Prescription ID:</strong> PR00<%=prescription.getId()%></p>
-            <p class="details"><strong>Date of Issue:</strong> <%=prescription.getDate_of_issue()%></p>
-            <p class="details"><strong>Doctor ID:</strong> Dr <%=prescription.getDoctor_id()%></p>
-            
+<h1 class="history-head">Prescription Details</h1>
 
-            <div class="div-sign">
-                <img src="${pageContext.request.contextPath}/assets/images/signature.png" class="img-icon2">
-                <h3><%=prescription.getDate_of_issue()%></h3>
+<section class="sec1">
+    <div class="table-view">
+
+        <c:if test="${not empty prescription}">
+            <div class="prescription-info">
+                <p><strong>Prescription ID:</strong> RX00${prescription.id}</p>
+                <p><strong>Date Issued:</strong> ${prescription.date_of_issue}</p>
+                <p><strong>Doctor ID:</strong> DR00${prescription.doctor_id}</p>
+                <p><strong>Patient ID:</strong> PT00${prescription.patient_id}</p>
             </div>
-        </div>
-<p><strong>Patient ID:</strong> PT00<%=prescription.getPatient_id()%></p>
 
-        <div class="table-medic">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Drug Name</th>
-                        <th>Dosage</th>
-                        <th>Frequency</th>
-                        <th>Duration</th>
-                        <th>Instruction</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% if (drugList != null && !drugList.isEmpty()) {
-                        for (Drug drug : drugList) { %>
-                        <tr>
-                            <td><%=drug.getDrugName()%></td>
-                            <td><%=drug.getDosage()%></td>
-                            <td><%=drug.getFrequency()%></td>
-                            <td><%=drug.getDuration()%></td>
-                            <td><%=drug.getInstruction()%></td>
-                        </tr>
-                    <% } 
-                    } else { %>
-                        <tr>
-                            <td colspan="5">No drugs found for this prescription.</td>
-                        </tr>
-                    <% } %>
-                </tbody>
-            </table>
+            <h2 class="mt-4 mb-2 font-semibold">Prescribed Drugs</h2>
 
-            <div class="additional-info">
-                <img src="${pageContext.request.contextPath}/assets/images/advice.png" class="img-icon1">
-                <p><strong>Dietary Advice:</strong> <%=prescription.getDietary_advice()%></p>
-              
-                <p><strong>Doctor’s Notes:</strong> <%=prescription.getDoctors_notes()%></p>
+            <c:if test="${not empty drugList}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Drug Name</th>
+                            <th>Dosage</th>
+                            <th>Frequency</th>
+                            <th>Duration</th>
+                            <th>Instructions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="drug" items="${drugList}">
+                            <tr>
+                                <td>${drug.drug_name}</td>
+                                <td>${drug.dosage}</td>
+                                <td>${drug.frequency}</td>
+                                <td>${drug.duration}</td>
+                                <td>${drug.instructions}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </c:if>
+
+            <c:if test="${empty drugList}">
+                <p>No drugs added to this prescription.</p>
+            </c:if>
+
+            <div class="mt-4">
+                <p><strong>Dietary Advice:</strong> ${prescription.dietary_advice}</p>
+                <p><strong>Doctor's Notes:</strong> ${prescription.doctors_notes}</p>
             </div>
-        </div>
 
-        <button class="btn-download">Download PDF</button>
-    <% } else { %>
-        <div class="error-msg">
-            <p>⚠️ Prescription not found or could not be loaded.</p>
-        </div>
-    <% } %>
+            <button onclick="exportPrescriptionToPDF()" class="btn-down mt-4"><i class='bx bx-download'></i> Download PDF</button>
+        </c:if>
 
-    <jsp:include page="/views/partials/footer.jsp"/>
+        <c:if test="${empty prescription}">
+            <p>No prescription found for the given ID.</p>
+        </c:if>
+
+    </div>
+</section>
+
+<script>
+    async function exportPrescriptionToPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFontSize(16);
+        doc.text("Prescription Details", 14, 15);
+
+        const meta = [
+            ["Prescription ID", "RX00${prescription.id}"],
+            ["Date Issued", "${prescription.date_of_issue}"],
+            ["Doctor ID", "DR00${prescription.doctor_id}"],
+            ["Patient ID", "PT00${prescription.patient_id}"],
+        ];
+
+        doc.autoTable({
+            head: [["Field", "Value"]],
+            body: meta,
+            startY: 25
+        });
+
+        const drugTableY = doc.lastAutoTable.finalY + 10;
+        const drugHeaders = ["Drug Name", "Dosage", "Frequency", "Duration", "Instructions"];
+        const drugRows = [
+            <c:forEach var="drug" items="${drugList}">
+                ["${drug.drug_name}", "${drug.dosage}", "${drug.frequency}", "${drug.duration}", "${drug.instructions}"],
+            </c:forEach>
+        ];
+
+        doc.autoTable({
+            head: [drugHeaders],
+            body: drugRows,
+            startY: drugTableY
+        });
+
+        const notesY = doc.lastAutoTable.finalY + 10;
+        doc.text(`Dietary Advice: ${prescription.dietary_advice}`, 14, notesY);
+        doc.text(`Doctor's Notes: ${prescription.doctors_notes}`, 14, notesY + 10);
+
+        doc.save("Prescription_RX00${prescription.id}.pdf");
+    }
+</script>
+
+<jsp:include page="/views/partials/footer.jsp"/>
+
 </body>
 </html>

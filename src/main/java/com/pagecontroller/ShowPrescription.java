@@ -20,7 +20,6 @@ public class ShowPrescription extends HttpServlet {
         try {
             HttpSession session = request.getSession(false);
 
-            // Optional: redirect to login if session is not valid
             if (session == null || session.getAttribute("uid") == null) {
                 response.sendRedirect("login.jsp");
                 return;
@@ -28,27 +27,37 @@ public class ShowPrescription extends HttpServlet {
 
             String idParam = request.getParameter("id");
 
-            if (idParam != null && !idParam.isEmpty()) {
-                int prescriptionId = Integer.parseInt(idParam);
+            if (idParam != null && !idParam.trim().isEmpty()) {
+                try {
+                    int prescriptionId = Integer.parseInt(idParam);
 
-                Prescription prescription = PrescriptionService.getPrescriptionById(prescriptionId);
-                List<Drug> drugList = PrescriptionService.getDrugsByPrescriptionId(prescriptionId);
+                    Prescription prescription = PrescriptionService.getPrescriptionById(prescriptionId);
+                    List<Drug> drugList = PrescriptionService.getDrugsByPrescriptionId(prescriptionId);
 
-                request.setAttribute("prescription", prescription);
-                request.setAttribute("drugList", drugList);
+                    if (prescription != null) {
+                        request.setAttribute("prescription", prescription);
+                        request.setAttribute("drugList", drugList);
+                    } else {
+                        request.setAttribute("error", "Prescription not found.");
+                    }
 
-                // Optional: pass any messages
-                String success = request.getParameter("success");
-                String error = request.getParameter("error");
-
-                if (success != null) {
-                    request.setAttribute("success", success);
+                } catch (NumberFormatException e) {
+                    request.setAttribute("error", "Invalid prescription ID format.");
                 }
-                if (error != null) {
-                    request.setAttribute("error", error);
-                }
+
             } else {
                 request.setAttribute("error", "Prescription ID is missing.");
+            }
+
+            // Handle success/error messages (optional)
+            String success = request.getParameter("success");
+            String error = request.getParameter("error");
+
+            if (success != null) {
+                request.setAttribute("success", success);
+            }
+            if (error != null) {
+                request.setAttribute("error", error);
             }
 
         } catch (Exception e) {

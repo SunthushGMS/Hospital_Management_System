@@ -4,12 +4,7 @@ import com.model.Drug;
 import com.model.Prescription;
 import com.utill.DBConnection;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +35,7 @@ public class PrescriptionService {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error inserting prescription: " + e.getMessage());
         }
 
         return generatedId;
@@ -63,24 +58,25 @@ public class PrescriptionService {
             ps.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error inserting drug: " + e.getMessage());
         }
     }
 
-    // Update dietary advice and doctor notes
+    // Update dietary advice and doctor's notes
     public static void finalizePrescription(int prescriptionId, String dietaryAdvice, String doctorNotes) {
         String sql = "UPDATE prescription SET dietary_advice = ?, doctors_notes = ? WHERE id = ?";
 
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
-            stmt.setString(1, dietaryAdvice);
-            stmt.setString(2, doctorNotes);
-            stmt.setInt(3, prescriptionId);
-            stmt.executeUpdate();
+            ps.setString(1, dietaryAdvice);
+            ps.setString(2, doctorNotes);
+            ps.setInt(3, prescriptionId);
+
+            ps.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error updating prescription: " + e.getMessage());
         }
     }
 
@@ -107,7 +103,7 @@ public class PrescriptionService {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error retrieving prescription: " + e.getMessage());
         }
 
         return prescription;
@@ -135,7 +131,7 @@ public class PrescriptionService {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error retrieving drugs: " + e.getMessage());
         }
 
         return drugList;
