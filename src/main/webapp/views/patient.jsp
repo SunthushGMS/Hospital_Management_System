@@ -20,15 +20,19 @@
 </head>
 <body>
     <jsp:include page="/views/partials/header.jsp"/>
-    <section class="sec1">
-        <h1 class="head">Patient Portal</h1>
-        
-    </section>
-    <img src="${pageContext.request.contextPath}/assets/images/med.png" alt="" class="img-theme">
-    <section class="sec2">
+   
+    <div class="flex justify-center bg-gradient-to-br from-blue-100 to-blue-400 min-h-screen items-center overflow-hidden">
+		<div class="flex justify-between items-center">
+			<div class="ml-20 scroll-animate scroll-animate-left">
+				<h4 class="text-6xl font-semibold mb-10 leading-normal">Patient Portal <br>  Connecting People. Enhancing Care.</h4>
+				<button class="text-white font-semibold pt-3 pb-3 pr-4 pl-4 text-xl bg-gradient-to-br rounded-lg from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer scroll-animate scroll-animate-up delay-100"><a href="#sec3">Book an appointment</a></button>
+			</div>
+			<div class="scroll-animate scroll-animate-right delay-200"><img src="${pageContext.request.contextPath}/assets/images/pngegg.png" alt="" class="h-250 w-550"></div>
+		</div>
+	</div>
 
         <p class="detail-sec1">
-            Connecting People. Enhancing Care.
+           
         </p>
         
         <div class="wrapper">
@@ -79,8 +83,8 @@
         </div>
     </section>
     <section class="sec3" id="sec3">
-        <h1 class="appoint">Appointments</h1>
-        <h2 class="detail-sec2">The Health Lanka Appointment System enables patients to book, manage, and track their medical appointments with ease. Our system allows users to choose their preferred doctor, select a convenient time slot, and receive instant confirmation. With features like automated reminders, rescheduling options, and emergency bookings, we ensure a hassle-free and efficient healthcare experience.</h2>
+       
+      
         <div class="book">
         <form action="${pageContext.request.contextPath}/AppointmentBookingController" method="post" class="book-appoint">
     <h1 class="form-head">Appointment Booking</h1><br><br>

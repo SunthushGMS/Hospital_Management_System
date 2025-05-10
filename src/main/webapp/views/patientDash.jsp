@@ -23,15 +23,7 @@
         <h1 class="main-title">Patient Dashboard</h1>
 
         <!-- Profile Section -->
-        <section class="profile">
-        
-            <div class="profile-info">
-                <p><strong>Name</strong>  Chanuka De Silva</p>
-                <p><strong>Age</strong>  32 years</p>
-                <p><strong>TP</strong>  0786568954</p>
-                <p><strong>Patient ID</strong>  ID10786</p>
-            </div>
-        </section>
+     
 
         <!-- Info Cards Section -->
         <section class="cards">
@@ -56,6 +48,11 @@
                 <img src="${pageContext.request.contextPath}/assets/images/credit-card.png" alt="payments">
                 <h2>Payments</h2>
                 <a href="${pageContext.request.contextPath}/PaymentHistory" class="btn">View</a>
+            </div>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/assets/images/receipt.png" alt="prescriptions">
+                <h2>Payments</h2>
+                <a href="${pageContext.request.contextPath}/ShowPrescription" class="btn">View</a>
             </div>
         </section>
 
