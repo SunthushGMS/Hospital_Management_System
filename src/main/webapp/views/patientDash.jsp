@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment History | Health Lanka</title>
+    <title>Patient Dashboard | Health Lanka</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/patientDash.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
@@ -43,13 +44,18 @@
             <div class="card">
                 <img src="${pageContext.request.contextPath}/assets/images/appointment.png" alt="Appointments">
                 <h2>Appointment History</h2>
-                <a href="#" class="btn">View</a>
+                <a href="${pageContext.request.contextPath}/AppointmentHistory" class="btn">View</a>
             </div>
 
             <div class="card">
                 <img src="${pageContext.request.contextPath}/assets/images/surg2.png" alt="Surgeries">
                 <h2>Surgeries</h2>
                 <a href="#" class="btn">View</a>
+            </div>
+              <div class="card">
+                <img src="${pageContext.request.contextPath}/assets/images/credit-card.png" alt="payments">
+                <h2>Payments</h2>
+                <a href="${pageContext.request.contextPath}/PaymentHistory" class="btn">View</a>
             </div>
         </section>
 

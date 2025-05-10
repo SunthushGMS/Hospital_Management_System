@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
@@ -53,15 +53,15 @@
                                <td>
 							    <c:choose>
 							        <c:when test="${a.status eq 'Pending'}">
-							            <button class="btn-update" onclick="openModal(${a.id}, '${a.doctorId}', '${a.appointmentDate}', '${a.time}')">Update</button>
+							            <button class="btn-update" onclick="openModal(${a.id}, '${a.doctorId}', '${a.appointmentDate}', '${a.time}')"><i class='bx bx-revision'></i> Update</button>
 							            <a href="DeleteAppointment?id=${a.id}" onclick="return confirm('Are you sure you want to delete this appointment?')">
-							                <button class="btn-delete">Delete</button>
+							                <button class="btn-delete"><i class='bx bx-trash'></i> Delete</button>
 							            </a>
 							        </c:when>
 							        <c:when test="${a.status eq 'rescheduled'}">
-							            <button class="btn-update" onclick="openModal(${a.id}, '${a.doctorId}', '${a.appointmentDate}', '${a.time}')">Reschedule</button>
+							            <button class="btn-update" onclick="openModal(${a.id}, '${a.doctorId}', '${a.appointmentDate}', '${a.time}')"><i class='bx bx-revision'></i> Reschedule</button>
 							            <a href="DeleteAppointment?id=${a.id}" onclick="return confirm('Are you sure you want to delete this appointment?')">
-							                <button class="btn-delete">Delete</button>
+							                <button class="btn-delete"><i class='bx bx-trash'></i> Delete</button>
 							            </a>
 							        </c:when>
 							        <c:otherwise>
@@ -81,7 +81,7 @@
             </c:if>
 
            
-           <button onclick="exportTableToPDF()" class="btn-down">Download PDF</button>
+           <button onclick="exportTableToPDF()" class="btn-down"><i class='bx bx-download'></i> Download PDF</button>
 
 <script>
     async function exportTableToPDF() {
