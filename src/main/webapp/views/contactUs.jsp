@@ -21,19 +21,18 @@
 
     <section class="sec1">
         <div class="wrapper">
-        <div class="head">
-            <h1 class="head1">Contact Us</h1>
-        </div>
+        
     </div>
     </section>
-    <section class="sec2">
-        <div class="wrapper1">
-        <div class="contact">
-            <img src="${pageContext.request.contextPath}/assets/images/customerservice.png" alt="" class="imgContact">
-        </div>
-        <div class="contact">
-           <div class="form">
-           <form action="${pageContext.request.contextPath}/contactUsController"  method="post">
+      <div class="container">
+    	<div class="content">
+      		<div class="left-section scroll-animate-left">
+        		<h4 class="heading-main">Contact Us</h4>
+       		    <h4 class="heading-sub">Have questions, feedback, or need support? Our team is ready to assist you.</h4>
+        		
+      		</div>
+      		<div class="right-section scroll-animate-right">
+        	<form action="${pageContext.request.contextPath}/contactUsController"  method="post" class="form-contact">
             <h1 class="head-contact">Send Us Massage</h1>
             <label for="Name">Name</label>
             <input type="text" class="input-contact" name="name" placeholder="G M S SUNTHUSH" required>
@@ -49,10 +48,10 @@
             <br>
             <input type="submit" class="btn-submit">
             </form>
-        </div>
-        </div>
-    </div>
-    </section>
+      		</div>
+    	</div>
+  </div>
+   
     <section class="sec3">
         <div class="wrapper3">
             <div class="sub-wrap">

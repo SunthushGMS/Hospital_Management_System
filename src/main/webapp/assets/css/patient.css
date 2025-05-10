@@ -307,3 +307,95 @@ option{
   text-decoration: none;
   color: white;
 }
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #ebf8ff, #63b3ed);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.left-section {
+  margin-left: 80px;
+}
+
+.heading-main {
+  font-size: 60px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.heading-sub {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  line-height: 1.2;
+}
+
+.book-btn {
+  background: linear-gradient(to bottom right, #4299e1, #3182ce);
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.5s ease-in-out;
+  text-decoration: none;
+}
+
+.book-btn:hover {
+  background: linear-gradient(to bottom right, #3182ce, #4299e1); 
+}
+
+.right-section .patient-img {
+  width: 550;
+  height: 200;
+  object-fit: contain;
+}
+
+.scroll-animate-left, .scroll-animate-right, .scroll-animate-up {
+  opacity: 0;
+  transform: translateX(0);
+  animation: fadeIn 1s forwards;
+}
+
+.scroll-animate-left {
+  animation-name: slideInLeft;
+}
+
+.scroll-animate-right {
+  animation-name: slideInRight;
+  animation-delay: 0.2s;
+}
+
+.scroll-animate-up {
+  animation-name: slideInUp;
+  animation-delay: 0.1s;
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

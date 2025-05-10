@@ -21,16 +21,18 @@
 <body>
     <jsp:include page="/views/partials/header.jsp"/>
    
-    <div class="flex justify-center bg-gradient-to-br from-blue-100 to-blue-400 min-h-screen items-center overflow-hidden">
-		<div class="flex justify-between items-center">
-			<div class="ml-20 scroll-animate scroll-animate-left">
-				<h4 class="text-6xl font-semibold mb-10 leading-normal">Patient Portal <br>  Connecting People. Enhancing Care.</h4>
-				<button class="text-white font-semibold pt-3 pb-3 pr-4 pl-4 text-xl bg-gradient-to-br rounded-lg from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer scroll-animate scroll-animate-up delay-100"><a href="#sec3">Book an appointment</a></button>
-			</div>
-			<div class="scroll-animate scroll-animate-right delay-200"><img src="${pageContext.request.contextPath}/assets/images/pngegg.png" alt="" class="h-250 w-550"></div>
-		</div>
-	</div>
-
+   <div class="container">
+    	<div class="content">
+      		<div class="left-section scroll-animate-left">
+        		<h4 class="heading-main">Patient Portal</h4>
+       		    <h4 class="heading-sub">Connecting People. Enhancing Care.</h4>
+        		<button class="book-btn scroll-animate-up"><a href="#sec3">Book an appointment</a></button>
+      		</div>
+      		<div class="right-section scroll-animate-right">
+        		<img src="assets/images/pngegg.png" alt="Patient Image" class="patient-img">
+      		</div>
+    	</div>
+  </div>
         <p class="detail-sec1">
            
         </p>
