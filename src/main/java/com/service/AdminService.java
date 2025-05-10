@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.itextpdf.text.log.SysoCounter;
 import com.model.AdminAppointment;
 import com.model.Doctor;
 import com.model.SupportRequests;
@@ -141,16 +140,17 @@ public class AdminService {
 			Statement stmt = con.createStatement();
 			
 			String query = "UPDATE user SET " +
-						"user.fullname = '"+doctor.getFullname()+"' " +
-						"user.dob = '"+doctor.getDob()+"' " +
-						"user.phone_no = '"+doctor.getPhone()+"' " +
-						"user.address = '"+doctor.getAddress()+"' " +
-						"user.password = '"+doctor.getPassword()+"' " +
-						"WHERE user.uid = '"+doctor.getUid()+"';";
-			
-			String query2 = "UPDATE doctor SET "+
-							"doctor.specialization = '"+doctor.getSpecialization()+"'"+
-							"WHERE doctor.user_id = '"+doctor.getUid()+"';";
+		               "fullname = '" + doctor.getFullname() + "', " +
+		               "dateofbirth = '" + doctor.getDob() + "', " +
+		               "phone_no = '" + doctor.getPhone() + "', " +
+		               "address = '" + doctor.getAddress() + "', " +
+		               "password = '" + doctor.getPassword() + "' " +
+		               "WHERE uid = '" + doctor.getUid() + "';";
+
+			String query2 = "UPDATE doctor SET " +
+		                "specialization = '" + doctor.getSpecialization() + "' " +
+		                "WHERE user_id = '" + doctor.getUid() + "';";
+
 			
 			 int rs1 = stmt.executeUpdate(query);
 			 int rs2 = stmt.executeUpdate(query2);
@@ -351,9 +351,7 @@ public class AdminService {
 			Connection con = DBConnection.getConnection();
 			Statement stmt = con.createStatement();
 			
-			String query = "SELECT support_requests.id, support_requests.name, support_requests.message" +
-							"FROM support_requests "+
-							"WHERE support_requests.status = 'pending';";
+			String query = "SELECT id, name, message FROM support_requests WHERE status = 'pending';";
 			
 			ResultSet rs = stmt.executeQuery(query);
 			
@@ -370,6 +368,7 @@ public class AdminService {
 			
 		}
 		catch(Exception e) {
+			System.out.println("Error in getting inquiries");
 			e.printStackTrace();
 		}
 		
