@@ -1,5 +1,6 @@
 package com.model;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Prescription {
 	private int id;
@@ -15,6 +16,15 @@ public class Prescription {
 
 	public Prescription(int id, Date date_of_issue, String dietary_advice, String doctors_notes, int doctor_id,
 			int patient_id) {
+		this.id = id;
+		this.date_of_issue = date_of_issue;
+		this.dietary_advice = dietary_advice;
+		this.doctors_notes = doctors_notes;
+		this.doctor_id = doctor_id;
+		this.patient_id = patient_id;
+	}
+	
+	public Prescription( int doctor_id,int patient_id,Date date_of_issue, String dietary_advice, String doctors_notes) {
 		super();
 		this.id = id;
 		this.date_of_issue = date_of_issue;
@@ -22,6 +32,12 @@ public class Prescription {
 		this.doctors_notes = doctors_notes;
 		this.doctor_id = doctor_id;
 		this.patient_id = patient_id;
+	}
+	
+
+
+	public Prescription(int patientId, ArrayList<Drug> drugList, String dietaryAdvice, String doctorNotes) {
+		// TODO Auto-generated constructor stub
 	}
 
 
@@ -40,7 +56,7 @@ public class Prescription {
 	}
 
 
-	public void setDate_of_issue(Date date_of_issue) {
+	public void setDate_of_issue( Date date_of_issue) {
 		this.date_of_issue = date_of_issue;
 	}
 

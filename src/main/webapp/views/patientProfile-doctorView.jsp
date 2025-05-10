@@ -195,6 +195,7 @@
 	 <a href="${pageContext.request.contextPath}/PrescriptionController?patientId=${patient.uid}">
     	<button id="Precription-button" type="submit" class="submit-btn">Create Prescription</button>
 	</a>
+
 	
 	
 

@@ -1,99 +1,84 @@
 package com.controller;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import com.service.PrescriptionService;
+import com.model.Prescription;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
-import com.model.Drug;
-import com.service.PrescriptionService;
+import java.io.IOException;
+import java.sql.Date;
 
 @WebServlet("/PrescriptionController")
 public class PrescriptionController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
-    private PrescriptionService prescriptionService;
-
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        prescriptionService = new PrescriptionService();
-    }
-
-    // Show the form (GET)
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Get patientId from session or request
-        HttpSession session = request.getSession();
-        String patientIdParam = request.getParameter("patientId");
-        Integer patientId = null;
-
-        try {
-            if (patientIdParam != null && !patientIdParam.isEmpty()) {
-                patientId = Integer.parseInt(patientIdParam);
-                session.setAttribute("patientId", patientId); // store in session for future use
-            } else {
-                patientId = (Integer) session.getAttribute("patientId");
-            }
-
-            if (patientId == null) {
-                request.setAttribute("errorMessage", "Missing patient ID.");
-                request.getRequestDispatcher("/views/errorPage.jsp").forward(request, response);
-                return;
-            }
-
-            // Set drug list in session
-            ArrayList<Drug> drugs = prescriptionService.getAllDrugs();
-            session.setAttribute("drugList", drugs);
-
-            // Set patientId as request attribute (needed by JSP)
-            request.setAttribute("patientId", patientId);
-
-            // Forward to JSP
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/views/createPrescription.jsp");
-            dispatcher.forward(request, response);
-
-        } catch (NumberFormatException e) {
-            request.setAttribute("errorMessage", "Invalid patient ID format.");
-            request.getRequestDispatcher("/views/errorPage.jsp").forward(request, response);
-        }
-    }
-
-    // Add drug to prescription (POST)
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Get form data
-        String drugName = request.getParameter("drug-name");
-        String dosage = request.getParameter("dosage");
-        String frequency = request.getParameter("frequancy");
-        String duration = request.getParameter("duration");
-        String instruction = request.getParameter("instruction");
-
-        // Get patientId from session
-        HttpSession session = request.getSession();
-        Integer patientId = (Integer) session.getAttribute("patientId");
-
-        if (patientId == null) {
+        // Session validation
+        HttpSession session = request.getSession(false); 
+        if (session == null || !"doctor".equals(session.getAttribute("role"))) {
+            response.sendRedirect("views/login.jsp"); // Redirect to login if not a doctor
+            return;
+        }
+        
+        Integer doctorId = (Integer) session.getAttribute("uid");
+        
+        // Retrieve patient ID and validate it
+        String patientIdParam = request.getParameter("patientId");
+        if (patientIdParam == null || patientIdParam.isEmpty()) {
             request.setAttribute("errorMessage", "Missing patient ID.");
-            request.getRequestDispatcher("/views/errorPage.jsp").forward(request, response);
+            request.getRequestDispatcher("views/createPrescription.jsp").forward(request, response);
             return;
         }
 
-        // Create new drug
-        int newId = prescriptionService.getAllDrugs().size() + 1;
-        Drug newDrug = new Drug(newId, drugName, dosage, frequency, duration, instruction);
+        try {
+            int patientId = Integer.parseInt(patientIdParam);
+            
+            // Retrieve other prescription details
+            String dietaryAdvice = request.getParameter("dietaryAdvice");
+            String doctorsNote = request.getParameter("doctorsNote");
 
-        // Add drug
-        prescriptionService.addDrug(newDrug);
+            // Check for null or empty fields
+            if (dietaryAdvice == null || dietaryAdvice.isEmpty() || doctorsNote == null || doctorsNote.isEmpty()) {
+                request.setAttribute("errorMessage", "Please fill all required fields.");
+                request.getRequestDispatcher("views/createPrescription.jsp").forward(request, response);
+                return;
+            }
 
-        // Update session with new list
-        ArrayList<Drug> updatedDrugs = prescriptionService.getAllDrugs();
-        session.setAttribute("drugList", updatedDrugs);
+            // Create the Prescription object
+            Date currentDate = new Date(System.currentTimeMillis());
+            
+            System.out.println("Doctor ID: " + doctorId);
+            System.out.println("Patient ID: " + patientId);
+            System.out.println("Dietary Advice: " + dietaryAdvice);
+            System.out.println("Doctors Note: " + doctorsNote);
 
-        // Redirect back to controller GET with patientId to render JSP
-        response.sendRedirect("PrescriptionController?patientId=" + patientId);
+            
+            Prescription prescription = new Prescription(doctorId, patientId, currentDate, dietaryAdvice, doctorsNote);
+
+            
+            // Insert the prescription via the service
+            boolean result = PrescriptionService.insertPrescription(prescription);
+
+            // Redirect based on result
+            if (result) {
+                response.sendRedirect("views/createPrescription.jsp?success=true");
+            } else {
+                response.sendRedirect("views/createPrescription.jsp?error=true");
+            }
+
+        } catch (NumberFormatException e) {
+            request.setAttribute("errorMessage", "Invalid patient ID format.");
+            request.getRequestDispatcher("views/createPrescription.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("errorMessage", "An unexpected error occurred.");
+            request.getRequestDispatcher("views/createPrescription.jsp").forward(request, response);
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("views/createPrescription.jsp").forward(request, response);
     }
 }

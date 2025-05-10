@@ -7,12 +7,15 @@ public class Drug {
     private String frequency;
     private String duration;
     private String instruction;
+    private int prescriptionId;
     
     
 	public Drug() {}
 
 
-	public Drug(int drugId, String drugName, String dosage, String frequency, String duration, String instruction) {
+
+	public Drug(int drugId, String drugName, String dosage, String frequency, String duration, String instruction,
+			int prescriptionId) {
 		super();
 		this.drugId = drugId;
 		this.drugName = drugName;
@@ -20,7 +23,9 @@ public class Drug {
 		this.frequency = frequency;
 		this.duration = duration;
 		this.instruction = instruction;
+		this.prescriptionId = prescriptionId;
 	}
+
 
 
 	public int getDrugId() {
@@ -80,6 +85,18 @@ public class Drug {
 
 	public void setInstruction(String instruction) {
 		this.instruction = instruction;
+	}
+
+
+
+	public int getPrescriptionId() {
+		return prescriptionId;
+	}
+
+
+
+	public void setPrescriptionId(int prescriptionId) {
+		this.prescriptionId = prescriptionId;
 	};
 	
 	
