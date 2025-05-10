@@ -53,15 +53,15 @@
                                <td>
 							    <c:choose>
 							        <c:when test="${a.status eq 'Pending'}">
-							            <button class="btn-update" onclick="openModal(${a.id}, '${a.doctorId}', '${a.appointmentDate}', '${a.time}')">Update</button>
+							            <button class="btn-update" onclick="openModal(${a.id}, '${a.doctorId}', '${a.appointmentDate}', '${a.time}')"><i class='bx bx-revision'></i> Update</button>
 							            <a href="DeleteAppointment?id=${a.id}" onclick="return confirm('Are you sure you want to delete this appointment?')">
-							                <button class="btn-delete">Delete</button>
+							                <button class="btn-delete"><i class='bx bx-trash'></i> Delete</button>
 							            </a>
 							        </c:when>
 							        <c:when test="${a.status eq 'rescheduled'}">
-							            <button class="btn-update" onclick="openModal(${a.id}, '${a.doctorId}', '${a.appointmentDate}', '${a.time}')">Reschedule</button>
+							            <button class="btn-update" onclick="openModal(${a.id}, '${a.doctorId}', '${a.appointmentDate}', '${a.time}')"><i class='bx bx-revision'></i> Reschedule</button>
 							            <a href="DeleteAppointment?id=${a.id}" onclick="return confirm('Are you sure you want to delete this appointment?')">
-							                <button class="btn-delete">Delete</button>
+							                <button class="btn-delete"><i class='bx bx-trash'></i> Delete</button>
 							            </a>
 							        </c:when>
 							        <c:otherwise>
@@ -81,7 +81,7 @@
             </c:if>
 
            
-           <button onclick="exportTableToPDF()" class="btn-down">Download PDF</button>
+           <button onclick="exportTableToPDF()" class="btn-down"><i class='bx bx-download'></i> Download PDF</button>
 
 <script>
     async function exportTableToPDF() {
