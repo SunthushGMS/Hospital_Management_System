@@ -1,6 +1,7 @@
 package com.model;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Prescription {
 	private int id;
@@ -11,7 +12,7 @@ public class Prescription {
 	private int patient_id;
 	
 	
-	Prescription(){}
+	public Prescription(){}
 
 
 	public Prescription(int id, Date date_of_issue, String dietary_advice, String doctors_notes, int doctor_id,
@@ -98,6 +99,18 @@ public class Prescription {
 
 	public void setPatient_id(int patient_id) {
 		this.patient_id = patient_id;
+	}
+
+
+	public void setDrugList(List<Drug> drugList) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void setDate_of_issue(String dateOfIssue) {
+		// TODO Auto-generated method stub
+		
 	};
 	
 	

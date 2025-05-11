@@ -58,7 +58,7 @@ public class prescriptionDrugController extends HttpServlet {
 	        	PrescriptionService.insertDrug(drug, Integer.parseInt(prescriptionId));
 	        }
 	        session.removeAttribute("drugList");
-	        response.sendRedirect("Appointments"); // or a confirmation page
+	        response.sendRedirect("ViewPrescription"); // or a confirmation page
 	    }
 	}
 

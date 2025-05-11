@@ -144,4 +144,206 @@ public class PrescriptionService {
 
         return drugList;
     }
+    
+    
+    
+    
+    
+    
+    
+    public static List<Prescription> getPrescriptionsByDoctorId(int doctorId) {
+        List<Prescription> prescriptions = new ArrayList<>();
+
+        String sql = "SELECT * FROM prescription WHERE doctor_id = ?";
+
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, doctorId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Prescription prescription = new Prescription(
+                    rs.getInt("id"),
+                    rs.getDate("date_of_issue"),
+                    rs.getString("dietary_advice"),
+                    rs.getString("doctors_notes"),
+                    rs.getInt("doctor_id"),
+                    rs.getInt("patient_id")
+                );
+
+                prescriptions.add(prescription);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error fetching prescriptions: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return prescriptions;
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    public static List<Drug> getAllDrugsByDoctorId(int doctorId) {
+        List<Drug> drugs = new ArrayList<>();
+
+        String sql = "SELECT d.*, p.id AS prescription_id " +
+                     "FROM drug d " +
+                     "JOIN prescription p ON d.prescription_id = p.id " +
+                     "WHERE p.doctor_id = ?";
+
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, doctorId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Drug drug = new Drug();
+                drug.setDrugId(rs.getInt("drug_id"));
+                drug.setDrugName(rs.getString("drug_name"));
+                drug.setDosage(rs.getString("dosage"));
+                drug.setFrequency(rs.getString("frequency"));
+                drug.setDuration(rs.getString("duration"));
+                drug.setInstruction(rs.getString("instruction"));
+                drug.setPrescriptionId(rs.getInt("prescription_id"));
+                drugs.add(drug);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error fetching drugs for doctor ID: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return drugs;
+    }
+    
+    
+    
+    
+ // Get a prescription by its ID (not by patient ID)
+    public static Prescription getPrescriptionByPrescriptionId(int id) {
+        Prescription prescription = null;
+        String sql = "SELECT * FROM prescription WHERE id = ?";
+
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                prescription = new Prescription(
+                    rs.getInt("id"),
+                    rs.getDate("date_of_issue"),
+                    rs.getString("dietary_advice"),
+                    rs.getString("doctors_notes"),
+                    rs.getInt("doctor_id"),     // Keep this if needed internally
+                    rs.getInt("patient_id")
+                );
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error retrieving prescription: " + e.getMessage());
+        }
+
+        return prescription;
+    }
+
+    
+    
+    
+    
+
+        public static void updatePrescription(Prescription prescription) throws Exception {
+            String sql = "UPDATE prescriptions SET date_of_issue = ?, dietary_advice = ?, doctors_notes = ? WHERE id = ?";
+            try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+                ps.setDate(1, prescription.getDate_of_issue());
+                ps.setString(2, prescription.getDietary_advice());
+                ps.setString(3, prescription.getDoctors_notes());
+                ps.setInt(4, prescription.getId());
+                ps.executeUpdate();
+            }
+        }
+        
+        
+        
+        public static void updateDrugs(List<Drug> drugs) throws Exception {
+            String sql = "UPDATE drugs SET drug_name = ?, dosage = ?, frequency = ?, duration = ?, instruction = ? WHERE id = ?";
+            try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+                for (Drug drug : drugs) {
+                    ps.setString(1, drug.getDrugName());
+                    ps.setString(2, drug.getDosage());
+                    ps.setString(3, drug.getFrequency());
+                    ps.setString(4, drug.getDuration());
+                    ps.setString(5, drug.getInstruction());
+                    ps.setInt(6, drug.getDrugId());
+                    ps.addBatch();
+                }
+                ps.executeBatch();
+            }
+        }
+    
+        
+        
+        
+        
+        
+        public boolean deletePrescriptionWithDrugs(int prescriptionId) {
+            Connection conn = null;
+            PreparedStatement stmt = null;
+
+            try {
+                conn = DBConnection.getConnection(); // You can have a separate DBUtil class to manage connections
+                conn.setAutoCommit(false); // Start transaction
+
+                // Step 1: Delete drugs
+                String deleteDrugsSQL = "DELETE FROM drugs WHERE prescription_id = ?";
+                stmt = conn.prepareStatement(deleteDrugsSQL);
+                stmt.setInt(1, prescriptionId);
+                stmt.executeUpdate();
+                stmt.close();
+
+                // Step 2: Delete prescription
+                String deletePrescriptionSQL = "DELETE FROM prescription WHERE id = ?";
+                stmt = conn.prepareStatement(deletePrescriptionSQL);
+                stmt.setInt(1, prescriptionId);
+                stmt.executeUpdate();
+
+                conn.commit();
+                return true;
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                if (conn != null) {
+                    try {
+                        conn.rollback();
+                    } catch (SQLException rollbackEx) {
+                        rollbackEx.printStackTrace();
+                    }
+                }
+                return false;
+            } finally {
+                try {
+                    if (stmt != null) stmt.close();
+                    if (conn != null) conn.close();
+                } catch (SQLException closeEx) {
+                    closeEx.printStackTrace();
+                }
+            }
+        }
+    
+    
+    
+    
+    
+    
+
+
 }
