@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+* {
+	 	scroll-behavior: smooth;
+}
+
  body {
  	font-family: "Roboto", sans-serif;
   	font-optical-sizing: auto;

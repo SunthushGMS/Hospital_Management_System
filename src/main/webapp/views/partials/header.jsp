@@ -23,7 +23,7 @@
                 </div>
                 <c:if test="${not empty uid}">
                 	<div class="relative">
-	                	<img id="dropdownTrigger" class="w-10 h-10 rounded-full" src="${pageContext.request.contextPath}/assets/images/profilePics/${profilepic}" alt="Rounded avatar">
+	                	<img id="dropdownTrigger" class="w-10 h-10 rounded-full cursor-pointer" src="${pageContext.request.contextPath}/assets/images/profilePics/${profilepic}" alt="Rounded avatar">
 						<!-- Dropdown menu -->
 						<div id="userDropdown" class="hidden absolute right-0 mt-1 origin-top-right z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
 						    <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">

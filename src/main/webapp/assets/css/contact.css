@@ -23,6 +23,16 @@ body{
   font-family: var(--font-primary);
  
 }
+
+.container {
+  min-width: 100vw;;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #ebf8ff, #63b3ed);
+}
+
 .logo{
     width: 350px;
     margin-left: 100px;
@@ -255,7 +265,7 @@ input, textarea {
   align-items: center;
   width: 100%;
   padding: 20px;
- background: linear-gradient(to bottom right, #ebf8ff, #63b3ed);
+  background: linear-gradient(to bottom right, #ebf8ff, #63b3ed);
 
 }
 
