@@ -82,7 +82,7 @@
   });
   
   
-  /*Prompt Box*/
+  /*Delete User Prompt Box*/
   
     document.querySelector('#dltAccount').addEventListener('click', () => {
       Confirm.open({
@@ -93,4 +93,26 @@
         }
       })
     });
-  
+	
+	//compare password inputs.
+	function comparepwd(){
+		
+		console.log("comparepwd called");
+		
+		var form = document.getElementById("changePasswordForm");
+		var submitbtn = document.getElementById("changePasswordBtn");
+		var error = document.getElementById("pwdnotmatcherr");
+		
+		var password = form.elements["new-password"].value;
+		var passwordagain = form.elements["confirm-password"].value
+
+		if(passwordagain !== "" && password !== passwordagain){
+			
+			error.style.display = "block";
+			submitbtn.disabled = true;
+		}
+		else{
+			submitbtn.disabled = false;
+			error.style.display = "none";
+		}
+	}
