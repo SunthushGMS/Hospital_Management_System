@@ -51,7 +51,7 @@
             </div>
             <div class="card">
                 <img src="${pageContext.request.contextPath}/assets/images/receipt.png" alt="prescriptions">
-                <h2>Payments</h2>
+                <h2>Prescriptions</h2>
                 <a href="${pageContext.request.contextPath}/ShowPrescription" class="btn">View</a>
             </div>
         </section>
