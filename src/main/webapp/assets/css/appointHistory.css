@@ -215,8 +215,8 @@ td button {
    width: 150px;
 }
 
-<style>
-/* Modal overlay */
+
+
 .modal-overlay {
     display: none;
     position: fixed;
@@ -228,7 +228,7 @@ td button {
     z-index: 999;
 }
 
-/* Modal container */
+
 .modal {
     background: #fff;
     border-radius: 10px;
@@ -240,7 +240,7 @@ td button {
     animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Modal title */
+
 .modal h3 {
     margin-top: 0;
     font-size: 1.5rem;
@@ -248,7 +248,7 @@ td button {
     text-align: center;
 }
 
-/* Input fields */
+
 .modal input[type="text"],
 .modal input[type="date"],
 .modal input[type="time"] {
@@ -261,7 +261,7 @@ td button {
     font-size: 14px;
 }
 
-/* Modal buttons */
+
 .modal button {
     padding: 10px 20px;
     border: none;
@@ -290,7 +290,7 @@ td button {
     background-color: #999;
 }
 
-/* Animation */
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
