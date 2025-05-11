@@ -182,6 +182,47 @@ public class PrescriptionService {
 
         return prescriptions;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    public static List<Prescription> getPrescriptionsByDoctorAndPatient(int doctorId, int patientId) {
+        List<Prescription> prescriptions = new ArrayList<>();
+
+        String sql = "SELECT * FROM prescription WHERE doctor_id = ? AND patient_id = ?";
+
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, doctorId);
+            ps.setInt(2, patientId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Prescription prescription = new Prescription(
+                    rs.getInt("id"),
+                    rs.getDate("date_of_issue"),
+                    rs.getString("dietary_advice"),
+                    rs.getString("doctors_notes"),
+                    rs.getInt("doctor_id"),
+                    rs.getInt("patient_id")
+                );
+
+                prescriptions.add(prescription);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error fetching prescriptions: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return prescriptions;
+    }
+
 
     
     
@@ -227,6 +268,21 @@ public class PrescriptionService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
  // Get a prescription by its ID (not by patient ID)
     public static Prescription getPrescriptionByPrescriptionId(int id) {
         Prescription prescription = null;
@@ -262,12 +318,13 @@ public class PrescriptionService {
     
 
         public static void updatePrescription(Prescription prescription) throws Exception {
-            String sql = "UPDATE prescriptions SET date_of_issue = ?, dietary_advice = ?, doctors_notes = ? WHERE id = ?";
+        	System.out.println("Updating Prescription: " + prescription.getId() + ", Date: " + prescription.getDate_of_issue());
+
+            String sql = "UPDATE prescription SET  dietary_advice = ?, doctors_notes = ? WHERE id = ?";
             try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
-                ps.setDate(1, prescription.getDate_of_issue());
-                ps.setString(2, prescription.getDietary_advice());
-                ps.setString(3, prescription.getDoctors_notes());
-                ps.setInt(4, prescription.getId());
+                ps.setString(1, prescription.getDietary_advice());
+                ps.setString(2, prescription.getDoctors_notes());
+                ps.setInt(3, prescription.getId());
                 ps.executeUpdate();
             }
         }
@@ -275,9 +332,10 @@ public class PrescriptionService {
         
         
         public static void updateDrugs(List<Drug> drugs) throws Exception {
-            String sql = "UPDATE drugs SET drug_name = ?, dosage = ?, frequency = ?, duration = ?, instruction = ? WHERE id = ?";
+            String sql = "UPDATE drug SET drug_name = ?, dosage = ?, frequency = ?, duration = ?, instruction = ? WHERE id = ?";
             try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
                 for (Drug drug : drugs) {
+                	System.out.println("Updating drug ID: " + drug.getDrugId() + ", Name: " + drug.getDrugName());
                     ps.setString(1, drug.getDrugName());
                     ps.setString(2, drug.getDosage());
                     ps.setString(3, drug.getFrequency());
@@ -292,6 +350,65 @@ public class PrescriptionService {
     
         
         
+   
+        
+        
+        
+        
+        
+        // Function to update Prescription and Drugs
+        public void updatePrescriptionAndDrugs(int prescriptionId, Prescription updatedPrescription, List<Drug> updatedDrugs) throws SQLException {
+            // Update Prescription
+        	 System.out.println("inside function...");
+            String updatePrescriptionQuery = "UPDATE prescription SET  dietary_advice = ?, doctors_notes = ? WHERE id = ?";
+            try (Connection con = DBConnection.getConnection(); 
+                 PreparedStatement pst = con.prepareStatement(updatePrescriptionQuery)) {
+                pst.setString(1, updatedPrescription.getDietary_advice());
+                pst.setString(2, updatedPrescription.getDoctors_notes());
+                pst.setInt(3, prescriptionId); 
+                pst.executeUpdate();
+            }
+
+            // Update Drugs for the given Prescription ID
+            String updateDrugQuery = "UPDATE drug SET drug_name = ?, dosage = ?, frequency = ?, duration = ?, instruction = ? WHERE prescription_id = ?";
+            try (Connection con = DBConnection.getConnection(); 
+                 PreparedStatement pst = con.prepareStatement(updateDrugQuery)) {
+                for (Drug drug : updatedDrugs) {
+                    pst.setString(1, drug.getDrugName());
+                    pst.setString(2, drug.getDosage());
+                    pst.setString(3, drug.getFrequency());
+                    pst.setString(4, drug.getDuration());
+                    pst.setString(5, drug.getInstruction());
+                    pst.setInt(6, prescriptionId);
+                    pst.addBatch(); // Add to batch to update multiple drugs in a single operation
+                }
+                pst.executeBatch(); // Execute the batch update for all drugs
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -304,7 +421,7 @@ public class PrescriptionService {
                 conn.setAutoCommit(false); // Start transaction
 
                 // Step 1: Delete drugs
-                String deleteDrugsSQL = "DELETE FROM drugs WHERE prescription_id = ?";
+                String deleteDrugsSQL = "DELETE FROM drug WHERE prescription_id = ?";
                 stmt = conn.prepareStatement(deleteDrugsSQL);
                 stmt.setInt(1, prescriptionId);
                 stmt.executeUpdate();

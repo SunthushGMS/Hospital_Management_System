@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prescription History | Health Lanka</title>
+    <title>Prescription History Of This Patient | Health Lanka</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/appointHistory.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
@@ -110,7 +110,7 @@ button:hover {
 
 <jsp:include page="/views/partials/header.jsp"/>
 
-<h1 class="history-head">Prescription History</h1>
+<h1 class="history-head">Prescription History Of This Patient</h1>
 
 <section class="sec1">
     <div class="table-view">
@@ -172,12 +172,10 @@ button:hover {
                 </div>
             </c:forEach>
         </c:if>
-<div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-  <span class="font-medium"><c:if test="${empty prescriptions}">
+
+        <c:if test="${empty prescriptions}">
             <p>No prescriptions found for this doctor.</p>
-        </c:if></span>
-</div>
-        
+        </c:if>
 
     </div>
 </section>

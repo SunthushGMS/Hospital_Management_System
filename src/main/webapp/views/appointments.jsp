@@ -18,18 +18,6 @@
 </head>
 <body>
 	<jsp:include page="/views/partials/header.jsp"/>
-	
-	<c:if test="${empty todayAppointments}">
-	    <p>No today's appointments available.</p>
-	</c:if>
-	
-	<c:if test="${empty incompletedAppointments}">
-	    <p>No incompleted appointments available.</p>
-	</c:if>
-	
-	<c:if test="${empty completedAppointments}">
-	    <p>No completed appointments available.</p>
-	</c:if>
 
     <h1 id="heading">Appointments</h1>
 
@@ -48,6 +36,16 @@
 	        <th>Status</th>
 	        <th>View More</th>
 	    </tr>
+	    
+	    <c:if test="${empty newAppointments}">
+	     <tr>
+	            <td colspan="9" style="text-align:center;">
+	            <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+				 <span class="font-medium">No new appointments available!</span> 
+				</div>
+				</td>
+	    </tr>
+		</c:if>
 	
 	    <c:forEach var="appointment" items="${newAppointments}">
 	        <tr>
@@ -103,6 +101,16 @@
 	        <th>Status</th>
 	        <th>View more</th>
 	    </tr>
+	    
+	    <c:if test="${empty todayAppointments}">
+	        <tr>
+	            <td colspan="9" style="text-align:center;">
+	            <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+				 <span class="font-medium">No today's appointments available!</span> 
+				</div>
+				</td>
+	        </tr>
+	    </c:if>
 	
 	    <c:forEach var="appointment" items="${todayAppointments}">
 	        <tr>
@@ -151,6 +159,16 @@
 	        <th>Time</th>
 	        <th>View More</th>
 	    </tr>
+	    
+	    <c:if test="${empty incompletedAppointments}">
+	     <tr>
+	            <td colspan="9" style="text-align:center;">
+	            <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+				 <span class="font-medium">No incompleted appointments available!</span> 
+				</div>
+				</td>
+	    </tr>
+		</c:if>
 	
 	    <c:forEach var="appointment" items="${incompletedAppointments}">
 	        <tr>
@@ -188,6 +206,16 @@
 	        <th>Time</th>
 	        <th>View More</th>
 	    </tr>
+	    
+		<c:if test="${empty completedAppointments}">
+			<tr>
+	            <td colspan="9" style="text-align:center;">
+	            <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+				 <span class="font-medium">No completed appointments available!</span> 
+				</div>
+				</td>
+	    	</tr>
+		</c:if>
 	
 	    <c:forEach var="appointment" items="${completedAppointments}">
 	        <tr>

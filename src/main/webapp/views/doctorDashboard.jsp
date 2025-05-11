@@ -20,33 +20,14 @@
     <jsp:include page="/views/partials/header.jsp"/>
     <h1 id="heading">Doctor Dashboard</h1>
 
-
-    <img id="doc-profile-Pic" src="${pageContext.request.contextPath}/assets/images/doctorProfile-picNew.jpg" alt="">
+	       
+    <img id="doc-profile-Pic" src="${pageContext.request.contextPath}/assets/images/profilePics/${profilepic}" alt="Doctor profile picture">
 
         
         <div id="div1">
             <div id="div1sub1">
             <h3>Hello</h3>
-            <h3 id="doctordashboardDocName">Dr Sharuka</h3>
-            <p>Your schedule for today</p>
-            <div id="div1-1">
-                <div class="div1-1sub">
-                    <br><hr id="myHr"><br>
-                    <div class="div1-1-1"><img src="${pageContext.request.contextPath}/assets/images/appointments-pic.jpg" alt=""></div>
-                    <div class="div1-1-2">
-					
-                        <p>Appointments</p>
-                    </div>
-                </div>
-                <div class="div1-1sub">
-                    <br><hr id="myHr"><br>
-                    <div class="div1-1-1"><img src="${pageContext.request.contextPath}/assets/images/surgery-pic.jpg" alt=""></div>
-                    <div class="div1-1-2">
-                        <h3 id="totalSurgeriesToday">17</h3>
-                        <p>Surgeries</p>
-                    </div>
-                </div>
-            </div>
+            <h3 id="doctordashboardDocName">Dr.${user.username}</h3>
             </div>   
         </div>
 
@@ -56,8 +37,7 @@
     <div class="wrapper" >
         <div class="div3">
             <img id="emergency-pic" src="${pageContext.request.contextPath}/assets/images/doctorDashboard-raise-hand.png" alt="">
-            <h3>Upcoming Appointments</h3>
-            <p>Today</p>
+            <h3>Today Appointments</h3>
 
 						
 			<c:if test="${not empty todayAppointments}">
@@ -92,88 +72,6 @@
         </div>
 
         <div class="div3">
-            <img id="emergency-pic" src="${pageContext.request.contextPath}/assets/images/doctorDashboard-sugery -medical.png" alt="">
-            <h3>Upcoming Surgeries</h3>
-            <p>This Week</p>
-			<c:if test="${not empty weeklySurgeries}">
-			    <table class="table table-striped table-bordered">
-			        <thead>
-			            <tr>
-			                <th>Surgery ID</th>
-			                <th>Patient ID</th>
-			                <th>Patient Name</th>
-			                <th>Surgery Name</th>
-			                <th>Time</th>
-			                <th>Completion Status</th>
-			                <th>Acceptance Status</th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			            <c:forEach var="surgery" items="${weeklySurgeries}">
-			                <tr>
-			                    <td>${surgery.surgeryId}</td>
-			                    <td>${surgery.patientId}</td>
-			                    <td>${surgery.patientName}</td>
-			                    <td>${surgery.surgeryName}</td>
-			                    <td>${surgery.time}</td>
-			                    <td>${surgery.completionStatus}</td>
-			                    <td>${surgery.acceptanceStatus}</td>
-			                </tr>
-			            </c:forEach>
-			        </tbody>
-			    </table>
-			</c:if>
-			
-			<c:if test="${empty weeklySurgeries}">
-			    <div class="no-records">No scheduled surgeries for this week.</div>
-			</c:if>
-
-            <a href="surgeries.html"><button class="viewAll">View All</button></a>
-        </div>
-
-
-       
-    </div><br><br>
-
-
-    <div  class="wrapper" id="emergencyDiv">
-        <div id="emergency-subDiv1">
-            <img id="emergency-pic" src="${pageContext.request.contextPath}/assets/images/emergency -pic.jpg" alt="">
-            <h3>Emergency Patients</h3>
-            <div id="emergencyPatientDiv">
-                <p>You have <span  id="EmergencyPatientCount">  6 </span> new patients</p>
-            </div><br>
-        </div>
-        <div id="emergency-subDiv2">
-            <table id="emergencyTable">
-                <tr>
-                    <th>Emergency ID</th>
-                    <th>Patient name</th>
-                    <th> Phone</th>
-                    <th>Medical Problem</th>
-                    <th>severity</th>
-                    <th>Description</th>
-                    <th>More</th>
-                </tr>
-
-			    <c:forEach var="emergency" items="${emergencyPatients}">
-			    <tr>
-			        <td>${emergency.surgeryId}</td>
-			        <td>${emergency.patientName}</td>
-			        <td>${emergency.phone}</td>
-			        <td>${emergency.problem}</td>
-			        <td>${emergency.severity}</td>
-			        <td>${emergency.description}</td>
-			    </tr>
-			</c:forEach>
-            </table>
-        </div>
-      </div> <br><br>
-
- 
-
-    <div class="wrapper">
-        <div class="div4">
             <img id="emergency-pic" src="${pageContext.request.contextPath}/assets/images/doctorDashboard-apointmentIcon2.png" alt="">
             <h3>New Appointments</h3>
            <table>
@@ -208,43 +106,13 @@
         </div>
 
 
+       
+    </div><br><br>
 
 
-        <div class="div4">
-            <img id="emergency-pic" src="${pageContext.request.contextPath}/assets/images/doctorDashboard--3d-report.png" alt="">
-            <h3>Latest Lab Reports</h3>
-            <table>
-                <tr>
-                    <th>Patient Name</th>
-                    <th>Report Name</th>
-                    <th>Summary</th>
-                    <th>View Report</th>
-                </tr>
-    
-                <tr>
-                    <td>Kavindi Perera</td>
-                    <td>Nerovascor Repair Lab</td>
-                    <td>A high-risk procedure for severe neurovascular damage, requiring urgent intervention to prevent stroke or fatal complications.</td>
-                    <td><img id="labreportsPics" src="${pageContext.request.contextPath}/assets/images/labreports-pic.jpg" alt=""></td>
-                </tr>
+ 
 
-                <tr>
-                    <td>Kavindi Perera</td>
-                    <td>Nerovascor Repair Lab</td>
-                    <td>A high-risk procedure for severe neurovascular damage, requiring urgent intervention to prevent stroke or fatal complications.</td>
-                    <td><img id="labreportsPics" src="${pageContext.request.contextPath}/assets/images/labreports-pic.jpg" alt=""></td>
-                </tr>
 
-                <tr>
-                    <td>Kavindi Perera</td>
-                    <td>Nerovascor Repair Lab</td>
-                    <td>A high-risk procedure for severe neurovascular damage, requiring urgent intervention to prevent stroke or fatal complications.</td>
-                    <td><img id="labreportsPics" src="${pageContext.request.contextPath}/assets/images/labreports-pic.jpg" alt=""></td>
-                </tr>
-            </table><br>
-            <a href="labReports.html"><button class="viewAll">View All</button></a>
-        </div>
-    </div>
     <br>
     <div class="wrapper">
         <div id="div5"></div>

@@ -108,18 +108,11 @@ button[type="submit"]:hover {
 
 <h1>Update Prescription</h1>
 
-<form action="${pageContext.request.contextPath}/updatePrescriptionController" method="post">
+<form action="${pageContext.request.contextPath}/UpdatePrescription" method="post">
     <input type="hidden" name="action" value="save">
     <input type="hidden" name="prescriptionId" value="${prescription.id}">
 
     <!-- Inputs for date, advice, notes -->
-    <label for="date_of_issue">Prescription ID:</label>
-    <input type="text" id="prescription_id" name="prescription_id" value="${prescription.id}"><br>
-    
-    
-    <label for="date_of_issue">Date of Issue:</label>
-    <input type="text" id="date_of_issue" name="date_of_issue" value="${prescription.date_of_issue}"><br>
-
     <label for="dietary_advice">Dietary Advice:</label>
     <input type="text" id="dietary_advice" name="dietary_advice" value="${prescription.dietary_advice}"><br>
 

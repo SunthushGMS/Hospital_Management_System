@@ -24,7 +24,6 @@ public class prescriptionDrugController extends HttpServlet {
 		HttpSession session = request.getSession();
 	    String action = request.getParameter("action");
 	    String prescriptionId = request.getParameter("prescriptionId");
-
 	    @SuppressWarnings("unchecked")
 		ArrayList<Drug> drugList = (ArrayList<Drug>) session.getAttribute("drugList");
 	    if (drugList == null) {
@@ -58,7 +57,9 @@ public class prescriptionDrugController extends HttpServlet {
 	        	PrescriptionService.insertDrug(drug, Integer.parseInt(prescriptionId));
 	        }
 	        session.removeAttribute("drugList");
-	        response.sendRedirect("ViewPrescription"); // or a confirmation page
+	        String patientId = request.getParameter("patientId");
+	        response.sendRedirect("IndividualPatientPrescriptions?patientId=" + patientId);
+
 	    }
 	}
 
