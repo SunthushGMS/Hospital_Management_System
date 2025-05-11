@@ -28,7 +28,7 @@
       		<div class="left-section scroll-animate-left">
         		<h4 class="heading-main">Contact Us</h4>
        		    <h4 class="heading-sub">Have questions, feedback, or need support? Our team is ready to assist you.</h4>
-        		
+        		<img src="assets/images/assist4.png" alt="Patient Image" class="patient-img">
       		</div>
       		<div class="right-section scroll-animate-right">
         	<form action="${pageContext.request.contextPath}/contactUsController"  method="post" class="form-contact">
