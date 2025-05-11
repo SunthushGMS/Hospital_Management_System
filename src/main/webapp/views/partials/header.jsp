@@ -51,12 +51,6 @@
                               	 <li>
                                 	<a href="${pageContext.request.contextPath}/Appointments" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Appointments</a>
                               	</li>
-                              	 <li>
-                                	<a href="${pageContext.request.contextPath}/Surgeries" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Surgeries</a>
-                              	</li>
-                              	 <li>
-                                	<a href="${pageContext.request.contextPath}/LabReports" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lab Reports</a>
-                              	</li>
 						      </c:if>
 						      <c:if test="${role == 'admin'}">
                               	<li>
