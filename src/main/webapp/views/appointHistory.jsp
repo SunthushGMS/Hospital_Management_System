@@ -135,11 +135,11 @@
         </form>
     </div>
     <c:if test="${not empty param.success}">
-    <div class="alert success">${param.success}</div>
+    <div class="alert-succes">${param.success}</div>
 </c:if>
 
 <c:if test="${not empty param.error}">
-    <div class="alert error">${param.error}</div>
+    <div class="alert-error">${param.error}</div>
 </c:if>
     
 </div>

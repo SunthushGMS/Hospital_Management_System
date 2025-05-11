@@ -295,4 +295,26 @@ td button {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-</style>
+
+.alert-succes{
+	color: green;
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+	background: rgb(223, 221, 221);
+	width: 25%;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+.alert-error{
+	color: red;
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+	background: rgb(223, 221, 221);
+	width: 25%;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	
+}
