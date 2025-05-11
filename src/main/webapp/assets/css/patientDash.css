@@ -24,7 +24,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #f9fafb;
+  background: linear-gradient(to bottom right, #ebf8ff, #63b3ed);
   color: #333;
 }
 

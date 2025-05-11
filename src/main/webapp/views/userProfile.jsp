@@ -205,7 +205,7 @@
         <div class="bg-white rounded-lg shadow-custom p-6 mt-8">
             <h2 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa fa-key" aria-hidden="true"></i> Change
                 Password</h2>
-            <form method="POST" id="changePasswordForm" action="${pageContext.request.contextPath}/UpdatePasswordController">
+            <form method="POST" id="changePasswordForm" action="${pageContext.request.contextPath}/UpdatePasswordController" oninput="comparepwd()">
                 <div class="space-y-4">
                     <div>
                         <label for="old-password" class="block text-sm font-medium text-gray-700 mb-1">Old
@@ -229,8 +229,12 @@
                             required>
                     </div>
                 </div>
+                <div id="pwdnotmatcherr" class="hidden p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+					  <span class="font-medium">Alert!</span> The passwords you entered don't match. Please try again.
+				</div>
                 <div class="mt-6">
                     <button type="submit"
+                    	id="changePasswordBtn"
                         class="w-full text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer">
                         Change Password
                     </button>

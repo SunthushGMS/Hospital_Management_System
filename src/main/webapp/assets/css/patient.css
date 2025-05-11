@@ -17,6 +17,9 @@
     
     --text-content-color: #9ca3af;
   }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background-image: url("${pageContext.request.contextPath}/assets/images/doctor-nurse-discussing-digital-tablet.jpg");
@@ -63,6 +66,7 @@ body {
   margin-top: 30px;
 }
 
+
 .intro-sec2{
   text-align: center;
   font-size: 30px;
@@ -100,11 +104,13 @@ body {
   color: var(--heading-color);
   text-align: center;
   padding: 20px;
+  font-weight: bold;
 }
 
 .points{
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
+  padding: 10px;
 }
 
 .icon-sec2{
@@ -127,6 +133,8 @@ body {
   width: 700px;
   padding: 20px;
   margin-top: 50px;
+   background: white;
+   margin-bottom: 50px;
 }
 
 .form-head{
@@ -142,7 +150,7 @@ body {
 }
 
 .input-appoint, textarea{
- border: 1px solid #ccc;
+ border: 2px solid #ccc;
     padding: 10px;
     margin: 10px;
     width: 90%;
@@ -206,17 +214,29 @@ body {
   font-size: 40px;
   text-align: center;
   color: var(--heading-color);
+  padding: 20px;
 }
+
+.payment-methods {
+  display: flex;
+  gap: 10px; /* space between images */
+  align-items: center;
+}
+
+
+
 
 .payment-form{
   padding: 30px;
   border: none;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  width: 700px;
+  width: 500px;
   margin: auto;
   margin-bottom:40px;
   margin-top: 30px;
+  background: white;
+  margin-left: 40px;
 }
 
 label{
@@ -225,7 +245,7 @@ label{
 }
 
 .input-payment{
- border: 1px solid #ccc;
+ border: 2px solid #ccc;
     padding: 10px;
     margin: 10px;
     width: 90%;
@@ -309,6 +329,7 @@ option{
 }
 
 .container {
+  min-width: 100vw;;
   min-height: 100vh;
   display: flex;
   justify-content: center;

@@ -57,7 +57,7 @@
                             <label class="text-sm font-medium text-gray-700 mb-1 block">Mobile Number</label>
                             <div class="relative">
                                 <span class="input-icon"><i class="fas fa-phone-alt"></i></span>
-                                <input name="number" type="tel" class="input-field bg-white w-full text-gray-800 px-4 py-3 rounded-lg focus:outline-none" placeholder="077 443 1234" required />
+                                <input id="phonenum" name="number" type="tel" class="input-field bg-white w-full text-gray-800 px-4 py-3 rounded-lg focus:outline-none" placeholder="077 443 1234" required />
                             </div>
                         </div>
                         
@@ -65,7 +65,7 @@
                             <label class="text-sm font-medium text-gray-700 mb-1 block">Date of Birth</label>
                             <div class="relative">
                                 <span class="input-icon"><i class="fas fa-calendar-alt"></i></span>
-                                <input name="dob" type="date" class="input-field bg-white w-full text-gray-800 px-4 py-3 rounded-lg focus:outline-none" required />
+                                <input id="bday" name="dob" type="date" class="input-field bg-white w-full text-gray-800 px-4 py-3 rounded-lg focus:outline-none" required />
                             </div>
                         </div>
                         
@@ -102,7 +102,7 @@
                     </div>
                     
                     <div id="pwdnotmatcherr" class="hidden p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-					  <span class="font-medium">Alert!</span> The passwords you entered don't match. Please try again.
+					  <span class="font-medium" id="errortext"></span>
 					</div>
 					
 					<c:if test="${not empty error}">

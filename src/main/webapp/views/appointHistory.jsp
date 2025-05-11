@@ -45,8 +45,8 @@
                         <c:forEach var="a" items="${appointments}">
                             <tr>
                                 <td>${a.id}</td>
-                                <td>${a.doctorId}</td>
-                                <td>${a.patientId}</td>
+                                <td>DR00${a.doctorId}</td>
+                                <td>PT00${a.patientId}</td>
                                 <td>${a.appointmentDate}</td>
                                 <td>${a.time}</td>
                                 <td>${a.status}</td>

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Health Lanka</title>
-    <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/contact.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/Fav-Icon.png">
@@ -29,7 +28,7 @@
       		<div class="left-section scroll-animate-left">
         		<h4 class="heading-main">Contact Us</h4>
        		    <h4 class="heading-sub">Have questions, feedback, or need support? Our team is ready to assist you.</h4>
-        		
+        		<img src="assets/images/assist4.png" alt="Patient Image" class="patient-img">
       		</div>
       		<div class="right-section scroll-animate-right">
         	<form action="${pageContext.request.contextPath}/contactUsController"  method="post" class="form-contact">

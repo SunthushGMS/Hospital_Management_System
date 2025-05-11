@@ -84,11 +84,15 @@
 
         </div>
     </section>
-    <section class="sec3" id="sec3">
-       
-      
-        <div class="book">
-        <form action="${pageContext.request.contextPath}/AppointmentBookingController" method="post" class="book-appoint">
+     <div class="container" id="sec3">
+    	<div class="content">
+      		<div class="left-section scroll-animate-left">
+        		<h4 class="heading-main">Appointment Booking</h4>
+       		    <h4 class="heading-sub">Your health is your wealth—take the first step today</h4>
+        		
+      		</div>
+      		<div class="right-section scroll-animate-right">
+        		 <form action="${pageContext.request.contextPath}/AppointmentBookingController" method="post" class="book-appoint">
     <h1 class="form-head">Appointment Booking</h1><br><br>
 
 
@@ -121,12 +125,11 @@
 <c:if test="${not empty param.error}">
     <p style="color: red;">${param.error}</p>
 </c:if>
-
-
-
-            
-        </div>
-    </section>
+        		
+      		</div>
+    	</div>
+  </div>
+ 
     <section class="sec4" id="sec4">
         <h1 class="billing">Billing And Payment</h1>
         <div class="wrap">
@@ -146,10 +149,22 @@
         <button class="view-btn"><a href="${pageContext.request.contextPath}/PaymentHistory">View Payment History</a></button>
     </section>
     <section class="sec"></section>
-    <section class="payment">
-        <h1 class="payment-make">Make Your Payment</h1>
-        
-       <form action="${pageContext.request.contextPath}/PaymentMaking" method="post" class="payment-form">
+     <div class="container">
+    	<div class="content">
+      		<div class="left-section scroll-animate-left">
+        		<h4 class="heading-main">Make Your Payment</h4>
+       		    <h4 class="heading-sub">Pay with ease, stay at peace.</h4>
+        		<div class="payment-methods">
+  <img src="assets/images/visa.png" alt="Patient Image" class="payment-img">
+  <img src="assets/images/money.png" alt="Patient Image" class="payment-img">
+  <img src="assets/images/paypal.png" alt="Patient Image" class="payment-img">
+  <img src="assets/images/american-express.png" alt="Patient Image" class="payment-img">
+</div>
+
+      		</div>
+      		<div class="right-section scroll-animate-right">
+        		<form action="${pageContext.request.contextPath}/PaymentMaking" method="post" class="payment-form">
+       <h1 class="payment-make">Make Your Payment</h1>
     <label for="name">Full Name</label>
     <input type="text" class="input-payment" name="fullname" required>
     <br><br>
@@ -185,6 +200,13 @@
     <button class="pay-btn" type="submit">Pay Now</button>
 
 </form>
+      		</div>
+    	</div>
+  </div>
+    <section class="payment">
+        
+        
+       
 
 
     </section>

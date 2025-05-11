@@ -39,11 +39,7 @@
                 <a href="${pageContext.request.contextPath}/AppointmentHistory" class="btn">View</a>
             </div>
 
-            <div class="card">
-                <img src="${pageContext.request.contextPath}/assets/images/surg2.png" alt="Surgeries">
-                <h2>Surgeries</h2>
-                <a href="#" class="btn">View</a>
-            </div>
+            
               <div class="card">
                 <img src="${pageContext.request.contextPath}/assets/images/credit-card.png" alt="payments">
                 <h2>Payments</h2>
@@ -51,31 +47,13 @@
             </div>
             <div class="card">
                 <img src="${pageContext.request.contextPath}/assets/images/receipt.png" alt="prescriptions">
-                <h2>Payments</h2>
+                <h2>Prescriptions</h2>
                 <a href="${pageContext.request.contextPath}/ShowPrescription" class="btn">View</a>
             </div>
         </section>
 
         <!-- Lab Reports and Payments -->
-        <section class="bottom-section">
-            <div class="lab-reports">
-                <h2>Requested Lab Reports</h2>
-                <ul>
-                    <li><a href="#">Blood Test Report</a></li>
-                    <li><a href="#">X-Ray Report</a></li>
-                    <li><a href="#">MRI Scan Report</a></li>
-                    <li><a href="#">ECG Report</a></li>
-                    <li><a href="#">Liver Function Test</a></li>
-                    <li><a href="#">Kidney Function Test</a></li>
-                    <li><a href="#">Cholesterol Test</a></li>
-                    <li><a href="#">Diabetes Test Report</a></li>
-                    <li><a href="#">Urine Analysis</a></li>
-                </ul>
-                <a href="#" class="btn upload">Upload Now</a>
-            </div>
-
-         
-        </section>
+       
     </main>
 
     <jsp:include page="/views/partials/footer.jsp"/>
