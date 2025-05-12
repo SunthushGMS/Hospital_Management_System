@@ -134,35 +134,36 @@
             <button type="button" onclick="closeModal()">Cancel</button>
         </form>
     </div>
-    <c:if test="${not empty param.success}">
+ 
+    
+</div>
+   <c:if test="${not empty param.success}">
     <div class="alert-succes">${param.success}</div>
 </c:if>
 
 <c:if test="${not empty param.error}">
     <div class="alert-error">${param.error}</div>
 </c:if>
-    
-</div>
   <script>
-    function openModal(id, doctorId, date, time) {
-        document.getElementById('modal-id').value = id;
-        document.getElementById('modal-doctorId').value = doctorId;
-        document.getElementById('modal-date').value = date;
-        document.getElementById('modal-time').value = time;
-        document.getElementById('updateModal').style.display = 'block';
-    }
+  function openModal(id, doctorId, date, time) {
+	    document.getElementById('modal-id').value = id;
+	    document.getElementById('modal-doctorId').value = doctorId;
+	    document.getElementById('modal-date').value = date;
+	    document.getElementById('modal-time').value = time;
+	    document.getElementById('editModalOverlay').style.display = 'block'; // FIXED
+	}
 
-    function closeModal() {
-        document.getElementById('updateModal').style.display = 'none';
-    }
+	function closeModal() {
+	    document.getElementById('editModalOverlay').style.display = 'none'; // FIXED
+	}
 
-    
-    window.onclick = function(event) {
-        const modal = document.getElementById('updateModal');
-        if (event.target === modal) {
-            closeModal();
-        }
-    }
+	window.onclick = function(event) {
+	    const modal = document.getElementById('editModalOverlay'); // FIXED
+	    if (event.target === modal) {
+	        closeModal();
+	    }
+	}
+
 </script>
     
 
