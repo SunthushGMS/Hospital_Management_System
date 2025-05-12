@@ -27,7 +27,7 @@
         <div id="div1">
             <div id="div1sub1">
             <h3>Hello</h3>
-            <h3 id="doctordashboardDocName">Dr.${user.username}</h3>
+            <h3 id="doctordashboardDocName">Dr.${fullname}</h3>
             </div>   
         </div>
 
