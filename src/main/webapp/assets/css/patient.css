@@ -179,6 +179,11 @@ body {
   background: var(--main-btn-hover-bg);
 }
 
+.icon-form{
+	
+	color:  red;
+}
+
 .payment-img{
   width: 100px;
   margin: auto;

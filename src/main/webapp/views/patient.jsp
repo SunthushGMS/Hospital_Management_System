@@ -108,10 +108,10 @@
 		</c:forEach>
     </select><br><br>
 
-    <label for="date" class="label-appoint">Appointment Date</label>
+    <label for="date" class="label-appoint">Appointment Date <i class='bx bxs-calendar' style="color: grey;"></i></label>
     <input type="date" class="input-appoint" name="date" value="${param.date}" required><br>
 
-    <label for="time" class="label-appoint">Time</label>
+    <label for="time" class="label-appoint">Time <i class='bx bxs-time' style="color: grey;"></i></label>
     <input type="time" class="input-appoint" name="time" value="${param.time}" required><br>
 
     <button class="appoint-submit" type="submit">Submit</button>
