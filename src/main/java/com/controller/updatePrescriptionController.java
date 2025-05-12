@@ -33,16 +33,17 @@ public class updatePrescriptionController extends HttpServlet {
 	            int prescriptionId = Integer.parseInt(idParam);
 	            boolean deleted = prescriptionService.deletePrescriptionWithDrugs(prescriptionId);
 	            if (deleted) {
-	                request.setAttribute("message", "Prescription deleted successfully.");
-	                request.getRequestDispatcher("/ViewPrescription").forward(request, response);
+	            	System.out.println("Prescription deleted successfully.");
+	                response.sendRedirect("ViewPrescription");
+	                return;
 	            } else {
 	                request.setAttribute("error", "Failed to delete prescription.");
-	                request.getRequestDispatcher("/views/individualPatientPrescriptions.jsp").forward(request, response);
+	                request.getRequestDispatcher("/ViewPrescription").forward(request, response);
 	                return;
 	            }
 	        } else {
 	            request.setAttribute("error", "Prescription ID is missing.");
-	            request.getRequestDispatcher("/views/viewPrescription.jsp").forward(request, response);
+	            request.getRequestDispatcher("/ViewPrescription").forward(request, response);
 	            return;
 	        }
 

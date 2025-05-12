@@ -244,6 +244,7 @@
                     <form method="post" action="${pageContext.request.contextPath}/prescriptionDrugController">
                         <input type="hidden" name="index" value="${loop.index}" />
                         <input type="hidden" name="prescriptionId" value="${prescriptionId}" />
+                        <input type="hidden" name="patientId" value="${patientId}">
                         <button type="submit" name="action" value="deleteDrug">Delete</button>
                     </form>
                 </td>

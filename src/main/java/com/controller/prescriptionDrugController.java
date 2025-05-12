@@ -57,7 +57,7 @@ public class prescriptionDrugController extends HttpServlet {
 	            drugList.remove(index);
 	        }
 	        session.setAttribute("drugList", drugList);
-	        response.sendRedirect("createPrescription?prescriptionid=" + prescriptionId);
+	        response.sendRedirect("createPrescription?prescriptionid=" + prescriptionId+"&patientid=" + patientId);
 	    }
 
 	    else if ("saveAll".equals(action)) {
