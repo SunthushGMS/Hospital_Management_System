@@ -157,4 +157,159 @@ table tbody tr:nth-child(even) {
         width: 100%;
     }
 }
+
+
+.prescription-section {
+    margin: 40px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
 }
+
+.prescription-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.prescription-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.prescription-text h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.prescription-text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.prescription-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.prescription-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.prescription-image {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.prescription-image img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+/* ── Dashboard Tools Section ─────────────────────────────── */
+
+.tools-section {
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.tools-section h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: 600;
+    border-bottom: 2px solid #007BFF;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Container for cards */
+.tool-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual tool card */
+.tool-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 260px;
+    max-width: 340px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.tool-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Headings */
+.tool-card h4 {
+    font-size: 20px;
+    color: #007BFF;
+    margin-bottom: 12px;
+}
+
+/* Paragraph text */
+.tool-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Link list */
+.tool-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.tool-card ul li {
+    margin-bottom: 10px;
+}
+
+.tool-card ul li a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.tool-card ul li a:hover {
+    color: #0056b3;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+    .tool-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

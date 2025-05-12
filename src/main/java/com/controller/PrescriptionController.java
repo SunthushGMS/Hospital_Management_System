@@ -45,7 +45,7 @@ public class PrescriptionController extends HttpServlet {
 
             // Redirect based on result
             if (result > 1) {
-            	response.sendRedirect("createPrescription?prescriptionid=" + result);
+            	response.sendRedirect("createPrescription?prescriptionid=" + result +"&patientid=" +patientId);
             } else {
                 response.sendRedirect("createPrescription?error=true");
             }

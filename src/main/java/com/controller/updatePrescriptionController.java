@@ -34,9 +34,10 @@ public class updatePrescriptionController extends HttpServlet {
 	            boolean deleted = prescriptionService.deletePrescriptionWithDrugs(prescriptionId);
 	            if (deleted) {
 	                request.setAttribute("message", "Prescription deleted successfully.");
+	                request.getRequestDispatcher("/ViewPrescription").forward(request, response);
 	            } else {
 	                request.setAttribute("error", "Failed to delete prescription.");
-	                request.getRequestDispatcher("/views/viewPrescription.jsp").forward(request, response);
+	                request.getRequestDispatcher("/views/individualPatientPrescriptions.jsp").forward(request, response);
 	                return;
 	            }
 	        } else {

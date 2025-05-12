@@ -24,6 +24,14 @@ public class prescriptionDrugController extends HttpServlet {
 		HttpSession session = request.getSession();
 	    String action = request.getParameter("action");
 	    String prescriptionId = request.getParameter("prescriptionId");
+	    
+        String patientIdParam = request.getParameter("patientId");
+        if (patientIdParam == null || patientIdParam.isEmpty()) {
+            request.setAttribute("errorMessage", "Missing patient ID.");
+            request.getRequestDispatcher("createPrescription").forward(request, response);
+            return;
+        }
+        int patientId = Integer.parseInt(patientIdParam);
 	    @SuppressWarnings("unchecked")
 		ArrayList<Drug> drugList = (ArrayList<Drug>) session.getAttribute("drugList");
 	    if (drugList == null) {
@@ -40,7 +48,7 @@ public class prescriptionDrugController extends HttpServlet {
 	        drug.setInstruction(request.getParameter("instruction"));
 	        drugList.add(drug);
 	        session.setAttribute("drugList", drugList);
-	        response.sendRedirect("createPrescription?prescriptionid=" + prescriptionId);
+	        response.sendRedirect("createPrescription?prescriptionid=" + prescriptionId+"&patientid=" +patientId);
 	    }
 
 	    else if ("deleteDrug".equals(action)) {
@@ -57,7 +65,6 @@ public class prescriptionDrugController extends HttpServlet {
 	        	PrescriptionService.insertDrug(drug, Integer.parseInt(prescriptionId));
 	        }
 	        session.removeAttribute("drugList");
-	        String patientId = request.getParameter("patientId");
 	        response.sendRedirect("IndividualPatientPrescriptions?patientId=" + patientId);
 
 	    }

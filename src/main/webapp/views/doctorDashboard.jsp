@@ -64,7 +64,9 @@
 			</c:if>
 			
 			<c:if test="${empty todayAppointments}">
-			    <div class="no-records">No appointments found for today.</div>
+			 	<div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+  				<span class="font-medium">No appointments found for today!</span> 
+				</div>
 			</c:if>
            
             <button class="viewAll"><a href="${pageContext.request.contextPath}/Appointments">View All</a></button>
@@ -102,7 +104,7 @@
 			<c:if test="${empty newAppointments}">
 			    <div class="no-records">No new pending appointments found.</div>
 			</c:if>
-            <a href="appointments.html"><button class="viewAll">View All</button></a>
+            <button class="viewAll"><a href="${pageContext.request.contextPath}/Appointments">View All</a></button>
         </div>
 
 
@@ -111,17 +113,64 @@
 
 
  
-
-
-    <br>
-    <div class="wrapper">
-        <div id="div5"></div>
-
-        <div id="div6"></div>
-    </div>
-    
-    <br>
-    
+	
+	<div class="prescription-section">
+	    <div class="prescription-card">
+	        <div class="prescription-text">
+	            <h3>View All Prescriptions</h3>
+	            <p>Your Trusted Records of Care – Accurate, Accessible, Always.</p>
+	            <a href="${pageContext.request.contextPath}/ViewPrescription" class="prescription-btn">Click Here</a>
+	        </div>
+	        <div class="prescription-image">
+	            <img src="${pageContext.request.contextPath}/assets/images/pngegg.png" alt="Patient Image">
+	        </div>
+	    </div>
+	</div>
+	
+	
+		
+		<div class="tools-section">
+	  <h2>Dashboard Tools</h2>
+	  <div class="tool-cards">
+	    <!-- Current Time Widget -->
+	    <div class="tool-card">
+	      <h4>Current Time</h4>
+	      <p id="current-time"></p>
+	    </div>
+	
+	    <!-- Daily Health Tip -->
+	    <div class="tool-card">
+	      <h4>Daily Health Tip</h4>
+	      <p id="health-tip">
+	        Remember to take short breaks to reduce eye strain during long work hours.
+	      </p>
+	    </div>
+	
+	    <!-- Quick Links -->
+	    <div class="tool-card">
+	      <h4>Quick Links</h4>
+	      <ul>
+	        <li><a href="https://symptoms.webmd.com/" target="_blank">Sympton Checker</a></li>
+	        <li><a href="https://www.calculator.net/bmi-calculator.html">BMI Calculator</a></li>
+	        <li><a href="https://www.webmd.com/pill-identification/default.htm">Pill Identifier</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<script>
+	// simple clock, updates every second
+	function updateTime() {
+	  const now = new Date();
+	  document.getElementById('current-time')
+	          .textContent = now.toLocaleTimeString();
+	}
+	setInterval(updateTime, 1000);
+	updateTime();
+	</script>
+	
+	
+	    
     <jsp:include page="/views/partials/footer.jsp"/>  
 </body>
 </html> 

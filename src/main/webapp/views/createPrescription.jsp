@@ -164,12 +164,14 @@
 <jsp:include page="/views/partials/header.jsp"/>
 
 
+ 
 
 <h1>Create Prescription</h1>
 
 <!-- ADVICE FORM -->
 <div class="advice-wrapper">
-<p>DEBUG: Patient ID = ${patientId}</p>
+
+
 	<c:if test="${not empty patientId}">
     <form action="${pageContext.request.contextPath}/PrescriptionController" method="post" class="advice-form">
 
@@ -194,9 +196,13 @@
 <!-- DRUG FORM - displayed below -->
 <c:if test="${not empty prescriptionId}">
 <div class="drug-wrapper">
+<c:set var="patientId" value="${param.patientid}" />
+
+
 	<form action="${pageContext.request.contextPath}/prescriptionDrugController" method="post" class="advice-form">
     <input type="hidden" name="prescriptionId" value="${prescriptionId}" />
-
+	<input type="hidden" name="patientId" value="${patientId}">
+	
     <label for="drug-name">Drug Name:</label>
     <input type="text" id="drug-name" name="drugName" required>
 
@@ -244,17 +250,15 @@
             </tr>
         </c:forEach>
     </table>
+     <c:set var="patientId" value="${param.patientid}" />
     <form action="${pageContext.request.contextPath}/prescriptionDrugController" method="post">
     <input type="hidden" name="prescriptionId" value="${prescriptionId}" />
     <input type="hidden" name="patientId" value="${patientId}" />
-    <button type="submit" name="action" value="saveAll">Save All Drugs to Database</button>
+    <button type="submit" name="action" value="saveAll">Finalize Prescription</button>
 </form>
- <p>DEBUG: Patient ID = ${patientId}</p> 
+
 <br><br><br>
-    <form action="${pageContext.request.contextPath}/IndividualPatientPrescriptions" method="get">
-    <input type="hidden" name="patientId" value="${patientId}" />
-    <button type="submit" >View Prescription History Of This Patient</button>
-</form>
+
     
 </c:if>
 

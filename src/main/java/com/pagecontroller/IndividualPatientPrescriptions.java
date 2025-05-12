@@ -25,7 +25,7 @@ public class IndividualPatientPrescriptions extends HttpServlet {
 	            System.out.println("Current User ID from session: " + currentUserid);
 	            System.out.println("Parsed patientId as: " +  request.getParameter("patientId"));
 	            
-	             patientIdStr = request.getParameter("patientId"); 
+	            patientIdStr = request.getParameter("patientId"); 
 	            System.out.println("Parsed patientId as: " + patientIdStr);
 	            int patientId = Integer.parseInt(patientIdStr);
 	            System.out.println("Parsed patientId as: " + patientId);
