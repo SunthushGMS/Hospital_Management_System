@@ -45,9 +45,9 @@ public class SigninController extends HttpServlet {
 				
 				//filter by user type and redirect to appropriate page
 				if(user.getRole().equals("patient")) {
-					response.sendRedirect("index.jsp");
+					response.sendRedirect("/Hospital_Management_System/");
 				} else if(user.getRole().equals("doctor")) {
-					response.sendRedirect("userprofile");
+					response.sendRedirect("doctorDashboard");
 				}
 				else if(user.getRole().equals("admin")) {
 					response.sendRedirect("AdminDB");

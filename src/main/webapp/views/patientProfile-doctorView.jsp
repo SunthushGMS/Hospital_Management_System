@@ -18,7 +18,7 @@
 <body>
     <jsp:include page="/views/partials/header.jsp"/>
     <br><br><br>
-    <img id="patient-profile-Pic" src="${pageContext.request.contextPath}/assets/images/profile-pic.png" alt="">
+    <img id="patient-profile-Pic" src="${pageContext.request.contextPath}/assets/images/profilePics/${patient.profilepic}" alt="patientpropic">
 
     <h3 id="subHeading">Patient Profile</h3>
 
