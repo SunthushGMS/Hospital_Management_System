@@ -61,7 +61,6 @@
             <!--Second Phase-->
             <div class="flex justify-center">
                 <div class="md:flex-shrink lg:flex justify-center mt-20 mb-20">
-                    <div class="lg:flex w-90 h-90 shadow-2xl md:hidden"></div>
                     <div class="w-240 h-90 shadow-2xl ml-10 rounded-lg">
                     	
                         <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
