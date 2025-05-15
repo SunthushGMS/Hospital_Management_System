@@ -1,59 +1,108 @@
-# Hospital_Management_System
----
+# Hospital Management System
 
-Explore the official Tailwind CSS v2 documentation to learn about utility-first CSS for building custom designs:  
-👉 [Tailwind CSS Documentation](https://v2.tailwindcss.com/docs)
+A comprehensive Java-based Hospital Management System designed to handle administrative tasks such as patient management, appointments, doctor records, and billing. Built as an Eclipse project with a MySQL database backend.
+
+## Introduction
+
+This project aims to simplify hospital operations by automating key processes. It supports multiple modules including patient admission, doctor scheduling, billing, and record management. The backend is powered by MySQL, and the application is developed using Java within the Eclipse IDE.
+
+## Features
+
+- Patient registration and management
+- Doctor profiles and schedules
+- Appointment booking
+- Billing and payment records
+- Secure login for admin and staff
+- MySQL database integration
+- Configurable properties file
+
+## Installation
+
+To set up the project locally:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/hospital-management-system.git
+   cd hospital-management-system
 
 
-## Tailwind Alerts Template
+2.  **Open in Eclipse**
+    
+    *   Open Eclipse.
+        
+    *   Select File > Import > Existing Projects into Workspace.
+        
+    *   Choose the cloned folder.
+        
 
-Learn how to use pre-designed alert components based on Tailwind CSS to display contextual information, such as success, error, or warning messages:  
-👉 [Flowbite Alert Components](https://flowbite.com/docs/components/alerts/#default-alert)
+3.  **Configure the project** (see below).
 
+## Configuration
 
-## Custom Confirm Alert Box
+1.  Navigate to the src/java/com/util directory inside the project.
+    
+2.  Locate the file named sample.config.properties.
+    
+3.  Create a copy and rename it to config.properties.
+    
+4.  Open config.properties and update the following database credentials.
+    ```bash
+    webAppDir=
+    useLocalDatabase=true
 
-Create interactive custom confirm alert boxes using HTML, CSS, and JavaScript. Check out the example implementation on CodePen:  
-👉 [Custom Confirm Alert Box on CodePen](https://codepen.io/dcode-software/pen/LKywLG)
+    //local database config
+    url=jdbc:mysql://localhost:3306/health-lanka
+    username=root
+    password=yourpassword
+    
 
+## Database Setup
 
-## Adding Charts
+1.  Ensure MySQL is installed and running on your machine.
+    
+2.  Open your MySQL client (like MySQL Workbench or command line).
+    
+3. Import the database dump.
 
-Reserve a **1:1 space** in your project for chart visualization using Chart.js.
+## Usage
 
-## 📌 Git Commit Message Guidelines
+*   Run the project from Eclipse.
+    
+*   The main interface will launch, allowing login and access to hospital management modules.
+    
 
-To maintain a clean and meaningful commit history, please follow this commit message format:
+## Dependencies
 
-### **1️⃣ Commit Types**
-Use one of the following types:
+*   Java SE 8 or higher
+    
+*   Eclipse IDE
+    
+*   MySQL Server
+    
+*   JDBC Connector (added to project libraries)
+    
 
-- **feat**: Adding a new feature  
-- **fix**: Fixing a bug  
-- **refactor**: Improving existing code without changing functionality  
-- **docs**: Updating documentation (e.g., README, comments)  
-- **style**: Updating code style (e.g., formatting, missing semicolons)  
-- **perf**: Improving performance  
-- **test**: Adding or updating tests  
-- **chore**: Maintenance tasks (e.g., updating dependencies)  
+## Examples
 
-### **2️⃣ Example Commit Messages**
-- 🚀 `feat: Add website header with navigation bar`  
-- 🛠️ `fix: Resolve header alignment issue on mobile`  
-- 📄 `docs: Update README with commit guidelines`  
-- 🎨 `style: Format CSS for header component`  
-- 🔄 `refactor: Optimize header component structure`
+*   Registering a new patient
+    
+*   Scheduling appointments
+    
+*   Viewing doctor schedules
+    
+*   Generating billing statements
+    
 
-## Designing Principles ##
+## Troubleshooting
 
-**Main Buttons** - bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer
+*   **Database connection issues**: Check your config.properties file for correct credentials.
+    
+*   **Project not recognized in Eclipse**: Make sure you're importing as an _Existing Project into Workspace_.
+    
+*   **Missing JDBC driver**: Ensure the MySQL JDBC connector JAR is included in the project libraries.
+    
+## Contributors
 
-**Sub-Button(Delete Button)** - bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-600 transition ease-in-out duration-500 cursor-pointer
+    
 
-**Font** - Robotto
-
-**Sub heading** - text-yellow-500 font-semibold
-
-**Heading** - text-grey-700
-
-**Text(Content)** - text-grey-400
+> If you would like to contribute, please fork the repository and submit a pull request.
