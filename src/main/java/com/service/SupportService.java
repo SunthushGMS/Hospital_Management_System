@@ -6,10 +6,12 @@ import com.model.SupportRequests;
 import com.utill.DBConnection; // Make sure this exists and returns a valid DB connection
 
 public class SupportService {
+	
+	private static DBConnection database = DBConnection.getInstance();
     
     public static boolean insertSupportRequest(SupportRequests request) {
         try {
-        	Connection con = DBConnection.getConnection();
+        	Connection con = database.getConnection();
             String query = "INSERT INTO support_requests (name, email, phone, message, reply, status) VALUES (?, ?, ?, ?, ?, ?)";
             
             PreparedStatement pstmt = con.prepareStatement(query);

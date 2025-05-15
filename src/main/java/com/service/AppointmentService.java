@@ -8,12 +8,14 @@ import com.model.Doctor;
 import com.utill.DBConnection;
 
 public class AppointmentService {
+	
+	private static DBConnection database = DBConnection.getInstance();
 
     // Insert a new appointment
     public static boolean insertAppointment(Appointment appointment) {
         String sql = "INSERT INTO appointment (doctor_id, patient_id, date, time, status) VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, appointment.getDoctorId());
@@ -33,7 +35,7 @@ public class AppointmentService {
     public static boolean updateAppointment(Appointment appointment) {
         String sql = "UPDATE appointment SET doctor_id = ?, date = ?, time = ?, status = ? WHERE id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, appointment.getDoctorId());
@@ -53,7 +55,7 @@ public class AppointmentService {
     public static void updateAppointment(int id, String doctorId, String date, String time) {
         String sql = "UPDATE appointment SET doctor_id = ?, date = ?, time = ?, status = 'rescheduled' WHERE id = ?";
 
-        try (Connection conn = DBConnection.getConnection();
+        try (Connection conn = database.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, doctorId);
@@ -71,7 +73,7 @@ public class AppointmentService {
     public static boolean deleteAppointment(int id) {
         String sql = "DELETE FROM appointment WHERE id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
@@ -87,7 +89,7 @@ public class AppointmentService {
         String sql = "SELECT * FROM appointment WHERE id = ?";
         Appointment appointment = null;
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
@@ -114,7 +116,7 @@ public class AppointmentService {
         ArrayList<Doctor> doctors = new ArrayList<>();
 
         try {
-            Connection con = DBConnection.getConnection();
+            Connection con = database.getConnection();
             Statement stmt = con.createStatement();
 
             String query = "SELECT user.uid, user.fullname, doctor.specialization " +

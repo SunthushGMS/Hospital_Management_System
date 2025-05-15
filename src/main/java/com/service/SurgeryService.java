@@ -10,6 +10,8 @@ import com.utill.DBConnection;
 
 public class SurgeryService {
 	
+	private static DBConnection database = DBConnection.getInstance();
+	
     public static boolean InsertSurgery(Surgery surgery, int doctorId) {
         Connection conn = null;
         PreparedStatement surgeryStmt = null;
@@ -17,7 +19,7 @@ public class SurgeryService {
         ResultSet rs = null;
 
         try {
-            conn = DBConnection.getConnection();
+            conn = database.getConnection();
 
             // Insert into surgery table with default statuses
             String insertSurgerySQL = "INSERT INTO surgery (name, date, time, completion_status, acceptance_status, patient_id) " +

@@ -13,12 +13,14 @@ import com.utill.DBConnection;
 
 public class UserService {
 	
+	private static DBConnection database = DBConnection.getInstance();
+	
 	public static User getUserByUsername(String username) {
 		
 		User user = null;
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "SELECT * FROM User WHERE username = '" + username + "' LIMIT 1";
 			ResultSet rs = stmt.executeQuery(query);
@@ -54,7 +56,7 @@ public class UserService {
 	public static boolean insertPatient(Patient patient) {
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "INSERT INTO User (username, password, fullname, bio, dateofbirth, email, phone_no, address, language, profilepiclink, role) \n"
 					+ "VALUES \n"
@@ -94,7 +96,7 @@ public class UserService {
 	public static Patient getPatientById(int id) {
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "SELECT " +
 	                "User.uid AS user_id, " +
@@ -150,7 +152,7 @@ public class UserService {
 	public static Doctor getDoctorById(int id) {
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "SELECT " +
 	                "User.uid AS user_id, " +
@@ -204,7 +206,7 @@ public class UserService {
 	public static Admin getAdminById(int id) {
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "SELECT " +
 	                "User.uid AS user_id, " +
@@ -256,7 +258,7 @@ public class UserService {
 
 	private static boolean updateUser(User user) {
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "UPDATE User SET " +
 		             "email = '" + user.getEmail() + "', " +
@@ -290,7 +292,7 @@ public class UserService {
 				
 		if (updateUser(user)) {
 			try {
-				Connection con = DBConnection.getConnection();
+				Connection con = database.getConnection();
 				Statement stmt = con.createStatement();
 				String query = "UPDATE Doctor SET " +
 			             "publicbio = '" + doctor.getPublicbio() + "', " +
@@ -323,7 +325,7 @@ public class UserService {
 		
 		if (updateUser(user)) {
 			try {
-				Connection con = DBConnection.getConnection();
+				Connection con = database.getConnection();
 				Statement stmt = con.createStatement();
 				String query = "UPDATE Patient SET " +
 			             "bloodtype = '" + patient.getBloodGroup() + "', " +
@@ -358,7 +360,7 @@ public class UserService {
 		
 		if (updateUser(user)) {
 			try {
-				Connection con = DBConnection.getConnection();
+				Connection con = database.getConnection();
 				Statement stmt = con.createStatement();
 				String query = "UPDATE Admin SET " +
 			             "role = '" + admin.getRole() + "', " +
@@ -387,7 +389,7 @@ public class UserService {
 	
 	public static boolean updatePassword(int uid, String newPassword) {
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "UPDATE User SET password = '" + newPassword + "' WHERE uid = " + uid + ";";
 			int success = stmt.executeUpdate(query);
@@ -410,7 +412,7 @@ public class UserService {
 	
 	public static boolean updateProfilePic(int uid, String newProfilePic) {
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "UPDATE User SET profilepiclink = '" + newProfilePic + "' WHERE uid = " + uid + ";";
 			int success = stmt.executeUpdate(query);
@@ -433,7 +435,7 @@ public class UserService {
 	
 	public static boolean deleteUser(int uid) {
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "DELETE FROM User WHERE uid = " + uid + ";";
 			int success = stmt.executeUpdate(query);

@@ -10,12 +10,14 @@ import com.model.Appointment;
 import com.utill.DBConnection;
 
 public class AppointmentHistoryService {
+	
+	private static DBConnection database = DBConnection.getInstance();
 
     public static List<Appointment> getAllAppointments() {
         ArrayList<Appointment> appointments = new ArrayList<>();
 
         try {
-            Connection con = DBConnection.getConnection();
+            Connection con = database.getConnection();
 
             String query = "SELECT * FROM appointment";
             PreparedStatement ps = con.prepareStatement(query);
@@ -48,7 +50,7 @@ public class AppointmentHistoryService {
         ArrayList<Appointment> appointments = new ArrayList<>();
 
         try {
-            Connection con = DBConnection.getConnection();
+            Connection con = database.getConnection();
             String query = "SELECT * FROM appointment WHERE patient_ID = ?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, patientId);
@@ -79,7 +81,7 @@ public class AppointmentHistoryService {
     }
     
     public static Appointment getAppointmentById(int id) {
-        try (Connection con = DBConnection.getConnection()) {
+        try (Connection con = database.getConnection()) {
             String sql = "SELECT * FROM appointment WHERE id=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);

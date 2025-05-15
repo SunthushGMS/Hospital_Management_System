@@ -5,11 +5,24 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 	
+	private static DBConnection database = null;
+	
+	private DBConnection() {
+		// Default constructor
+	}
+	
+	public static DBConnection getInstance() {
+		if(database == null) {
+			database = new DBConnection();
+		}
+		return database;
+	}
+	
 	private static boolean useLocalDatabase = CommonUtill.properties.getProperty("useLocalDatabase").equals("true") ? true : false;
 	
 	private static Connection connection = null;
 	
-	public static Connection getConnection() {
+	public Connection getConnection() {
 		
 		if(useLocalDatabase) {
 			try {

@@ -7,12 +7,14 @@ import com.model.LabReport;
 import com.utill.DBConnection;
 
 public class LabReportService {
+	
+	private static DBConnection database = DBConnection.getInstance();
 
     public static boolean uploadLabReport(LabReport report) {
         boolean result = false;
 
         try {
-            Connection con = DBConnection.getConnection();
+            Connection con = database.getConnection();
 
             String query = "INSERT INTO lab_report (name, department, document, summary, description, patient_id, doctor_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(query);

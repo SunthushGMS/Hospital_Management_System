@@ -7,12 +7,14 @@ import com.model.Payment;
 import com.utill.DBConnection;
 
 public class PaymentService {
+	
+	private static DBConnection database = DBConnection.getInstance();
 
     public static boolean makePayment(Payment payment) {
         boolean result = false;
 
         try {
-            Connection con = DBConnection.getConnection();
+            Connection con = database.getConnection();
 
             String query = "INSERT INTO paymentMake (fullname, patientID, phone, email, service, amount) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(query);

@@ -16,13 +16,15 @@ import com.utill.DBConnection;
 
 public class doctorDashboardService {
 	
+	private static DBConnection database = DBConnection.getInstance();
+	
 	public List<AppointmentDetails> getPendingAppointments(int doctorId) throws SQLException {
 	    List<AppointmentDetails> pendingAppointments = new ArrayList<>();
 
 	    String sql = "SELECT appointmentId, doctorId, patientId, patientName, email, phone, date, time, status FROM AppointmentDetailsView WHERE status = 'pending' AND doctorId = ?";
 
 	    try (
-	        Connection con = DBConnection.getConnection();
+	        Connection con = database.getConnection();
 	        PreparedStatement pstmt = con.prepareStatement(sql)
 	    ) {
 	        pstmt.setInt(1, doctorId);
@@ -63,7 +65,7 @@ public class doctorDashboardService {
 
 
 	    try (
-	        Connection con = DBConnection.getConnection();
+	        Connection con = database.getConnection();
 	        PreparedStatement pstmt = con.prepareStatement(sql)
 	    ) {
 	        pstmt.setInt(1, doctorId);
@@ -101,7 +103,7 @@ public class doctorDashboardService {
 	                 "ORDER BY date ASC, time ASC";
 
 	    try (
-	        Connection con = DBConnection.getConnection();
+	        Connection con = database.getConnection();
 	        PreparedStatement pstmt = con.prepareStatement(sql)
 	    ) {
 	        pstmt.setInt(1, doctorId);
@@ -125,12 +127,6 @@ public class doctorDashboardService {
 
 	    return completedAppointments;
 	}
-
-
-
-    
-    
-	
 	
 	
 	
@@ -143,7 +139,7 @@ public class doctorDashboardService {
 	                 "ORDER BY date ASC, time ASC";
 
 	    try (
-	        Connection con = DBConnection.getConnection();
+	        Connection con = database.getConnection();
 	        PreparedStatement pstmt = con.prepareStatement(sql)
 	    ) {
 	        pstmt.setInt(1, doctorId);
@@ -176,7 +172,7 @@ public class doctorDashboardService {
         List<AppointmentDetails> todayAppointments = new ArrayList<>();
         
         try {
-            Connection con = DBConnection.getConnection();
+            Connection con = database.getConnection();
             Statement stmt = con.createStatement();
             String sql = "SELECT appointmentId, patientId, patientName, time " +
                          "FROM AppointmentDetailsView " +
@@ -209,7 +205,7 @@ public class doctorDashboardService {
         List<AppointmentDetails> newPendingAppointments = new ArrayList<>();
         
         try {
-            Connection con = DBConnection.getConnection();
+            Connection con = database.getConnection();
             Statement stmt = con.createStatement();
             String sql = "SELECT appointmentId, patientId, patientName, time " +
                          "FROM AppointmentDetailsView " +
@@ -239,7 +235,7 @@ public class doctorDashboardService {
         List<SurgeryDetails> scheduledSurgeries = new ArrayList<>();
 
         try {
-            Connection con = DBConnection.getConnection();
+            Connection con = database.getConnection();
             Statement stmt = con.createStatement();
 
             String sql = "SELECT s.id AS surgeryId, u.uid AS patientId, u.fullname AS patientName, u.phone_no AS phone, " +
@@ -282,7 +278,7 @@ public class doctorDashboardService {
     	
     	String sql = "SELECT surgeryId, patientName, phone, problem, severity, description FROM EmergencyPatientDetails";
 
-    	try (Connection con = DBConnection.getConnection();
+    	try (Connection con = database.getConnection();
     	     Statement stmt = con.createStatement();
     	     ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -314,7 +310,7 @@ public class doctorDashboardService {
     public boolean updateAppointmentStatusToAccepted(int id) {
         String sql = "UPDATE appointment SET status = 'accepted' WHERE id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement pstmt = con.prepareStatement(sql)) {
             
             pstmt.setInt(1, id);
@@ -332,7 +328,7 @@ public class doctorDashboardService {
     public boolean updateAppointmentStatusToReschedule(int id) {
         String sql = "UPDATE appointment SET status = 'reschedule' WHERE id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement pstmt = con.prepareStatement(sql)) {
             
             pstmt.setInt(1, id);
@@ -352,7 +348,7 @@ public class doctorDashboardService {
     public boolean updateAppointmentStatusToCompleted(int id) {
         String sql = "UPDATE appointment SET status = 'completed' WHERE id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement pstmt = con.prepareStatement(sql)) {
             
             pstmt.setInt(1, id);
@@ -365,12 +361,6 @@ public class doctorDashboardService {
         }
     }
     
-    
-    
-    
-    
 
-
-    
     
 }
