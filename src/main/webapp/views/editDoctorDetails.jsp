@@ -56,7 +56,7 @@
                         </div>
                         <div class="flex flex-col mr-10">
                             <label for="" class="text-lg font-semibold mb-2">Mobile Number</label>
-                            <input type="text" name="phoneno" value="${doctor.phone}" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                            <input id="phonee" type="text" name="phoneno" value="${doctor.phone}" class="text-base w-60 h-10 p-2 border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                         </div>
                     </div>
   
@@ -84,6 +84,9 @@
                         <input type="submit" name="submit" value="Save Changes" class="pl-20 pr-20 mt-8 font-semibold text-lg bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition duration-300 cursor-pointer" >
                     </div>
                   </form>
+                  <div id="errormsg" class="hidden p-4 mt-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+					<span class="font-medium">Info alert!</span> Phone Number should be 10 digits.
+				  </div>
                 </div> 
               </div>
               <div class="rounded-2xl p-10 bg-gradient-to-br from-blue-800 to-blue-500 ">
@@ -94,6 +97,7 @@
           </div>      
         </div>
         
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/editDoctorDetails.js"></script>
         <jsp:include page="/views/partials/footer.jsp"/>
 </body>
 </html>
