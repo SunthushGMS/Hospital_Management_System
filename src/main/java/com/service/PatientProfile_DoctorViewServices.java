@@ -11,13 +11,14 @@ import com.model.EmergencyPatients;
 import com.utill.DBConnection;
 
 public class PatientProfile_DoctorViewServices {
-
+	
+	private static DBConnection database = DBConnection.getInstance();
 	
 	public static Patient getPatientDetailsById(int id) {
 	    Patient patient = null;
 
 	    try {
-	        Connection con = DBConnection.getConnection();
+	        Connection con = database.getConnection();
 	        String query = "SELECT " +
 	                "u.uid AS user_id, u.username, u.fullname, u.bio, u.dateofbirth, u.email, u.phone_no, " +
 	                "u.address, u.language, u.profilepiclink, " +
@@ -69,7 +70,7 @@ public class PatientProfile_DoctorViewServices {
 
 	    try {
 	        // Get database connection
-	        conn = DBConnection.getConnection();
+	        conn = database.getConnection();
 
 	        // SQL insert statement
 	        String insertSQL = "INSERT INTO Emergency_Patient (severity, problem, description, doctor_id, patient_id) VALUES (?, ?, ?, ?, ?)";
@@ -112,7 +113,7 @@ public class PatientProfile_DoctorViewServices {
 	        ResultSet rs = null;
 
 	        try {
-	            conn = DBConnection.getConnection();
+	            conn = database.getConnection();
 
 	            // Insert into surgery table with default statuses
 	            String insertSurgerySQL = "INSERT INTO surgery (name, date, time, completion_status, acceptance_status, patient_id) " +
@@ -164,7 +165,7 @@ public class PatientProfile_DoctorViewServices {
 	        ResultSet rs = null;
 
 	        try {
-	            conn = DBConnection.getConnection();
+	            conn = database.getConnection();
 
 	            // Insert into Lab_Report table
 	            String insertLabSQL = "INSERT INTO Lab_Report (name, patient_id, doctor_id) VALUES (?, ?, ?)";

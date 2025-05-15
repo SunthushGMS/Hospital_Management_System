@@ -13,13 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrescriptionService {
+	
+	private static DBConnection database = DBConnection.getInstance();
 
     // Insert a prescription and return the generated ID
     public static int insertPrescription(Prescription prescription) {
         int generatedId = -1;
         String query = "INSERT INTO prescription (date_of_issue, dietary_advice, doctors_notes, doctor_id, patient_id) VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
 
             pstmt.setDate(1, prescription.getDate_of_issue());
@@ -49,7 +51,7 @@ public class PrescriptionService {
     public static void insertDrug(Drug drug, int prescriptionId) {
         String sql = "INSERT INTO drug (drug_name, dosage, frequency, duration, instruction, prescription_id) VALUES (?, ?, ?, ?, ?, ?)";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, drug.getDrugName());
@@ -70,7 +72,7 @@ public class PrescriptionService {
     public static void finalizePrescription(int prescriptionId, String dietaryAdvice, String doctorNotes) {
         String sql = "UPDATE prescription SET dietary_advice = ?, doctors_notes = ? WHERE id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, dietaryAdvice);
@@ -93,7 +95,7 @@ public class PrescriptionService {
                 + "ORDER BY id DESC\n"
                 + "LIMIT 1;";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
@@ -122,7 +124,7 @@ public class PrescriptionService {
         List<Drug> drugList = new ArrayList<>();
         String sql = "SELECT * FROM drug WHERE prescription_id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, prescriptionId);
@@ -156,7 +158,7 @@ public class PrescriptionService {
 
         String sql = "SELECT * FROM prescription WHERE doctor_id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, doctorId);
@@ -195,7 +197,7 @@ public class PrescriptionService {
 
         String sql = "SELECT * FROM prescription WHERE doctor_id = ? AND patient_id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, doctorId);
@@ -239,7 +241,7 @@ public class PrescriptionService {
                      "JOIN prescription p ON d.prescription_id = p.id " +
                      "WHERE p.doctor_id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, doctorId);
@@ -265,30 +267,12 @@ public class PrescriptionService {
         return drugs;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
  // Get a prescription by its ID (not by patient ID)
     public static Prescription getPrescriptionByPrescriptionId(int id) {
         Prescription prescription = null;
         String sql = "SELECT * FROM prescription WHERE id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
@@ -321,7 +305,7 @@ public class PrescriptionService {
         	System.out.println("Updating Prescription: " + prescription.getId() + ", Date: " + prescription.getDate_of_issue());
 
             String sql = "UPDATE prescription SET  dietary_advice = ?, doctors_notes = ? WHERE id = ?";
-            try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            try (Connection con = database.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
                 ps.setString(1, prescription.getDietary_advice());
                 ps.setString(2, prescription.getDoctors_notes());
                 ps.setInt(3, prescription.getId());
@@ -333,7 +317,7 @@ public class PrescriptionService {
         
         public static void updateDrugs(List<Drug> drugs) throws Exception {
             String sql = "UPDATE drug SET drug_name = ?, dosage = ?, frequency = ?, duration = ?, instruction = ? WHERE id = ?";
-            try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            try (Connection con = database.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
                 for (Drug drug : drugs) {
                 	System.out.println("Updating drug ID: " + drug.getDrugId() + ", Name: " + drug.getDrugName());
                     ps.setString(1, drug.getDrugName());
@@ -349,19 +333,12 @@ public class PrescriptionService {
         }
     
         
-        
-   
-        
-        
-        
-        
-        
         // Function to update Prescription and Drugs
         public void updatePrescriptionAndDrugs(int prescriptionId, Prescription updatedPrescription, List<Drug> updatedDrugs) throws SQLException {
             // Update Prescription
         	 System.out.println("inside function...");
             String updatePrescriptionQuery = "UPDATE prescription SET  dietary_advice = ?, doctors_notes = ? WHERE id = ?";
-            try (Connection con = DBConnection.getConnection(); 
+            try (Connection con = database.getConnection(); 
                  PreparedStatement pst = con.prepareStatement(updatePrescriptionQuery)) {
                 pst.setString(1, updatedPrescription.getDietary_advice());
                 pst.setString(2, updatedPrescription.getDoctors_notes());
@@ -371,7 +348,7 @@ public class PrescriptionService {
 
             // Update Drugs for the given Prescription ID
             String updateDrugQuery = "UPDATE drug SET drug_name = ?, dosage = ?, frequency = ?, duration = ?, instruction = ? WHERE prescription_id = ?";
-            try (Connection con = DBConnection.getConnection(); 
+            try (Connection con = database.getConnection(); 
                  PreparedStatement pst = con.prepareStatement(updateDrugQuery)) {
                 for (Drug drug : updatedDrugs) {
                     pst.setString(1, drug.getDrugName());
@@ -385,39 +362,14 @@ public class PrescriptionService {
                 pst.executeBatch(); // Execute the batch update for all drugs
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  
         
         public boolean deletePrescriptionWithDrugs(int prescriptionId) {
             Connection conn = null;
             PreparedStatement stmt = null;
 
             try {
-                conn = DBConnection.getConnection(); // You can have a separate DBUtil class to manage connections
+                conn = database.getConnection(); // You can have a separate DBUtil class to manage connections
                 conn.setAutoCommit(false); // Start transaction
 
                 // Step 1: Delete drugs
@@ -455,12 +407,6 @@ public class PrescriptionService {
                 }
             }
         }
-    
-    
-    
-    
-    
-    
 
 
 }

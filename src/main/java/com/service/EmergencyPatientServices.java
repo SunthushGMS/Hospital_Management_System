@@ -7,12 +7,15 @@ import com.model.EmergencyPatients;
 import com.utill.DBConnection;
 
 public class EmergencyPatientServices {
+	
+	private static DBConnection database = DBConnection.getInstance();
+	
     public static boolean insertEmergencyPatient(EmergencyPatients patient) {
         Connection conn = null;
         PreparedStatement stmt = null;
 
         try {
-            conn = DBConnection.getConnection();
+            conn = database.getConnection();
 
             // Insert into Emergency_Patient table
             String insertSQL = "INSERT INTO Emergency_Patient (severity, problem, description, doctor_id) VALUES (?, ?, ?, ?)";

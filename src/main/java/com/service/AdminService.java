@@ -13,10 +13,12 @@ import com.utill.DBConnection;
 
 public class AdminService {
 	
+	private static DBConnection database = DBConnection.getInstance();
+	
 	public static boolean addDoctor(Doctor doctor) {
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			
 			String query = "INSERT INTO User (username, password, fullname, bio, dateofbirth, email, phone_no, address, language, profilepiclink, role) \n"
@@ -60,7 +62,7 @@ public class AdminService {
 		ArrayList<Doctor> doctors = new ArrayList<>();
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			
 			String query = "SELECT user.uid, user.fullname, user.username, user.dateofbirth, user.email, user.phone_no, user.address, user.password, doctor.specialization " +
@@ -98,7 +100,7 @@ public class AdminService {
 			Doctor doctors = null;
 			
 			try {
-				Connection con = DBConnection.getConnection();
+				Connection con = database.getConnection();
 				Statement stmt = con.createStatement();
 				
 				String query = "SELECT user.uid, user.fullname, user.username, user.dateofbirth, user.email, user.phone_no, user.address, user.password, doctor.specialization " +
@@ -136,7 +138,7 @@ public class AdminService {
 	public static boolean updateDoctorDetailsById(Doctor doctor) {
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			
 			String query = "UPDATE user SET " +
@@ -176,7 +178,7 @@ public class AdminService {
 		ArrayList<User> patients = new ArrayList<>();
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			
 			String query = "SELECT user.uid, user.fullname \n" +
@@ -205,7 +207,7 @@ public class AdminService {
 		ArrayList<AdminAppointment> appointments = new ArrayList<>();
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			
 			String query = "SELECT \n"
@@ -243,7 +245,7 @@ public class AdminService {
 	public  static boolean deleteAppointmentById(int id) {
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			
 			String query = "DELETE FROM appointment WHERE id = '"+id+"';";
@@ -272,7 +274,7 @@ public class AdminService {
 		int count=0;
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			
 			String query = "SELECT count(*) AS total " +
@@ -297,7 +299,7 @@ public class AdminService {
 		int count = 0;
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement  stmt = con.createStatement();
 			
 			String query = "SELECT count(*) AS total " +
@@ -323,7 +325,7 @@ public class AdminService {
 		int count = 0;
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			
 			String query = "SELECT count(*) AS total " +
@@ -348,7 +350,7 @@ public class AdminService {
 		ArrayList<SupportRequests> inquiries = new ArrayList<>();
 		
 		try {
-			Connection con = DBConnection.getConnection();
+			Connection con = database.getConnection();
 			Statement stmt = con.createStatement();
 			
 			String query = "SELECT id, name, message FROM support_requests WHERE status = 'pending';";

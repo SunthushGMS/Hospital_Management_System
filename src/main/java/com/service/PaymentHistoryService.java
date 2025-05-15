@@ -10,13 +10,15 @@ import com.model.Payment;
 import com.utill.DBConnection;
 
 public class PaymentHistoryService {
+	
+	private static DBConnection database = DBConnection.getInstance();
 
     public static List<Payment> getAllPayments() {
         List<Payment> payments = new ArrayList<>();
 
         String query = "SELECT * FROM paymentmake";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
 
@@ -44,7 +46,7 @@ public class PaymentHistoryService {
         List<Payment> payments = new ArrayList<>();
         String query = "SELECT * FROM paymentmake WHERE patientID = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = database.getConnection();
              PreparedStatement ps = con.prepareStatement(query)) {
 
             ps.setInt(1, patientId);
