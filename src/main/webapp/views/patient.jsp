@@ -115,24 +115,7 @@
 
     <button class="appoint-submit" type="submit" id="submit">Submit</button>
 </form>
-<script>
-    document.querySelector(".book-appoint").addEventListener("submit", function(event) {
-        const appointDateInput = document.getElementById("date");
-        const appointDate = new Date(appointDateInput.value);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0); 
-
-        const errorElement = document.getElementById("date-error"); 
-
-        if (appointDate < today) {
-            event.preventDefault();
-            errorElement.style.display = "block";
-            errorElement.textContent = "Invalid appointment date!";
-        } else {
-            errorElement.style.display = "none";
-        }
-    });
-</script>
+ <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/patient.js"></script>
 
 <p id="date-error" style="color: red; display: none; background: none; width: 29%;"></p>
 
