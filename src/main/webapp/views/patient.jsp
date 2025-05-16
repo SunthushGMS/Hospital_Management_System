@@ -77,8 +77,7 @@
                 </h3>
                 <h3 class="points">Ensures HIPAA/GDPR compliance for data privacy and security.
                 </h3>
-                <h3 class="points">Regular data backups prevent loss in case of system failure.
-                </h3>
+                
                 <button class="btn-div"><a href="Security.html">View Security Options</a></button>
             </div>
 
@@ -109,13 +108,16 @@
     </select><br><br>
 
     <label for="date" class="label-appoint">Appointment Date <i class='bx bxs-calendar' style="color: grey;"></i></label>
-    <input type="date" class="input-appoint" name="date" value="${param.date}" required><br>
+    <input type="date" class="input-appoint" name="date" value="${param.date}" id="date" required><br>
 
     <label for="time" class="label-appoint">Time <i class='bx bxs-time' style="color: grey;"></i></label>
     <input type="time" class="input-appoint" name="time" value="${param.time}" required><br>
 
-    <button class="appoint-submit" type="submit">Submit</button>
+    <button class="appoint-submit" type="submit" id="submit">Submit</button>
 </form>
+ <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/patient.js"></script>
+
+<p id="date-error" style="color: red; display: none; background: none; width: 29%;"></p>
 
 
 <c:if test="${not empty param.success}">

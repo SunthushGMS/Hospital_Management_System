@@ -150,15 +150,15 @@
 	    document.getElementById('modal-doctorId').value = doctorId;
 	    document.getElementById('modal-date').value = date;
 	    document.getElementById('modal-time').value = time;
-	    document.getElementById('editModalOverlay').style.display = 'block'; // FIXED
+	    document.getElementById('editModalOverlay').style.display = 'block'; 
 	}
 
 	function closeModal() {
-	    document.getElementById('editModalOverlay').style.display = 'none'; // FIXED
+	    document.getElementById('editModalOverlay').style.display = 'none'; 
 	}
 
 	window.onclick = function(event) {
-	    const modal = document.getElementById('editModalOverlay'); // FIXED
+	    const modal = document.getElementById('editModalOverlay'); 
 	    if (event.target === modal) {
 	        closeModal();
 	    }
