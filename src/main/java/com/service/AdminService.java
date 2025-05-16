@@ -15,6 +15,7 @@ public class AdminService {
 	
 	private static DBConnection database = DBConnection.getInstance();
 	
+	//Add a new doctor
 	public static boolean addDoctor(Doctor doctor) {
 		
 		try {
@@ -57,6 +58,7 @@ public class AdminService {
 		return false;
 	}
 	
+	//Get Doctor details
 	public static ArrayList<Doctor> getDoctorDetails(){
 		
 		ArrayList<Doctor> doctors = new ArrayList<>();
@@ -95,6 +97,7 @@ public class AdminService {
 		return doctors;
 	}
 	
+	//Get Doctor Details by ID
 	public static Doctor getDoctorDetailsById(int id){
 			
 			Doctor doctors = null;
@@ -135,6 +138,7 @@ public class AdminService {
 			return doctors;
 		}
 	
+	//Update Doctor Details
 	public static boolean updateDoctorDetailsById(Doctor doctor) {
 		
 		try {
@@ -173,6 +177,7 @@ public class AdminService {
 		}
 	}
 	
+	//Get Patient Details
 	public static ArrayList<User> getPatientDetails(){
 		
 		ArrayList<User> patients = new ArrayList<>();
@@ -202,6 +207,7 @@ public class AdminService {
 		return patients;
 	}
 	
+	//Get Appointment Details
 	public static ArrayList<AdminAppointment> getAppointmentDetails(){
 		
 		ArrayList<AdminAppointment> appointments = new ArrayList<>();
@@ -242,6 +248,7 @@ public class AdminService {
 		return appointments;
 	}
 	
+	//Delete Appointments
 	public  static boolean deleteAppointmentById(int id) {
 		
 		try {
@@ -269,6 +276,7 @@ public class AdminService {
 	}
 	
 	
+	//Count Total Doctors
 	public static int getDoctorCount() {
 		
 		int count=0;
@@ -295,6 +303,7 @@ public class AdminService {
 		return count;
 	}
 	
+	//Count Total Patients
 	public static int getPatientCount() {
 		int count = 0;
 		
@@ -320,6 +329,7 @@ public class AdminService {
 		return count;
 	}
 	
+	//Count total appointments
 	public static int getAppointmentCount() {
 		
 		int count = 0;
@@ -345,6 +355,7 @@ public class AdminService {
 		
 	}
 	
+	//Get all inquiries
 	public static ArrayList<SupportRequests> getInquiries(){
 		
 		ArrayList<SupportRequests> inquiries = new ArrayList<>();
