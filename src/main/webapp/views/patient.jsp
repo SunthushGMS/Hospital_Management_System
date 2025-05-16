@@ -134,7 +134,7 @@
     });
 </script>
 
-<p id="date-error" style="color: red; display: none;"></p>
+<p id="date-error" style="color: red; display: none; background: none; width: 29%;"></p>
 
 
 <c:if test="${not empty param.success}">
