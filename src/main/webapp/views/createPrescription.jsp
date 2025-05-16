@@ -179,13 +179,19 @@
         <div class="advice-fields">
             <div class="field">
                 <label for="dietaryAdvice">Dietary Advice:</label>
-                <textarea id="dietaryAdvice" name="dietaryAdvice" rows="4" required></textarea>
+                <textarea id="dietaryAdvice" name="dietaryAdvice" rows="4" required cols="50" maxlength="50" oninput="updateCharCount('dietaryAdvice', 'charCountDiet', 'limitMsgDiet')"></textarea>
+            	<p id="charCountDiet">0 / 50</p>
+			<p id="limitMsgDiet" style="color: red; display: none;">You've reached the 50-character limit!</p>
             </div>
+            
 
             <div class="field">
                 <label for="doctorsNote">Doctor's Note:</label>
-                <textarea id="doctorsNote" name="doctorsNote" rows="4" required></textarea>
+                <textarea id="doctorsNote" name="doctorsNote" rows="4" required cols="50" maxlength="50" oninput="updateCharCount('doctorsNote', 'charCountNote', 'limitMsgNote')"></textarea>
+            	 <p id="charCountNote">0 / 50</p>
+				<p id="limitMsgNote" style="color: red; display: none;">You've reached the 50-character limit!</p>
             </div>
+            
         </div>
 
         <button type="submit" class="btn-advice">Add Advice</button>
@@ -207,8 +213,9 @@
     <input type="text" id="drug-name" name="drugName" required>
 
     <label for="dosage">Dosage:</label>
-    <input type="text" id="dosage" name="dosage" required>
-
+    <input type="text" id="dosage" name="dosage" placeholder="e.g., 500 mg" required>
+	<button type="button" onclick="validateDosage()">Check</button>
+	
     <label for="frequency">Frequency:</label>
     <input type="text" id="frequency" name="frequency" required>
 
@@ -262,6 +269,61 @@
 
     
 </c:if>
+
+
+
+
+<script>
+//limiting the number of chararcters 
+  function updateCharCount(textareaId, counterId, messageId) {
+    const textarea = document.getElementById(textareaId);
+    const count = textarea.value.length;
+    document.getElementById(counterId).innerText = `${count} / 50`;
+
+    const message = document.getElementById(messageId);
+    if (count >= 50) {
+      message.style.display = 'block';
+    } else {
+      message.style.display = 'none';
+    }
+  }
+  
+//Capitalize the first letter of drug name
+  document.addEventListener('DOMContentLoaded', function () {
+    const drugNameInput = document.getElementById('drug-name');
+    if (drugNameInput) {
+      drugNameInput.addEventListener('blur', function () {
+        const value = this.value.trim();
+        if (value.length > 0) {
+          this.value = value.charAt(0).toUpperCase() + value.slice(1);
+        }
+      });
+    }
+  });
+  
+
+
+	  
+</script>
+
+<script>
+function validateDosage() {
+  const dosage = document.getElementById("dosage").value.trim();
+
+  // Regex pattern 
+
+  const pattern = /^\d+(\.\d+)?\s*(mg|g|ml|tablets|capsules)$/i;
+
+  if (!pattern.test(dosage)) {
+    alert("Please enter dosage in a valid format, e.g., 500 mg, 1.5 g, 2 tablets");
+  } else {
+    alert("Dosage accepted ✅");
+  }
+}
+</script>
+
+
+
 
 
 </body>
