@@ -77,8 +77,7 @@
                 </h3>
                 <h3 class="points">Ensures HIPAA/GDPR compliance for data privacy and security.
                 </h3>
-                <h3 class="points">Regular data backups prevent loss in case of system failure.
-                </h3>
+                
                 <button class="btn-div"><a href="Security.html">View Security Options</a></button>
             </div>
 
