@@ -24,7 +24,7 @@
       <div class="scroll-animate scroll-animate-left">
         <h3 class="text-xl font-semibold text-blue-800">Welcome to Health Lanka</h3>
         <h1 class="text-5xl text-gray-800 font-bold leading-normal ">Empowering Lives <br> through Transformative <br> Healthcare</h1>
-        <button href="" class="mt-8 text-white font-semibold pt-3 pb-3 pr-8 pl-8 text-xl bg-gradient-to-br rounded-full from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer scroll-animate scroll-animate-up delay-100">Make an Appointment</button>
+        <button class="mt-8 text-white font-semibold pt-3 pb-3 pr-8 pl-8 text-xl bg-gradient-to-br rounded-full from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer scroll-animate scroll-animate-up delay-100"><a href="${pageContext.request.contextPath}/Patient">Make an Appointment</a></button>
       </div>
       <div class="flex scroll-animate scroll-animate-right delay-200">
         <div>
@@ -247,10 +247,10 @@
 
             <div class="shadow-2xl p-4 rounded-lg m-6 scroll-animate scroll-animate-up delay-400 transform transition-all hover:scale-105 duration-500" style="width: 240px;">
               <div class="bg-gradient-to-br from-blue-700 to-blue-500 rounded-tl-full rounded-tr-full flex justify-center pt-4" style="width: 210px;">
-                <img src="${pageContext.request.contextPath}/assets/images/doctor-01.png" alt="" style="height: 200px;" class="-mt-8 transition-transform duration-500 hover:scale-105">
+                <img src="${pageContext.request.contextPath}/assets/images/doctor-01.png" alt="" style="height: 180px;"  class="-mt-8 transition-transform duration-500 hover:scale-105">
               </div>
               <div>
-                <h3 class="text-center text-lg font-semibold mt-2 text-blue-700">Dr. Anjalee Fernando</h3>
+                <h3 class="text-center text-lg font-semibold mt-2 text-blue-700">Dr. Anjalee Samarasinghe</h3>
                 <h2 class="text-center text-lg font-semibold">Cardiologist</h2>
                 <div class="flex justify-center mt-2">
                   <a href="" class="text-lg text-center font-semibold bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2 pt-1 pb-1">Book Now</a>
@@ -258,61 +258,7 @@
               </div>
             </div>
           </div>
-          <div class="flex justify-center items-center">
-            <div class="shadow-2xl p-4 rounded-lg m-6 scroll-animate scroll-animate-up delay-500 transform transition-all hover:scale-105 duration-500" style="width: 240px;">
-              <div class="bg-gradient-to-br from-blue-700 to-blue-500 rounded-tl-full rounded-tr-full flex justify-center pt-4" style="width: 210px;">
-                <img src="${pageContext.request.contextPath}/assets/images/doctor-02.png" alt="" style="height: 200px;" class="-mt-8 transition-transform duration-500 hover:scale-105">
-              </div>
-              <div>
-                <h3 class="text-center text-lg font-semibold mt-2 text-blue-700">Dr. Moditha Marasinghe</h3>
-                <h2 class="text-center text-lg font-semibold">Cardiologist</h2>
-                <div class="flex justify-center mt-2">
-                  <a href="" class="text-lg text-center font-semibold bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2 pt-1 pb-1">Book Now</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="shadow-2xl p-4 rounded-lg m-6 scroll-animate scroll-animate-up delay-600 transform transition-all hover:scale-105 duration-500" style="width: 240px;">
-              <div class="bg-gradient-to-br from-blue-700 to-blue-500 rounded-tl-full rounded-tr-full flex justify-center pt-4" style="width: 210px;">
-                <img src="${pageContext.request.contextPath}/assets/images/doctor-02.png" alt="" style="height: 200px;" class="-mt-8 transition-transform duration-500 hover:scale-105">
-              </div>
-              <div>
-                <h3 class="text-center text-lg font-semibold mt-2 text-blue-700">Dr. Hasindu Chanuka</h3>
-                <h2 class="text-center text-lg font-semibold">Neurology</h2>
-                <div class="flex justify-center mt-2">
-                  <a href="" class="text-lg text-center font-semibold bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2 pt-1 pb-1">Book Now</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="shadow-2xl p-4 rounded-lg m-6 scroll-animate scroll-animate-up delay-700 transform transition-all hover:scale-105 duration-500" style="width: 240px;">
-              <div class="bg-gradient-to-br from-blue-700 to-blue-500 rounded-tl-full rounded-tr-full flex justify-center pt-4" style="width: 210px;">
-                <img src="${pageContext.request.contextPath}/assets/images/doctor-02.png" alt="" style="height: 200px;" class="-mt-8 transition-transform duration-500 hover:scale-105">
-              </div>
-              <div>
-                <h3 class="text-center text-lg font-semibold mt-2 text-blue-700">Dr. Sharuka Sunthush</h3>
-                <h2 class="text-center text-lg font-semibold">Dermatology</h2>
-                <div class="flex justify-center mt-2">
-                  <a href="" class="text-lg text-center font-semibold bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2 pt-1 pb-1">Book Now</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="shadow-2xl p-4 rounded-lg m-6 scroll-animate scroll-animate-up delay-800 transform transition-all hover:scale-105 duration-500" style="width: 240px;">
-              <div class="bg-gradient-to-br from-blue-700 to-blue-500 rounded-tl-full rounded-tr-full flex justify-center pt-4" style="width: 210px;">
-                <img src="${pageContext.request.contextPath}/assets/images/doctor-01.png" alt="" style="height: 200px;" class="-mt-8 transition-transform duration-500 hover:scale-105">
-              </div>
-              <div>
-                <h3 class="text-center text-lg font-semibold mt-2 text-blue-700">Dr. Anjalee Fernando</h3>
-                <h2 class="text-center text-lg font-semibold">Cardiologist</h2>
-                <div class="flex justify-center mt-2">
-                  <a href="" class="text-lg text-center font-semibold bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded text-white mr-2 pt-1 pb-1">Book Now</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          
 
       <!--Contact Us-->
 
@@ -321,7 +267,7 @@
           <h3 class="text-xl text font-semibold mb-2">Get in Touch</h3>
           <h1 class="text-5xl text-blue-900 font-semibold mb-6">Contact Us For Exceptional Care</h1>
           <h4 class="text-lg text-blue-500 font-semibold mb-8">We are here to address your healthcare needs and answer your questions</h4>
-          <a href="" class="text-lg font-semibold bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded-2xl text-white mr-2 pt-3 pb-3 pl-6 pr-6">Contact Us</a>
+          <a href="${pageContext.request.contextPath}/ContactUs" class="text-lg font-semibold bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 transition ease-in-out duration-500 cursor-pointer px-3 py-1 rounded-2xl text-white mr-2 pt-3 pb-3 pl-6 pr-6">Contact Us</a>
         </div>
       </div>
 	<jsp:include page="/views/partials/footer.jsp"/>
